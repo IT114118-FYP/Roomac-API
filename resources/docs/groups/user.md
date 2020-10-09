@@ -1,12 +1,104 @@
 # User
 
 
-## Create a User
+## Retrieve me
 
-⚠️ Admin Level 1, 2 required (1 - Root Admin | 2 - Campus Admin), 
-also Campus Admin cannot create Root Admin account, Campus Admin cannot create Campus Admin/Staff/User account from another campus
 
-<small class="badge badge-darkred">requires authentication</small>
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/user/me" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/user/me"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/user/me`**
+
+
+
+## Retrieve all Users
+
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/user`**
+
+
+
+## Add a User
+
 
 
 
@@ -14,14 +106,14 @@ also Campus Admin cannot create Root Admin account, Campus Admin cannot create C
 
 ```bash
 curl -X POST \
-    "http://localhost/api/user/create" \
+    "https://it114118-fyp.herokuapp.com/api/user" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/user/create"
+    "https://it114118-fyp.herokuapp.com/api/user"
 );
 
 let headers = {
@@ -42,14 +134,11 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/user/create`**
+ **`api/user`**
 
 
 
-## Delete a User
-
-⚠️ Admin Level 1, 2 required (1 - Root Admin | 2 - Campus Admin), 
-also Campus Admin cannot delete Root Admin account, Campus Admin cannot delete Campus Admin/Staff/User account from another campus
+## Retrieve a User
 
 
 
@@ -57,15 +146,15 @@ also Campus Admin cannot delete Root Admin account, Campus Admin cannot delete C
 > Example request:
 
 ```bash
-curl -X POST \
-    "http://localhost/api/user/delete" \
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/user/{user}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/user/delete"
+    "https://it114118-fyp.herokuapp.com/api/user/{user}"
 );
 
 let headers = {
@@ -75,7 +164,55 @@ let headers = {
 
 
 fetch(url, {
-    method: "POST",
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/user/{user}`**
+
+
+
+## Update a User
+
+
+
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "https://it114118-fyp.herokuapp.com/api/user/{user}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/user/{user}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "PUT",
     headers: headers,
 })
     .then(response => response.json())
@@ -85,8 +222,52 @@ fetch(url, {
 
 
 ### Request
-<small class="badge badge-black">POST</small>
- **`api/user/delete`**
+<small class="badge badge-darkblue">PUT</small>
+ **`api/user/{user}`**
+
+<small class="badge badge-purple">PATCH</small>
+ **`api/user/{user}`**
+
+
+
+## Remove a User
+
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/user/{user}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/user/{user}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/user/{user}`**
 
 
 

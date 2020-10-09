@@ -7,9 +7,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
-use App\Http\Controllers\CampusController;
+use App\Http\Controllers\API\CampusController;
+use App\Http\Controllers\API\UserController;
 
-Route::apiResource('/campus', CampusController::class)->middleware('auth:sanctum');
+Route::apiResource('/campus', CampusController::class);
+
+Route::get('/user/me', [UserController::class, 'myself']);
+Route::apiResource('/user', UserController::class);
+
 
 // temp create me
 /*
@@ -99,22 +104,6 @@ Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
     return response(null, 200);
 });
 
-
-/**
- * @group Login
- * 
- * Fetch current user information
- * 
- * @authenticated
- * 
- * @response status=200 scenario="success" {"id":1,"name":"190189768","email":"190189768@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","campus_id":"ST","first_name":"Tat","last_name":"Chan","chinese_name":"\u4f55\u4e16","created_at":"2020-10-07T17:44:37.000000Z","updated_at":"2020-10-07T17:44:37.000000Z","deleted_at":null}
- */
-Route::middleware('auth:sanctum')->get('/user/me', function (Request $request) {
-    $user = User::where('name', $request->user()->name)->first();
-    return $user ?? response(null, 500);
-});
-
-
 /**
  * @group User
  * 
@@ -132,6 +121,7 @@ Route::middleware('auth:sanctum')->get('/user/me', function (Request $request) {
  * @response status=403 scenario="Cannot create user from another campus."
  * @response status=500 scenario="The request was invalid and/or malformed."
  */
+/*
 Route::middleware(['auth:sanctum', 'is_campus_admin'])->post('/user/create', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required',
@@ -183,7 +173,7 @@ Route::middleware(['auth:sanctum', 'is_campus_admin'])->post('/user/create', fun
     return response(null, $user->save() ? 200 : 405);
 });
 
-
+*/
 /**
  * @group User
  * 
@@ -199,6 +189,7 @@ Route::middleware(['auth:sanctum', 'is_campus_admin'])->post('/user/create', fun
  * @response status=403 scenario="Cannot delete user from another campus."
  * @response status=500 scenario="The request was invalid and/or malformed."
  */
+/*
 Route::middleware(['auth:sanctum', 'is_campus_admin'])->post('/user/delete', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required',
@@ -233,7 +224,7 @@ Route::middleware(['auth:sanctum', 'is_campus_admin'])->post('/user/delete', fun
 
     return response(null, 200);
 });
-
+*/
 /*
 
 Some tests...

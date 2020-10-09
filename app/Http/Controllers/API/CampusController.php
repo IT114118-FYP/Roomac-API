@@ -1,13 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Campus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CampusController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except(['index', 'show']);
+    }
+
     /**
      * @group Campus
      * 
@@ -54,7 +60,7 @@ class CampusController extends Controller
     /**
      * @group Campus
      * 
-     * Retrieve a Campus by Id
+     * Retrieve a Campus
      *
      * @param  \App\Models\Campus  $campus
      * @return \Illuminate\Http\Response
@@ -67,7 +73,7 @@ class CampusController extends Controller
     /**
      * @group Campus
      * 
-     * Update a Campus by Id
+     * Update a Campus
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Campus  $campus
@@ -86,7 +92,7 @@ class CampusController extends Controller
     /**
      * @group Campus
      * 
-     * Remove a Campus by Id.
+     * Remove a Campus
      *
      * @param  \App\Models\Campus  $campus
      * @return \Illuminate\Http\Response
@@ -94,7 +100,6 @@ class CampusController extends Controller
     public function destroy(Campus $campus)
     {
         Campus::destroy($campus->id);
-
         return response(null, 200);
     }
 }
