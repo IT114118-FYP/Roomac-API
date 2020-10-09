@@ -42,7 +42,7 @@ fetch(url, {
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "53e3489d-08bf-4d6f-94ba-447b35c356b2",
+        "_postman_id": "d2e98a70-be49-4d51-95aa-2789a59a4aaa",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -56,10 +56,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/campus",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus"
                         },
                         "method": "GET",
                         "header": [
@@ -85,10 +85,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/campus",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus"
                         },
                         "method": "POST",
                         "header": [
@@ -114,10 +114,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/campus\/:campus",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/campus\/:campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus\/:campus"
                         },
                         "method": "GET",
                         "header": [
@@ -143,10 +143,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/campus\/:campus",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/campus\/:campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus\/:campus"
                         },
                         "method": "PUT",
                         "header": [
@@ -172,10 +172,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/campus\/:campus",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/campus\/:campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus\/:campus"
                         },
                         "method": "DELETE",
                         "header": [
@@ -207,10 +207,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "docs.json",
                             "query": [],
-                            "raw": "http:\/\/localhost\/docs.json"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/docs.json"
                         },
                         "method": "GET",
                         "header": [
@@ -236,10 +236,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "docs.openapi",
                             "query": [],
-                            "raw": "http:\/\/localhost\/docs.openapi"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/docs.openapi"
                         },
                         "method": "GET",
                         "header": [
@@ -265,10 +265,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "sanctum\/csrf-cookie",
                             "query": [],
-                            "raw": "http:\/\/localhost\/sanctum\/csrf-cookie"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/sanctum\/csrf-cookie"
                         },
                         "method": "GET",
                         "header": [
@@ -294,10 +294,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "\/",
                             "query": [],
-                            "raw": "http:\/\/localhost\/\/"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/\/"
                         },
                         "method": "GET",
                         "header": [
@@ -329,10 +329,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/login",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/login"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/login"
                         },
                         "method": "POST",
                         "header": [
@@ -358,7 +358,7 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/logout",
                             "query": [
                                 {
@@ -368,7 +368,7 @@ fetch(url, {
                                     "disabled": true
                                 }
                             ],
-                            "raw": "http:\/\/localhost\/api\/logout?global="
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/logout?global="
                         },
                         "method": "POST",
                         "header": [
@@ -398,10 +398,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/user\/me",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/user\/me"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/me"
                         },
                         "method": "GET",
                         "header": [
@@ -427,10 +427,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/user",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user"
                         },
                         "method": "GET",
                         "header": [
@@ -456,10 +456,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/user",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user"
                         },
                         "method": "POST",
                         "header": [
@@ -485,10 +485,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/user\/:user",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/user\/:user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/:user"
                         },
                         "method": "GET",
                         "header": [
@@ -514,10 +514,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/user\/:user",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/user\/:user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/:user"
                         },
                         "method": "PUT",
                         "header": [
@@ -543,10 +543,10 @@ fetch(url, {
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/user\/:user",
                             "query": [],
-                            "raw": "http:\/\/localhost\/api\/user\/:user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/:user"
                         },
                         "method": "DELETE",
                         "header": [
