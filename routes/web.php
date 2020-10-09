@@ -15,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () { return view('welcome'); });
 
-Route::redirect('/', '/docs');
-Route::get('/docs', function () { return view('scribe.index'); });
+Route::redirect('/', '/docs/index.html');
