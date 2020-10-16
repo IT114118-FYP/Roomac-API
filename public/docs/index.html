@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: October 9 2020</li>
+            <li>Last updated: October 16 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -649,12 +649,12 @@ fetch(url, {
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="UTF-8" /&gt;
-        &lt;meta http-equiv="refresh" content="0;url='/docs'" /&gt;
+        &lt;meta http-equiv="refresh" content="0;url='/docs/index.html'" /&gt;
 
-        &lt;title&gt;Redirecting to /docs&lt;/title&gt;
+        &lt;title&gt;Redirecting to /docs/index.html&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        Redirecting to &lt;a href="/docs"&gt;/docs&lt;/a&gt;.
+        Redirecting to &lt;a href="/docs/index.html"&gt;/docs/index.html&lt;/a&gt;.
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h3>Request</h3>
@@ -669,17 +669,78 @@ fetch(url, {
 <p><small class="badge badge-red">DELETE</small>
 <strong><code>/</code></strong></p>
 <p><small class="badge badge-grey">OPTIONS</small>
-<strong><code>/</code></strong></p>
-<h2>docs</h2>
+<strong><code>/</code></strong></p><h1>Login</h1>
+<h2>Authenticate a User</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
+1|sNt8wF0Zh4oGJ20O22gns0K4bI2HJfkqNZWiKoEX</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/login</code></strong></p>
+<h2>Logout a User</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/logout</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>global</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+When this value is set to true all of the tokens issued to the user will be revoked. Defaults to false.</p><h1>Program</h1>
+<h2>Retrieve all Programs</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/docs" \
+    -G "https://it114118-fyp.herokuapp.com/api/program" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://it114118-fyp.herokuapp.com/docs"
+    "https://it114118-fyp.herokuapp.com/api/program"
 );
 
 let headers = {
@@ -694,211 +755,125 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (500):</p>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+[]</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/program</code></strong></p>
+<h2>Add a Program</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/program" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/program"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/program</code></strong></p>
+<h2>Retrieve a Program</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/program/{program}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/program/{program}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Route [scribe.json] not defined. (View: C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\resources\\views\\scribe\\index.blade.php)",
-    "exception": "Facade\\Ignition\\Exceptions\\ViewException",
-    "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php",
-    "line": 431,
+    "message": "No query results for model [App\\Models\\Program] {program}",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+    "line": 364,
     "trace": [
         {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php",
-            "line": 704,
-            "function": "route",
-            "class": "Illuminate\\Routing\\UrlGenerator",
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+            "line": 313,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
             "type": "-&gt;"
         },
         {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\resources\\views\/scribe\/index.blade.php",
-            "line": 42,
-            "function": "route"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php",
-            "line": 107,
-            "function": "require"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php",
-            "line": 108,
-            "function": "Illuminate\\Filesystem\\{closure}",
-            "class": "Illuminate\\Filesystem\\Filesystem",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php",
-            "line": 58,
-            "function": "getRequire",
-            "class": "Illuminate\\Filesystem\\Filesystem",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php",
-            "line": 61,
-            "function": "evaluatePath",
-            "class": "Illuminate\\View\\Engines\\PhpEngine",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php",
-            "line": 37,
-            "function": "get",
-            "class": "Illuminate\\View\\Engines\\CompilerEngine",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php",
-            "line": 139,
-            "function": "get",
-            "class": "Facade\\Ignition\\Views\\Engines\\CompilerEngine",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php",
-            "line": 122,
-            "function": "getContents",
-            "class": "Illuminate\\View\\View",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php",
-            "line": 91,
-            "function": "renderContents",
-            "class": "Illuminate\\View\\View",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php",
-            "line": 62,
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\nunomaduro\\collision\\src\\Adapters\\Laravel\\ExceptionHandler.php",
+            "line": 54,
             "function": "render",
-            "class": "Illuminate\\View\\View",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
             "type": "-&gt;"
         },
         {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php",
-            "line": 34,
-            "function": "setContent",
-            "class": "Illuminate\\Http\\Response",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 765,
-            "function": "__construct",
-            "class": "Illuminate\\Http\\Response",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 737,
-            "function": "toResponse",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 691,
-            "function": "prepareResponse",
-            "class": "Illuminate\\Routing\\Router",
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php",
+            "line": 51,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
             "type": "-&gt;"
         },
         {
             "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Router",
+            "line": 172,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
             "type": "-&gt;"
         },
         {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
-            "line": 41,
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 127,
             "function": "Illuminate\\Pipeline\\{closure}",
             "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 103,
+            "function": "handleRequest",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 55,
+            "function": "handleRequestUsingNamedLimiter",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
             "type": "-&gt;"
         },
         {
             "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
             "line": 167,
             "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php",
-            "line": 77,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php",
-            "line": 49,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\View\\Middleware\\ShareErrorsFromSession",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php",
-            "line": 116,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php",
-            "line": 62,
-            "function": "handleStatefulRequest",
-            "class": "Illuminate\\Session\\Middleware\\StartSession",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Session\\Middleware\\StartSession",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php",
-            "line": 37,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php",
-            "line": 67,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Cookie\\Middleware\\EncryptCookies",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
             "type": "-&gt;"
         },
         {
@@ -1008,7 +983,7 @@ fetch(url, {
         },
         {
             "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
-            "line": 37,
+            "line": 57,
             "function": "Illuminate\\Pipeline\\{closure}",
             "class": "Illuminate\\Pipeline\\Pipeline",
             "type": "-&gt;"
@@ -1230,17 +1205,17 @@ fetch(url, {
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
-<strong><code>docs</code></strong></p><h1>Login</h1>
-<h2>Authenticate a User</h2>
+<strong><code>api/program/{program}</code></strong></p>
+<h2>Update a Program</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/login" \
+<pre><code class="language-bash">curl -X PUT \
+    "https://it114118-fyp.herokuapp.com/api/program/{program}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/login"
+    "https://it114118-fyp.herokuapp.com/api/program/{program}"
 );
 
 let headers = {
@@ -1249,30 +1224,26 @@ let headers = {
 };
 
 fetch(url, {
-    method: "POST",
+    method: "PUT",
     headers: headers,
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200, success):</p>
-</blockquote>
-<pre><code class="language-json">
-1|sNt8wF0Zh4oGJ20O22gns0K4bI2HJfkqNZWiKoEX</code></pre>
 <h3>Request</h3>
-<p><small class="badge badge-black">POST</small>
-<strong><code>api/login</code></strong></p>
-<h2>Logout a User</h2>
-<p><small class="badge badge-darkred">requires authentication</small></p>
+<p><small class="badge badge-darkblue">PUT</small>
+<strong><code>api/program/{program}</code></strong></p>
+<p><small class="badge badge-purple">PATCH</small>
+<strong><code>api/program/{program}</code></strong></p>
+<h2>Remove a Program</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/logout" \
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/program/{program}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/logout"
+    "https://it114118-fyp.herokuapp.com/api/program/{program}"
 );
 
 let headers = {
@@ -1281,18 +1252,16 @@ let headers = {
 };
 
 fetch(url, {
-    method: "POST",
+    method: "DELETE",
     headers: headers,
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>Request</h3>
-<p><small class="badge badge-black">POST</small>
-<strong><code>api/logout</code></strong></p>
-<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-<p><code><b>global</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-When this value is set to true all of the tokens issued to the user will be revoked. Defaults to false.</p><h1>User</h1>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/program/{program}</code></strong></p><h1>User</h1>
 <h2>Retrieve me</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1316,15 +1285,27 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (200, success):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Unauthenticated."
+    "id": 1,
+    "name": "190189768",
+    "email": "190189768@stu.vtc.edu.hk",
+    "permission": "1",
+    "program_id": "IT114118",
+    "campus_id": "ST",
+    "first_name": "Tat",
+    "last_name": "Chan",
+    "chinese_name": "何世",
+    "created_at": "2020-10-07T17:44:37.000000Z",
+    "updated_at": "2020-10-09T06:31:23.000000Z",
+    "deleted_at": null
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/user/me</code></strong></p>
 <h2>Retrieve all Users</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1348,15 +1329,43 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (200, success):</p>
 </blockquote>
-<pre><code class="language-json">{
-    "message": "Unauthenticated."
-}</code></pre>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "name": "190189768",
+        "email": "190189768@stu.vtc.edu.hk",
+        "permission": "1",
+        "program_id": "IT114118",
+        "campus_id": "ST",
+        "first_name": "Tat",
+        "last_name": "Chan",
+        "chinese_name": "何世",
+        "created_at": "2020-10-07T17:44:37.000000Z",
+        "updated_at": "2020-10-09T06:31:23.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 6,
+        "name": "190271174",
+        "email": "190271174@stu.vtc.edu.hk",
+        "permission": "1",
+        "program_id": "IT114118",
+        "campus_id": "ST",
+        "first_name": "Wing Kit",
+        "last_name": "To",
+        "chinese_name": "CHinese name",
+        "created_at": "2020-10-09T06:42:02.000000Z",
+        "updated_at": "2020-10-09T06:42:02.000000Z",
+        "deleted_at": null
+    }
+]</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/user</code></strong></p>
 <h2>Add a User</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1383,6 +1392,7 @@ fetch(url, {
 <p><small class="badge badge-black">POST</small>
 <strong><code>api/user</code></strong></p>
 <h2>Retrieve a User</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1415,6 +1425,7 @@ fetch(url, {
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/user/{user}</code></strong></p>
 <h2>Update a User</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1443,6 +1454,7 @@ fetch(url, {
 <p><small class="badge badge-purple">PATCH</small>
 <strong><code>api/user/{user}</code></strong></p>
 <h2>Remove a User</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>

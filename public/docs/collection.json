@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "522923de-5801-4831-9ffb-87669a249962",
+        "_postman_id": "bf92fac2-b63e-460e-834b-3ea3fafee48a",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -219,35 +219,6 @@
                         }
                     },
                     "response": []
-                },
-                {
-                    "name": "docs",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "it114118-fyp.herokuapp.com",
-                            "path": "docs",
-                            "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/docs"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
                 }
             ]
         },
@@ -321,6 +292,157 @@
             ]
         },
         {
+            "name": "Program",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all Programs",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/program",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add a Program",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/program",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve a Program",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/program\/:program",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program\/:program"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a Program",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/program\/:program",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program\/:program"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove a Program",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/program\/:program",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program\/:program"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
             "name": "User",
             "description": "",
             "item": [
@@ -347,9 +469,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
@@ -376,9 +496,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
@@ -405,9 +523,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
@@ -434,9 +550,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
@@ -463,9 +577,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
@@ -492,9 +604,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 }

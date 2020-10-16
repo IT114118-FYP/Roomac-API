@@ -2,15 +2,18 @@
 
 use App\Models\User;
 use App\Models\Campus;
+use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
 use App\Http\Controllers\API\CampusController;
+use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
 
 Route::apiResource('/campus', CampusController::class);
+Route::apiResource('/program', ProgramController::class);
 
 Route::get('/user/me', [UserController::class, 'myself']);
 Route::apiResource('/user', UserController::class);
@@ -48,6 +51,16 @@ Route::get('/tempcreate', function (Request $request) {
     return response(null, 200);
 });
 */
+
+Route::get('/tempcreate', function (Request $request) {
+    $program = new Program;
+    $program->program_code = 'IT114118';
+    $program->program_title_en = 'Higher Diploma in AI and Mobile Applications Development';
+    $program->program_title_hk = '人工智能及手機軟件開發高級文憑';
+    $program->program_title_cn = '人工智能及手机软件开发高级文凭';
+    
+    return response(null, $program->save() ? 200 : 401);
+});
 
 /**
  * @group Login
