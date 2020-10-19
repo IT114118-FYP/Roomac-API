@@ -2,24 +2,24 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "bf92fac2-b63e-460e-834b-3ea3fafee48a",
+        "_postman_id": "f9475e81-0783-4637-9099-301a546b17ff",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Campus",
+            "name": "Branch",
             "description": "",
             "item": [
                 {
-                    "name": "Retrieve all Campuses",
+                    "name": "Retrieve all Branches",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/campus",
+                            "path": "api\/branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch"
                         },
                         "method": "GET",
                         "header": [
@@ -41,14 +41,14 @@
                     "response": []
                 },
                 {
-                    "name": "Add a Campus",
+                    "name": "Add a Branch",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/campus",
+                            "path": "api\/branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch"
                         },
                         "method": "POST",
                         "header": [
@@ -70,14 +70,14 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve a Campus",
+                    "name": "Retrieve a Branch",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/campus\/:campus",
+                            "path": "api\/branch\/:branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus\/:campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch\/:branch"
                         },
                         "method": "GET",
                         "header": [
@@ -99,14 +99,14 @@
                     "response": []
                 },
                 {
-                    "name": "Update a Campus",
+                    "name": "Update a Branch",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/campus\/:campus",
+                            "path": "api\/branch\/:branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus\/:campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch\/:branch"
                         },
                         "method": "PUT",
                         "header": [
@@ -128,14 +128,14 @@
                     "response": []
                 },
                 {
-                    "name": "Remove a Campus",
+                    "name": "Remove a Branch",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/campus\/:campus",
+                            "path": "api\/branch\/:branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/campus\/:campus"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch\/:branch"
                         },
                         "method": "DELETE",
                         "header": [
@@ -171,6 +171,35 @@
                             "path": "sanctum\/csrf-cookie",
                             "query": [],
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/sanctum\/csrf-cookie"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/tempcreate",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/tempcreate",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/tempcreate"
                         },
                         "method": "GET",
                         "header": [

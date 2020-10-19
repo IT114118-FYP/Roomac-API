@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCampusesTable extends Migration
+class CreateBranchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateCampusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('campuses', function (Blueprint $table) {
-            $table->id();
-            $table->string('campus_code')->unique();
-            $table->string('campus_title_en');
-            $table->string('campus_title_hk');
-            $table->string('campus_title_cn');
+        Schema::create('branches', function (Blueprint $table) {
+            $table->string('id')->unique();
+            $table->string('title_en');
+            $table->string('title_hk');
+            $table->string('title_cn');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->primary('id');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateCampusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campuses');
+        Schema::dropIfExists('branches');
     }
 }

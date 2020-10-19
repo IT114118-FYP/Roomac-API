@@ -1,7 +1,7 @@
-# Campus
+# Branch
 
 
-## Retrieve all Campuses
+## Retrieve all Branches
 
 
 
@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/campus" \
+    -G "https://it114118-fyp.herokuapp.com/api/branch" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/campus"
+    "https://it114118-fyp.herokuapp.com/api/branch"
 );
 
 let headers = {
@@ -40,24 +40,96 @@ fetch(url, {
 ```json
 [
     {
-        "id": 1,
-        "campus_code": "ST",
-        "campus_title_en": "en",
-        "campus_title_hk": "hk",
-        "campus_title_cn": "cn",
-        "created_at": null,
-        "updated_at": null
+        "id": 0,
+        "title_en": "Chai Wan",
+        "title_hk": "柴灣",
+        "title_cn": "柴湾",
+        "created_at": "2020-10-18T13:16:56.000000Z",
+        "updated_at": "2020-10-18T13:16:56.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Haking Wong",
+        "title_hk": "黃克競",
+        "title_cn": "黄克竞",
+        "created_at": "2020-10-18T13:16:57.000000Z",
+        "updated_at": "2020-10-18T13:16:57.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Kwai Chung",
+        "title_hk": "葵涌",
+        "title_cn": "葵涌",
+        "created_at": "2020-10-18T13:16:57.000000Z",
+        "updated_at": "2020-10-18T13:16:57.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Kwun Tong",
+        "title_hk": "觀塘",
+        "title_cn": "观塘",
+        "created_at": "2020-10-18T13:16:58.000000Z",
+        "updated_at": "2020-10-18T13:16:58.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Lee Wai Lee",
+        "title_hk": "李惠利",
+        "title_cn": "李惠利",
+        "created_at": "2020-10-18T13:16:59.000000Z",
+        "updated_at": "2020-10-18T13:16:59.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Morrison Hill",
+        "title_hk": "摩理臣山",
+        "title_cn": "摩理臣山",
+        "created_at": "2020-10-18T13:17:00.000000Z",
+        "updated_at": "2020-10-18T13:17:00.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Sha Tin",
+        "title_hk": "沙田",
+        "title_cn": "沙田",
+        "created_at": "2020-10-18T13:17:01.000000Z",
+        "updated_at": "2020-10-18T13:17:01.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Tuen Mun",
+        "title_hk": "屯門",
+        "title_cn": "屯门",
+        "created_at": "2020-10-18T13:17:02.000000Z",
+        "updated_at": "2020-10-18T13:17:02.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Tsing Yi",
+        "title_hk": "青衣",
+        "title_cn": "青衣",
+        "created_at": "2020-10-18T13:17:02.000000Z",
+        "updated_at": "2020-10-18T13:17:02.000000Z",
+        "deleted_at": null
     }
 ]
 ```
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/campus`**
+ **`api/branch`**
 
 
 
-## Add a Campus
+## Add a Branch
 
 
 
@@ -66,14 +138,14 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/campus" \
+    "https://it114118-fyp.herokuapp.com/api/branch" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/campus"
+    "https://it114118-fyp.herokuapp.com/api/branch"
 );
 
 let headers = {
@@ -94,11 +166,11 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/campus`**
+ **`api/branch`**
 
 
 
-## Retrieve a Campus
+## Retrieve a Branch
 
 
 
@@ -107,14 +179,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/campus/{campus}" \
+    -G "https://it114118-fyp.herokuapp.com/api/branch/{branch}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/campus/{campus}"
+    "https://it114118-fyp.herokuapp.com/api/branch/{branch}"
 );
 
 let headers = {
@@ -136,7 +208,7 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Campus] {campus}",
+    "message": "No query results for model [App\\Models\\Branch] {branch}",
     "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
     "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
     "line": 364,
@@ -528,11 +600,11 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/campus/{campus}`**
+ **`api/branch/{branch}`**
 
 
 
-## Update a Campus
+## Update a Branch
 
 
 
@@ -541,14 +613,14 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/campus/{campus}" \
+    "https://it114118-fyp.herokuapp.com/api/branch/{branch}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/campus/{campus}"
+    "https://it114118-fyp.herokuapp.com/api/branch/{branch}"
 );
 
 let headers = {
@@ -569,14 +641,14 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/campus/{campus}`**
+ **`api/branch/{branch}`**
 
 <small class="badge badge-purple">PATCH</small>
- **`api/campus/{campus}`**
+ **`api/branch/{branch}`**
 
 
 
-## Remove a Campus
+## Remove a Branch
 
 
 
@@ -585,14 +657,14 @@ fetch(url, {
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/campus/{campus}" \
+    "https://it114118-fyp.herokuapp.com/api/branch/{branch}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/campus/{campus}"
+    "https://it114118-fyp.herokuapp.com/api/branch/{branch}"
 );
 
 let headers = {
@@ -613,7 +685,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/campus/{campus}`**
+ **`api/branch/{branch}`**
 
 
 

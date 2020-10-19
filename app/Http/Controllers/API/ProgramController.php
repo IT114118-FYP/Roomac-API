@@ -32,10 +32,10 @@ class ProgramController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'program_code' => 'required',
-            'program_title_en' => 'required',
-            'program_title_hk' => 'required',
-            'program_title_cn' => 'required',
+            'id' => 'required',
+            'title_en' => 'required',
+            'title_hk' => 'required',
+            'title_cn' => 'required',
         ]);
     
         // Validate the data
@@ -44,10 +44,10 @@ class ProgramController extends Controller
         }
 
         $program = new Program;
-        $program->program_code = $request->program_code;
-        $program->program_title_en = $request->program_title_en;
-        $program->program_title_hk = $request->program_title_hk;
-        $program->program_title_cn = $request->program_title_cn;
+        $program->id = $request->id;
+        $program->title_en = $request->title_en;
+        $program->title_hk = $request->title_hk;
+        $program->title_cn = $request->title_cn;
         
         return response(null, $program->save() ? 200 : 401);
     }
@@ -76,10 +76,10 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
-        $program->program_code = $request->program_code;
-        $program->program_title_en = $request->program_title_en;
-        $program->program_title_hk = $request->program_title_hk;
-        $program->program_title_cn = $request->program_title_cn;
+        $program->id = $request->id;
+        $program->title_en = $request->title_en;
+        $program->title_hk = $request->title_hk;
+        $program->title_cn = $request->title_cn;
 
         return response(null, $program->save() ? 200 : 401);
     }

@@ -1,66 +1,26 @@
 <?php
 
 use App\Models\User;
-use App\Models\Campus;
+use App\Models\Branch;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
-use App\Http\Controllers\API\CampusController;
+use App\Http\Controllers\API\BranchController;
 use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\UserPermissionController;
 
-Route::apiResource('/campus', CampusController::class);
+Route::apiResource('/branch', BranchController::class);
 Route::apiResource('/program', ProgramController::class);
 
+//Route::get('/user/{user}/permission', [UserController::class, 'permission']);
 Route::get('/user/me', [UserController::class, 'myself']);
 Route::apiResource('/user', UserController::class);
+Route::apiResource('/user.permission', UserPermissionController::class);
 
-
-// temp create me
-/*
-Route::get('/tempcreate', function (Request $request) {
-    //create user
-    try {
-        $user = new User;
-        $user->name = '190189768';
-        $user->email = '190189768@stu.vtc.edu.hk';
-        $user->password = Hash::make('12345678');
-        $user->permission = 1;
-        $user->program_id = 'IT114118';
-        $user->campus_id = 'ST';
-        $user->first_name = 'Tat';
-        $user->last_name = 'Chan';
-        $user->chinese_name = '何世';
-        $user->save();
-    } 
-    catch (Exception $e) { }
-    
-    //create campus
-    try {
-        $campus = new Campus;
-        $campus->campus_code = '190189768';
-        $campus->campus_title_en = 'campus_title_en';
-        $campus->campus_title_hk = 'campus_title_hk';
-        $campus->campus_title_cn = 'campus_title_cn';
-        $campus->save();
-    } catch (Exception $e) { }
-
-    return response(null, 200);
-});
-*/
-
-Route::get('/tempcreate', function (Request $request) {
-    $program = new Program;
-    $program->program_code = 'IT114118';
-    $program->program_title_en = 'Higher Diploma in AI and Mobile Applications Development';
-    $program->program_title_hk = '人工智能及手機軟件開發高級文憑';
-    $program->program_title_cn = '人工智能及手机软件开发高级文凭';
-    
-    return response(null, $program->save() ? 200 : 401);
-});
 
 /**
  * @group Login
@@ -116,152 +76,3 @@ Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
 
     return response(null, 200);
 });
-
-/**
- * @group User
- * 
- * Create a User
- * 
- * ⚠️ Admin Level 1, 2 required (1 - Root Admin | 2 - Campus Admin), 
- * also Campus Admin cannot create Root Admin account, Campus Admin cannot create Campus Admin/Staff/User account from another campus
- * 
- * @authenticated
- * 
- * @response status=200 scenario="success"
- * @response status=400 scenario="The request was invalid and/or malformed."
- * @response status=401 scenario="The user is already exist."
- * @response status=402 scenario="Not enough permissions."
- * @response status=403 scenario="Cannot create user from another campus."
- * @response status=500 scenario="The request was invalid and/or malformed."
- */
-/*
-Route::middleware(['auth:sanctum', 'is_campus_admin'])->post('/user/create', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'name' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-        'program_id' => 'required',
-        'campus_id' => 'required',
-        'permission_type' => 'required|digits_between:0,3',
-        'first_name' => 'nullable',
-        'last_name' => 'nullable',
-        'chinese_name' => 'nullable',
-    ]);
-
-    // Validate the data
-    if ($validator->fails()) {
-        return response($validator->errors(), 400);
-    }
-
-    // Check is user already exist
-    if (User::where('name', $request->name)->exists()) {
-        return response('The user is already exist.', 401);
-    }
-
-    // 0 - Normal User | 1 - Root Admin | 2 - Campus Admin | 3 - Campus Staff
-    // Prevent Campus Admin create Root Admin account
-    if ($request->permission_type == 1 && $request->user()->permission_type !== 1) {
-        return response('Not enough permissions.', 402);
-    }
-
-    // Prevent Campus Admin create Campus Admin/Staff/User account from another campus
-    if ($request->permission_type !== 1 && $request->user()->campus_id != $request->campus_id) {
-        if ($request->user()->permission_type !== 1) {
-            return response('Cannot create user from another campus.', 403);
-        }
-    }
-
-    // Add User
-    $user = new User;
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->password = Hash::make($request->password);
-    $user->permission = 1;
-    $user->program_id = $request->program_id;
-    $user->campus_id = $request->campus_id;
-    $user->first_name = $request->first_name ?? null;
-    $user->last_name = $request->last_name ?? null;
-    $user->chinese_name = $request->chinese_name ?? null;
-
-    return response(null, $user->save() ? 200 : 405);
-});
-
-*/
-/**
- * @group User
- * 
- * Delete a User
- * 
- * ⚠️ Admin Level 1, 2 required (1 - Root Admin | 2 - Campus Admin), 
- * also Campus Admin cannot delete Root Admin account, Campus Admin cannot delete Campus Admin/Staff/User account from another campus
- * 
- * @response status=200 scenario="success"
- * @response status=400 scenario="The request was invalid and/or malformed."
- * @response status=401 scenario="The user is not exist."
- * @response status=402 scenario="Not enough permissions."
- * @response status=403 scenario="Cannot delete user from another campus."
- * @response status=500 scenario="The request was invalid and/or malformed."
- */
-/*
-Route::middleware(['auth:sanctum', 'is_campus_admin'])->post('/user/delete', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'name' => 'required',
-    ]);
-
-    // Validate the data
-    if ($validator->fails()) {
-        return response($validator->errors(), 400);
-    }
-
-    // Check is user exist or not
-    if (User::where('name', $request->name)->doesntExist()) {
-        return response('The user is not exist.', 401);
-    }
-
-    // 0 - Normal User | 1 - Root Admin | 2 - Campus Admin | 3 - Campus Staff
-    // Prevent Campus Admin delete Root Admin account
-    $user = User::where('name', $request->name)->first();
-    if ($user->permission_type == 1 && $request->user()->permission_type !== 1) {
-        return response('Not enough permissions.', 402);
-    }
-
-    // Prevent Campus Admin delete Campus Admin/Staff/User account from another campus
-    if ($user->permission_type !== 1 && $request->user()->campus_id != $user->campus_id) {
-        if ($request->user()->permission_type !== 1) {
-            return response('Cannot delete user from another campus.', 403);
-        }
-    }
-
-    // Delete User from Database
-    User::where('name', $request->name)->delete();
-
-    return response(null, 200);
-});
-*/
-/*
-
-Some tests...
-
-0 - Normal User | 1 - Root Admin | 2 - Campus Admin | 3 - Campus Staff
-
----------------------------
-POST /api/user/create
-
-L | 1 | 2 | <- Current user permission create account with different permissions
----------------
-0 | ✔️ | ✔️ |
-1 | ✔️ | ❌(Not enough permissions.) |
-2 | ✔️ | ✔️ |
-3 | ✔️ | ✔️ |
-
----------------------------
-POST /api/user/delete
-
-L | 1 | 2 | <- Current user permission create account with different permissions
----------------
-0 | ✔️ | ✔️ |
-1 | ✔️ | ❌(Not enough permissions.) |
-2 | ✔️ | ✔️ |
-3 | ✔️ | ✔️ |
-
-*/

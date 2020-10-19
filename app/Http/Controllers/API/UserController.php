@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class UserController extends Controller
 {
     public function __construct()
@@ -51,8 +54,7 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
             'program_id' => 'required',
-            'campus_id' => 'required',
-            'permission' => 'required|digits_between:0,3',
+            'branch_id' => 'required',
             'first_name' => 'nullable',
             'last_name' => 'nullable',
             'chinese_name' => 'nullable',
@@ -86,9 +88,8 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->permission = $request->permission;
         $user->program_id = $request->program_id;
-        $user->campus_id = $request->campus_id;
+        $user->branch_id = $request->branch_id;
         $user->first_name = $request->first_name ?? null;
         $user->last_name = $request->last_name ?? null;
         $user->chinese_name = $request->chinese_name ?? null;
@@ -126,9 +127,8 @@ class UserController extends Controller
     {
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->permission = $request->permission;
         $user->program_id = $request->program_id;
-        $user->campus_id = $request->campus_id;
+        $user->branch_id = $request->branch_id;
         $user->first_name = $request->first_name ?? null;
         $user->last_name = $request->last_name ?? null;
         $user->chinese_name = $request->chinese_name ?? null;
@@ -166,7 +166,23 @@ class UserController extends Controller
      */
     public function myself(Request $request)
     {
-        $user = User::where('name', $request->user()->name)->first();
-        return $user ?? response(null, 500);
+        return $request->user();
+    }
+
+    /**
+     * @group User
+     * 
+     * Retrieve me
+     * 
+     * @authenticated
+     * 
+     * @response status=200 scenario="success" {"id":1,"name":"190189768","email":"190189768@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","campus_id":"ST","first_name":"Tat","last_name":"Chan","chinese_name":"\u4f55\u4e16","created_at":"2020-10-07T17:44:37.000000Z","updated_at":"2020-10-09T06:31:23.000000Z","deleted_at":null}
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function permission(Request $request, User $user)
+    {
+        //return $user != null ? $user->getAllPermissions() : response(null, 500);
+        return Role::all();
     }
 }

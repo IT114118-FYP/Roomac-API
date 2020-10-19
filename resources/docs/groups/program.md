@@ -38,8 +38,26 @@ fetch(url, {
 > Example response (200):
 
 ```json
-
-[]
+[
+    {
+        "id": 0,
+        "title_en": "Higher Diploma in Software Engineering",
+        "title_hk": "軟件工程高級文憑",
+        "title_cn": "软件工程高级文凭",
+        "created_at": "2020-10-18T13:16:56.000000Z",
+        "updated_at": "2020-10-18T13:16:56.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": 0,
+        "title_en": "Higher Diploma in AI and Mobile Applications Development",
+        "title_hk": "人工智能及手機軟件開發高級文憑",
+        "title_cn": "人工智能及手机软件开发高级文凭",
+        "created_at": "2020-10-18T13:16:55.000000Z",
+        "updated_at": "2020-10-18T13:16:55.000000Z",
+        "deleted_at": null
+    }
+]
 ```
 
 ### Request
