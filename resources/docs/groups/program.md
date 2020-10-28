@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/program" \
+    -G "https://it114118-fyp.herokuapp.com/api/programs" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/program"
+    "https://it114118-fyp.herokuapp.com/api/programs"
 );
 
 let headers = {
@@ -40,21 +40,30 @@ fetch(url, {
 ```json
 [
     {
-        "id": 0,
-        "title_en": "Higher Diploma in Software Engineering",
-        "title_hk": "軟件工程高級文憑",
-        "title_cn": "软件工程高级文凭",
-        "created_at": "2020-10-18T13:16:56.000000Z",
-        "updated_at": "2020-10-18T13:16:56.000000Z",
+        "id": "CE114301",
+        "title_en": "Higher Diploma in Child Care and Education",
+        "title_hk": "幼兒教育高級文憑",
+        "title_cn": "幼儿教育高级文凭",
+        "created_at": "2020-10-23T06:23:17.000000Z",
+        "updated_at": "2020-10-23T06:23:17.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "IT114105",
+        "title_en": "Higher Diploma in Software Engineering",
+        "title_hk": "軟件工程高級文憑",
+        "title_cn": "软件工程高级文凭",
+        "created_at": "2020-10-23T06:23:16.000000Z",
+        "updated_at": "2020-10-23T06:23:16.000000Z",
+        "deleted_at": null
+    },
+    {
+        "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
         "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2020-10-18T13:16:55.000000Z",
-        "updated_at": "2020-10-18T13:16:55.000000Z",
+        "created_at": "2020-10-23T06:23:15.000000Z",
+        "updated_at": "2020-10-23T06:23:15.000000Z",
         "deleted_at": null
     }
 ]
@@ -62,7 +71,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/program`**
+ **`api/programs`**
 
 
 
@@ -75,14 +84,14 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/program" \
+    "https://it114118-fyp.herokuapp.com/api/programs" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/program"
+    "https://it114118-fyp.herokuapp.com/api/programs"
 );
 
 let headers = {
@@ -103,7 +112,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/program`**
+ **`api/programs`**
 
 
 
@@ -116,14 +125,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/program/{program}" \
+    -G "https://it114118-fyp.herokuapp.com/api/programs/{program}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/program/{program}"
+    "https://it114118-fyp.herokuapp.com/api/programs/{program}"
 );
 
 let headers = {
@@ -537,7 +546,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/program/{program}`**
+ **`api/programs/{program}`**
 
 
 
@@ -550,14 +559,14 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/program/{program}" \
+    "https://it114118-fyp.herokuapp.com/api/programs/{program}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/program/{program}"
+    "https://it114118-fyp.herokuapp.com/api/programs/{program}"
 );
 
 let headers = {
@@ -578,10 +587,10 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/program/{program}`**
+ **`api/programs/{program}`**
 
 <small class="badge badge-purple">PATCH</small>
- **`api/program/{program}`**
+ **`api/programs/{program}`**
 
 
 
@@ -594,14 +603,14 @@ fetch(url, {
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/program/{program}" \
+    "https://it114118-fyp.herokuapp.com/api/programs/{program}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/program/{program}"
+    "https://it114118-fyp.herokuapp.com/api/programs/{program}"
 );
 
 let headers = {
@@ -622,7 +631,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/program/{program}`**
+ **`api/programs/{program}`**
 
 
 

@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branch" \
+    -G "https://it114118-fyp.herokuapp.com/api/branches" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branch"
+    "https://it114118-fyp.herokuapp.com/api/branches"
 );
 
 let headers = {
@@ -40,84 +40,84 @@ fetch(url, {
 ```json
 [
     {
-        "id": 0,
+        "id": "CW",
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
-        "created_at": "2020-10-18T13:16:56.000000Z",
-        "updated_at": "2020-10-18T13:16:56.000000Z",
+        "created_at": "2020-10-23T06:23:17.000000Z",
+        "updated_at": "2020-10-23T06:23:17.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "HW",
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
-        "created_at": "2020-10-18T13:16:57.000000Z",
-        "updated_at": "2020-10-18T13:16:57.000000Z",
+        "created_at": "2020-10-23T06:23:18.000000Z",
+        "updated_at": "2020-10-23T06:23:18.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "KC",
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
-        "created_at": "2020-10-18T13:16:57.000000Z",
-        "updated_at": "2020-10-18T13:16:57.000000Z",
+        "created_at": "2020-10-23T06:23:18.000000Z",
+        "updated_at": "2020-10-23T06:23:18.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "KT",
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
-        "created_at": "2020-10-18T13:16:58.000000Z",
-        "updated_at": "2020-10-18T13:16:58.000000Z",
+        "created_at": "2020-10-23T06:23:19.000000Z",
+        "updated_at": "2020-10-23T06:23:19.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "LWL",
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
-        "created_at": "2020-10-18T13:16:59.000000Z",
-        "updated_at": "2020-10-18T13:16:59.000000Z",
+        "created_at": "2020-10-23T06:23:20.000000Z",
+        "updated_at": "2020-10-23T06:23:20.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "MH",
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
-        "created_at": "2020-10-18T13:17:00.000000Z",
-        "updated_at": "2020-10-18T13:17:00.000000Z",
+        "created_at": "2020-10-23T06:23:20.000000Z",
+        "updated_at": "2020-10-23T06:23:20.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "ST",
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2020-10-18T13:17:01.000000Z",
-        "updated_at": "2020-10-18T13:17:01.000000Z",
+        "created_at": "2020-10-23T06:23:21.000000Z",
+        "updated_at": "2020-10-23T06:23:21.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "TM",
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2020-10-18T13:17:02.000000Z",
-        "updated_at": "2020-10-18T13:17:02.000000Z",
+        "created_at": "2020-10-23T06:23:22.000000Z",
+        "updated_at": "2020-10-23T06:23:22.000000Z",
         "deleted_at": null
     },
     {
-        "id": 0,
+        "id": "TY",
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
-        "created_at": "2020-10-18T13:17:02.000000Z",
-        "updated_at": "2020-10-18T13:17:02.000000Z",
+        "created_at": "2020-10-23T06:23:22.000000Z",
+        "updated_at": "2020-10-23T06:23:22.000000Z",
         "deleted_at": null
     }
 ]
@@ -125,7 +125,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/branch`**
+ **`api/branches`**
 
 
 
@@ -138,14 +138,14 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/branch" \
+    "https://it114118-fyp.herokuapp.com/api/branches" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branch"
+    "https://it114118-fyp.herokuapp.com/api/branches"
 );
 
 let headers = {
@@ -166,7 +166,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/branch`**
+ **`api/branches`**
 
 
 
@@ -179,14 +179,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branch/{branch}" \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branch/{branch}"
+    "https://it114118-fyp.herokuapp.com/api/branches/{branch}"
 );
 
 let headers = {
@@ -600,7 +600,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/branch/{branch}`**
+ **`api/branches/{branch}`**
 
 
 
@@ -613,14 +613,14 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/branch/{branch}" \
+    "https://it114118-fyp.herokuapp.com/api/branches/{branch}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branch/{branch}"
+    "https://it114118-fyp.herokuapp.com/api/branches/{branch}"
 );
 
 let headers = {
@@ -641,10 +641,10 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/branch/{branch}`**
+ **`api/branches/{branch}`**
 
 <small class="badge badge-purple">PATCH</small>
- **`api/branch/{branch}`**
+ **`api/branches/{branch}`**
 
 
 
@@ -657,14 +657,14 @@ fetch(url, {
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/branch/{branch}" \
+    "https://it114118-fyp.herokuapp.com/api/branches/{branch}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branch/{branch}"
+    "https://it114118-fyp.herokuapp.com/api/branches/{branch}"
 );
 
 let headers = {
@@ -685,7 +685,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/branch/{branch}`**
+ **`api/branches/{branch}`**
 
 
 

@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "f9475e81-0783-4637-9099-301a546b17ff",
+        "_postman_id": "0f046fce-543d-4c65-a20a-d9beaad6a28e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -17,9 +17,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/branch",
+                            "path": "api\/branches",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches"
                         },
                         "method": "GET",
                         "header": [
@@ -46,9 +46,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/branch",
+                            "path": "api\/branches",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches"
                         },
                         "method": "POST",
                         "header": [
@@ -75,9 +75,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/branch\/:branch",
+                            "path": "api\/branches\/:branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch\/:branch"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch"
                         },
                         "method": "GET",
                         "header": [
@@ -104,9 +104,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/branch\/:branch",
+                            "path": "api\/branches\/:branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch\/:branch"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch"
                         },
                         "method": "PUT",
                         "header": [
@@ -133,9 +133,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/branch\/:branch",
+                            "path": "api\/branches\/:branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branch\/:branch"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch"
                         },
                         "method": "DELETE",
                         "header": [
@@ -171,35 +171,6 @@
                             "path": "sanctum\/csrf-cookie",
                             "query": [],
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/sanctum\/csrf-cookie"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "api\/tempcreate",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/tempcreate",
-                            "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/tempcreate"
                         },
                         "method": "GET",
                         "header": [
@@ -330,9 +301,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/program",
+                            "path": "api\/programs",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs"
                         },
                         "method": "GET",
                         "header": [
@@ -359,9 +330,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/program",
+                            "path": "api\/programs",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs"
                         },
                         "method": "POST",
                         "header": [
@@ -388,9 +359,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/program\/:program",
+                            "path": "api\/programs\/:program",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program\/:program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program"
                         },
                         "method": "GET",
                         "header": [
@@ -417,9 +388,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/program\/:program",
+                            "path": "api\/programs\/:program",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program\/:program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program"
                         },
                         "method": "PUT",
                         "header": [
@@ -446,9 +417,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/program\/:program",
+                            "path": "api\/programs\/:program",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/program\/:program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program"
                         },
                         "method": "DELETE",
                         "header": [
@@ -472,18 +443,18 @@
             ]
         },
         {
-            "name": "User",
+            "name": "Users",
             "description": "",
             "item": [
                 {
-                    "name": "Retrieve me",
+                    "name": "Get myself",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/user\/me",
+                            "path": "api\/users\/me",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/me"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/me"
                         },
                         "method": "GET",
                         "header": [
@@ -503,14 +474,14 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve all Users",
+                    "name": "List users",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/user",
+                            "path": "api\/users",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users"
                         },
                         "method": "GET",
                         "header": [
@@ -530,14 +501,14 @@
                     "response": []
                 },
                 {
-                    "name": "Add a User",
+                    "name": "Create a user",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/user",
+                            "path": "api\/users",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users"
                         },
                         "method": "POST",
                         "header": [
@@ -557,14 +528,14 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve a User",
+                    "name": "Get a User",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/user\/:user",
+                            "path": "api\/users\/:user",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/:user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user"
                         },
                         "method": "GET",
                         "header": [
@@ -589,9 +560,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/user\/:user",
+                            "path": "api\/users\/:user",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/:user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user"
                         },
                         "method": "PUT",
                         "header": [
@@ -611,14 +582,14 @@
                     "response": []
                 },
                 {
-                    "name": "Remove a User",
+                    "name": "Delete a User",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/user\/:user",
+                            "path": "api\/users\/:user",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/user\/:user"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user"
                         },
                         "method": "DELETE",
                         "header": [
@@ -634,6 +605,64 @@
                         "body": null,
                         "description": "",
                         "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get a user's permissions\n\nRetrieve all permissions associated with the user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/:user\/permissions",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/permissions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove permissions from a user\n\nRemove permissions from a user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/:user\/permissions",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/permissions"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 }

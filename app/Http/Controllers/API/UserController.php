@@ -20,9 +20,9 @@ class UserController extends Controller
     }
 
     /**
-     * @group User
+     * @group Users
      * 
-     * Retrieve all Users
+     * List users
      * 
      * @authenticated
      *
@@ -36,9 +36,9 @@ class UserController extends Controller
     }
 
     /**
-     * @group User
+     * @group Users
      * 
-     * Add a User
+     * Create a user
      * 
      * @authenticated
      * 
@@ -98,9 +98,9 @@ class UserController extends Controller
     }
 
     /**
-     * @group User
+     * @group Users
      * 
-     * Retrieve a User
+     * Get a User
      * 
      * @authenticated
      *
@@ -113,7 +113,7 @@ class UserController extends Controller
     }
 
     /**
-     * @group User
+     * @group Users
      * 
      * Update a User
      * 
@@ -137,9 +137,9 @@ class UserController extends Controller
     }
 
     /**
-     * @group User
+     * @group Users
      * 
-     * Remove a User
+     * Delete a User
      * 
      * @authenticated
      *
@@ -154,9 +154,9 @@ class UserController extends Controller
 
     
     /**
-     * @group User
+     * @group Users
      * 
-     * Retrieve me
+     * Get myself
      * 
      * @authenticated
      * 
@@ -167,22 +167,5 @@ class UserController extends Controller
     public function myself(Request $request)
     {
         return $request->user();
-    }
-
-    /**
-     * @group User
-     * 
-     * Retrieve me
-     * 
-     * @authenticated
-     * 
-     * @response status=200 scenario="success" {"id":1,"name":"190189768","email":"190189768@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","campus_id":"ST","first_name":"Tat","last_name":"Chan","chinese_name":"\u4f55\u4e16","created_at":"2020-10-07T17:44:37.000000Z","updated_at":"2020-10-09T06:31:23.000000Z","deleted_at":null}
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function permission(Request $request, User $user)
-    {
-        //return $user != null ? $user->getAllPermissions() : response(null, 500);
-        return Role::all();
     }
 }

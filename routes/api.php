@@ -11,15 +11,18 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\API\BranchController;
 use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\UserPermissionController;
+use App\Http\Controllers\API\PermissionController;
 
-Route::apiResource('/branch', BranchController::class);
-Route::apiResource('/program', ProgramController::class);
+Route::apiResource('/branches', BranchController::class);
+Route::apiResource('/programs', ProgramController::class);
 
 //Route::get('/user/{user}/permission', [UserController::class, 'permission']);
-Route::get('/user/me', [UserController::class, 'myself']);
-Route::apiResource('/user', UserController::class);
-Route::apiResource('/user.permission', UserPermissionController::class);
+Route::get('/users/me', [UserController::class, 'myself']);
+Route::apiResource('/users', UserController::class);
+//Route::apiResource('/users.permissions', PermissionController::class);
+
+Route::get('/users/{user}/permissions', [PermissionController::class, 'show']);
+Route::delete('/users/{user}/permissions', [PermissionController::class, 'destroyMany']);
 
 
 /**

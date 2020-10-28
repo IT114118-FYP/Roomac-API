@@ -38,15 +38,17 @@ class DatabaseSeeder extends Seeder
 
         # Permission
         $permissions = [
-            'programs.create', 'programs.update', 'programs.delete',
-            'branches.create', 'branches.update', 'branches.delete',
-            'users.create', 'users.update', 'users.delete',
+            'create:programs', 'update:programs', 'delete:programs',
+            'create:branches', 'update:branches', 'delete:branches',
+            'create:users', 'update:users', 'delete:users',
         ];
         $this->seedPermission($permissions);
 
         # Role
         $roles = [
             'root' => $permissions,
+            'User Admin' => ['create:users', 'update:users', 'delete:users'],
+            'Custom Create' => ['create:programs', 'create:branches', 'create:users'],
             //'staff' => ''
         ];
         $this->seedRole($roles);
@@ -79,6 +81,8 @@ class DatabaseSeeder extends Seeder
 
         # User (Set roles and permissions)
         User::where('name', '000000000')->first()->assignRole('root');
+        User::where('name', '190189768')->first()->assignRole(['User Admin', 'Custom Create']);
+        User::where('name', '190189768')->first()->givePermissionTo('update:programs');
     }
 
     private function seedProgram($rows) {

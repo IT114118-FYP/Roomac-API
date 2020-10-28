@@ -1,7 +1,7 @@
-# User
+# Users
 
 
-## Retrieve me
+## Get myself
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -11,14 +11,14 @@
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/user/me" \
+    -G "https://it114118-fyp.herokuapp.com/api/users/me" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/user/me"
+    "https://it114118-fyp.herokuapp.com/api/users/me"
 );
 
 let headers = {
@@ -57,11 +57,11 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/user/me`**
+ **`api/users/me`**
 
 
 
-## Retrieve all Users
+## List users
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -71,14 +71,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/user" \
+    -G "https://it114118-fyp.herokuapp.com/api/users" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/user"
+    "https://it114118-fyp.herokuapp.com/api/users"
 );
 
 let headers = {
@@ -133,11 +133,11 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/user`**
+ **`api/users`**
 
 
 
-## Add a User
+## Create a user
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -147,14 +147,14 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/user" \
+    "https://it114118-fyp.herokuapp.com/api/users" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/user"
+    "https://it114118-fyp.herokuapp.com/api/users"
 );
 
 let headers = {
@@ -175,11 +175,11 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/user`**
+ **`api/users`**
 
 
 
-## Retrieve a User
+## Get a User
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -189,14 +189,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/user/{user}" \
+    -G "https://it114118-fyp.herokuapp.com/api/users/{user}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/user/{user}"
+    "https://it114118-fyp.herokuapp.com/api/users/{user}"
 );
 
 let headers = {
@@ -224,7 +224,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/user/{user}`**
+ **`api/users/{user}`**
 
 
 
@@ -238,14 +238,14 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/user/{user}" \
+    "https://it114118-fyp.herokuapp.com/api/users/{user}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/user/{user}"
+    "https://it114118-fyp.herokuapp.com/api/users/{user}"
 );
 
 let headers = {
@@ -266,14 +266,14 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/user/{user}`**
+ **`api/users/{user}`**
 
 <small class="badge badge-purple">PATCH</small>
- **`api/user/{user}`**
+ **`api/users/{user}`**
 
 
 
-## Remove a User
+## Delete a User
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -283,14 +283,14 @@ fetch(url, {
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/user/{user}" \
+    "https://it114118-fyp.herokuapp.com/api/users/{user}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/user/{user}"
+    "https://it114118-fyp.herokuapp.com/api/users/{user}"
 );
 
 let headers = {
@@ -311,7 +311,114 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/user/{user}`**
+ **`api/users/{user}`**
+
+
+
+## Get a user&#039;s permissions
+
+Retrieve all permissions associated with the user.
+
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/permissions" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/{user}/permissions"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200, success):
+
+```json
+[
+    {
+        "name": "create:users",
+        "granted": true,
+        "role": "Custom Create"
+    },
+    {
+        "name": "update:users",
+        "granted": true,
+        "role": "User Admin"
+    },
+    {
+        "name": "delete:users",
+        "granted": true,
+        "role": "User Admin"
+    }
+]
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/users/{user}/permissions`**
+
+
+
+## Remove permissions from a user
+
+Remove permissions from a user.
+
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/users/{user}/permissions" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/{user}/permissions"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/users/{user}/permissions`**
 
 
 
