@@ -13,28 +13,14 @@ class PermissionController extends Controller
     /**
      * @group Users
      * 
-     * Assign permissions to a user
-     * 
-     * Assign permissions to a user.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function storeMany(Request $request, User $user)
-    {
-        error_log($user);
-    }
-
-    /**
-     * @group Users
-     * 
      * Get a user's permissions
      * 
      * Retrieve all permissions associated with the user.
      * 
-     * @response status=200 scenario="success" [{"name":"create:users","granted":true,"role":"Custom Create"},{"name":"update:users","granted":false,"role":null},{"name":"delete:users","granted":true,"role":"User Admin"}]
-     *
+     * @authenticated
+     * 
+     * @response status=200 scenario="success" [{"name":"create:roles","granted":true,"role":null},{"name":"update:roles","granted":true,"role":null},{"name":"delete:roles","granted":false,"role":null},{"name":"grant:roles","granted":false,"role":null},{"name":"revoke:roles","granted":false,"role":null},{"name":"create:programs","granted":true,"role":"Custom Create"},{"name":"update:programs","granted":true,"role":null},{"name":"delete:programs","granted":false,"role":null},{"name":"create:branches","granted":true,"role":"Custom Create"},{"name":"update:branches","granted":false,"role":null},{"name":"delete:branches","granted":false,"role":null},{"name":"create:users","granted":true,"role":"Custom Create"},{"name":"update:users","granted":true,"role":"User Admin"},{"name":"delete:users","granted":true,"role":"User Admin"},{"name":"grant:permissions","granted":false,"role":null},{"name":"revoke:permissions","granted":false,"role":null}]
+     * 
      * @param  \App\Models\User  $user
      * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
@@ -46,10 +32,11 @@ class PermissionController extends Controller
 
         $return = array();
         foreach ($permissions as $permission) {
-            $granted = $in_role = false;
+            $granted = false;
+            $role = null;
             $len = sizeof($user_perms);
             for ($i = 0; $i < $len; $i++) {
-                if ($user_perms[$i]['id'] == $permission['id']) {
+                if ($user_perms[$i]['id'] === $permission['id']) {
                     $granted = true;
                     $role = isset($user_perms[$i]['pivot']['role_id']) ? Role::where('id', $user_perms[$i]['pivot']['role_id'])->first()->name : null;
                     array_splice($user_perms, $i, $i);
@@ -69,29 +56,53 @@ class PermissionController extends Controller
     /**
      * @group Users
      * 
-     * Remove permissions from a user
+     * Update permissions from a user
      * 
-     * Remove permissions from a user.
+     * Update permissions from a user.
      *
-     * @bodyParam user_id int required The id of the user. Example: 9
-     * @bodyParam user_id int required The id of the user. Example: 9
-     * @bodyParam user_id int required The id of the user. Example: 9
+     * @bodyParam create:roles bool Example: true
+     * @bodyParam update:roles bool Example: true
+     * @bodyParam delete:roles bool Example: true
+     * 
+     * @authenticated
+     * 
+     * @response status=200 scenario="success" [{"name":"create:roles","granted":true,"role":null},{"name":"update:roles","granted":true,"role":null},{"name":"delete:roles","granted":false,"role":null},{"name":"grant:roles","granted":false,"role":null},{"name":"revoke:roles","granted":false,"role":null},{"name":"create:programs","granted":true,"role":"Custom Create"},{"name":"update:programs","granted":true,"role":null},{"name":"delete:programs","granted":false,"role":null},{"name":"create:branches","granted":true,"role":"Custom Create"},{"name":"update:branches","granted":false,"role":null},{"name":"delete:branches","granted":false,"role":null},{"name":"create:users","granted":true,"role":"Custom Create"},{"name":"update:users","granted":true,"role":"User Admin"},{"name":"delete:users","granted":true,"role":"User Admin"},{"name":"grant:permissions","granted":false,"role":null},{"name":"revoke:permissions","granted":false,"role":null}]
+     * @response status=401 scenario="not_exist" {"not_exist":["create:roless","update:rolex"]}
      * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroyMany(Request $request, User $user)
+    public function update(Request $request, User $user)
     {
-        error_log($request->all());
-        if (is_array($request->all())) 
-        {
-            error_log('is array');
+        $permissions = $this->show($user);
+        $validated = array();
+        $name_not_found = array();
+
+        foreach ($request->all() as $name => $value) {
+            $name_not_found[] = $name;
+            $len = sizeof($permissions);
+            for ($i = 0; $i < $len; $i++) {
+                if ($permissions[$i]['name'] === $name && $permissions[$i]['role'] === null) {
+                    $granted = ($value === null || $value === false) ? false : true;
+                    $validated[$name] = $granted;
+                    unset($name_not_found[$name]);
+                    break;
+                }
+            }
         }
-        else
-        {
-            error_log('is not array');
-            //Product::findOrFail($id)->delete();
+
+        if (sizeof($name_not_found) == 0) {
+            foreach ($validated as $name => $granted) {
+                if ($granted) {
+                    $user->givePermissionTo($name);
+                } else {
+                    $user->revokePermissionTo($name);
+                }
+            }
+            return $this->show($user);
+        } else {
+            return response(array("not_exist" => $name_not_found), 401);
         }
     }
 }

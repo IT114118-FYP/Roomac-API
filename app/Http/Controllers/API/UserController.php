@@ -160,7 +160,7 @@ class UserController extends Controller
      * 
      * @authenticated
      * 
-     * @response status=200 scenario="success" {"id":1,"name":"190189768","email":"190189768@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","campus_id":"ST","first_name":"Tat","last_name":"Chan","chinese_name":"\u4f55\u4e16","created_at":"2020-10-07T17:44:37.000000Z","updated_at":"2020-10-09T06:31:23.000000Z","deleted_at":null}
+     * @response status=200 scenario="success" {"id":2,"name":"190189768","email":"190189768@stu.vtc.edu.hk","program_id":"CE114301","branch_id":"CW","first_name":"Pui Tat","last_name":"Tse","chinese_name":"\u8b1d\u6c9b\u9054","created_at":"2020-10-28T04:37:56.000000Z","updated_at":"2020-10-28T04:37:56.000000Z","deleted_at":null}
      *
      * @return \Illuminate\Http\Response
      */

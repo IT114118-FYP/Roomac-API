@@ -38,9 +38,11 @@ class DatabaseSeeder extends Seeder
 
         # Permission
         $permissions = [
+            'create:roles', 'update:roles', 'delete:roles', 'grant:roles', 'revoke:roles',
             'create:programs', 'update:programs', 'delete:programs',
             'create:branches', 'update:branches', 'delete:branches',
             'create:users', 'update:users', 'delete:users',
+            'grant:permissions', 'revoke:permissions',
         ];
         $this->seedPermission($permissions);
 

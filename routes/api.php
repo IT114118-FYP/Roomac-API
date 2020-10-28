@@ -22,7 +22,7 @@ Route::apiResource('/users', UserController::class);
 //Route::apiResource('/users.permissions', PermissionController::class);
 
 Route::get('/users/{user}/permissions', [PermissionController::class, 'show']);
-Route::delete('/users/{user}/permissions', [PermissionController::class, 'destroyMany']);
+Route::post('/users/{user}/permissions', [PermissionController::class, 'update']);
 
 
 /**

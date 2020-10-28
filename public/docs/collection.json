@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "0f046fce-543d-4c65-a20a-d9beaad6a28e",
+        "_postman_id": "808d67e8-ae5f-4128-95b7-ee09d9ee100c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -345,11 +345,12 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"IT114118\",\n    \"title_en\": \"Higher Diploma in AI and Mobile Applications Development\",\n    \"title_hk\": \"\\u4eba\\u5de5\\u667a\\u80fd\\u53ca\\u624b\\u6a5f\\u8edf\\u4ef6\\u958b\\u767c\\u9ad8\\u7d1a\\u6587\\u6191\",\n    \"title_cn\": \"\\u4eba\\u5de5\\u667a\\u80fd\\u53ca\\u624b\\u673a\\u8f6f\\u4ef6\\u5f00\\u53d1\\u9ad8\\u7ea7\\u6587\\u51ed\"\n}"
+                        },
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
@@ -361,7 +362,15 @@
                             "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/programs\/:program",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program",
+                            "variable": [
+                                {
+                                    "id": "program",
+                                    "key": "program",
+                                    "value": "IT114118",
+                                    "description": "string required The ID of the program."
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -390,7 +399,15 @@
                             "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/programs\/:program",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program",
+                            "variable": [
+                                {
+                                    "id": "program",
+                                    "key": "program",
+                                    "value": "IT114118",
+                                    "description": "string required The ID of the program."
+                                }
+                            ]
                         },
                         "method": "PUT",
                         "header": [
@@ -403,11 +420,12 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title_en\": \"Higher Diploma in AI and Mobile Applications Development\",\n    \"title_hk\": \"\\u4eba\\u5de5\\u667a\\u80fd\\u53ca\\u624b\\u6a5f\\u8edf\\u4ef6\\u958b\\u767c\\u9ad8\\u7d1a\\u6587\\u6191\",\n    \"title_cn\": \"\\u4eba\\u5de5\\u667a\\u80fd\\u53ca\\u624b\\u673a\\u8f6f\\u4ef6\\u5f00\\u53d1\\u9ad8\\u7ea7\\u6587\\u51ed\"\n}"
+                        },
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
@@ -419,7 +437,15 @@
                             "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/programs\/:program",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/:program",
+                            "variable": [
+                                {
+                                    "id": "program",
+                                    "key": "program",
+                                    "value": "IT114118",
+                                    "description": "string required The ID of the program."
+                                }
+                            ]
                         },
                         "method": "DELETE",
                         "header": [
@@ -434,9 +460,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 }
@@ -631,14 +655,12 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
                 {
-                    "name": "Remove permissions from a user\n\nRemove permissions from a user.",
+                    "name": "Update permissions from a user\n\nUpdate permissions from a user.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -647,7 +669,7 @@
                             "query": [],
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/permissions"
                         },
-                        "method": "DELETE",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -658,11 +680,12 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"create:roles\": true,\n    \"update:roles\": true,\n    \"delete:roles\": true\n}"
+                        },
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 }

@@ -36,15 +36,15 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-10-23T06:23:17.000000Z', updated_at: '2020-10-23T06:23:17.000000Z', deleted_at: null }
-                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-10-23T06:23:18.000000Z', updated_at: '2020-10-23T06:23:18.000000Z', deleted_at: null }
-                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-10-23T06:23:18.000000Z', updated_at: '2020-10-23T06:23:18.000000Z', deleted_at: null }
-                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-10-23T06:23:19.000000Z', updated_at: '2020-10-23T06:23:19.000000Z', deleted_at: null }
-                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-10-23T06:23:20.000000Z', updated_at: '2020-10-23T06:23:20.000000Z', deleted_at: null }
-                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-10-23T06:23:20.000000Z', updated_at: '2020-10-23T06:23:20.000000Z', deleted_at: null }
-                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-10-23T06:23:21.000000Z', updated_at: '2020-10-23T06:23:21.000000Z', deleted_at: null }
-                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-10-23T06:23:22.000000Z', updated_at: '2020-10-23T06:23:22.000000Z', deleted_at: null }
-                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-10-23T06:23:22.000000Z', updated_at: '2020-10-23T06:23:22.000000Z', deleted_at: null }
+                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-10-28T04:37:47.000000Z', updated_at: '2020-10-28T04:37:47.000000Z', deleted_at: null }
+                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-10-28T04:37:47.000000Z', updated_at: '2020-10-28T04:37:47.000000Z', deleted_at: null }
+                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-10-28T04:37:48.000000Z', updated_at: '2020-10-28T04:37:48.000000Z', deleted_at: null }
+                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-10-28T04:37:49.000000Z', updated_at: '2020-10-28T04:37:49.000000Z', deleted_at: null }
+                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-10-28T04:37:51.000000Z', updated_at: '2020-10-28T04:37:51.000000Z', deleted_at: null }
+                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-10-28T04:37:52.000000Z', updated_at: '2020-10-28T04:37:52.000000Z', deleted_at: null }
+                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-10-28T04:37:52.000000Z', updated_at: '2020-10-28T04:37:52.000000Z', deleted_at: null }
+                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-10-28T04:37:54.000000Z', updated_at: '2020-10-28T04:37:54.000000Z', deleted_at: null }
+                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-10-28T04:37:53.000000Z', updated_at: '2020-10-28T04:37:53.000000Z', deleted_at: null }
             tags:
                 - Branch
             security: []
@@ -297,9 +297,9 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-10-23T06:23:17.000000Z', updated_at: '2020-10-23T06:23:17.000000Z', deleted_at: null }
-                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-10-23T06:23:16.000000Z', updated_at: '2020-10-23T06:23:16.000000Z', deleted_at: null }
-                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: '2020-10-23T06:23:15.000000Z', updated_at: '2020-10-23T06:23:15.000000Z', deleted_at: null }
+                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-10-28T04:37:46.000000Z', updated_at: '2020-10-28T04:37:46.000000Z', deleted_at: null }
+                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-10-28T04:37:45.000000Z', updated_at: '2020-10-28T04:37:45.000000Z', deleted_at: null }
+                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: '2020-10-28T04:37:44.000000Z', updated_at: '2020-10-28T04:37:44.000000Z', deleted_at: null }
             tags:
                 - Program
             security: []
@@ -324,7 +324,34 @@ paths:
             responses: {  }
             tags:
                 - Program
-            security: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                id:
+                                    type: string
+                                    description: 'The ID of the program.'
+                                    example: IT114118
+                                title_en:
+                                    type: string
+                                    description: 'Title of the program in English.'
+                                    example: 'Higher Diploma in AI and Mobile Applications Development'
+                                title_hk:
+                                    type: string
+                                    description: 'Title of the program in Traditional Chinese.'
+                                    example: 人工智能及手機軟件開發高級文憑
+                                title_cn:
+                                    type: string
+                                    description: 'Title of the program in Simplified Chinese.'
+                                    example: 人工智能及手机软件开发高级文凭
+                            required:
+                                - id
+                                - title_en
+                                - title_hk
+                                - title_cn
     '/api/programs/{program}':
         get:
             summary: 'Retrieve a Program'
@@ -345,24 +372,28 @@ paths:
                     schema:
                         type: string
             responses:
-                404:
+                200:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: 'No query results for model [App\Models\Program] {program}'
-                                    exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-                                    file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
-                                    line: 364
-                                    trace: [{ file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php', line: 313, function: prepareException, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php', line: 54, function: render, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php', line: 51, function: render, class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 172, function: handleException, class: Illuminate\Routing\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 693, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 668, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 634, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 623, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 87, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 322, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 304, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 229, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 167, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 125, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 118, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: call_user_func_array }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 95, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 39, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 596, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Command\Command.php', line: 258, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 920, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 266, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 142, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }]
+                                    id: IT114118
+                                    title_en: 'Higher Diploma in AI and Mobile Applications Development'
+                                    title_hk: 人工智能及手機軟件開發高級文憑
+                                    title_cn: 人工智能及手机软件开发高级文凭
+                                    created_at: '2020-10-28T04:37:44.000000Z'
+                                    updated_at: '2020-10-28T04:37:44.000000Z'
+                                    deleted_at: null
                                 properties:
-                                    message: { type: string, example: 'No query results for model [App\Models\Program] {program}' }
-                                    exception: { type: string, example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException }
-                                    file: { type: string, example: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php' }
-                                    line: { type: integer, example: 364 }
-                                    trace: { type: array, example: [{ file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php', line: 313, function: prepareException, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php', line: 54, function: render, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php', line: 51, function: render, class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 172, function: handleException, class: Illuminate\Routing\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 693, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 668, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 634, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 623, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 87, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 322, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 304, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 229, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 167, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 125, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 118, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: call_user_func_array }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 95, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 39, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 596, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Command\Command.php', line: 258, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 920, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 266, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 142, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }], items: { type: object } }
+                                    id: { type: string, example: IT114118 }
+                                    title_en: { type: string, example: 'Higher Diploma in AI and Mobile Applications Development' }
+                                    title_hk: { type: string, example: 人工智能及手機軟件開發高級文憑 }
+                                    title_cn: { type: string, example: 人工智能及手机软件开发高级文凭 }
+                                    created_at: { type: string, example: '2020-10-28T04:37:44.000000Z' }
+                                    updated_at: { type: string, example: '2020-10-28T04:37:44.000000Z' }
+                                    deleted_at: { type: 'null', example: null }
             tags:
                 - Program
             security: []
@@ -387,7 +418,29 @@ paths:
             responses: {  }
             tags:
                 - Program
-            security: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                title_en:
+                                    type: string
+                                    description: 'Title of the program in English.'
+                                    example: 'Higher Diploma in AI and Mobile Applications Development'
+                                title_hk:
+                                    type: string
+                                    description: 'Title of the program in Traditional Chinese.'
+                                    example: 人工智能及手機軟件開發高級文憑
+                                title_cn:
+                                    type: string
+                                    description: 'Title of the program in Simplified Chinese.'
+                                    example: 人工智能及手机软件开发高级文凭
+                            required:
+                                - title_en
+                                - title_hk
+                                - title_cn
         delete:
             summary: 'Remove a Program'
             description: ''
@@ -409,7 +462,21 @@ paths:
             responses: {  }
             tags:
                 - Program
-            security: []
+        parameters:
+            -
+                in: path
+                name: program
+                description: 'Optional parameter. string required The ID of the program.'
+                required: true
+                schema:
+                    type: string
+                examples:
+                    omitted:
+                        summary: 'When the value is omitted'
+                        value: ''
+                    present:
+                        summary: 'When the value is present'
+                        value: IT114118
     /api/users/me:
         get:
             summary: 'Get myself'
@@ -437,30 +504,28 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    id: 1
+                                    id: 2
                                     name: '190189768'
                                     email: 190189768@stu.vtc.edu.hk
-                                    permission: '1'
-                                    program_id: IT114118
-                                    campus_id: ST
-                                    first_name: Tat
-                                    last_name: Chan
-                                    chinese_name: 何世
-                                    created_at: '2020-10-07T17:44:37.000000Z'
-                                    updated_at: '2020-10-09T06:31:23.000000Z'
+                                    program_id: CE114301
+                                    branch_id: CW
+                                    first_name: 'Pui Tat'
+                                    last_name: Tse
+                                    chinese_name: 謝沛達
+                                    created_at: '2020-10-28T04:37:56.000000Z'
+                                    updated_at: '2020-10-28T04:37:56.000000Z'
                                     deleted_at: null
                                 properties:
-                                    id: { type: integer, example: 1 }
+                                    id: { type: integer, example: 2 }
                                     name: { type: string, example: '190189768' }
                                     email: { type: string, example: 190189768@stu.vtc.edu.hk }
-                                    permission: { type: string, example: '1' }
-                                    program_id: { type: string, example: IT114118 }
-                                    campus_id: { type: string, example: ST }
-                                    first_name: { type: string, example: Tat }
-                                    last_name: { type: string, example: Chan }
-                                    chinese_name: { type: string, example: 何世 }
-                                    created_at: { type: string, example: '2020-10-07T17:44:37.000000Z' }
-                                    updated_at: { type: string, example: '2020-10-09T06:31:23.000000Z' }
+                                    program_id: { type: string, example: CE114301 }
+                                    branch_id: { type: string, example: CW }
+                                    first_name: { type: string, example: 'Pui Tat' }
+                                    last_name: { type: string, example: Tse }
+                                    chinese_name: { type: string, example: 謝沛達 }
+                                    created_at: { type: string, example: '2020-10-28T04:37:56.000000Z' }
+                                    updated_at: { type: string, example: '2020-10-28T04:37:56.000000Z' }
                                     deleted_at: { type: 'null', example: null }
             tags:
                 - Users
@@ -621,14 +686,26 @@ paths:
                                 items:
                                     type: object
                                 example:
+                                    - { name: 'create:roles', granted: true, role: null }
+                                    - { name: 'update:roles', granted: true, role: null }
+                                    - { name: 'delete:roles', granted: false, role: null }
+                                    - { name: 'grant:roles', granted: false, role: null }
+                                    - { name: 'revoke:roles', granted: false, role: null }
+                                    - { name: 'create:programs', granted: true, role: 'Custom Create' }
+                                    - { name: 'update:programs', granted: true, role: null }
+                                    - { name: 'delete:programs', granted: false, role: null }
+                                    - { name: 'create:branches', granted: true, role: 'Custom Create' }
+                                    - { name: 'update:branches', granted: false, role: null }
+                                    - { name: 'delete:branches', granted: false, role: null }
                                     - { name: 'create:users', granted: true, role: 'Custom Create' }
                                     - { name: 'update:users', granted: true, role: 'User Admin' }
                                     - { name: 'delete:users', granted: true, role: 'User Admin' }
+                                    - { name: 'grant:permissions', granted: false, role: null }
+                                    - { name: 'revoke:permissions', granted: false, role: null }
             tags:
                 - Users
-            security: []
-        delete:
-            summary: "Remove permissions from a user\n\nRemove permissions from a user."
+        post:
+            summary: "Update permissions from a user\n\nUpdate permissions from a user."
             description: ''
             parameters:
                 -
@@ -645,7 +722,60 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                example:
+                                    - { name: 'create:roles', granted: true, role: null }
+                                    - { name: 'update:roles', granted: true, role: null }
+                                    - { name: 'delete:roles', granted: false, role: null }
+                                    - { name: 'grant:roles', granted: false, role: null }
+                                    - { name: 'revoke:roles', granted: false, role: null }
+                                    - { name: 'create:programs', granted: true, role: 'Custom Create' }
+                                    - { name: 'update:programs', granted: true, role: null }
+                                    - { name: 'delete:programs', granted: false, role: null }
+                                    - { name: 'create:branches', granted: true, role: 'Custom Create' }
+                                    - { name: 'update:branches', granted: false, role: null }
+                                    - { name: 'delete:branches', granted: false, role: null }
+                                    - { name: 'create:users', granted: true, role: 'Custom Create' }
+                                    - { name: 'update:users', granted: true, role: 'User Admin' }
+                                    - { name: 'delete:users', granted: true, role: 'User Admin' }
+                                    - { name: 'grant:permissions', granted: false, role: null }
+                                    - { name: 'revoke:permissions', granted: false, role: null }
+                401:
+                    description: '401, not_exist'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    not_exist: ['create:roless', 'update:rolex']
+                                properties:
+                                    not_exist: { type: array, example: ['create:roless', 'update:rolex'], items: { type: string } }
             tags:
                 - Users
-            security: []
+            requestBody:
+                required: false
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                'create:roles':
+                                    type: boolean
+                                    description: ''
+                                    example: true
+                                'update:roles':
+                                    type: boolean
+                                    description: ''
+                                    example: true
+                                'delete:roles':
+                                    type: boolean
+                                    description: ''
+                                    example: true

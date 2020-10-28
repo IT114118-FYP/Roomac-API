@@ -26,6 +26,13 @@ class ProgramController extends Controller
      * 
      * Add a Program
      *
+     * @bodyParam id string required The ID of the program. Example: IT114118
+     * @bodyParam title_en string required Title of the program in English. Example: Higher Diploma in AI and Mobile Applications Development
+     * @bodyParam title_hk string required Title of the program in Traditional Chinese. Example: 人工智能及手機軟件開發高級文憑
+     * @bodyParam title_cn string required Title of the program in Simplified Chinese. Example: 人工智能及手机软件开发高级文凭
+     * 
+     * @authenticated
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -57,6 +64,8 @@ class ProgramController extends Controller
      * 
      * Retrieve a Program
      *
+     * @urlParam program string required The ID of the program. Example: IT114118
+     * 
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
@@ -70,6 +79,14 @@ class ProgramController extends Controller
      * 
      * Update a Program
      *
+     * @urlParam program string required The ID of the program. Example: IT114118
+     * 
+     * @bodyParam title_en string required Title of the program in English. Example: Higher Diploma in AI and Mobile Applications Development
+     * @bodyParam title_hk string required Title of the program in Traditional Chinese. Example: 人工智能及手機軟件開發高級文憑
+     * @bodyParam title_cn string required Title of the program in Simplified Chinese. Example: 人工智能及手机软件开发高级文凭
+     * 
+     * @authenticated
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
@@ -88,7 +105,11 @@ class ProgramController extends Controller
      * @group Program
      * 
      * Remove a Program
+     * 
+     * @urlParam program string required The ID of the program. Example: IT114118
      *
+     * @authenticated
+     * 
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */

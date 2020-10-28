@@ -44,8 +44,8 @@ fetch(url, {
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
-        "created_at": "2020-10-23T06:23:17.000000Z",
-        "updated_at": "2020-10-23T06:23:17.000000Z",
+        "created_at": "2020-10-28T04:37:47.000000Z",
+        "updated_at": "2020-10-28T04:37:47.000000Z",
         "deleted_at": null
     },
     {
@@ -53,8 +53,8 @@ fetch(url, {
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
-        "created_at": "2020-10-23T06:23:18.000000Z",
-        "updated_at": "2020-10-23T06:23:18.000000Z",
+        "created_at": "2020-10-28T04:37:47.000000Z",
+        "updated_at": "2020-10-28T04:37:47.000000Z",
         "deleted_at": null
     },
     {
@@ -62,8 +62,8 @@ fetch(url, {
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
-        "created_at": "2020-10-23T06:23:18.000000Z",
-        "updated_at": "2020-10-23T06:23:18.000000Z",
+        "created_at": "2020-10-28T04:37:48.000000Z",
+        "updated_at": "2020-10-28T04:37:48.000000Z",
         "deleted_at": null
     },
     {
@@ -71,8 +71,8 @@ fetch(url, {
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
-        "created_at": "2020-10-23T06:23:19.000000Z",
-        "updated_at": "2020-10-23T06:23:19.000000Z",
+        "created_at": "2020-10-28T04:37:49.000000Z",
+        "updated_at": "2020-10-28T04:37:49.000000Z",
         "deleted_at": null
     },
     {
@@ -80,8 +80,8 @@ fetch(url, {
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
-        "created_at": "2020-10-23T06:23:20.000000Z",
-        "updated_at": "2020-10-23T06:23:20.000000Z",
+        "created_at": "2020-10-28T04:37:51.000000Z",
+        "updated_at": "2020-10-28T04:37:51.000000Z",
         "deleted_at": null
     },
     {
@@ -89,8 +89,8 @@ fetch(url, {
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
-        "created_at": "2020-10-23T06:23:20.000000Z",
-        "updated_at": "2020-10-23T06:23:20.000000Z",
+        "created_at": "2020-10-28T04:37:52.000000Z",
+        "updated_at": "2020-10-28T04:37:52.000000Z",
         "deleted_at": null
     },
     {
@@ -98,8 +98,8 @@ fetch(url, {
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2020-10-23T06:23:21.000000Z",
-        "updated_at": "2020-10-23T06:23:21.000000Z",
+        "created_at": "2020-10-28T04:37:52.000000Z",
+        "updated_at": "2020-10-28T04:37:52.000000Z",
         "deleted_at": null
     },
     {
@@ -107,8 +107,8 @@ fetch(url, {
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2020-10-23T06:23:22.000000Z",
-        "updated_at": "2020-10-23T06:23:22.000000Z",
+        "created_at": "2020-10-28T04:37:54.000000Z",
+        "updated_at": "2020-10-28T04:37:54.000000Z",
         "deleted_at": null
     },
     {
@@ -116,8 +116,8 @@ fetch(url, {
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
-        "created_at": "2020-10-23T06:23:22.000000Z",
-        "updated_at": "2020-10-23T06:23:22.000000Z",
+        "created_at": "2020-10-28T04:37:53.000000Z",
+        "updated_at": "2020-10-28T04:37:53.000000Z",
         "deleted_at": null
     }
 ]
