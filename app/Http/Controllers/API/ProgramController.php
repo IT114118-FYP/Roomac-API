@@ -93,7 +93,6 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
-        $program->id = $request->id;
         $program->title_en = $request->title_en;
         $program->title_hk = $request->title_hk;
         $program->title_cn = $request->title_cn;

@@ -12,6 +12,7 @@ use Spatie\Permission\Models\Permission;
 use App\Models\User;
 use App\Models\Branch;
 use App\Models\Program;
+use App\Models\Venue;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
 
         # Truncate all models
         Schema::disableForeignKeyConstraints();
+        Venue::truncate();
         User::truncate();
         Program::truncate();
         Branch::truncate();

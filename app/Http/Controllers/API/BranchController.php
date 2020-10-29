@@ -81,7 +81,6 @@ class BranchController extends Controller
      */
     public function update(Request $request, Branch $branch)
     {
-        $branch->id = $request->id;
         $branch->title_en = $request->title_en;
         $branch->title_hk = $request->title_hk;
         $branch->title_cn = $request->title_cn;

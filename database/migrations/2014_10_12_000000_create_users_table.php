@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('program_id')->references('id')->on('programs')->constrained();
-            $table->foreign('branch_id')->references('id')->on('branches')->constrained();
+            $table->foreign('program_id')->references('id')->on('programs')->constrained()->onDelete('set null');
+            $table->foreign('branch_id')->references('id')->on('branches')->constrained()->onDelete('set null');
         });
     }
 
