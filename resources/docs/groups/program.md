@@ -1,6 +1,58 @@
 # Program
 
 
+## Remove multiple programs
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/programs" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ids":"{\"ids\": [\"IT114118\", \"IT123456\"]}"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ids": "{\"ids\": [\"IT114118\", \"IT123456\"]}"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/programs`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>ids</b></code>&nbsp; <small>array</small>     <br>
+    Array of the programs' id
+
+
+
 ## Retrieve all programs
 
 
@@ -307,58 +359,6 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <code><b>program</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     string required The ID of the program.
-
-
-
-## Remove multiple programs
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/programs" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"ids":"{\"ids\": [\"IT114118\", \"IT123456\"]}"}'
-
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/programs"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "ids": "{\"ids\": [\"IT114118\", \"IT123456\"]}"
-}
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-red">DELETE</small>
- **`api/programs`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-    Array of the programs' id
 
 
 

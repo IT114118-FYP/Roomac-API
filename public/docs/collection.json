@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "b3a993a4-9a5d-4fdb-966e-976e28ed26a8",
+        "_postman_id": "55ccbaa1-a435-4f34-908e-063b6d752367",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -11,6 +11,36 @@
             "name": "Branch",
             "description": "",
             "item": [
+                {
+                    "name": "Remove multiple branches",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [\\\"ST\\\", \\\"TY\\\"]}\"\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
                 {
                     "name": "Retrieve all branches",
                     "request": {
@@ -155,36 +185,6 @@
                         }
                     },
                     "response": []
-                },
-                {
-                    "name": "Remove multiple branches",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/branches",
-                            "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches"
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [\\\"ST\\\", \\\"TY\\\"]}\"\n}"
-                        },
-                        "description": "",
-                        "auth": null
-                    },
-                    "response": []
                 }
             ]
         },
@@ -325,6 +325,36 @@
             "name": "Program",
             "description": "",
             "item": [
+                {
+                    "name": "Remove multiple programs",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/programs",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [\\\"IT114118\\\", \\\"IT123456\\\"]}\"\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
                 {
                     "name": "Retrieve all programs",
                     "request": {
@@ -489,36 +519,6 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": null
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Remove multiple programs",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/programs",
-                            "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs"
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [\\\"IT114118\\\", \\\"IT123456\\\"]}\"\n}"
-                        },
                         "description": "",
                         "auth": null
                     },

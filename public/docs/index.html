@@ -54,6 +54,43 @@
 <p>Welcome to our API documentation!</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p><h1>Branch</h1>
+<h2>Remove multiple branches</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/branches" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ids":"{\"ids\": [\"ST\", \"TY\"]}"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ids": "{\"ids\": [\"ST\", \"TY\"]}"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/branches</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
+Array of the branches' id</p>
 <h2>Retrieve all branches</h2>
 <blockquote>
 <p>Example request:</p>
@@ -81,33 +118,6 @@ fetch(url, {
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">[
-    {
-        "id": "CW",
-        "title_en": "Chai Wan",
-        "title_hk": "柴灣",
-        "title_cn": "柴湾",
-        "created_at": "2020-10-30T06:02:59.000000Z",
-        "updated_at": "2020-10-30T06:02:59.000000Z",
-        "deleted_at": null
-    },
-    {
-        "id": "HW",
-        "title_en": "Haking Wong",
-        "title_hk": "黃克競",
-        "title_cn": "黄克竞",
-        "created_at": "2020-10-30T06:03:00.000000Z",
-        "updated_at": "2020-10-30T06:03:00.000000Z",
-        "deleted_at": null
-    },
-    {
-        "id": "KC",
-        "title_en": "Kwai Chung",
-        "title_hk": "葵涌",
-        "title_cn": "葵涌",
-        "created_at": "2020-10-30T06:30:55.000000Z",
-        "updated_at": "2020-10-30T06:30:55.000000Z",
-        "deleted_at": null
-    },
     {
         "id": "KT",
         "title_en": "Kwun Tong",
@@ -149,15 +159,6 @@ fetch(url, {
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2020-10-30T06:03:05.000000Z",
-        "updated_at": "2020-10-30T06:03:05.000000Z",
-        "deleted_at": null
-    },
-    {
-        "id": "TY",
-        "title_en": "Tsing Yi",
-        "title_hk": "青衣",
-        "title_cn": "青衣",
         "created_at": "2020-10-30T06:03:05.000000Z",
         "updated_at": "2020-10-30T06:03:05.000000Z",
         "deleted_at": null
@@ -663,44 +664,7 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-red">DELETE</small>
-<strong><code>api/branches/{branch}</code></strong></p>
-<h2>Remove multiple branches</h2>
-<p><small class="badge badge-darkred">requires authentication</small></p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/branches" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"ids":"{\"ids\": [\"ST\", \"TY\"]}"}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "ids": "{\"ids\": [\"ST\", \"TY\"]}"
-}
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<h3>Request</h3>
-<p><small class="badge badge-red">DELETE</small>
-<strong><code>api/branches</code></strong></p>
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-Array of the branches' id</p><h1>Endpoints</h1>
+<strong><code>api/branches/{branch}</code></strong></p><h1>Endpoints</h1>
 <h2>Return an empty response simply to trigger the storage of the CSRF cookie in the browser.</h2>
 <blockquote>
 <p>Example request:</p>
@@ -840,6 +804,43 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p><code><b>global</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
 When this value is set to true all of the tokens issued to the user will be revoked. Defaults to false.</p><h1>Program</h1>
+<h2>Remove multiple programs</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/programs" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ids":"{\"ids\": [\"IT114118\", \"IT123456\"]}"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ids": "{\"ids\": [\"IT114118\", \"IT123456\"]}"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/programs</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
+Array of the programs' id</p>
 <h2>Retrieve all programs</h2>
 <blockquote>
 <p>Example request:</p>
@@ -1062,44 +1063,7 @@ fetch(url, {
 <strong><code>api/programs/{program}</code></strong></p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p><code><b>program</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-string required The ID of the program.</p>
-<h2>Remove multiple programs</h2>
-<p><small class="badge badge-darkred">requires authentication</small></p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/programs" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"ids":"{\"ids\": [\"IT114118\", \"IT123456\"]}"}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/programs"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "ids": "{\"ids\": [\"IT114118\", \"IT123456\"]}"
-}
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<h3>Request</h3>
-<p><small class="badge badge-red">DELETE</small>
-<strong><code>api/programs</code></strong></p>
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-Array of the programs' id</p><h1>Users</h1>
+string required The ID of the program.</p><h1>Users</h1>
 <h2>Get myself</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>

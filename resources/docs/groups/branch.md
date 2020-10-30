@@ -1,6 +1,58 @@
 # Branch
 
 
+## Remove multiple branches
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/branches" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ids":"{\"ids\": [\"ST\", \"TY\"]}"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ids": "{\"ids\": [\"ST\", \"TY\"]}"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/branches`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>ids</b></code>&nbsp; <small>array</small>     <br>
+    Array of the branches' id
+
+
+
 ## Retrieve all branches
 
 
@@ -39,33 +91,6 @@ fetch(url, {
 
 ```json
 [
-    {
-        "id": "CW",
-        "title_en": "Chai Wan",
-        "title_hk": "柴灣",
-        "title_cn": "柴湾",
-        "created_at": "2020-10-30T06:02:59.000000Z",
-        "updated_at": "2020-10-30T06:02:59.000000Z",
-        "deleted_at": null
-    },
-    {
-        "id": "HW",
-        "title_en": "Haking Wong",
-        "title_hk": "黃克競",
-        "title_cn": "黄克竞",
-        "created_at": "2020-10-30T06:03:00.000000Z",
-        "updated_at": "2020-10-30T06:03:00.000000Z",
-        "deleted_at": null
-    },
-    {
-        "id": "KC",
-        "title_en": "Kwai Chung",
-        "title_hk": "葵涌",
-        "title_cn": "葵涌",
-        "created_at": "2020-10-30T06:30:55.000000Z",
-        "updated_at": "2020-10-30T06:30:55.000000Z",
-        "deleted_at": null
-    },
     {
         "id": "KT",
         "title_en": "Kwun Tong",
@@ -107,15 +132,6 @@ fetch(url, {
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2020-10-30T06:03:05.000000Z",
-        "updated_at": "2020-10-30T06:03:05.000000Z",
-        "deleted_at": null
-    },
-    {
-        "id": "TY",
-        "title_en": "Tsing Yi",
-        "title_hk": "青衣",
-        "title_cn": "青衣",
         "created_at": "2020-10-30T06:03:05.000000Z",
         "updated_at": "2020-10-30T06:03:05.000000Z",
         "deleted_at": null
@@ -686,58 +702,6 @@ fetch(url, {
 ### Request
 <small class="badge badge-red">DELETE</small>
  **`api/branches/{branch}`**
-
-
-
-## Remove multiple branches
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/branches" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"ids":"{\"ids\": [\"ST\", \"TY\"]}"}'
-
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "ids": "{\"ids\": [\"ST\", \"TY\"]}"
-}
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-red">DELETE</small>
- **`api/branches`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-    Array of the branches' id
 
 
 
