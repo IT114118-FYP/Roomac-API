@@ -21,11 +21,9 @@ Route::apiResource('/programs', ProgramController::class);
 
 Route::get('/users/me', [UserController::class, 'myself']);
 Route::apiResource('/users', UserController::class);
-//Route::apiResource('/users.permissions', PermissionController::class);
 
 Route::get('/users/{user}/permissions', [PermissionController::class, 'show']);
 Route::post('/users/{user}/permissions', [PermissionController::class, 'update']);
-
 
 /**
  * @group Login
