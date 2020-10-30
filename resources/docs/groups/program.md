@@ -1,7 +1,7 @@
 # Program
 
 
-## Retrieve all Programs
+## Retrieve all programs
 
 
 
@@ -44,8 +44,8 @@ fetch(url, {
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
-        "created_at": "2020-10-28T04:37:46.000000Z",
-        "updated_at": "2020-10-28T04:37:46.000000Z",
+        "created_at": "2020-10-30T06:02:58.000000Z",
+        "updated_at": "2020-10-30T06:02:58.000000Z",
         "deleted_at": null
     },
     {
@@ -53,17 +53,17 @@ fetch(url, {
         "title_en": "Higher Diploma in Software Engineering",
         "title_hk": "軟件工程高級文憑",
         "title_cn": "软件工程高级文凭",
-        "created_at": "2020-10-28T04:37:45.000000Z",
-        "updated_at": "2020-10-28T04:37:45.000000Z",
+        "created_at": "2020-10-30T06:02:58.000000Z",
+        "updated_at": "2020-10-30T06:02:58.000000Z",
         "deleted_at": null
     },
     {
         "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
-        "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2020-10-28T04:37:44.000000Z",
-        "updated_at": "2020-10-28T04:37:44.000000Z",
+        "title_cn": "人工智能及手機軟件開發高級文憑",
+        "created_at": "2020-10-30T06:02:57.000000Z",
+        "updated_at": "2020-10-30T06:41:44.000000Z",
         "deleted_at": null
     }
 ]
@@ -75,7 +75,7 @@ fetch(url, {
 
 
 
-## Add a Program
+## Add a program
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -139,7 +139,7 @@ fetch(url, {
 
 
 
-## Retrieve a Program
+## Retrieve a program
 
 
 
@@ -180,9 +180,9 @@ fetch(url, {
     "id": "IT114118",
     "title_en": "Higher Diploma in AI and Mobile Applications Development",
     "title_hk": "人工智能及手機軟件開發高級文憑",
-    "title_cn": "人工智能及手机软件开发高级文凭",
-    "created_at": "2020-10-28T04:37:44.000000Z",
-    "updated_at": "2020-10-28T04:37:44.000000Z",
+    "title_cn": "人工智能及手機軟件開發高級文憑",
+    "created_at": "2020-10-30T06:02:57.000000Z",
+    "updated_at": "2020-10-30T06:41:44.000000Z",
     "deleted_at": null
 }
 ```
@@ -197,7 +197,7 @@ fetch(url, {
 
 
 
-## Update a Program
+## Update a program
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -264,7 +264,7 @@ fetch(url, {
 
 
 
-## Remove a Program
+## Remove a program
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -307,6 +307,58 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <code><b>program</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     string required The ID of the program.
+
+
+
+## Remove multiple programs
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/programs" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ids":"{\"ids\": [\"IT114118\", \"IT123456\"]}"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ids": "{\"ids\": [\"IT114118\", \"IT123456\"]}"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/programs`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>ids</b></code>&nbsp; <small>array</small>     <br>
+    Array of the programs' id
 
 
 

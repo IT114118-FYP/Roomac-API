@@ -12,7 +12,7 @@ class ProgramController extends Controller
     /**
      * @group Program
      * 
-     * Retrieve all Programs
+     * Retrieve all programs
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +24,7 @@ class ProgramController extends Controller
     /**
      * @group Program
      * 
-     * Add a Program
+     * Add a program
      *
      * @bodyParam id string required The ID of the program. Example: IT114118
      * @bodyParam title_en string required Title of the program in English. Example: Higher Diploma in AI and Mobile Applications Development
@@ -62,7 +62,7 @@ class ProgramController extends Controller
     /**
      * @group Program
      * 
-     * Retrieve a Program
+     * Retrieve a program
      *
      * @urlParam program string required The ID of the program. Example: IT114118
      * 
@@ -77,7 +77,7 @@ class ProgramController extends Controller
     /**
      * @group Program
      * 
-     * Update a Program
+     * Update a program
      *
      * @urlParam program string required The ID of the program. Example: IT114118
      * 
@@ -103,7 +103,7 @@ class ProgramController extends Controller
     /**
      * @group Program
      * 
-     * Remove a Program
+     * Remove a program
      * 
      * @urlParam program string required The ID of the program. Example: IT114118
      *
@@ -115,6 +115,24 @@ class ProgramController extends Controller
     public function destroy(Program $program)
     {
         Program::destroy($program->id);
+        return response(null, 200);
+    }
+
+    /**
+     * @group Program
+     * 
+     * Remove multiple programs
+     * 
+     * @bodyParam ids array required Array of the programs' id Example: {"ids": ["IT114118", "IT123456"]}
+     *
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyMany(Request $request)
+    {
+        Program::destroy($request->ids);
         return response(null, 200);
     }
 }

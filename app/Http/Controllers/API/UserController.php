@@ -100,7 +100,7 @@ class UserController extends Controller
     /**
      * @group Users
      * 
-     * Get a User
+     * Get a user
      * 
      * @authenticated
      *

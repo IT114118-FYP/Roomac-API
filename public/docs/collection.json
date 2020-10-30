@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "808d67e8-ae5f-4128-95b7-ee09d9ee100c",
+        "_postman_id": "b3a993a4-9a5d-4fdb-966e-976e28ed26a8",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -12,7 +12,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Retrieve all Branches",
+                    "name": "Retrieve all branches",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -41,7 +41,7 @@
                     "response": []
                 },
                 {
-                    "name": "Add a Branch",
+                    "name": "Add a branch",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -70,7 +70,7 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve a Branch",
+                    "name": "Retrieve a branch",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -99,7 +99,7 @@
                     "response": []
                 },
                 {
-                    "name": "Update a Branch",
+                    "name": "Update a branch",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -128,7 +128,7 @@
                     "response": []
                 },
                 {
-                    "name": "Remove a Branch",
+                    "name": "Remove a branch",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -153,6 +153,36 @@
                         "auth": {
                             "type": "noauth"
                         }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove multiple branches",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [\\\"ST\\\", \\\"TY\\\"]}\"\n}"
+                        },
+                        "description": "",
+                        "auth": null
                     },
                     "response": []
                 }
@@ -227,7 +257,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Authenticate a User",
+                    "name": "Authenticate a user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -256,7 +286,7 @@
                     "response": []
                 },
                 {
-                    "name": "Logout a User",
+                    "name": "Logout a user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -296,7 +326,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Retrieve all Programs",
+                    "name": "Retrieve all programs",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -325,7 +355,7 @@
                     "response": []
                 },
                 {
-                    "name": "Add a Program",
+                    "name": "Add a program",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -355,7 +385,7 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve a Program",
+                    "name": "Retrieve a program",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -392,7 +422,7 @@
                     "response": []
                 },
                 {
-                    "name": "Update a Program",
+                    "name": "Update a program",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -430,7 +460,7 @@
                     "response": []
                 },
                 {
-                    "name": "Remove a Program",
+                    "name": "Remove a program",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -459,6 +489,36 @@
                             }
                         ],
                         "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove multiple programs",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/programs",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [\\\"IT114118\\\", \\\"IT123456\\\"]}\"\n}"
+                        },
                         "description": "",
                         "auth": null
                     },
@@ -552,7 +612,7 @@
                     "response": []
                 },
                 {
-                    "name": "Get a User",
+                    "name": "Get a user",
                     "request": {
                         "url": {
                             "protocol": "http",

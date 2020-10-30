@@ -178,7 +178,7 @@ fetch(url, {
 
 
 
-## Get a User
+## Get a user
 
 <small class="badge badge-darkred">requires authentication</small>
 

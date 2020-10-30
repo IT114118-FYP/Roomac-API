@@ -17,7 +17,7 @@ class BranchController extends Controller
     /**
      * @group Branch
      * 
-     * Retrieve all Branches
+     * Retrieve all branches
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +29,7 @@ class BranchController extends Controller
     /**
      * @group Branch
      * 
-     * Add a Branch
+     * Add a branch
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -60,7 +60,7 @@ class BranchController extends Controller
     /**
      * @group Branch
      * 
-     * Retrieve a Branch
+     * Retrieve a branch
      *
      * @param  \App\Models\Branch  $branch
      * @return \Illuminate\Http\Response
@@ -73,7 +73,7 @@ class BranchController extends Controller
     /**
      * @group Branch
      * 
-     * Update a Branch
+     * Update a branch
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Branch  $branch
@@ -91,7 +91,7 @@ class BranchController extends Controller
     /**
      * @group Branch
      * 
-     * Remove a Branch
+     * Remove a branch
      *
      * @param  \App\Models\Branch  $branch
      * @return \Illuminate\Http\Response
@@ -99,6 +99,24 @@ class BranchController extends Controller
     public function destroy(Branch $branch)
     {
         Branch::destroy($branch->id);
+        return response(null, 200);
+    }
+
+    /**
+     * @group Branch
+     * 
+     * Remove multiple branches
+     * 
+     * @bodyParam ids array required Array of the branches' id Example: {"ids": ["ST", "TY"]}
+     *
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyMany(Request $request)
+    {
+        Branch::destroy($request->ids);
         return response(null, 200);
     }
 }

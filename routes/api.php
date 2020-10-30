@@ -14,9 +14,11 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\PermissionController;
 
 Route::apiResource('/branches', BranchController::class);
-Route::apiResource('/programs', ProgramController::class);
+Route::delete('/branches', [BranchController::class, 'destroyMany']);
 
-//Route::get('/user/{user}/permission', [UserController::class, 'permission']);
+Route::apiResource('/programs', ProgramController::class);
+Route::delete('/programs', [ProgramController::class, 'destroyMany']);
+
 Route::get('/users/me', [UserController::class, 'myself']);
 Route::apiResource('/users', UserController::class);
 //Route::apiResource('/users.permissions', PermissionController::class);
@@ -28,7 +30,7 @@ Route::post('/users/{user}/permissions', [PermissionController::class, 'update']
 /**
  * @group Login
  * 
- * Authenticate a User
+ * Authenticate a user
  * 
  * @response status=200 scenario="success" 1|sNt8wF0Zh4oGJ20O22gns0K4bI2HJfkqNZWiKoEX
  * @response status=401 scenario="The user was not found or the password was incorrect."
@@ -60,7 +62,7 @@ Route::post('/login', function (Request $request) {
 /**
  * @group Login
  * 
- * Logout a User
+ * Logout a user
  * 
  * @authenticated
  * 

@@ -1,7 +1,7 @@
 # Login
 
 
-## Authenticate a User
+## Authenticate a user
 
 
 
@@ -48,7 +48,7 @@ fetch(url, {
 
 
 
-## Logout a User
+## Logout a user
 
 <small class="badge badge-darkred">requires authentication</small>
 

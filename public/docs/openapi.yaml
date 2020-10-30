@@ -9,7 +9,7 @@ servers:
 paths:
     /api/branches:
         get:
-            summary: 'Retrieve all Branches'
+            summary: 'Retrieve all branches'
             description: ''
             parameters:
                 -
@@ -36,20 +36,20 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-10-28T04:37:47.000000Z', updated_at: '2020-10-28T04:37:47.000000Z', deleted_at: null }
-                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-10-28T04:37:47.000000Z', updated_at: '2020-10-28T04:37:47.000000Z', deleted_at: null }
-                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-10-28T04:37:48.000000Z', updated_at: '2020-10-28T04:37:48.000000Z', deleted_at: null }
-                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-10-28T04:37:49.000000Z', updated_at: '2020-10-28T04:37:49.000000Z', deleted_at: null }
-                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-10-28T04:37:51.000000Z', updated_at: '2020-10-28T04:37:51.000000Z', deleted_at: null }
-                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-10-28T04:37:52.000000Z', updated_at: '2020-10-28T04:37:52.000000Z', deleted_at: null }
-                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-10-28T04:37:52.000000Z', updated_at: '2020-10-28T04:37:52.000000Z', deleted_at: null }
-                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-10-28T04:37:54.000000Z', updated_at: '2020-10-28T04:37:54.000000Z', deleted_at: null }
-                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-10-28T04:37:53.000000Z', updated_at: '2020-10-28T04:37:53.000000Z', deleted_at: null }
+                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-10-30T06:02:59.000000Z', updated_at: '2020-10-30T06:02:59.000000Z', deleted_at: null }
+                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-10-30T06:03:00.000000Z', updated_at: '2020-10-30T06:03:00.000000Z', deleted_at: null }
+                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-10-30T06:30:55.000000Z', updated_at: '2020-10-30T06:30:55.000000Z', deleted_at: null }
+                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-10-30T06:03:02.000000Z', updated_at: '2020-10-30T06:03:02.000000Z', deleted_at: null }
+                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-10-30T06:03:02.000000Z', updated_at: '2020-10-30T06:03:02.000000Z', deleted_at: null }
+                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-10-30T06:03:03.000000Z', updated_at: '2020-10-30T06:03:03.000000Z', deleted_at: null }
+                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-10-30T06:03:04.000000Z', updated_at: '2020-10-30T06:03:04.000000Z', deleted_at: null }
+                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-10-30T06:03:05.000000Z', updated_at: '2020-10-30T06:03:05.000000Z', deleted_at: null }
+                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-10-30T06:03:05.000000Z', updated_at: '2020-10-30T06:03:05.000000Z', deleted_at: null }
             tags:
                 - Branch
             security: []
         post:
-            summary: 'Add a Branch'
+            summary: 'Add a branch'
             description: ''
             parameters:
                 -
@@ -70,9 +70,44 @@ paths:
             tags:
                 - Branch
             security: []
+        delete:
+            summary: 'Remove multiple branches'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Branch
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                ids:
+                                    type: array
+                                    description: 'Array of the branches'' id'
+                                    example: '{"ids": ["ST", "TY"]}'
+                                    items: { type: string }
+                            required:
+                                - ids
     '/api/branches/{branch}':
         get:
-            summary: 'Retrieve a Branch'
+            summary: 'Retrieve a branch'
             description: ''
             parameters:
                 -
@@ -112,7 +147,7 @@ paths:
                 - Branch
             security: []
         put:
-            summary: 'Update a Branch'
+            summary: 'Update a branch'
             description: ''
             parameters:
                 -
@@ -134,7 +169,7 @@ paths:
                 - Branch
             security: []
         delete:
-            summary: 'Remove a Branch'
+            summary: 'Remove a branch'
             description: ''
             parameters:
                 -
@@ -210,7 +245,7 @@ paths:
             security: []
     /api/login:
         post:
-            summary: 'Authenticate a User'
+            summary: 'Authenticate a user'
             description: ''
             parameters:
                 -
@@ -240,7 +275,7 @@ paths:
             security: []
     /api/logout:
         post:
-            summary: 'Logout a User'
+            summary: 'Logout a user'
             description: ''
             parameters:
                 -
@@ -270,7 +305,7 @@ paths:
                 - Login
     /api/programs:
         get:
-            summary: 'Retrieve all Programs'
+            summary: 'Retrieve all programs'
             description: ''
             parameters:
                 -
@@ -297,14 +332,14 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-10-28T04:37:46.000000Z', updated_at: '2020-10-28T04:37:46.000000Z', deleted_at: null }
-                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-10-28T04:37:45.000000Z', updated_at: '2020-10-28T04:37:45.000000Z', deleted_at: null }
-                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: '2020-10-28T04:37:44.000000Z', updated_at: '2020-10-28T04:37:44.000000Z', deleted_at: null }
+                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-10-30T06:02:58.000000Z', updated_at: '2020-10-30T06:02:58.000000Z', deleted_at: null }
+                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-10-30T06:02:58.000000Z', updated_at: '2020-10-30T06:02:58.000000Z', deleted_at: null }
+                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手機軟件開發高級文憑, created_at: '2020-10-30T06:02:57.000000Z', updated_at: '2020-10-30T06:41:44.000000Z', deleted_at: null }
             tags:
                 - Program
             security: []
         post:
-            summary: 'Add a Program'
+            summary: 'Add a program'
             description: ''
             parameters:
                 -
@@ -352,9 +387,44 @@ paths:
                                 - title_en
                                 - title_hk
                                 - title_cn
+        delete:
+            summary: 'Remove multiple programs'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Program
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                ids:
+                                    type: array
+                                    description: 'Array of the programs'' id'
+                                    example: '{"ids": ["IT114118", "IT123456"]}'
+                                    items: { type: string }
+                            required:
+                                - ids
     '/api/programs/{program}':
         get:
-            summary: 'Retrieve a Program'
+            summary: 'Retrieve a program'
             description: ''
             parameters:
                 -
@@ -382,23 +452,23 @@ paths:
                                     id: IT114118
                                     title_en: 'Higher Diploma in AI and Mobile Applications Development'
                                     title_hk: 人工智能及手機軟件開發高級文憑
-                                    title_cn: 人工智能及手机软件开发高级文凭
-                                    created_at: '2020-10-28T04:37:44.000000Z'
-                                    updated_at: '2020-10-28T04:37:44.000000Z'
+                                    title_cn: 人工智能及手機軟件開發高級文憑
+                                    created_at: '2020-10-30T06:02:57.000000Z'
+                                    updated_at: '2020-10-30T06:41:44.000000Z'
                                     deleted_at: null
                                 properties:
                                     id: { type: string, example: IT114118 }
                                     title_en: { type: string, example: 'Higher Diploma in AI and Mobile Applications Development' }
                                     title_hk: { type: string, example: 人工智能及手機軟件開發高級文憑 }
-                                    title_cn: { type: string, example: 人工智能及手机软件开发高级文凭 }
-                                    created_at: { type: string, example: '2020-10-28T04:37:44.000000Z' }
-                                    updated_at: { type: string, example: '2020-10-28T04:37:44.000000Z' }
+                                    title_cn: { type: string, example: 人工智能及手機軟件開發高級文憑 }
+                                    created_at: { type: string, example: '2020-10-30T06:02:57.000000Z' }
+                                    updated_at: { type: string, example: '2020-10-30T06:41:44.000000Z' }
                                     deleted_at: { type: 'null', example: null }
             tags:
                 - Program
             security: []
         put:
-            summary: 'Update a Program'
+            summary: 'Update a program'
             description: ''
             parameters:
                 -
@@ -442,7 +512,7 @@ paths:
                                 - title_hk
                                 - title_cn
         delete:
-            summary: 'Remove a Program'
+            summary: 'Remove a program'
             description: ''
             parameters:
                 -
@@ -585,7 +655,7 @@ paths:
                 - Users
     '/api/users/{user}':
         get:
-            summary: 'Get a User'
+            summary: 'Get a user'
             description: ''
             parameters:
                 -
