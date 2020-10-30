@@ -13,11 +13,11 @@ use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\PermissionController;
 
-Route::apiResource('/branches', BranchController::class);
 Route::delete('/branches', [BranchController::class, 'destroyMany']);
+Route::apiResource('/branches', BranchController::class);
 
-Route::apiResource('/programs', ProgramController::class);
 Route::delete('/programs', [ProgramController::class, 'destroyMany']);
+Route::apiResource('/programs', ProgramController::class);
 
 Route::get('/users/me', [UserController::class, 'myself']);
 Route::apiResource('/users', UserController::class);
