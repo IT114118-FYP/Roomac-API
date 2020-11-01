@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/venues/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php21FA.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php9D5.tmp" 
 ```
 
 ```javascript

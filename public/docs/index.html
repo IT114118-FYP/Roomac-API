@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Documentation</title>
+    <title>API Documentation - Roomac</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -52,6 +52,11 @@
     <div class="content">
         <h1>Introduction</h1>
 <p>Welcome to our API documentation!</p>
+<p>
+API Docs: <a href="https://it114118-fyp.herokuapp.com/docs/" target="_blank" rel="noopener">https://it114118-fyp.herokuapp.com/docs/</a>
+<br>
+Admin Panel: <a href="https://it114118-fyp-admin.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-admin.herokuapp.com/</a>
+</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p><h1>Branch</h1>
 <h2>Import branches</h2>
@@ -64,7 +69,7 @@
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpA064.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpB635.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/branches/import"
 );
@@ -953,7 +958,7 @@ When this value is set to true all of the tokens issued to the user will be revo
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpDE88.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpE034.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/programs/import"
 );
@@ -1116,12 +1121,28 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">[
     {
+        "id": "also",
+        "title_en": "try the algolia Instant Search",
+        "title_hk": "https:\/\/www.algolia.com\/doc\/api-reference\/widgets\/instantsearch\/react\/",
+        "title_cn": "https:\/\/www.algolia.com\/doc\/api-reference\/widgets\/instantsearch\/react\/",
+        "created_at": "2020-11-01T12:39:39.000000Z",
+        "updated_at": "2020-11-01T12:39:39.000000Z"
+    },
+    {
         "id": "CE114301",
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
         "created_at": "2020-11-01T08:59:56.000000Z",
         "updated_at": "2020-11-01T08:59:56.000000Z"
+    },
+    {
+        "id": "Hi Tommy",
+        "title_en": "Try add a export button link: https:\/\/it114118-fyp.herokuapp.com\/api\/programs\/export",
+        "title_hk": "thanks",
+        "title_cn": "thanks",
+        "created_at": "2020-11-01T12:37:20.000000Z",
+        "updated_at": "2020-11-01T12:37:20.000000Z"
     },
     {
         "id": "IT114105",
@@ -1452,7 +1473,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php67CE.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php36E1.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/users/import"
 );
@@ -2025,7 +2046,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/venues/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php21FA.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php9D5.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/venues/import"
 );

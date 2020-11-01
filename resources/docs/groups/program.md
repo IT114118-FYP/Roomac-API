@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpDE88.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpE034.tmp" 
 ```
 
 ```javascript
@@ -253,12 +253,28 @@ fetch(url, {
 ```json
 [
     {
+        "id": "also",
+        "title_en": "try the algolia Instant Search",
+        "title_hk": "https:\/\/www.algolia.com\/doc\/api-reference\/widgets\/instantsearch\/react\/",
+        "title_cn": "https:\/\/www.algolia.com\/doc\/api-reference\/widgets\/instantsearch\/react\/",
+        "created_at": "2020-11-01T12:39:39.000000Z",
+        "updated_at": "2020-11-01T12:39:39.000000Z"
+    },
+    {
         "id": "CE114301",
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
         "created_at": "2020-11-01T08:59:56.000000Z",
         "updated_at": "2020-11-01T08:59:56.000000Z"
+    },
+    {
+        "id": "Hi Tommy",
+        "title_en": "Try add a export button link: https:\/\/it114118-fyp.herokuapp.com\/api\/programs\/export",
+        "title_hk": "thanks",
+        "title_cn": "thanks",
+        "created_at": "2020-11-01T12:37:20.000000Z",
+        "updated_at": "2020-11-01T12:37:20.000000Z"
     },
     {
         "id": "IT114105",

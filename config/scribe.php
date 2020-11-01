@@ -87,6 +87,12 @@ return [
     'intro_text' => <<<INTRO
 Welcome to our API documentation!
 
+<p>
+API Docs: <a href="https://it114118-fyp.herokuapp.com/docs/" target="_blank" rel="noopener">https://it114118-fyp.herokuapp.com/docs/</a>
+<br>
+Admin Panel: <a href="https://it114118-fyp-admin.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-admin.herokuapp.com/</a>
+</p>
+
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside>
 INTRO
     ,
@@ -114,7 +120,7 @@ INTRO
      * The HTML <title> for the generated documentation, and the name of the generated Postman collection.
      * If this is null, Scribe will infer it from config('app.name').
      */
-    'title' => null,
+    'title' => 'API Documentation - Roomac',
 
     'description' => '',
 
