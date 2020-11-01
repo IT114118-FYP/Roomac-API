@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: October 30 2020</li>
+            <li>Last updated: November 1 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -54,7 +54,86 @@
 <p>Welcome to our API documentation!</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p><h1>Branch</h1>
+<h2>Import branches</h2>
+<p>Import branches.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/branches/import" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Accept: application/json" \
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php53CA.tmp" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/import"
+);
+
+let headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('file', document.querySelector('input[name="file"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/branches/import</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>file</b></code>&nbsp; <small>file</small>     <br></p>
+<h2>Export branches</h2>
+<p>Export branches.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/export?format=csv" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/export"
+);
+
+let params = {
+    "format": "csv",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/branches/export</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.</p>
 <h2>Remove multiple branches</h2>
+<p>Remove multiple branches.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -91,7 +170,36 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
 Array of the branches' id</p>
+<h2>Reset branches</h2>
+<p>Remove all branches.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/branches/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/branches/reset</code></strong></p>
 <h2>Retrieve all branches</h2>
+<p>Retrieve all branches.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -123,87 +231,79 @@ fetch(url, {
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
-        "created_at": "2020-10-30T12:54:50.000000Z",
-        "updated_at": "2020-10-30T12:54:50.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:57.000000Z",
+        "updated_at": "2020-11-01T08:59:57.000000Z"
     },
     {
         "id": "HW",
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
-        "created_at": "2020-10-30T12:54:50.000000Z",
-        "updated_at": "2020-10-30T12:54:50.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:59.000000Z",
+        "updated_at": "2020-11-01T08:59:59.000000Z"
     },
     {
         "id": "KC",
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
-        "created_at": "2020-10-30T12:54:50.000000Z",
-        "updated_at": "2020-10-30T12:54:50.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T09:00:01.000000Z",
+        "updated_at": "2020-11-01T09:00:01.000000Z"
     },
     {
         "id": "KT",
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
-        "created_at": "2020-10-30T12:54:51.000000Z",
-        "updated_at": "2020-10-30T12:54:51.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T09:00:03.000000Z",
+        "updated_at": "2020-11-01T09:00:03.000000Z"
     },
     {
         "id": "LWL",
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
-        "created_at": "2020-10-30T12:54:51.000000Z",
-        "updated_at": "2020-10-30T12:54:51.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T09:00:04.000000Z",
+        "updated_at": "2020-11-01T09:00:04.000000Z"
     },
     {
         "id": "MH",
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
-        "created_at": "2020-10-30T12:54:52.000000Z",
-        "updated_at": "2020-10-30T12:54:52.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T09:00:06.000000Z",
+        "updated_at": "2020-11-01T09:00:06.000000Z"
     },
     {
         "id": "ST",
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2020-10-30T12:54:52.000000Z",
-        "updated_at": "2020-10-30T12:54:52.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T09:00:07.000000Z",
+        "updated_at": "2020-11-01T09:00:07.000000Z"
     },
     {
         "id": "TM",
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2020-10-30T12:54:53.000000Z",
-        "updated_at": "2020-10-30T12:54:53.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T09:00:10.000000Z",
+        "updated_at": "2020-11-01T09:00:10.000000Z"
     },
     {
         "id": "TY",
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
-        "created_at": "2020-10-30T12:54:53.000000Z",
-        "updated_at": "2020-10-30T12:54:53.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T09:00:09.000000Z",
+        "updated_at": "2020-11-01T09:00:09.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/branches</code></strong></p>
 <h2>Add a branch</h2>
+<p>Add a branch.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -230,6 +330,7 @@ fetch(url, {
 <p><small class="badge badge-black">POST</small>
 <strong><code>api/branches</code></strong></p>
 <h2>Retrieve a branch</h2>
+<p>Retrieve a branch.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -648,6 +749,7 @@ fetch(url, {
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/branches/{branch}</code></strong></p>
 <h2>Update a branch</h2>
+<p>Update a branch.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -676,6 +778,7 @@ fetch(url, {
 <p><small class="badge badge-purple">PATCH</small>
 <strong><code>api/branches/{branch}</code></strong></p>
 <h2>Remove a branch</h2>
+<p>Remove a branch.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -840,7 +943,86 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p><code><b>global</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
 When this value is set to true all of the tokens issued to the user will be revoked. Defaults to false.</p><h1>Program</h1>
+<h2>Import programs</h2>
+<p>Import programs.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/programs/import" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Accept: application/json" \
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php97C9.tmp" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs/import"
+);
+
+let headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('file', document.querySelector('input[name="file"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/programs/import</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>file</b></code>&nbsp; <small>file</small>     <br></p>
+<h2>Export programs</h2>
+<p>Export programs.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/programs/export?format=csv" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs/export"
+);
+
+let params = {
+    "format": "csv",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/programs/export</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.</p>
 <h2>Remove multiple programs</h2>
+<p>Remove multiple programs.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -877,7 +1059,36 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
 Array of the programs' id</p>
+<h2>Reset programs</h2>
+<p>Remove all programs.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/programs/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/programs/reset</code></strong></p>
 <h2>Retrieve all programs</h2>
+<p>Retrieve all programs.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -909,33 +1120,31 @@ fetch(url, {
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
-        "created_at": "2020-10-30T12:54:49.000000Z",
-        "updated_at": "2020-10-30T12:54:49.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:56.000000Z",
+        "updated_at": "2020-11-01T08:59:56.000000Z"
     },
     {
         "id": "IT114105",
         "title_en": "Higher Diploma in Software Engineering",
         "title_hk": "軟件工程高級文憑",
         "title_cn": "软件工程高级文凭",
-        "created_at": "2020-10-30T12:54:49.000000Z",
-        "updated_at": "2020-10-30T12:54:49.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:55.000000Z",
+        "updated_at": "2020-11-01T08:59:55.000000Z"
     },
     {
         "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
         "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2020-10-30T12:54:48.000000Z",
-        "updated_at": "2020-10-30T12:54:48.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:53.000000Z",
+        "updated_at": "2020-11-01T08:59:53.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/programs</code></strong></p>
 <h2>Add a program</h2>
+<p>Add a program.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -982,6 +1191,7 @@ Title of the program in Traditional Chinese.</p>
 <p><code><b>title_cn</b></code>&nbsp; <small>string</small>     <br>
 Title of the program in Simplified Chinese.</p>
 <h2>Retrieve a program</h2>
+<p>Retrieve a program.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1012,9 +1222,8 @@ fetch(url, {
     "title_en": "Higher Diploma in AI and Mobile Applications Development",
     "title_hk": "人工智能及手機軟件開發高級文憑",
     "title_cn": "人工智能及手机软件开发高级文凭",
-    "created_at": "2020-10-30T12:54:48.000000Z",
-    "updated_at": "2020-10-30T12:54:48.000000Z",
-    "deleted_at": null
+    "created_at": "2020-11-01T08:59:53.000000Z",
+    "updated_at": "2020-11-01T08:59:53.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -1023,6 +1232,7 @@ fetch(url, {
 <p><code><b>program</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
 string required The ID of the program.</p>
 <h2>Update a program</h2>
+<p>Update a program.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1071,6 +1281,7 @@ Title of the program in Traditional Chinese.</p>
 <p><code><b>title_cn</b></code>&nbsp; <small>string</small>     <br>
 Title of the program in Simplified Chinese.</p>
 <h2>Remove a program</h2>
+<p>Remove a program.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1099,8 +1310,9 @@ fetch(url, {
 <strong><code>api/programs/{program}</code></strong></p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p><code><b>program</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-string required The ID of the program.</p><h1>Users</h1>
+string required The ID of the program.</p><h1>User</h1>
 <h2>Get myself</h2>
+<p>Get current account informations with permissions.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1136,14 +1348,246 @@ fetch(url, {
     "first_name": "Pui Tat",
     "last_name": "Tse",
     "chinese_name": "謝沛達",
-    "created_at": "2020-10-28T04:37:56.000000Z",
-    "updated_at": "2020-10-28T04:37:56.000000Z",
-    "deleted_at": null
+    "created_at": "2020-11-01T09:00:22.000000Z",
+    "updated_at": "2020-11-01T09:00:22.000000Z",
+    "deleted_at": null,
+    "permissions": [
+        {
+            "name": "login:admin",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "create:roles",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "update:roles",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "delete:roles",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "grant:roles",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "revoke:roles",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "create:programs",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "update:programs",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "delete:programs",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "create:branches",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "update:branches",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "delete:branches",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "create:users",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "update:users",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "delete:users",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "grant:permissions",
+            "granted": true,
+            "role": "root"
+        },
+        {
+            "name": "revoke:permissions",
+            "granted": true,
+            "role": "root"
+        }
+    ]
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/users/me</code></strong></p>
-<h2>List users</h2>
+<h2>Import users</h2>
+<p>Import users.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/users/import" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Accept: application/json" \
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php341B.tmp" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/import"
+);
+
+let headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('file', document.querySelector('input[name="file"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/users/import</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>file</b></code>&nbsp; <small>file</small>     <br></p>
+<h2>Export users</h2>
+<p>Export users.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/users/export?format=csv" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/export"
+);
+
+let params = {
+    "format": "csv",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/users/export</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.</p>
+<h2>Remove multiple users</h2>
+<p>Remove multiple users.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/users" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ids":"{\"ids\": [1, 2]}"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ids": "{\"ids\": [1, 2]}"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/users</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
+Array of the users' id</p>
+<h2>Reset users</h2>
+<p>Remove all users.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/users/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/users/reset</code></strong></p>
+<h2>Retrieve all users</h2>
+<p>Retrieve all users.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1203,7 +1647,8 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/users</code></strong></p>
-<h2>Create a user</h2>
+<h2>Add a user</h2>
+<p>Add a user.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1230,7 +1675,8 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
 <strong><code>api/users</code></strong></p>
-<h2>Get a user</h2>
+<h2>Retrieve a user</h2>
+<p>Retrieve a user.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1263,7 +1709,8 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/users/{user}</code></strong></p>
-<h2>Update a User</h2>
+<h2>Update a user</h2>
+<p>Update a user.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1292,7 +1739,8 @@ fetch(url, {
 <strong><code>api/users/{user}</code></strong></p>
 <p><small class="badge badge-purple">PATCH</small>
 <strong><code>api/users/{user}</code></strong></p>
-<h2>Delete a User</h2>
+<h2>Remove a user</h2>
+<p>Remove a user.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1566,7 +2014,769 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p><code><b>create:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p>
 <p><code><b>update:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p>
-<p><code><b>delete:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p>
+<p><code><b>delete:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p><h1>Venue</h1>
+<h2>Import venues</h2>
+<p>Import venues.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/venues/import" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Accept: application/json" \
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpE58D.tmp" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues/import"
+);
+
+let headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('file', document.querySelector('input[name="file"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/venues/import</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>file</b></code>&nbsp; <small>file</small>     <br></p>
+<h2>Export venues</h2>
+<p>Export venues.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/venues/export?format=csv" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues/export"
+);
+
+let params = {
+    "format": "csv",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/venues/export</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.</p>
+<h2>Remove multiple venues</h2>
+<p>Remove multiple venues.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/venues" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ids":"{\"ids\": [1, 2]}"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ids": "{\"ids\": [1, 2]}"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/venues</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>ids</b></code>&nbsp; <small>array</small>     <br>
+Array of the venues' id</p>
+<h2>Reset venues</h2>
+<p>Remove all venues.</p>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/venues/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/venues/reset</code></strong></p>
+<h2>Retrieve all venues</h2>
+<p>Retrieve all venues.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/venues" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "branch_id": "ST",
+        "number": "IT-421B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:11.000000Z",
+        "updated_at": "2020-11-01T09:00:11.000000Z"
+    },
+    {
+        "id": 2,
+        "branch_id": "ST",
+        "number": "CS-442",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:13.000000Z",
+        "updated_at": "2020-11-01T09:00:13.000000Z"
+    },
+    {
+        "id": 3,
+        "branch_id": "ST",
+        "number": "CS-404",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:14.000000Z",
+        "updated_at": "2020-11-01T09:00:14.000000Z"
+    },
+    {
+        "id": 4,
+        "branch_id": "ST",
+        "number": "CS-332B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:16.000000Z",
+        "updated_at": "2020-11-01T09:00:16.000000Z"
+    },
+    {
+        "id": 5,
+        "branch_id": "ST",
+        "number": "CS-N108B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:17.000000Z",
+        "updated_at": "2020-11-01T09:00:17.000000Z"
+    },
+    {
+        "id": 6,
+        "branch_id": "ST",
+        "number": "IT-427B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:19.000000Z",
+        "updated_at": "2020-11-01T09:00:19.000000Z"
+    },
+    {
+        "id": 7,
+        "branch_id": "ST",
+        "number": "IT-417A",
+        "title_en": "Interview Room",
+        "title_hk": "接見室",
+        "title_cn": "接见室",
+        "opening_time": "09:00:00",
+        "closing_time": "15:00:00",
+        "created_at": "2020-11-01T09:00:19.000000Z",
+        "updated_at": "2020-11-01T09:00:19.000000Z"
+    }
+]</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/venues</code></strong></p>
+<h2>Add a venue</h2>
+<p>Add a venue.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/venues" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/venues</code></strong></p>
+<h2>Retrieve a venue</h2>
+<p>Retrieve a venue.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "No query results for model [App\\Models\\Venue] {venue}",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+    "line": 364,
+    "trace": [
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+            "line": 313,
+            "function": "prepareException",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\nunomaduro\\collision\\src\\Adapters\\Laravel\\ExceptionHandler.php",
+            "line": 54,
+            "function": "render",
+            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php",
+            "line": 51,
+            "function": "render",
+            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 172,
+            "function": "handleException",
+            "class": "Illuminate\\Routing\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 127,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 103,
+            "function": "handleRequest",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 55,
+            "function": "handleRequestUsingNamedLimiter",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 693,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 668,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 634,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 623,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 166,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+            "line": 87,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 141,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 110,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 40,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 136,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
+            "line": 920,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
+            "line": 266,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
+            "line": 142,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/venues/{venue}</code></strong></p>
+<h2>Update a venue</h2>
+<p>Update a venue.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-darkblue">PUT</small>
+<strong><code>api/venues/{venue}</code></strong></p>
+<p><small class="badge badge-purple">PATCH</small>
+<strong><code>api/venues/{venue}</code></strong></p>
+<h2>Remove a venue</h2>
+<p>Remove a venue.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/venues/{venue}</code></strong></p>
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

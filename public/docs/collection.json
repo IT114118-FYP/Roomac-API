@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "ca3272f6-4e71-49c2-9dc4-9bb342b8a95e",
+        "_postman_id": "a7930b1d-bd33-4593-a83d-0fe226038d89",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -12,7 +12,77 @@
             "description": "",
             "item": [
                 {
-                    "name": "Remove multiple branches",
+                    "name": "Import branches\n\nImport branches.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/import",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/import"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Export branches\n\nExport branches.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/export",
+                            "query": [
+                                {
+                                    "key": "format",
+                                    "value": "csv",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/export?format=csv"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove multiple branches\n\nRemove multiple branches.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -42,7 +112,34 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve all branches",
+                    "name": "Reset branches\n\nRemove all branches.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/reset",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/reset"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve all branches\n\nRetrieve all branches.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -71,7 +168,7 @@
                     "response": []
                 },
                 {
-                    "name": "Add a branch",
+                    "name": "Add a branch\n\nAdd a branch.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -100,7 +197,7 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve a branch",
+                    "name": "Retrieve a branch\n\nRetrieve a branch.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -129,7 +226,7 @@
                     "response": []
                 },
                 {
-                    "name": "Update a branch",
+                    "name": "Update a branch\n\nUpdate a branch.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -158,7 +255,7 @@
                     "response": []
                 },
                 {
-                    "name": "Remove a branch",
+                    "name": "Remove a branch\n\nRemove a branch.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -326,7 +423,77 @@
             "description": "",
             "item": [
                 {
-                    "name": "Remove multiple programs",
+                    "name": "Import programs\n\nImport programs.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/programs\/import",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/import"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Export programs\n\nExport programs.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/programs\/export",
+                            "query": [
+                                {
+                                    "key": "format",
+                                    "value": "csv",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/export?format=csv"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove multiple programs\n\nRemove multiple programs.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -356,7 +523,34 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve all programs",
+                    "name": "Reset programs\n\nRemove all programs.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/programs\/reset",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/programs\/reset"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve all programs\n\nRetrieve all programs.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -385,7 +579,7 @@
                     "response": []
                 },
                 {
-                    "name": "Add a program",
+                    "name": "Add a program\n\nAdd a program.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -415,7 +609,7 @@
                     "response": []
                 },
                 {
-                    "name": "Retrieve a program",
+                    "name": "Retrieve a program\n\nRetrieve a program.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -452,7 +646,7 @@
                     "response": []
                 },
                 {
-                    "name": "Update a program",
+                    "name": "Update a program\n\nUpdate a program.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -490,7 +684,7 @@
                     "response": []
                 },
                 {
-                    "name": "Remove a program",
+                    "name": "Remove a program\n\nRemove a program.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -527,11 +721,11 @@
             ]
         },
         {
-            "name": "Users",
+            "name": "User",
             "description": "",
             "item": [
                 {
-                    "name": "Get myself",
+                    "name": "Get myself\n\nGet current account informations with permissions.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -558,7 +752,134 @@
                     "response": []
                 },
                 {
-                    "name": "List users",
+                    "name": "Import users\n\nImport users.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/import",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/import"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Export users\n\nExport users.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/export",
+                            "query": [
+                                {
+                                    "key": "format",
+                                    "value": "csv",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/export?format=csv"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove multiple users\n\nRemove multiple users.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [1, 2]}\"\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reset users\n\nRemove all users.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/reset",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/reset"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve all users\n\nRetrieve all users.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -585,7 +906,7 @@
                     "response": []
                 },
                 {
-                    "name": "Create a user",
+                    "name": "Add a user\n\nAdd a user.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -612,7 +933,7 @@
                     "response": []
                 },
                 {
-                    "name": "Get a user",
+                    "name": "Retrieve a user\n\nRetrieve a user.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -639,7 +960,7 @@
                     "response": []
                 },
                 {
-                    "name": "Update a User",
+                    "name": "Update a user\n\nUpdate a user.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -666,7 +987,7 @@
                     "response": []
                 },
                 {
-                    "name": "Delete a User",
+                    "name": "Remove a user\n\nRemove a user.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -746,6 +1067,284 @@
                         },
                         "description": "",
                         "auth": null
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Venue",
+            "description": "",
+            "item": [
+                {
+                    "name": "Import venues\n\nImport venues.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues\/import",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/import"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Export venues\n\nExport venues.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues\/export",
+                            "query": [
+                                {
+                                    "key": "format",
+                                    "value": "csv",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/export?format=csv"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove multiple venues\n\nRemove multiple venues.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ids\": \"{\\\"ids\\\": [1, 2]}\"\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reset venues\n\nRemove all venues.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues\/reset",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/reset"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve all venues\n\nRetrieve all venues.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add a venue\n\nAdd a venue.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve a venue\n\nRetrieve a venue.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues\/:venue",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/:venue"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a venue\n\nUpdate a venue.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues\/:venue",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/:venue"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove a venue\n\nRemove a venue.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues\/:venue",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/:venue"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 }

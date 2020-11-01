@@ -1,9 +1,9 @@
-# Branch
+# Venue
 
 
-## Import branches
+## Import venues
 
-Import branches.
+Import venues.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -13,15 +13,15 @@ Import branches.
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/branches/import" \
+    "https://it114118-fyp.herokuapp.com/api/venues/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php53CA.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpE58D.tmp" 
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches/import"
+    "https://it114118-fyp.herokuapp.com/api/venues/import"
 );
 
 let headers = {
@@ -45,7 +45,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/branches/import`**
+ **`api/venues/import`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <code><b>file</b></code>&nbsp; <small>file</small>     <br>
@@ -53,9 +53,9 @@ fetch(url, {
 
 
 
-## Export branches
+## Export venues
 
-Export branches.
+Export venues.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -65,14 +65,14 @@ Export branches.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branches/export?format=csv" \
+    -G "https://it114118-fyp.herokuapp.com/api/venues/export?format=csv" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches/export"
+    "https://it114118-fyp.herokuapp.com/api/venues/export"
 );
 
 let params = {
@@ -106,7 +106,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/branches/export`**
+ **`api/venues/export`**
 
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
@@ -114,9 +114,9 @@ fetch(url, {
 
 
 
-## Remove multiple branches
+## Remove multiple venues
 
-Remove multiple branches.
+Remove multiple venues.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -126,16 +126,16 @@ Remove multiple branches.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/branches" \
+    "https://it114118-fyp.herokuapp.com/api/venues" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ids":"{\"ids\": [\"ST\", \"TY\"]}"}'
+    -d '{"ids":"{\"ids\": [1, 2]}"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches"
+    "https://it114118-fyp.herokuapp.com/api/venues"
 );
 
 let headers = {
@@ -144,7 +144,7 @@ let headers = {
 };
 
 let body = {
-    "ids": "{\"ids\": [\"ST\", \"TY\"]}"
+    "ids": "{\"ids\": [1, 2]}"
 }
 
 fetch(url, {
@@ -160,17 +160,17 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/branches`**
+ **`api/venues`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-    Array of the branches' id
+    Array of the venues' id
 
 
 
-## Reset branches
+## Reset venues
 
-Remove all branches.
+Remove all venues.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -180,14 +180,14 @@ Remove all branches.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/branches/reset" \
+    "https://it114118-fyp.herokuapp.com/api/venues/reset" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches/reset"
+    "https://it114118-fyp.herokuapp.com/api/venues/reset"
 );
 
 let headers = {
@@ -208,13 +208,13 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/branches/reset`**
+ **`api/venues/reset`**
 
 
 
-## Retrieve all branches
+## Retrieve all venues
 
-Retrieve all branches.
+Retrieve all venues.
 
 
 
@@ -223,14 +223,14 @@ Retrieve all branches.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branches" \
+    -G "https://it114118-fyp.herokuapp.com/api/venues" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches"
+    "https://it114118-fyp.herokuapp.com/api/venues"
 );
 
 let headers = {
@@ -253,89 +253,101 @@ fetch(url, {
 ```json
 [
     {
-        "id": "CW",
-        "title_en": "Chai Wan",
-        "title_hk": "柴灣",
-        "title_cn": "柴湾",
-        "created_at": "2020-11-01T08:59:57.000000Z",
-        "updated_at": "2020-11-01T08:59:57.000000Z"
+        "id": 1,
+        "branch_id": "ST",
+        "number": "IT-421B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:11.000000Z",
+        "updated_at": "2020-11-01T09:00:11.000000Z"
     },
     {
-        "id": "HW",
-        "title_en": "Haking Wong",
-        "title_hk": "黃克競",
-        "title_cn": "黄克竞",
-        "created_at": "2020-11-01T08:59:59.000000Z",
-        "updated_at": "2020-11-01T08:59:59.000000Z"
+        "id": 2,
+        "branch_id": "ST",
+        "number": "CS-442",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:13.000000Z",
+        "updated_at": "2020-11-01T09:00:13.000000Z"
     },
     {
-        "id": "KC",
-        "title_en": "Kwai Chung",
-        "title_hk": "葵涌",
-        "title_cn": "葵涌",
-        "created_at": "2020-11-01T09:00:01.000000Z",
-        "updated_at": "2020-11-01T09:00:01.000000Z"
+        "id": 3,
+        "branch_id": "ST",
+        "number": "CS-404",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:14.000000Z",
+        "updated_at": "2020-11-01T09:00:14.000000Z"
     },
     {
-        "id": "KT",
-        "title_en": "Kwun Tong",
-        "title_hk": "觀塘",
-        "title_cn": "观塘",
-        "created_at": "2020-11-01T09:00:03.000000Z",
-        "updated_at": "2020-11-01T09:00:03.000000Z"
+        "id": 4,
+        "branch_id": "ST",
+        "number": "CS-332B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:16.000000Z",
+        "updated_at": "2020-11-01T09:00:16.000000Z"
     },
     {
-        "id": "LWL",
-        "title_en": "Lee Wai Lee",
-        "title_hk": "李惠利",
-        "title_cn": "李惠利",
-        "created_at": "2020-11-01T09:00:04.000000Z",
-        "updated_at": "2020-11-01T09:00:04.000000Z"
+        "id": 5,
+        "branch_id": "ST",
+        "number": "CS-N108B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:17.000000Z",
+        "updated_at": "2020-11-01T09:00:17.000000Z"
     },
     {
-        "id": "MH",
-        "title_en": "Morrison Hill",
-        "title_hk": "摩理臣山",
-        "title_cn": "摩理臣山",
-        "created_at": "2020-11-01T09:00:06.000000Z",
-        "updated_at": "2020-11-01T09:00:06.000000Z"
+        "id": 6,
+        "branch_id": "ST",
+        "number": "IT-427B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "opening_time": "09:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2020-11-01T09:00:19.000000Z",
+        "updated_at": "2020-11-01T09:00:19.000000Z"
     },
     {
-        "id": "ST",
-        "title_en": "Sha Tin",
-        "title_hk": "沙田",
-        "title_cn": "沙田",
-        "created_at": "2020-11-01T09:00:07.000000Z",
-        "updated_at": "2020-11-01T09:00:07.000000Z"
-    },
-    {
-        "id": "TM",
-        "title_en": "Tuen Mun",
-        "title_hk": "屯門",
-        "title_cn": "屯门",
-        "created_at": "2020-11-01T09:00:10.000000Z",
-        "updated_at": "2020-11-01T09:00:10.000000Z"
-    },
-    {
-        "id": "TY",
-        "title_en": "Tsing Yi",
-        "title_hk": "青衣",
-        "title_cn": "青衣",
-        "created_at": "2020-11-01T09:00:09.000000Z",
-        "updated_at": "2020-11-01T09:00:09.000000Z"
+        "id": 7,
+        "branch_id": "ST",
+        "number": "IT-417A",
+        "title_en": "Interview Room",
+        "title_hk": "接見室",
+        "title_cn": "接见室",
+        "opening_time": "09:00:00",
+        "closing_time": "15:00:00",
+        "created_at": "2020-11-01T09:00:19.000000Z",
+        "updated_at": "2020-11-01T09:00:19.000000Z"
     }
 ]
 ```
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/branches`**
+ **`api/venues`**
 
 
 
-## Add a branch
+## Add a venue
 
-Add a branch.
+Add a venue.
 
 
 
@@ -344,14 +356,14 @@ Add a branch.
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/branches" \
+    "https://it114118-fyp.herokuapp.com/api/venues" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches"
+    "https://it114118-fyp.herokuapp.com/api/venues"
 );
 
 let headers = {
@@ -372,13 +384,13 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/branches`**
+ **`api/venues`**
 
 
 
-## Retrieve a branch
+## Retrieve a venue
 
-Retrieve a branch.
+Retrieve a venue.
 
 
 
@@ -387,14 +399,14 @@ Retrieve a branch.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}" \
+    -G "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches/{branch}"
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
 );
 
 let headers = {
@@ -416,7 +428,7 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Branch] {branch}",
+    "message": "No query results for model [App\\Models\\Venue] {venue}",
     "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
     "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
     "line": 364,
@@ -808,13 +820,13 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/branches/{branch}`**
+ **`api/venues/{venue}`**
 
 
 
-## Update a branch
+## Update a venue
 
-Update a branch.
+Update a venue.
 
 
 
@@ -823,14 +835,14 @@ Update a branch.
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/branches/{branch}" \
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches/{branch}"
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
 );
 
 let headers = {
@@ -851,16 +863,16 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/branches/{branch}`**
+ **`api/venues/{venue}`**
 
 <small class="badge badge-purple">PATCH</small>
- **`api/branches/{branch}`**
+ **`api/venues/{venue}`**
 
 
 
-## Remove a branch
+## Remove a venue
 
-Remove a branch.
+Remove a venue.
 
 
 
@@ -869,14 +881,14 @@ Remove a branch.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/branches/{branch}" \
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches/{branch}"
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
 );
 
 let headers = {
@@ -897,7 +909,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/branches/{branch}`**
+ **`api/venues/{venue}`**
 
 
 

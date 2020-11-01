@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class PermissionController extends Controller
 {
     /**
-     * @group Users
+     * @group User
      * 
      * Get a user's permissions
      * 
@@ -54,7 +54,7 @@ class PermissionController extends Controller
     }
 
     /**
-     * @group Users
+     * @group User
      * 
      * Update permissions from a user
      * 

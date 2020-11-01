@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('chinese_name')->nullable();
             $table->timestamps();
-            $table->softDeletes();
+            //$table->softDeletes();
 
             $table->foreign('program_id')->references('id')->on('programs')->constrained()->onDelete('set null');
             $table->foreign('branch_id')->references('id')->on('branches')->constrained()->onDelete('set null');

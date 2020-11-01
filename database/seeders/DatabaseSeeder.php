@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
 
         # Permission
         $permissions = [
+            'login:admin',
             'create:roles', 'update:roles', 'delete:roles', 'grant:roles', 'revoke:roles',
             'create:programs', 'update:programs', 'delete:programs',
             'create:branches', 'update:branches', 'delete:branches',
@@ -73,6 +74,14 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedBranch($rows);
 
+        $rows = [
+            ['ST', 'IT-421B', '', '', '', '09:00', '21:00'], ['ST', 'CS-442', '', '', '', '09:00', '21:00'],
+            ['ST', 'CS-404', '', '', '', '09:00', '21:00'], ['ST', 'CS-332B', '', '', '', '09:00', '21:00'],
+            ['ST', 'CS-N108B', '', '', '', '09:00', '21:00'], ['ST', 'IT-427B', '', '', '', '09:00', '21:00'],
+            ['ST', 'IT-417A', 'Interview Room', '接見室', '接见室', '09:00', '15:00'],
+        ];
+        $this->seedVenue($rows);
+
         # User
         $rows = [
             ['000000000', 'admin@vtc.edu.hk', '12345678', null, null, null, 'admin', null],
@@ -91,38 +100,52 @@ class DatabaseSeeder extends Seeder
 
     private function seedProgram($rows) {
         foreach ($rows as $row) {
-            $program = new Program;
-            $program->id = $row[0];
-            $program->title_en = $row[1];
-            $program->title_hk = $row[2];
-            $program->title_cn = $row[3];
-            $program->save();
+            (new Program([
+                'id' => $row[0],
+                'title_en' => $row[1], 
+                'title_hk' => $row[2],
+                'title_cn' => $row[3],
+            ]))->save();
         }
     }
 
     private function seedBranch($rows) {
         foreach ($rows as $row) {
-            $branch = new Branch;
-            $branch->id = $row[0];
-            $branch->title_en = $row[1];
-            $branch->title_hk = $row[2];
-            $branch->title_cn = $row[3];
-            $branch->save();
+            (new Branch([
+                'id' => $row[0],
+                'title_en' => $row[1], 
+                'title_hk' => $row[2],
+                'title_cn' => $row[3],
+            ]))->save();
+        }
+    }
+
+    private function seedVenue($rows) {
+        foreach ($rows as $row) {
+            (new Venue([
+                'branch_id' => $row[0],
+                'number' => $row[1], 
+                'title_en' => $row[2],
+                'title_hk' => $row[3],
+                'title_cn' => $row[4],
+                'opening_time' => $row[5],
+                'closing_time' => $row[6],
+            ]))->save();
         }
     }
 
     private function seedUser($rows) {
         foreach ($rows as $row) {
-            $user = new User;
-            $user->name = $row[0];
-            $user->email = $row[1];
-            $user->password = Hash::make($row[2]);
-            $user->program_id = $row[3];
-            $user->branch_id = $row[4];
-            $user->first_name = $row[5];
-            $user->last_name = $row[6];
-            $user->chinese_name = $row[7];
-            $user->save();
+            (new User([
+                'name' => $row[0],
+                'email' => $row[1],
+                'password' => Hash::make($row[2]),
+                'program_id' => $row[3],
+                'branch_id' => $row[4],
+                'first_name' => $row[5],
+                'last_name' => $row[6],
+                'chinese_name' => $row[7],
+            ]))->save();
         }
     }
 

@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
+use App\Imports\UsersImport;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Excel;
+
 class UserController extends Controller
 {
     public function __construct()
@@ -20,9 +24,11 @@ class UserController extends Controller
     }
 
     /**
-     * @group Users
+     * @group User
      * 
-     * List users
+     * Retrieve all users
+     * 
+     * Retrieve all users.
      * 
      * @authenticated
      *
@@ -36,9 +42,11 @@ class UserController extends Controller
     }
 
     /**
-     * @group Users
+     * @group User
      * 
-     * Create a user
+     * Add a user
+     * 
+     * Add a user.
      * 
      * @authenticated
      * 
@@ -83,24 +91,18 @@ class UserController extends Controller
             }
         }*/
 
-        // Add User
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->program_id = $request->program_id;
-        $user->branch_id = $request->branch_id;
-        $user->first_name = $request->first_name ?? null;
-        $user->last_name = $request->last_name ?? null;
-        $user->chinese_name = $request->chinese_name ?? null;
-        
-        return response(null, $user->save() ? 200 : 401);
+        $validated_data = $validator->valid();
+        $validated_data['password'] = Hash::make($validated_data->password);
+
+        return response(null, (new User($validated_data))->save() ? 200 : 401);
     }
 
     /**
-     * @group Users
+     * @group User
      * 
-     * Get a user
+     * Retrieve a user
+     * 
+     * Retrieve a user.
      * 
      * @authenticated
      *
@@ -113,9 +115,11 @@ class UserController extends Controller
     }
 
     /**
-     * @group Users
+     * @group User
      * 
-     * Update a User
+     * Update a user
+     * 
+     * Update a user.
      * 
      * @authenticated
      *
@@ -125,21 +129,33 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->program_id = $request->program_id;
-        $user->branch_id = $request->branch_id;
-        $user->first_name = $request->first_name ?? null;
-        $user->last_name = $request->last_name ?? null;
-        $user->chinese_name = $request->chinese_name ?? null;
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'program_id' => 'required',
+            'branch_id' => 'required',
+            'first_name' => 'nullable',
+            'last_name' => 'nullable',
+            'chinese_name' => 'nullable',
+        ]);
 
-        return response(null, $user->save() ? 200 : 401);
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        $validated_data = $validator->valid();
+        $validated_data['password'] = Hash::make($validated_data->password);
+
+        return response(null, $user->update($validated_data) ? 200 : 401);
     }
 
     /**
-     * @group Users
+     * @group User
      * 
-     * Delete a User
+     * Remove a user
+     * 
+     * Remove a user.
      * 
      * @authenticated
      *
@@ -152,20 +168,110 @@ class UserController extends Controller
         return response(null, 200);
     }
 
-    
     /**
-     * @group Users
+     * @group User
      * 
-     * Get myself
+     * Remove multiple users
+     * 
+     * Remove multiple users.
+     * 
+     * @bodyParam ids array required Array of the users' id Example: {"ids": [1, 2]}
+     *
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyMany(Request $request)
+    {
+        User::destroy($request->ids);
+        return response(null, 200);
+    }
+
+    /**
+     * @group User
+     * 
+     * Reset users
+     * 
+     * Remove all users.
      * 
      * @authenticated
      * 
-     * @response status=200 scenario="success" {"id":2,"name":"190189768","email":"190189768@stu.vtc.edu.hk","program_id":"CE114301","branch_id":"CW","first_name":"Pui Tat","last_name":"Tse","chinese_name":"\u8b1d\u6c9b\u9054","created_at":"2020-10-28T04:37:56.000000Z","updated_at":"2020-10-28T04:37:56.000000Z","deleted_at":null}
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function reset(Request $request)
+    {
+        User::whereNotNull('id')->delete();
+        return response(null, 200);
+    }
+
+    /**
+     * @group User
+     * 
+     * Export users
+     * 
+     * Export users.
+     * 
+     * @queryParam format Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx. Example: csv
+     * 
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Support\Collection
+     */
+    public function export(Request $request)
+    {
+        $export = new UsersExport;
+        $format = $request->query('format', 'xlsx');   
+        switch (mb_strtoupper($format)) {
+            case 'CSV': return $export->download('users.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
+            case 'TSV': return $export->download('users.tsv', Excel::TSV);
+            case 'ODS': return $export->download('users.ods', Excel::ODS);
+            case 'XLS': return $export->download('users.xls', Excel::XLS);
+            case 'HTML': return $export->download('users.html', Excel::HTML);
+            default: return $export->download('users.xlsx', Excel::XLSX);
+        }
+    }
+
+    /**
+     * @group User
+     * 
+     * Import users
+     * 
+     * Import users.
+     * 
+     * @bodyParam file file required
+     * 
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Support\Collection
+     */
+    public function import(Request $request)
+    {
+        $import = new UsersImport;
+        $import->import($request->file('file'));
+        return response($import->getErrors(), 200);
+    }
+
+    /**
+     * @group User
+     * 
+     * Get myself
+     * 
+     * Get current account informations with permissions.
+     * 
+     * @authenticated
+     * 
+     * @response status=200 scenario="success" {"id":2,"name":"190189768","email":"190189768@stu.vtc.edu.hk","program_id":"CE114301","branch_id":"CW","first_name":"Pui Tat","last_name":"Tse","chinese_name":"\u8b1d\u6c9b\u9054","created_at":"2020-11-01T09:00:22.000000Z","updated_at":"2020-11-01T09:00:22.000000Z","deleted_at":null,"permissions":[{"name":"login:admin","granted":true,"role":"root"},{"name":"create:roles","granted":true,"role":"root"},{"name":"update:roles","granted":true,"role":"root"},{"name":"delete:roles","granted":true,"role":"root"},{"name":"grant:roles","granted":true,"role":"root"},{"name":"revoke:roles","granted":true,"role":"root"},{"name":"create:programs","granted":true,"role":"root"},{"name":"update:programs","granted":true,"role":"root"},{"name":"delete:programs","granted":true,"role":"root"},{"name":"create:branches","granted":true,"role":"root"},{"name":"update:branches","granted":true,"role":"root"},{"name":"delete:branches","granted":true,"role":"root"},{"name":"create:users","granted":true,"role":"root"},{"name":"update:users","granted":true,"role":"root"},{"name":"delete:users","granted":true,"role":"root"},{"name":"grant:permissions","granted":true,"role":"root"},{"name":"revoke:permissions","granted":true,"role":"root"}]}
      *
      * @return \Illuminate\Http\Response
      */
     public function myself(Request $request)
     {
-        return $request->user();
+        $myself = $request->user();
+        $myself['permissions'] = app(PermissionController::class)->show(User::find($myself->id)->first());
+        return $myself;
     }
 }

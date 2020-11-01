@@ -9,10 +9,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Traits\HasRoles;
+use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasRoles, Notifiable, SoftDeletes;
+    use HasApiTokens, HasRoles, Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.

@@ -19,7 +19,6 @@ class CreateProgramsTable extends Migration
             $table->string('title_hk');
             $table->string('title_cn');
             $table->timestamps();
-            $table->softDeletes();
 
             $table->primary('id');
         });

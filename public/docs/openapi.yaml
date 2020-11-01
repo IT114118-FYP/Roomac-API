@@ -7,9 +7,84 @@ servers:
     -
         url: 'https://it114118-fyp.herokuapp.com'
 paths:
+    /api/branches/import:
+        post:
+            summary: "Import branches\n\nImport branches."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Branch
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                file:
+                                    type: string
+                                    format: binary
+                                    description: ''
+                            required:
+                                - file
+    /api/branches/export:
+        get:
+            summary: "Export branches\n\nExport branches."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: format
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    example: csv
+                    required: false
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - Branch
     /api/branches:
         delete:
-            summary: 'Remove multiple branches'
+            summary: "Remove multiple branches\n\nRemove multiple branches."
             description: ''
             parameters:
                 -
@@ -44,7 +119,7 @@ paths:
                             required:
                                 - ids
         get:
-            summary: 'Retrieve all branches'
+            summary: "Retrieve all branches\n\nRetrieve all branches."
             description: ''
             parameters:
                 -
@@ -71,20 +146,20 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-10-30T12:54:50.000000Z', updated_at: '2020-10-30T12:54:50.000000Z', deleted_at: null }
-                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-10-30T12:54:50.000000Z', updated_at: '2020-10-30T12:54:50.000000Z', deleted_at: null }
-                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-10-30T12:54:50.000000Z', updated_at: '2020-10-30T12:54:50.000000Z', deleted_at: null }
-                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-10-30T12:54:51.000000Z', updated_at: '2020-10-30T12:54:51.000000Z', deleted_at: null }
-                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-10-30T12:54:51.000000Z', updated_at: '2020-10-30T12:54:51.000000Z', deleted_at: null }
-                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-10-30T12:54:52.000000Z', updated_at: '2020-10-30T12:54:52.000000Z', deleted_at: null }
-                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-10-30T12:54:52.000000Z', updated_at: '2020-10-30T12:54:52.000000Z', deleted_at: null }
-                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-10-30T12:54:53.000000Z', updated_at: '2020-10-30T12:54:53.000000Z', deleted_at: null }
-                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-10-30T12:54:53.000000Z', updated_at: '2020-10-30T12:54:53.000000Z', deleted_at: null }
+                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-11-01T08:59:57.000000Z', updated_at: '2020-11-01T08:59:57.000000Z' }
+                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-11-01T08:59:59.000000Z', updated_at: '2020-11-01T08:59:59.000000Z' }
+                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-11-01T09:00:01.000000Z', updated_at: '2020-11-01T09:00:01.000000Z' }
+                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-11-01T09:00:03.000000Z', updated_at: '2020-11-01T09:00:03.000000Z' }
+                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-11-01T09:00:04.000000Z', updated_at: '2020-11-01T09:00:04.000000Z' }
+                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-11-01T09:00:06.000000Z', updated_at: '2020-11-01T09:00:06.000000Z' }
+                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-11-01T09:00:07.000000Z', updated_at: '2020-11-01T09:00:07.000000Z' }
+                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-11-01T09:00:10.000000Z', updated_at: '2020-11-01T09:00:10.000000Z' }
+                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-11-01T09:00:09.000000Z', updated_at: '2020-11-01T09:00:09.000000Z' }
             tags:
                 - Branch
             security: []
         post:
-            summary: 'Add a branch'
+            summary: "Add a branch\n\nAdd a branch."
             description: ''
             parameters:
                 -
@@ -105,9 +180,31 @@ paths:
             tags:
                 - Branch
             security: []
+    /api/branches/reset:
+        delete:
+            summary: "Reset branches\n\nRemove all branches."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Branch
     '/api/branches/{branch}':
         get:
-            summary: 'Retrieve a branch'
+            summary: "Retrieve a branch\n\nRetrieve a branch."
             description: ''
             parameters:
                 -
@@ -147,7 +244,7 @@ paths:
                 - Branch
             security: []
         put:
-            summary: 'Update a branch'
+            summary: "Update a branch\n\nUpdate a branch."
             description: ''
             parameters:
                 -
@@ -169,7 +266,7 @@ paths:
                 - Branch
             security: []
         delete:
-            summary: 'Remove a branch'
+            summary: "Remove a branch\n\nRemove a branch."
             description: ''
             parameters:
                 -
@@ -303,9 +400,84 @@ paths:
             responses: {  }
             tags:
                 - Login
+    /api/programs/import:
+        post:
+            summary: "Import programs\n\nImport programs."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Program
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                file:
+                                    type: string
+                                    format: binary
+                                    description: ''
+                            required:
+                                - file
+    /api/programs/export:
+        get:
+            summary: "Export programs\n\nExport programs."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: format
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    example: csv
+                    required: false
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - Program
     /api/programs:
         delete:
-            summary: 'Remove multiple programs'
+            summary: "Remove multiple programs\n\nRemove multiple programs."
             description: ''
             parameters:
                 -
@@ -340,7 +512,7 @@ paths:
                             required:
                                 - ids
         get:
-            summary: 'Retrieve all programs'
+            summary: "Retrieve all programs\n\nRetrieve all programs."
             description: ''
             parameters:
                 -
@@ -367,14 +539,14 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-10-30T12:54:49.000000Z', updated_at: '2020-10-30T12:54:49.000000Z', deleted_at: null }
-                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-10-30T12:54:49.000000Z', updated_at: '2020-10-30T12:54:49.000000Z', deleted_at: null }
-                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: '2020-10-30T12:54:48.000000Z', updated_at: '2020-10-30T12:54:48.000000Z', deleted_at: null }
+                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-11-01T08:59:56.000000Z', updated_at: '2020-11-01T08:59:56.000000Z' }
+                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-11-01T08:59:55.000000Z', updated_at: '2020-11-01T08:59:55.000000Z' }
+                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: '2020-11-01T08:59:53.000000Z', updated_at: '2020-11-01T08:59:53.000000Z' }
             tags:
                 - Program
             security: []
         post:
-            summary: 'Add a program'
+            summary: "Add a program\n\nAdd a program."
             description: ''
             parameters:
                 -
@@ -422,9 +594,31 @@ paths:
                                 - title_en
                                 - title_hk
                                 - title_cn
+    /api/programs/reset:
+        delete:
+            summary: "Reset programs\n\nRemove all programs."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Program
     '/api/programs/{program}':
         get:
-            summary: 'Retrieve a program'
+            summary: "Retrieve a program\n\nRetrieve a program."
             description: ''
             parameters:
                 -
@@ -453,22 +647,20 @@ paths:
                                     title_en: 'Higher Diploma in AI and Mobile Applications Development'
                                     title_hk: 人工智能及手機軟件開發高級文憑
                                     title_cn: 人工智能及手机软件开发高级文凭
-                                    created_at: '2020-10-30T12:54:48.000000Z'
-                                    updated_at: '2020-10-30T12:54:48.000000Z'
-                                    deleted_at: null
+                                    created_at: '2020-11-01T08:59:53.000000Z'
+                                    updated_at: '2020-11-01T08:59:53.000000Z'
                                 properties:
                                     id: { type: string, example: IT114118 }
                                     title_en: { type: string, example: 'Higher Diploma in AI and Mobile Applications Development' }
                                     title_hk: { type: string, example: 人工智能及手機軟件開發高級文憑 }
                                     title_cn: { type: string, example: 人工智能及手机软件开发高级文凭 }
-                                    created_at: { type: string, example: '2020-10-30T12:54:48.000000Z' }
-                                    updated_at: { type: string, example: '2020-10-30T12:54:48.000000Z' }
-                                    deleted_at: { type: 'null', example: null }
+                                    created_at: { type: string, example: '2020-11-01T08:59:53.000000Z' }
+                                    updated_at: { type: string, example: '2020-11-01T08:59:53.000000Z' }
             tags:
                 - Program
             security: []
         put:
-            summary: 'Update a program'
+            summary: "Update a program\n\nUpdate a program."
             description: ''
             parameters:
                 -
@@ -512,7 +704,7 @@ paths:
                                 - title_hk
                                 - title_cn
         delete:
-            summary: 'Remove a program'
+            summary: "Remove a program\n\nRemove a program."
             description: ''
             parameters:
                 -
@@ -549,7 +741,7 @@ paths:
                         value: IT114118
     /api/users/me:
         get:
-            summary: 'Get myself'
+            summary: "Get myself\n\nGet current account informations with permissions."
             description: ''
             parameters:
                 -
@@ -582,9 +774,10 @@ paths:
                                     first_name: 'Pui Tat'
                                     last_name: Tse
                                     chinese_name: 謝沛達
-                                    created_at: '2020-10-28T04:37:56.000000Z'
-                                    updated_at: '2020-10-28T04:37:56.000000Z'
+                                    created_at: '2020-11-01T09:00:22.000000Z'
+                                    updated_at: '2020-11-01T09:00:22.000000Z'
                                     deleted_at: null
+                                    permissions: [{ name: 'login:admin', granted: true, role: root }, { name: 'create:roles', granted: true, role: root }, { name: 'update:roles', granted: true, role: root }, { name: 'delete:roles', granted: true, role: root }, { name: 'grant:roles', granted: true, role: root }, { name: 'revoke:roles', granted: true, role: root }, { name: 'create:programs', granted: true, role: root }, { name: 'update:programs', granted: true, role: root }, { name: 'delete:programs', granted: true, role: root }, { name: 'create:branches', granted: true, role: root }, { name: 'update:branches', granted: true, role: root }, { name: 'delete:branches', granted: true, role: root }, { name: 'create:users', granted: true, role: root }, { name: 'update:users', granted: true, role: root }, { name: 'delete:users', granted: true, role: root }, { name: 'grant:permissions', granted: true, role: root }, { name: 'revoke:permissions', granted: true, role: root }]
                                 properties:
                                     id: { type: integer, example: 2 }
                                     name: { type: string, example: '190189768' }
@@ -594,14 +787,125 @@ paths:
                                     first_name: { type: string, example: 'Pui Tat' }
                                     last_name: { type: string, example: Tse }
                                     chinese_name: { type: string, example: 謝沛達 }
-                                    created_at: { type: string, example: '2020-10-28T04:37:56.000000Z' }
-                                    updated_at: { type: string, example: '2020-10-28T04:37:56.000000Z' }
+                                    created_at: { type: string, example: '2020-11-01T09:00:22.000000Z' }
+                                    updated_at: { type: string, example: '2020-11-01T09:00:22.000000Z' }
                                     deleted_at: { type: 'null', example: null }
+                                    permissions: { type: array, example: [{ name: 'login:admin', granted: true, role: root }, { name: 'create:roles', granted: true, role: root }, { name: 'update:roles', granted: true, role: root }, { name: 'delete:roles', granted: true, role: root }, { name: 'grant:roles', granted: true, role: root }, { name: 'revoke:roles', granted: true, role: root }, { name: 'create:programs', granted: true, role: root }, { name: 'update:programs', granted: true, role: root }, { name: 'delete:programs', granted: true, role: root }, { name: 'create:branches', granted: true, role: root }, { name: 'update:branches', granted: true, role: root }, { name: 'delete:branches', granted: true, role: root }, { name: 'create:users', granted: true, role: root }, { name: 'update:users', granted: true, role: root }, { name: 'delete:users', granted: true, role: root }, { name: 'grant:permissions', granted: true, role: root }, { name: 'revoke:permissions', granted: true, role: root }], items: { type: object } }
             tags:
-                - Users
-    /api/users:
+                - User
+    /api/users/import:
+        post:
+            summary: "Import users\n\nImport users."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - User
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                file:
+                                    type: string
+                                    format: binary
+                                    description: ''
+                            required:
+                                - file
+    /api/users/export:
         get:
-            summary: 'List users'
+            summary: "Export users\n\nExport users."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: format
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    example: csv
+                    required: false
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - User
+    /api/users:
+        delete:
+            summary: "Remove multiple users\n\nRemove multiple users."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - User
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                ids:
+                                    type: array
+                                    description: 'Array of the users'' id'
+                                    example: '{"ids": [1, 2]}'
+                                    items: { type: string }
+                            required:
+                                - ids
+        get:
+            summary: "Retrieve all users\n\nRetrieve all users."
             description: ''
             parameters:
                 -
@@ -631,9 +935,9 @@ paths:
                                     - { id: 1, name: '190189768', email: 190189768@stu.vtc.edu.hk, permission: '1', program_id: IT114118, campus_id: ST, first_name: Tat, last_name: Chan, chinese_name: 何世, created_at: '2020-10-07T17:44:37.000000Z', updated_at: '2020-10-09T06:31:23.000000Z', deleted_at: null }
                                     - { id: 6, name: '190271174', email: 190271174@stu.vtc.edu.hk, permission: '1', program_id: IT114118, campus_id: ST, first_name: 'Wing Kit', last_name: To, chinese_name: 'CHinese name', created_at: '2020-10-09T06:42:02.000000Z', updated_at: '2020-10-09T06:42:02.000000Z', deleted_at: null }
             tags:
-                - Users
+                - User
         post:
-            summary: 'Create a user'
+            summary: "Add a user\n\nAdd a user."
             description: ''
             parameters:
                 -
@@ -652,10 +956,32 @@ paths:
                         type: string
             responses: {  }
             tags:
-                - Users
+                - User
+    /api/users/reset:
+        delete:
+            summary: "Reset users\n\nRemove all users."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - User
     '/api/users/{user}':
         get:
-            summary: 'Get a user'
+            summary: "Retrieve a user\n\nRetrieve a user."
             description: ''
             parameters:
                 -
@@ -684,9 +1010,9 @@ paths:
                                 properties:
                                     message: { type: string, example: Unauthenticated. }
             tags:
-                - Users
+                - User
         put:
-            summary: 'Update a User'
+            summary: "Update a user\n\nUpdate a user."
             description: ''
             parameters:
                 -
@@ -705,9 +1031,9 @@ paths:
                         type: string
             responses: {  }
             tags:
-                - Users
+                - User
         delete:
-            summary: 'Delete a User'
+            summary: "Remove a user\n\nRemove a user."
             description: ''
             parameters:
                 -
@@ -726,7 +1052,7 @@ paths:
                         type: string
             responses: {  }
             tags:
-                - Users
+                - User
     '/api/users/{user}/permissions':
         get:
             summary: "Get a user's permissions\n\nRetrieve all permissions associated with the user."
@@ -773,7 +1099,7 @@ paths:
                                     - { name: 'grant:permissions', granted: false, role: null }
                                     - { name: 'revoke:permissions', granted: false, role: null }
             tags:
-                - Users
+                - User
         post:
             summary: "Update permissions from a user\n\nUpdate permissions from a user."
             description: ''
@@ -829,7 +1155,7 @@ paths:
                                 properties:
                                     not_exist: { type: array, example: ['create:roless', 'update:rolex'], items: { type: string } }
             tags:
-                - Users
+                - User
             requestBody:
                 required: false
                 content:
@@ -849,3 +1175,281 @@ paths:
                                     type: boolean
                                     description: ''
                                     example: true
+    /api/venues/import:
+        post:
+            summary: "Import venues\n\nImport venues."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Venue
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                file:
+                                    type: string
+                                    format: binary
+                                    description: ''
+                            required:
+                                - file
+    /api/venues/export:
+        get:
+            summary: "Export venues\n\nExport venues."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: format
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    example: csv
+                    required: false
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - Venue
+    /api/venues:
+        delete:
+            summary: "Remove multiple venues\n\nRemove multiple venues."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Venue
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                ids:
+                                    type: array
+                                    description: 'Array of the venues'' id'
+                                    example: '{"ids": [1, 2]}'
+                                    items: { type: string }
+                            required:
+                                - ids
+        get:
+            summary: "Retrieve all venues\n\nRetrieve all venues."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                example:
+                                    - { id: 1, branch_id: ST, number: IT-421B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-11-01T09:00:11.000000Z', updated_at: '2020-11-01T09:00:11.000000Z' }
+                                    - { id: 2, branch_id: ST, number: CS-442, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-11-01T09:00:13.000000Z', updated_at: '2020-11-01T09:00:13.000000Z' }
+                                    - { id: 3, branch_id: ST, number: CS-404, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-11-01T09:00:14.000000Z', updated_at: '2020-11-01T09:00:14.000000Z' }
+                                    - { id: 4, branch_id: ST, number: CS-332B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-11-01T09:00:16.000000Z', updated_at: '2020-11-01T09:00:16.000000Z' }
+                                    - { id: 5, branch_id: ST, number: CS-N108B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-11-01T09:00:17.000000Z', updated_at: '2020-11-01T09:00:17.000000Z' }
+                                    - { id: 6, branch_id: ST, number: IT-427B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-11-01T09:00:19.000000Z', updated_at: '2020-11-01T09:00:19.000000Z' }
+                                    - { id: 7, branch_id: ST, number: IT-417A, title_en: 'Interview Room', title_hk: 接見室, title_cn: 接见室, opening_time: '09:00:00', closing_time: '15:00:00', created_at: '2020-11-01T09:00:19.000000Z', updated_at: '2020-11-01T09:00:19.000000Z' }
+            tags:
+                - Venue
+            security: []
+        post:
+            summary: "Add a venue\n\nAdd a venue."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Venue
+            security: []
+    /api/venues/reset:
+        delete:
+            summary: "Reset venues\n\nRemove all venues."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Venue
+    '/api/venues/{venue}':
+        get:
+            summary: "Retrieve a venue\n\nRetrieve a venue."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'No query results for model [App\Models\Venue] {venue}'
+                                    exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                                    file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                                    line: 364
+                                    trace: [{ file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php', line: 313, function: prepareException, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php', line: 54, function: render, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php', line: 51, function: render, class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 172, function: handleException, class: Illuminate\Routing\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 693, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 668, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 634, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 623, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 87, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 322, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 304, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 229, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 167, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 125, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 118, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: call_user_func_array }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 95, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 39, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 596, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Command\Command.php', line: 258, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 920, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 266, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 142, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }]
+                                properties:
+                                    message: { type: string, example: 'No query results for model [App\Models\Venue] {venue}' }
+                                    exception: { type: string, example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException }
+                                    file: { type: string, example: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php' }
+                                    line: { type: integer, example: 364 }
+                                    trace: { type: array, example: [{ file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php', line: 313, function: prepareException, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php', line: 54, function: render, class: Illuminate\Foundation\Exceptions\Handler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php', line: 51, function: render, class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 172, function: handleException, class: Illuminate\Routing\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 693, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 668, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 634, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 623, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 87, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 322, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 304, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 229, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 167, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 125, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 118, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: call_user_func_array }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 95, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 39, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 596, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Command\Command.php', line: 258, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 920, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 266, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\symfony\console\Application.php', line: 142, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\Users\hkdse\Documents\GitHub\Laravel-Web-App\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }], items: { type: object } }
+            tags:
+                - Venue
+            security: []
+        put:
+            summary: "Update a venue\n\nUpdate a venue."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Venue
+            security: []
+        delete:
+            summary: "Remove a venue\n\nRemove a venue."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Venue
+            security: []

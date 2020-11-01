@@ -1,7 +1,122 @@
 # Program
 
 
+## Import programs
+
+Import programs.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/programs/import" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Accept: application/json" \
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php97C9.tmp" 
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs/import"
+);
+
+let headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('file', document.querySelector('input[name="file"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/programs/import`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>file</b></code>&nbsp; <small>file</small>     <br>
+    
+
+
+
+## Export programs
+
+Export programs.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/programs/export?format=csv" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs/export"
+);
+
+let params = {
+    "format": "csv",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/programs/export`**
+
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.
+
+
+
 ## Remove multiple programs
+
+Remove multiple programs.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -53,7 +168,53 @@ fetch(url, {
 
 
 
+## Reset programs
+
+Remove all programs.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/programs/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/programs/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/programs/reset`**
+
+
+
 ## Retrieve all programs
+
+Retrieve all programs.
 
 
 
@@ -96,27 +257,24 @@ fetch(url, {
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
-        "created_at": "2020-10-30T12:54:49.000000Z",
-        "updated_at": "2020-10-30T12:54:49.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:56.000000Z",
+        "updated_at": "2020-11-01T08:59:56.000000Z"
     },
     {
         "id": "IT114105",
         "title_en": "Higher Diploma in Software Engineering",
         "title_hk": "軟件工程高級文憑",
         "title_cn": "软件工程高级文凭",
-        "created_at": "2020-10-30T12:54:49.000000Z",
-        "updated_at": "2020-10-30T12:54:49.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:55.000000Z",
+        "updated_at": "2020-11-01T08:59:55.000000Z"
     },
     {
         "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
         "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2020-10-30T12:54:48.000000Z",
-        "updated_at": "2020-10-30T12:54:48.000000Z",
-        "deleted_at": null
+        "created_at": "2020-11-01T08:59:53.000000Z",
+        "updated_at": "2020-11-01T08:59:53.000000Z"
     }
 ]
 ```
@@ -128,6 +286,8 @@ fetch(url, {
 
 
 ## Add a program
+
+Add a program.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -193,6 +353,8 @@ fetch(url, {
 
 ## Retrieve a program
 
+Retrieve a program.
+
 
 
 
@@ -233,9 +395,8 @@ fetch(url, {
     "title_en": "Higher Diploma in AI and Mobile Applications Development",
     "title_hk": "人工智能及手機軟件開發高級文憑",
     "title_cn": "人工智能及手机软件开发高级文凭",
-    "created_at": "2020-10-30T12:54:48.000000Z",
-    "updated_at": "2020-10-30T12:54:48.000000Z",
-    "deleted_at": null
+    "created_at": "2020-11-01T08:59:53.000000Z",
+    "updated_at": "2020-11-01T08:59:53.000000Z"
 }
 ```
 
@@ -250,6 +411,8 @@ fetch(url, {
 
 
 ## Update a program
+
+Update a program.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -317,6 +480,8 @@ fetch(url, {
 
 
 ## Remove a program
+
+Remove a program.
 
 <small class="badge badge-darkred">requires authentication</small>
 

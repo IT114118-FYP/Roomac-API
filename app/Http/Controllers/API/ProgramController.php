@@ -6,13 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Imports\ProgramsImport;
+use App\Exports\ProgramsExport;
+use Maatwebsite\Excel\Excel;
 
 class ProgramController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except(['index', 'show']);
+    }
+
     /**
      * @group Program
      * 
      * Retrieve all programs
+     * 
+     * Retrieve all programs.
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,6 +35,8 @@ class ProgramController extends Controller
      * @group Program
      * 
      * Add a program
+     * 
+     * Add a program.
      *
      * @bodyParam id string required The ID of the program. Example: IT114118
      * @bodyParam title_en string required Title of the program in English. Example: Higher Diploma in AI and Mobile Applications Development
@@ -44,25 +56,20 @@ class ProgramController extends Controller
             'title_hk' => 'required',
             'title_cn' => 'required',
         ]);
-    
-        // Validate the data
+
         if ($validator->fails()) {
             return response($validator->errors(), 400);
         }
-
-        $program = new Program;
-        $program->id = $request->id;
-        $program->title_en = $request->title_en;
-        $program->title_hk = $request->title_hk;
-        $program->title_cn = $request->title_cn;
         
-        return response(null, $program->save() ? 200 : 401);
+        return response(null, (new Program($validator->valid()))->save() ? 200 : 401);
     }
 
     /**
      * @group Program
      * 
      * Retrieve a program
+     * 
+     * Retrieve a program.
      *
      * @urlParam program string required The ID of the program. Example: IT114118
      * 
@@ -78,6 +85,8 @@ class ProgramController extends Controller
      * @group Program
      * 
      * Update a program
+     * 
+     * Update a program.
      *
      * @urlParam program string required The ID of the program. Example: IT114118
      * 
@@ -93,17 +102,25 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
-        $program->title_en = $request->title_en;
-        $program->title_hk = $request->title_hk;
-        $program->title_cn = $request->title_cn;
+        $validator = Validator::make($request->all(), [
+            'title_en' => 'required',
+            'title_hk' => 'required',
+            'title_cn' => 'required',
+        ]);
+        
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
 
-        return response(null, $program->save() ? 200 : 401);
+        return response(null, $program->update($validator->valid()) ? 200 : 401);
     }
 
     /**
      * @group Program
      * 
      * Remove a program
+     * 
+     * Remove a program.
      * 
      * @urlParam program string required The ID of the program. Example: IT114118
      *
@@ -123,6 +140,8 @@ class ProgramController extends Controller
      * 
      * Remove multiple programs
      * 
+     * Remove multiple programs.
+     * 
      * @bodyParam ids array required Array of the programs' id Example: {"ids": ["IT114118", "IT123456"]}
      *
      * @authenticated
@@ -134,5 +153,72 @@ class ProgramController extends Controller
     {
         Program::destroy($request->ids);
         return response(null, 200);
+    }
+
+    /**
+     * @group Program
+     * 
+     * Reset programs
+     * 
+     * Remove all programs.
+     * 
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function reset(Request $request)
+    {
+        Program::whereNotNull('id')->delete();
+        return response(null, 200);
+    }
+
+    /**
+     * @group Program
+     * 
+     * Export programs
+     * 
+     * Export programs.
+     * 
+     * @queryParam format Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx. Example: csv
+     * 
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Support\Collection
+     */
+    public function export(Request $request)
+    {
+        $export = new ProgramsExport;
+        $format = $request->query('format', 'xlsx');   
+        switch (mb_strtoupper($format)) {
+            case 'CSV': return $export->download('programs.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
+            case 'TSV': return $export->download('programs.tsv', Excel::TSV);
+            case 'ODS': return $export->download('programs.ods', Excel::ODS);
+            case 'XLS': return $export->download('programs.xls', Excel::XLS);
+            case 'HTML': return $export->download('programs.html', Excel::HTML);
+            default: return $export->download('programs.xlsx', Excel::XLSX);
+        }
+    }
+   
+    /**
+     * @group Program
+     * 
+     * Import programs
+     * 
+     * Import programs.
+     * 
+     * @bodyParam file file required
+     * 
+     * @authenticated
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Support\Collection
+     */
+    public function import(Request $request)
+    {
+        $import = new ProgramsImport;
+        $import->import($request->file('file'));
+        return response($import->getErrors(), 200);
     }
 }

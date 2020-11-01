@@ -24,7 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $heroku_app_names = ['it114118-fyp', 'it114118-fyp-admin', /*'it114118-fyp-client'*/];
+        foreach ($heroku_app_names as $name) {
+            $schedule->exec('curl -X GET -G "https://'.$name.'.herokuapp.com/"')->everyFiveMinutes()->runInBackground();
+        }
     }
 
     /**

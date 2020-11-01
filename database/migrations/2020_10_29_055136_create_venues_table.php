@@ -14,18 +14,17 @@ class CreateVenuesTable extends Migration
     public function up()
     {
         Schema::create('venues', function (Blueprint $table) {
-            $table->string('id')->unique();
-            $table->string('branch_id')->nullable();
-            $table->string('title_en');
-            $table->string('title_hk');
-            $table->string('title_cn');
+            $table->id();
+            $table->string('branch_id');
+            $table->string('number');
+            $table->string('title_en')->nullable();
+            $table->string('title_hk')->nullable();
+            $table->string('title_cn')->nullable();
             $table->timeTz('opening_time');
             $table->timeTz('closing_time');
             $table->timestamps();
-            $table->softDeletes();
 
-            $table->primary('id');
-            $table->foreign('branch_id')->references('id')->on('branches')->constrained()->onDelete('set null');
+            $table->foreign('branch_id')->references('id')->on('branches')->constrained()->onDelete('cascade');
         });
     }
 

@@ -1,8 +1,7 @@
 <?php
 
 use App\Models\User;
-use App\Models\Branch;
-use App\Models\Program;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -11,15 +10,36 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\API\BranchController;
 use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\VenueController;
 use App\Http\Controllers\API\PermissionController;
 
+Route::post('/branches/import', [BranchController::class, 'import']);
+Route::get('/branches/export', [BranchController::class, 'export']);
+Route::delete('/branches', [BranchController::class, 'destroyMany']);
+Route::delete('/branches/reset', [BranchController::class, 'reset']);
 Route::delete('/branches', [BranchController::class, 'destroyMany']);
 Route::apiResource('/branches', BranchController::class);
 
+Route::post('/programs/import', [ProgramController::class, 'import']);
+Route::get('/programs/export', [ProgramController::class, 'export']);
+Route::delete('/programs', [ProgramController::class, 'destroyMany']);
+Route::delete('/programs/reset', [ProgramController::class, 'reset']);
 Route::delete('/programs', [ProgramController::class, 'destroyMany']);
 Route::apiResource('/programs', ProgramController::class);
 
+Route::post('/venues/import', [VenueController::class, 'import']);
+Route::get('/venues/export', [VenueController::class, 'export']);
+Route::delete('/venues', [VenueController::class, 'destroyMany']);
+Route::delete('/venues/reset', [VenueController::class, 'reset']);
+Route::delete('/venues', [VenueController::class, 'destroyMany']);
+Route::apiResource('/venues', VenueController::class);
+
 Route::get('/users/me', [UserController::class, 'myself']);
+Route::post('/users/import', [UserController::class, 'import']);
+Route::get('/users/export', [UserController::class, 'export']);
+Route::delete('/users', [UserController::class, 'destroyMany']);
+Route::delete('/users/reset', [UserController::class, 'reset']);
+Route::delete('/users', [UserController::class, 'destroyMany']);
 Route::apiResource('/users', UserController::class);
 
 Route::get('/users/{user}/permissions', [PermissionController::class, 'show']);
