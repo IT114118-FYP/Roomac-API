@@ -50,7 +50,7 @@ paths:
                 -
                     in: query
                     name: format
-                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.'
                     example: csv
                     required: false
                     schema:
@@ -443,7 +443,7 @@ paths:
                 -
                     in: query
                     name: format
-                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.'
                     example: csv
                     required: false
                     schema:
@@ -836,7 +836,7 @@ paths:
                 -
                     in: query
                     name: format
-                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.'
                     example: csv
                     required: false
                     schema:
@@ -1218,7 +1218,7 @@ paths:
                 -
                     in: query
                     name: format
-                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.'
+                    description: 'Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.'
                     example: csv
                     required: false
                     schema:

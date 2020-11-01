@@ -167,7 +167,7 @@ class VenueController extends Controller
      * 
      * Export venues.
      * 
-     * @queryParam format Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx. Example: csv
+     * @queryParam format Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx. Example: csv
      * 
      * @authenticated
      * 

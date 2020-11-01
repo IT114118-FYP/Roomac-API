@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php97C9.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpDE88.tmp" 
 ```
 
 ```javascript
@@ -110,7 +110,7 @@ fetch(url, {
 
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.
+    Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.
 
 
 

@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "a7930b1d-bd33-4593-a83d-0fe226038d89",
+        "_postman_id": "754c25d5-776c-411a-8b41-2f8d090f4c17",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -58,7 +58,7 @@
                                 {
                                     "key": "format",
                                     "value": "csv",
-                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.",
                                     "disabled": false
                                 }
                             ],
@@ -469,7 +469,7 @@
                                 {
                                     "key": "format",
                                     "value": "csv",
-                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.",
                                     "disabled": false
                                 }
                             ],
@@ -798,7 +798,7 @@
                                 {
                                     "key": "format",
                                     "value": "csv",
-                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.",
                                     "disabled": false
                                 }
                             ],
@@ -1123,7 +1123,7 @@
                                 {
                                     "key": "format",
                                     "value": "csv",
-                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html, mpdf, dompdf, tcpdf. Defaults to xlsx.",
+                                    "description": "Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.",
                                     "disabled": false
                                 }
                             ],
