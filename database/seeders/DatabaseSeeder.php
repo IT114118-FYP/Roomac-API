@@ -13,6 +13,8 @@ use App\Models\User;
 use App\Models\Branch;
 use App\Models\Program;
 use App\Models\Venue;
+use App\Models\Setting;
+use App\Models\BranchSetting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +32,8 @@ class DatabaseSeeder extends Seeder
 
         # Truncate all models
         Schema::disableForeignKeyConstraints();
+        BranchSetting::truncate();
+        Setting::truncate();
         Venue::truncate();
         User::truncate();
         Program::truncate();
@@ -92,6 +96,20 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedUser($rows);
 
+        # Setting
+        $rows = [
+            ['OPEN_TIME', 'TIME', '08:30:00'], ['CLOSE_TIME', 'TIME', '20:00:00'],
+            ['TEST_INTEGER', 'INTEGER', '10000'], ['TEST_BOOLEAN_TRUE', 'BOOLEAN', '1'],
+            ['TEST_VARCHAR', 'VARCHAR', 'Test String'], ['TEST_BOOLEAN_FALSE', 'BOOLEAN', '0'],
+        ];
+        $this->seedSetting($rows);
+
+        # Branch Setting
+        $rows = [
+            ['ST', 'OPEN_TIME', '07:00:00', '1'], ['ST', 'CLOSE_TIME', '19:00:00', '1'],
+        ];
+        $this->seedBranchSetting($rows);
+
         # User (Set roles and permissions)
         User::where('name', '000000000')->first()->assignRole('root');
         User::where('name', '190189768')->first()->assignRole(['User Admin', 'Custom Create']);
@@ -145,6 +163,27 @@ class DatabaseSeeder extends Seeder
                 'first_name' => $row[5],
                 'last_name' => $row[6],
                 'chinese_name' => $row[7],
+            ]))->save();
+        } 
+    }
+
+    private function seedSetting($rows) {
+        foreach ($rows as $row) {
+            (new Setting([
+                'id' => $row[0],
+                'data_type' => $row[1],
+                'default_value' => $row[2],
+            ]))->save();
+        }
+    }
+
+    private function seedBranchSetting($rows) {
+        foreach ($rows as $row) {
+            (new BranchSetting([
+                'branch_id' => $row[0],
+                'setting_id' => $row[1],
+                'value' => $row[2],
+                'version' => $row[3],
             ]))->save();
         }
     }

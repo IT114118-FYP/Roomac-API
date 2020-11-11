@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "06fb95bb-0dbf-4f8b-93f6-c201208aa74b",
+        "_postman_id": "d5fd131b-b022-4975-bb06-d2e161436cc2",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -204,7 +204,15 @@
                             "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/branches\/:branch",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch",
+                            "variable": [
+                                {
+                                    "id": "branch",
+                                    "key": "branch",
+                                    "value": "ST",
+                                    "description": "string required The ID of the branch."
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -263,6 +271,266 @@
                             "path": "api\/branches\/:branch",
                             "query": [],
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Branch Setting",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve the active branch's settings\n\nRetrieve the active branch's settings.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/:branch\/settings\/active",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/settings\/active",
+                            "variable": [
+                                {
+                                    "id": "branch",
+                                    "key": "branch",
+                                    "value": "ST",
+                                    "description": "string required The ID of the branch."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve all branch's settings versions\n\nRetrieve all branch's settings versions.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/:branch\/settings",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/settings",
+                            "variable": [
+                                {
+                                    "id": "branch",
+                                    "key": "branch",
+                                    "value": "ST",
+                                    "description": "string required The ID of the branch."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add a new version of branch's settings\n\nAdd a new version of branch's settings",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/:branch\/settings",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "My+Special+Settings",
+                                    "description": "The name of the setting. Defaults to \"New Settings\".",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/settings?name=My+Special+Settings",
+                            "variable": [
+                                {
+                                    "id": "branch",
+                                    "key": "branch",
+                                    "value": "ST",
+                                    "description": "string required The ID of the branch."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve a branch's settings by version\n\nRetrieve a branch's settings by version.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/:branch\/settings\/:version",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/settings\/:version",
+                            "variable": [
+                                {
+                                    "id": "branch",
+                                    "key": "branch",
+                                    "value": "ST",
+                                    "description": "string required The ID of the branch."
+                                },
+                                {
+                                    "id": "version",
+                                    "key": "version",
+                                    "value": "0",
+                                    "description": "string required The version of the setting."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a branch's settings by version\n\nUpdate a branch's settings by version.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/:branch\/settings\/:version",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "My+New+Settings+Name",
+                                    "description": "The new name of the setting.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/settings\/:version?name=My+New+Settings+Name",
+                            "variable": [
+                                {
+                                    "id": "branch",
+                                    "key": "branch",
+                                    "value": "ST",
+                                    "description": "string required The ID of the branch."
+                                },
+                                {
+                                    "id": "version",
+                                    "key": "version",
+                                    "value": "1",
+                                    "description": "string required The version of the setting."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove a branch's settings by version\n\nRemove a branch's settings by version.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/branches\/:branch\/settings\/:version",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/settings\/:version",
+                            "variable": [
+                                {
+                                    "id": "branch",
+                                    "key": "branch",
+                                    "value": "ST",
+                                    "description": "string required The ID of the branch."
+                                },
+                                {
+                                    "id": "version",
+                                    "key": "version",
+                                    "value": "0",
+                                    "description": "string required The version of the setting."
+                                }
+                            ]
                         },
                         "method": "DELETE",
                         "header": [
@@ -715,6 +983,78 @@
                         "body": null,
                         "description": "",
                         "auth": null
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Setting",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all settings\n\nRetrieve all settings.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/settings",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/settings"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve a settings\n\nRetrieve a settings.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/settings\/:setting",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/settings\/:setting",
+                            "variable": [
+                                {
+                                    "id": "setting",
+                                    "key": "setting",
+                                    "value": "OPEN_TIME",
+                                    "description": "string required The ID of the setting."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 }
@@ -1269,7 +1609,15 @@
                             "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/venues\/:venue",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/:venue"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/:venue",
+                            "variable": [
+                                {
+                                    "id": "venue",
+                                    "key": "venue",
+                                    "value": "1",
+                                    "description": "string required The ID of the venue."
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [

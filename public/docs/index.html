@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: November 1 2020</li>
+            <li>Last updated: November 11 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -58,7 +58,380 @@ API Docs: <a href="https://it114118-fyp.herokuapp.com/docs/" target="_blank" rel
 Admin Panel: <a href="https://it114118-fyp-admin.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-admin.herokuapp.com/</a>
 </p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
-<p>This API is not authenticated.</p><h1>Branch</h1>
+<p>This API is not authenticated.</p><h1>Branch Setting</h1>
+<h2>Retrieve the active branch&#039;s settings</h2>
+<p>Retrieve the active branch&#039;s settings.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/active" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/active"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "version": 0,
+    "active_at": 0,
+    "is_active": true,
+    "settings": [
+        {
+            "id": "CLOSE_TIME",
+            "data_type": "TIME",
+            "default_value": "20:00:00",
+            "created_at": "2020-11-11T07:17:25.000000Z",
+            "updated_at": "2020-11-11T07:17:25.000000Z",
+            "value": "20:00:00"
+        },
+        {
+            "id": "OPEN_TIME",
+            "data_type": "TIME",
+            "default_value": "08:30:00",
+            "created_at": "2020-11-11T07:17:24.000000Z",
+            "updated_at": "2020-11-11T07:17:24.000000Z",
+            "value": "08:30:00"
+        },
+        {
+            "id": "TEST_BOOLEAN_FALSE",
+            "data_type": "BOOLEAN",
+            "default_value": "0",
+            "created_at": "2020-11-11T07:17:29.000000Z",
+            "updated_at": "2020-11-11T07:17:29.000000Z",
+            "value": "0"
+        },
+        {
+            "id": "TEST_BOOLEAN_TRUE",
+            "data_type": "BOOLEAN",
+            "default_value": "1",
+            "created_at": "2020-11-11T07:17:27.000000Z",
+            "updated_at": "2020-11-11T07:17:27.000000Z",
+            "value": "1"
+        },
+        {
+            "id": "TEST_INTEGER",
+            "data_type": "INTEGER",
+            "default_value": "10000",
+            "created_at": "2020-11-11T07:17:26.000000Z",
+            "updated_at": "2020-11-11T07:17:26.000000Z",
+            "value": "10000"
+        },
+        {
+            "id": "TEST_VARCHAR",
+            "data_type": "VARCHAR",
+            "default_value": "Test String",
+            "created_at": "2020-11-11T07:17:28.000000Z",
+            "updated_at": "2020-11-11T07:17:28.000000Z",
+            "value": "Test String"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/branches/{branch}/settings/active</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>branch</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the branch.</p>
+<h2>Retrieve all branch&#039;s settings versions</h2>
+<p>Retrieve all branch&#039;s settings versions.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/ST/settings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "active_version": 0,
+    "versions": [
+        {
+            "version": 0,
+            "name": "Default Settings"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/branches/{branch}/settings</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>branch</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the branch.</p>
+<h2>Add a new version of branch&#039;s settings</h2>
+<p>Add a new version of branch&#039;s settings</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings?name=My+Special+Settings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings"
+);
+
+let params = {
+    "name": "My Special Settings",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/branches/{branch}/settings</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>branch</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the branch.</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+The name of the setting. Defaults to &quot;New Settings&quot;.</p>
+<h2>Retrieve a branch&#039;s settings by version</h2>
+<p>Retrieve a branch&#039;s settings by version.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/0" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/0"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "version": 0,
+    "name": "Default Settings",
+    "active_at": 0,
+    "is_active": true,
+    "settings": [
+        {
+            "id": "CLOSE_TIME",
+            "data_type": "TIME",
+            "default_value": "20:00:00",
+            "created_at": "2020-11-11T07:17:25.000000Z",
+            "updated_at": "2020-11-11T07:17:25.000000Z",
+            "value": "20:00:00"
+        },
+        {
+            "id": "OPEN_TIME",
+            "data_type": "TIME",
+            "default_value": "08:30:00",
+            "created_at": "2020-11-11T07:17:24.000000Z",
+            "updated_at": "2020-11-11T07:17:24.000000Z",
+            "value": "08:30:00"
+        },
+        {
+            "id": "TEST_BOOLEAN_FALSE",
+            "data_type": "BOOLEAN",
+            "default_value": "0",
+            "created_at": "2020-11-11T07:17:29.000000Z",
+            "updated_at": "2020-11-11T07:17:29.000000Z",
+            "value": "0"
+        },
+        {
+            "id": "TEST_BOOLEAN_TRUE",
+            "data_type": "BOOLEAN",
+            "default_value": "1",
+            "created_at": "2020-11-11T07:17:27.000000Z",
+            "updated_at": "2020-11-11T07:17:27.000000Z",
+            "value": "1"
+        },
+        {
+            "id": "TEST_INTEGER",
+            "data_type": "INTEGER",
+            "default_value": "10000",
+            "created_at": "2020-11-11T07:17:26.000000Z",
+            "updated_at": "2020-11-11T07:17:26.000000Z",
+            "value": "10000"
+        },
+        {
+            "id": "TEST_VARCHAR",
+            "data_type": "VARCHAR",
+            "default_value": "Test String",
+            "created_at": "2020-11-11T07:17:28.000000Z",
+            "updated_at": "2020-11-11T07:17:28.000000Z",
+            "value": "Test String"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/branches/{branch}/settings/{version}</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>branch</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the branch.</p>
+<p><code><b>version</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The version of the setting.</p>
+<h2>Update a branch&#039;s settings by version</h2>
+<p>Update a branch&#039;s settings by version.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/1?name=My+New+Settings+Name" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/1"
+);
+
+let params = {
+    "name": "My New Settings Name",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<blockquote>
+<p>Example response (401, default_version_not_editable):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<blockquote>
+<p>Example response (402, active_version_not_editable):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<blockquote>
+<p>Example response (404, version_not_found):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-darkblue">PUT</small>
+<strong><code>api/branches/{branch}/settings/{version}</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>branch</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the branch.</p>
+<p><code><b>version</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The version of the setting.</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+The new name of the setting.</p>
+<h2>Remove a branch&#039;s settings by version</h2>
+<p>Remove a branch&#039;s settings by version.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/0" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/branches/ST/settings/0"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<blockquote>
+<p>Example response (401, default_version_not_editable):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<blockquote>
+<p>Example response (402, active_version_not_editable):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<blockquote>
+<p>Example response (404, version_not_found):</p>
+</blockquote>
+<pre><code class="language-json">
+""</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/branches/{branch}/settings/{version}</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>branch</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the branch.</p>
+<p><code><b>version</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The version of the setting.</p><h1>Branch</h1>
 <h2>Import branches</h2>
 <p>Import branches.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
@@ -69,7 +442,7 @@ Admin Panel: <a href="https://it114118-fyp-admin.herokuapp.com/" target="_blank"
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpB635.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php4C67.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/branches/import"
 );
@@ -236,72 +609,72 @@ fetch(url, {
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
-        "created_at": "2020-11-01T08:59:57.000000Z",
-        "updated_at": "2020-11-01T08:59:57.000000Z"
+        "created_at": "2020-11-11T07:16:39.000000Z",
+        "updated_at": "2020-11-11T07:16:39.000000Z"
     },
     {
         "id": "HW",
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
-        "created_at": "2020-11-01T08:59:59.000000Z",
-        "updated_at": "2020-11-01T08:59:59.000000Z"
+        "created_at": "2020-11-11T07:16:41.000000Z",
+        "updated_at": "2020-11-11T07:16:41.000000Z"
     },
     {
         "id": "KC",
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
-        "created_at": "2020-11-01T09:00:01.000000Z",
-        "updated_at": "2020-11-01T09:00:01.000000Z"
+        "created_at": "2020-11-11T07:16:44.000000Z",
+        "updated_at": "2020-11-11T07:16:44.000000Z"
     },
     {
         "id": "KT",
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
-        "created_at": "2020-11-01T09:00:03.000000Z",
-        "updated_at": "2020-11-01T09:00:03.000000Z"
+        "created_at": "2020-11-11T07:16:47.000000Z",
+        "updated_at": "2020-11-11T07:16:47.000000Z"
     },
     {
         "id": "LWL",
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
-        "created_at": "2020-11-01T09:00:04.000000Z",
-        "updated_at": "2020-11-01T09:00:04.000000Z"
+        "created_at": "2020-11-11T07:16:49.000000Z",
+        "updated_at": "2020-11-11T07:16:49.000000Z"
     },
     {
         "id": "MH",
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
-        "created_at": "2020-11-01T09:00:06.000000Z",
-        "updated_at": "2020-11-01T09:00:06.000000Z"
+        "created_at": "2020-11-11T07:16:51.000000Z",
+        "updated_at": "2020-11-11T07:16:51.000000Z"
     },
     {
         "id": "ST",
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2020-11-01T09:00:07.000000Z",
-        "updated_at": "2020-11-01T09:00:07.000000Z"
+        "created_at": "2020-11-11T07:16:53.000000Z",
+        "updated_at": "2020-11-11T07:16:53.000000Z"
     },
     {
         "id": "TM",
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2020-11-01T09:00:10.000000Z",
-        "updated_at": "2020-11-01T09:00:10.000000Z"
+        "created_at": "2020-11-11T07:16:57.000000Z",
+        "updated_at": "2020-11-11T07:16:57.000000Z"
     },
     {
         "id": "TY",
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
-        "created_at": "2020-11-01T09:00:09.000000Z",
-        "updated_at": "2020-11-01T09:00:09.000000Z"
+        "created_at": "2020-11-11T07:16:55.000000Z",
+        "updated_at": "2020-11-11T07:16:55.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -340,11 +713,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}" \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/ST" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/branches/{branch}"
+    "https://it114118-fyp.herokuapp.com/api/branches/ST"
 );
 
 let headers = {
@@ -359,400 +732,22 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (404):</p>
+<p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "No query results for model [App\\Models\\Branch] {branch}",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
-    "line": 364,
-    "trace": [
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
-            "line": 313,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\nunomaduro\\collision\\src\\Adapters\\Laravel\\ExceptionHandler.php",
-            "line": 54,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php",
-            "line": 51,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 172,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 127,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 103,
-            "function": "handleRequest",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 55,
-            "function": "handleRequestUsingNamedLimiter",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 693,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 668,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 634,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 623,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 166,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
-            "line": 87,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fruitcake\\Cors\\HandleCors",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 141,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 110,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 322,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 304,
-            "function": "callLaravelOrLumenRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 76,
-            "function": "makeApiCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 51,
-            "function": "makeResponseCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 41,
-            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 229,
-            "function": "__invoke",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 167,
-            "function": "iterateThroughStrategies",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 125,
-            "function": "fetchResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 118,
-            "function": "processRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 73,
-            "function": "processRoutes",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "function": "handle",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 37,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
-            "line": 40,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 95,
-            "function": "unwrapIfClosure",
-            "class": "Illuminate\\Container\\Util",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 39,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 596,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 136,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Command\\Command.php",
-            "line": 258,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 121,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
-            "line": 920,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
-            "line": 266,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
-            "line": 142,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
-            "line": 93,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
-            "line": 129,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "-&gt;"
-        }
-    ]
+    "id": "ST",
+    "title_en": "Sha Tin",
+    "title_hk": "沙田",
+    "title_cn": "沙田",
+    "created_at": "2020-11-11T07:16:53.000000Z",
+    "updated_at": "2020-11-11T07:16:53.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/branches/{branch}</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>branch</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the branch.</p>
 <h2>Update a branch</h2>
 <p>Update a branch.</p>
 <blockquote>
@@ -958,7 +953,7 @@ When this value is set to true all of the tokens issued to the user will be revo
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpE034.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpA093.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/programs/import"
 );
@@ -1121,44 +1116,28 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">[
     {
-        "id": "also",
-        "title_en": "try the algolia Instant Search",
-        "title_hk": "https:\/\/www.algolia.com\/doc\/api-reference\/widgets\/instantsearch\/react\/",
-        "title_cn": "https:\/\/www.algolia.com\/doc\/api-reference\/widgets\/instantsearch\/react\/",
-        "created_at": "2020-11-01T12:39:39.000000Z",
-        "updated_at": "2020-11-01T12:39:39.000000Z"
-    },
-    {
         "id": "CE114301",
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
-        "created_at": "2020-11-01T08:59:56.000000Z",
-        "updated_at": "2020-11-01T08:59:56.000000Z"
-    },
-    {
-        "id": "Hi Tommy",
-        "title_en": "Try add a export button link: https:\/\/it114118-fyp.herokuapp.com\/api\/programs\/export",
-        "title_hk": "thanks",
-        "title_cn": "thanks",
-        "created_at": "2020-11-01T12:37:20.000000Z",
-        "updated_at": "2020-11-01T12:37:20.000000Z"
+        "created_at": "2020-11-11T07:16:37.000000Z",
+        "updated_at": "2020-11-11T07:16:37.000000Z"
     },
     {
         "id": "IT114105",
         "title_en": "Higher Diploma in Software Engineering",
         "title_hk": "軟件工程高級文憑",
         "title_cn": "软件工程高级文凭",
-        "created_at": "2020-11-01T08:59:55.000000Z",
-        "updated_at": "2020-11-01T08:59:55.000000Z"
+        "created_at": "2020-11-11T07:16:35.000000Z",
+        "updated_at": "2020-11-11T07:16:35.000000Z"
     },
     {
         "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
         "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2020-11-01T08:59:53.000000Z",
-        "updated_at": "2020-11-01T08:59:53.000000Z"
+        "created_at": "2020-11-11T07:16:33.000000Z",
+        "updated_at": "2020-11-11T07:16:33.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -1243,8 +1222,8 @@ fetch(url, {
     "title_en": "Higher Diploma in AI and Mobile Applications Development",
     "title_hk": "人工智能及手機軟件開發高級文憑",
     "title_cn": "人工智能及手机软件开发高级文凭",
-    "created_at": "2020-11-01T08:59:53.000000Z",
-    "updated_at": "2020-11-01T08:59:53.000000Z"
+    "created_at": "2020-11-11T07:16:33.000000Z",
+    "updated_at": "2020-11-11T07:16:33.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -1331,7 +1310,121 @@ fetch(url, {
 <strong><code>api/programs/{program}</code></strong></p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p><code><b>program</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-string required The ID of the program.</p><h1>User</h1>
+string required The ID of the program.</p><h1>Setting</h1>
+<h2>Retrieve all settings</h2>
+<p>Retrieve all settings.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/settings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/settings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">[
+    {
+        "id": "CLOSE_TIME",
+        "data_type": "TIME",
+        "default_value": "20:00:00",
+        "created_at": "2020-11-11T07:17:25.000000Z",
+        "updated_at": "2020-11-11T07:17:25.000000Z"
+    },
+    {
+        "id": "OPEN_TIME",
+        "data_type": "TIME",
+        "default_value": "08:30:00",
+        "created_at": "2020-11-11T07:17:24.000000Z",
+        "updated_at": "2020-11-11T07:17:24.000000Z"
+    },
+    {
+        "id": "TEST_BOOLEAN_FALSE",
+        "data_type": "BOOLEAN",
+        "default_value": false,
+        "created_at": "2020-11-11T07:17:29.000000Z",
+        "updated_at": "2020-11-11T07:17:29.000000Z"
+    },
+    {
+        "id": "TEST_BOOLEAN_TRUE",
+        "data_type": "BOOLEAN",
+        "default_value": true,
+        "created_at": "2020-11-11T07:17:27.000000Z",
+        "updated_at": "2020-11-11T07:17:27.000000Z"
+    },
+    {
+        "id": "TEST_INTEGER",
+        "data_type": "INTEGER",
+        "default_value": 16,
+        "created_at": "2020-11-11T07:17:26.000000Z",
+        "updated_at": "2020-11-11T07:17:26.000000Z"
+    },
+    {
+        "id": "TEST_VARCHAR",
+        "data_type": "VARCHAR",
+        "default_value": "Test String",
+        "created_at": "2020-11-11T07:17:28.000000Z",
+        "updated_at": "2020-11-11T07:17:28.000000Z"
+    }
+]</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/settings</code></strong></p>
+<h2>Retrieve a settings</h2>
+<p>Retrieve a settings.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/settings/OPEN_TIME" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/settings/OPEN_TIME"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": "OPEN_TIME",
+    "data_type": "TIME",
+    "default_value": "08:30:00",
+    "created_at": "2020-11-11T07:17:24.000000Z",
+    "updated_at": "2020-11-11T07:17:24.000000Z"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/settings/{setting}</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>setting</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the setting.</p><h1>User</h1>
 <h2>Get myself</h2>
 <p>Get current account informations with permissions.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
@@ -1473,7 +1566,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php36E1.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php5B69.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/users/import"
 );
@@ -2046,7 +2139,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/venues/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php9D5.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpF849.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/venues/import"
 );
@@ -2217,8 +2310,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-01T09:00:11.000000Z",
-        "updated_at": "2020-11-01T09:00:11.000000Z"
+        "created_at": "2020-11-11T07:16:59.000000Z",
+        "updated_at": "2020-11-11T07:16:59.000000Z"
     },
     {
         "id": 2,
@@ -2229,8 +2322,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-01T09:00:13.000000Z",
-        "updated_at": "2020-11-01T09:00:13.000000Z"
+        "created_at": "2020-11-11T07:17:01.000000Z",
+        "updated_at": "2020-11-11T07:17:01.000000Z"
     },
     {
         "id": 3,
@@ -2241,8 +2334,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-01T09:00:14.000000Z",
-        "updated_at": "2020-11-01T09:00:14.000000Z"
+        "created_at": "2020-11-11T07:17:03.000000Z",
+        "updated_at": "2020-11-11T07:17:03.000000Z"
     },
     {
         "id": 4,
@@ -2253,8 +2346,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-01T09:00:16.000000Z",
-        "updated_at": "2020-11-01T09:00:16.000000Z"
+        "created_at": "2020-11-11T07:17:05.000000Z",
+        "updated_at": "2020-11-11T07:17:05.000000Z"
     },
     {
         "id": 5,
@@ -2265,8 +2358,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-01T09:00:17.000000Z",
-        "updated_at": "2020-11-01T09:00:17.000000Z"
+        "created_at": "2020-11-11T07:17:07.000000Z",
+        "updated_at": "2020-11-11T07:17:07.000000Z"
     },
     {
         "id": 6,
@@ -2277,8 +2370,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-01T09:00:19.000000Z",
-        "updated_at": "2020-11-01T09:00:19.000000Z"
+        "created_at": "2020-11-11T07:17:09.000000Z",
+        "updated_at": "2020-11-11T07:17:09.000000Z"
     },
     {
         "id": 7,
@@ -2289,8 +2382,8 @@ fetch(url, {
         "title_cn": "接见室",
         "opening_time": "09:00:00",
         "closing_time": "15:00:00",
-        "created_at": "2020-11-01T09:00:19.000000Z",
-        "updated_at": "2020-11-01T09:00:19.000000Z"
+        "created_at": "2020-11-11T07:17:11.000000Z",
+        "updated_at": "2020-11-11T07:17:11.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -2329,11 +2422,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
+    -G "https://it114118-fyp.herokuapp.com/api/venues/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
+    "https://it114118-fyp.herokuapp.com/api/venues/1"
 );
 
 let headers = {
@@ -2348,400 +2441,26 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (404):</p>
+<p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "No query results for model [App\\Models\\Venue] {venue}",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
-    "line": 364,
-    "trace": [
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
-            "line": 313,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\nunomaduro\\collision\\src\\Adapters\\Laravel\\ExceptionHandler.php",
-            "line": 54,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php",
-            "line": 51,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 172,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 127,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 103,
-            "function": "handleRequest",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 55,
-            "function": "handleRequestUsingNamedLimiter",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 693,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 668,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 634,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 623,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 166,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
-            "line": 87,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fruitcake\\Cors\\HandleCors",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 141,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 110,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 322,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 304,
-            "function": "callLaravelOrLumenRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 76,
-            "function": "makeApiCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 51,
-            "function": "makeResponseCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 41,
-            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 229,
-            "function": "__invoke",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 167,
-            "function": "iterateThroughStrategies",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 125,
-            "function": "fetchResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 118,
-            "function": "processRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 73,
-            "function": "processRoutes",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "function": "handle",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 37,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
-            "line": 40,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 95,
-            "function": "unwrapIfClosure",
-            "class": "Illuminate\\Container\\Util",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 39,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 596,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 136,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Command\\Command.php",
-            "line": 258,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 121,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
-            "line": 920,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
-            "line": 266,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\symfony\\console\\Application.php",
-            "line": 142,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
-            "line": 93,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
-            "line": 129,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "-&gt;"
-        }
-    ]
+    "id": 1,
+    "branch_id": "ST",
+    "number": "IT-421B",
+    "title_en": "",
+    "title_hk": "",
+    "title_cn": "",
+    "opening_time": "09:00:00",
+    "closing_time": "21:00:00",
+    "created_at": "2020-11-11T07:16:59.000000Z",
+    "updated_at": "2020-11-11T07:16:59.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/venues/{venue}</code></strong></p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p><code><b>venue</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+string required The ID of the venue.</p>
 <h2>Update a venue</h2>
 <p>Update a venue.</p>
 <blockquote>

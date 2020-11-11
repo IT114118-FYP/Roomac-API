@@ -63,7 +63,9 @@ class BranchController extends Controller
      * Retrieve a branch
      * 
      * Retrieve a branch.
-     *
+     * 
+     * @urlParam branch string required The ID of the branch. Example: ST
+     * 
      * @param  \App\Models\Branch  $branch
      * @return \Illuminate\Http\Response
      */

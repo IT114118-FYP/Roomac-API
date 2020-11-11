@@ -67,6 +67,8 @@ class VenueController extends Controller
      * 
      * Retrieve a venue.
      *
+     * @urlParam venue string required The ID of the venue. Example: 1
+     * 
      * @param  \App\Models\Venue  $venue
      * @return \Illuminate\Http\Response
      */

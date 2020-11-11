@@ -12,6 +12,8 @@ use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\VenueController;
 use App\Http\Controllers\API\PermissionController;
+use App\Http\Controllers\API\SettingController;
+use App\Http\Controllers\API\BranchSettingController;
 
 Route::post('/branches/import', [BranchController::class, 'import']);
 Route::get('/branches/export', [BranchController::class, 'export']);
@@ -44,6 +46,15 @@ Route::apiResource('/users', UserController::class);
 
 Route::get('/users/{user}/permissions', [PermissionController::class, 'show']);
 Route::post('/users/{user}/permissions', [PermissionController::class, 'update']);
+
+Route::get('/branches/{branch}/settings/active', [BranchSettingController::class, 'active']);
+Route::get('/branches/{branch}/settings', [BranchSettingController::class, 'index']);
+Route::post('/branches/{branch}/settings', [BranchSettingController::class, 'store']);
+Route::get('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'show']);
+Route::put('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'update']);
+Route::delete('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'destroy']);
+
+Route::apiResource('/settings', SettingController::class);
 
 /**
  * @group Login
