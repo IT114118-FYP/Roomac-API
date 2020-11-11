@@ -63,6 +63,7 @@ class BranchSettingController extends Controller
 
         return [
             'version' => $new_version,
+            'name' => $name,
             'active_at' => BranchSettingVersion::where(['branch_id' => $branch->id, 'version' => $new_version])->first()->active_at,
             'is_active' => $new_version == $this->getActiveVersion($branch->id),
             'settings' => $this->getFormattedSettings($branch->id, $new_version),
@@ -205,8 +206,10 @@ class BranchSettingController extends Controller
     public function active(Branch $branch)
     {
         $active_version = $this->getActiveVersion($branch->id);
+
         return [
             'version' => $active_version,
+            'name' => $active_version == 0 ? $this->DEFAULT_SETTINGS_NAME : BranchSettingVersion::where(['branch_id' => $branch->id, 'version' => $active_version])->first()->name,
             'active_at' => $active_version == 0 ? 0 : BranchSettingVersion::where(['branch_id' => $branch->id, 'version' => $active_version])->first()->active_at,
             'is_active' => true,
             'settings' => $this->getFormattedSettings($branch->id, $active_version),

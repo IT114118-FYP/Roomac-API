@@ -42,6 +42,7 @@ fetch(url, {
 ```json
 {
     "version": 0,
+    "name": "Default Settings",
     "active_at": 0,
     "is_active": true,
     "settings": [
@@ -152,6 +153,10 @@ fetch(url, {
         {
             "version": 0,
             "name": "Default Settings"
+        },
+        {
+            "version": 1,
+            "name": "New"
         }
     ]
 }
