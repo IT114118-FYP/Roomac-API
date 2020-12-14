@@ -18,8 +18,8 @@ class CreateVenueBookingsTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('venue_id')->unsigned()->nullable();
             $table->bigInteger('branch_setting_version_id')->unsigned()->nullable();
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
+            $table->timestampTz('start_time');
+            $table->timestampTz('end_time');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->constrained()->onDelete('set null');

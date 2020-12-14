@@ -15,7 +15,12 @@ use App\Models\Program;
 use App\Models\Venue;
 use App\Models\Setting;
 use App\Models\BranchSetting;
+use App\Models\VenueAvailable;
 use App\Models\VenueBooking;
+use App\Models\VenueReserved;
+
+use \DateTime;
+use \DateTimeZone;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,7 +40,9 @@ class DatabaseSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         BranchSetting::truncate();
         Setting::truncate();
+        VenueAvailable::truncate();
         VenueBooking::truncate();
+        VenueReserved::truncate();
         Venue::truncate();
         User::truncate();
         Program::truncate();
@@ -82,10 +89,13 @@ class DatabaseSeeder extends Seeder
 
         # Venue
         $rows = [
-            ['ST', 'IT-421B', '', '', '', '09:00', '21:00'], ['ST', 'CS-442', '', '', '', '09:00', '21:00'],
-            ['ST', 'CS-404', '', '', '', '09:00', '21:00'], ['ST', 'CS-332B', '', '', '', '09:00', '21:00'],
-            ['ST', 'CS-N108B', '', '', '', '09:00', '21:00'], ['ST', 'IT-427B', '', '', '', '09:00', '21:00'],
-            ['ST', 'IT-417A', 'Interview Room', '接見室', '接见室', '09:00', '15:00'],
+            ['ST', 'IT-421B', '', '', '', '08:00', '21:00'],
+            ['ST', 'CS-442', '', '', '', '08:00', '21:00'],
+            ['ST', 'CS-404', '', '', '', '08:00', '21:00'],
+            ['ST', 'CS-332B', '', '', '', '08:00', '21:00'],
+            ['ST', 'CS-N108B', '', '', '', '08:00', '21:00'],
+            ['ST', 'IT-427B', '', '', '', '08:00', '21:00'],
+            ['ST', 'IT-417A', 'Interview Room', '接見室', '接见室', '08:00', '15:00'],
         ];
         $this->seedVenue($rows);
 
@@ -101,9 +111,11 @@ class DatabaseSeeder extends Seeder
 
         # Branch Setting
         $rows = [
-            ['OPEN_TIME', 'TIME', '08:30:00'], ['CLOSE_TIME', 'TIME', '20:00:00'],
+            ['TIME_ZONE', 'VARCHAR', 'Asia/Hong_Kong'],
+            ['OPEN_TIME', 'TIME', '08:30:00'],
+            ['CLOSE_TIME', 'TIME', '20:00:00'],
             
-            ['TIME_IN_ADVANCE', 'TIME', '24:00:00'], ['MINUTE_PER_SESSION', 'INTEGER', '30'],
+            ['TIME_IN_ADVANCE', 'TIME', '24:00:00'], ['VENUE_MINUTE_PER_SESSION', 'INTEGER', '30'],
             ['MIN_CLIENT_PER_VENUE', 'INTEGER', '3'], ['MIN_CLIENT_UNLOCK', 'INTEGER', '3'],
             
             ['TEST_BOOLEAN_TRUE', 'BOOLEAN', '1'],
@@ -117,14 +129,23 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedBranchSetting($rows);
 
+        # Venue Available
+        $rows = [
+            ['1', '12:00:00', '05:00:00', 1, true],
+            ['1', '08:30:00', '06:00:00', 2, true],
+            ['1', '08:30:00', '06:00:00', 3, true],
+            ['1', '08:30:00', '06:00:00', 4, true],
+            ['1', '08:30:00', '06:00:00', 5, true],
+        ];
+        $this->seedVenueAvailable($rows);
+
         # Venue Booking
         $rows = [
-            ['2', '1', null, '2020-12-14T09:00:00', '2020-12-14T10:30:00'],
-            ['2', '1', null, '2020-12-14T11:30:00', '2020-12-14T12:30:00'],
-            ['2', '2', null, '2020-12-15T09:00:00', '2020-12-15T10:30:00'],
-            ['2', '2', null, '2020-12-15T10:30:00', '2020-12-15T12:30:00'],
-            ['2', '1', null, '2020-12-15T13:00:00', '2020-12-15T14:30:00'],
-            ['2', '1', null, '2020-12-15T15:30:00', '2020-12-15T16:30:00'],
+            ['2', '1', null, '2020-12-14 09:30:00', '2020-12-14 10:30:00'],
+            ['2', '1', null, '2020-12-14 10:30:00', '2020-12-14 11:30:00'],
+            ['2', '1', null, '2020-12-14 12:30:00', '2020-12-14 13:30:00'],
+            ['2', '2', null, '2020-12-14 14:30:00', '2020-12-14 15:30:00'],
+            ['2', '2', null, '2020-12-14 16:30:00', '2020-12-14 17:30:00'],
         ];
         $this->seedVenueBooking($rows);
 
@@ -218,14 +239,38 @@ class DatabaseSeeder extends Seeder
         }
     }
 
+    private function seedVenueAvailable($rows) {
+        foreach ($rows as $row) {
+            $start_time = new DateTime($row[1], new DateTimeZone('Asia/Hong_Kong'));
+            $start_time->setTimezone(new DateTimeZone('UTC'));
+
+            $end_time = new DateTime($row[2], new DateTimeZone('Asia/Hong_Kong'));
+            $end_time->setTimezone(new DateTimeZone('UTC'));
+
+            (new VenueAvailable([
+                'venue_id' => $row[0],
+                'start_time' => $start_time,
+                'end_time' => $end_time,
+                'day_of_week' => $row[3],
+                'repeat' => $row[4],
+            ]))->save();
+        }
+    }
+
     private function seedVenueBooking($rows) {
         foreach ($rows as $row) {
+            $start_time = new DateTime($row[3], new DateTimeZone('Asia/Hong_Kong'));
+            $start_time->setTimezone(new DateTimeZone('UTC'));
+
+            $end_time = new DateTime($row[4], new DateTimeZone('Asia/Hong_Kong'));
+            $end_time->setTimezone(new DateTimeZone('UTC'));
+
             (new VenueBooking([
                 'user_id' => $row[0],
                 'venue_id' => $row[1],
                 'branch_setting_version_id' => $row[2],
-                'start_time' => $row[3],
-                'end_time' => $row[4],
+                'start_time' => $start_time,
+                'end_time' => $end_time,
             ]))->save();
         }
     }

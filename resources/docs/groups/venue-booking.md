@@ -40,50 +40,97 @@ fetch(url, {
 ```json
 {
     "interval": 30,
+    "timezone": "Asia\/Hong_Kong",
+    "opening_time": "08:00:00",
+    "closing_time": "21:00:00",
     "bookings": {
-        "reserved": [
+        "allow_times": [
             {
                 "id": 1,
-                "user_id": 2,
                 "venue_id": 1,
-                "branch_setting_version_id": null,
-                "start_time": "2020-12-14T09:00:00.000000Z",
-                "end_time": "2020-12-14T10:30:00.000000Z",
-                "created_at": "2020-12-14T00:17:48.000000Z",
-                "updated_at": "2020-12-14T00:17:48.000000Z"
+                "start_time": "2020-12-14T04:00:00.000000Z",
+                "end_time": "2020-12-14T21:00:00.000000Z",
+                "day_of_week": 1,
+                "repeat": 1,
+                "created_at": "2020-12-14T22:25:00.000000Z",
+                "updated_at": "2020-12-14T22:25:00.000000Z"
             },
             {
                 "id": 2,
-                "user_id": 2,
                 "venue_id": 1,
-                "branch_setting_version_id": null,
-                "start_time": "2020-12-14T10:30:00.000000Z",
-                "end_time": "2020-12-14T12:30:00.000000Z",
-                "created_at": "2020-12-14T00:17:48.000000Z",
-                "updated_at": "2020-12-14T00:17:48.000000Z"
+                "start_time": "2020-12-14T00:30:00.000000Z",
+                "end_time": "2020-12-14T22:00:00.000000Z",
+                "day_of_week": 2,
+                "repeat": 1,
+                "created_at": "2020-12-14T22:25:00.000000Z",
+                "updated_at": "2020-12-14T22:25:00.000000Z"
+            },
+            {
+                "id": 3,
+                "venue_id": 1,
+                "start_time": "2020-12-14T00:30:00.000000Z",
+                "end_time": "2020-12-14T22:00:00.000000Z",
+                "day_of_week": 3,
+                "repeat": 1,
+                "created_at": "2020-12-14T22:25:01.000000Z",
+                "updated_at": "2020-12-14T22:25:01.000000Z"
+            },
+            {
+                "id": 4,
+                "venue_id": 1,
+                "start_time": "2020-12-14T00:30:00.000000Z",
+                "end_time": "2020-12-14T22:00:00.000000Z",
+                "day_of_week": 4,
+                "repeat": 1,
+                "created_at": "2020-12-14T22:25:01.000000Z",
+                "updated_at": "2020-12-14T22:25:01.000000Z"
             },
             {
                 "id": 5,
-                "user_id": 2,
                 "venue_id": 1,
-                "branch_setting_version_id": null,
-                "start_time": "2020-12-15T13:00:00.000000Z",
-                "end_time": "2020-12-15T14:30:00.000000Z",
-                "created_at": "2020-12-14T00:17:50.000000Z",
-                "updated_at": "2020-12-14T00:17:50.000000Z"
-            },
-            {
-                "id": 6,
-                "user_id": 2,
-                "venue_id": 1,
-                "branch_setting_version_id": null,
-                "start_time": "2020-12-15T15:30:00.000000Z",
-                "end_time": "2020-12-15T16:30:00.000000Z",
-                "created_at": "2020-12-14T00:17:51.000000Z",
-                "updated_at": "2020-12-14T00:17:51.000000Z"
+                "start_time": "2020-12-14T00:30:00.000000Z",
+                "end_time": "2020-12-14T22:00:00.000000Z",
+                "day_of_week": 5,
+                "repeat": 1,
+                "created_at": "2020-12-14T22:25:02.000000Z",
+                "updated_at": "2020-12-14T22:25:02.000000Z"
             }
         ],
-        "unavailable": []
+        "unavailable": {
+            "booked": [
+                {
+                    "id": 1,
+                    "user_id": 2,
+                    "venue_id": 1,
+                    "branch_setting_version_id": null,
+                    "start_time": "2020-12-14T01:30:00.000000Z",
+                    "end_time": "2020-12-14T02:30:00.000000Z",
+                    "created_at": "2020-12-14T22:25:02.000000Z",
+                    "updated_at": "2020-12-14T22:25:02.000000Z"
+                },
+                {
+                    "id": 2,
+                    "user_id": 2,
+                    "venue_id": 1,
+                    "branch_setting_version_id": null,
+                    "start_time": "2020-12-14T02:30:00.000000Z",
+                    "end_time": "2020-12-14T03:30:00.000000Z",
+                    "created_at": "2020-12-14T22:25:03.000000Z",
+                    "updated_at": "2020-12-14T22:25:03.000000Z"
+                },
+                {
+                    "id": 3,
+                    "user_id": 2,
+                    "venue_id": 1,
+                    "branch_setting_version_id": null,
+                    "start_time": "2020-12-14T04:30:00.000000Z",
+                    "end_time": "2020-12-14T05:30:00.000000Z",
+                    "created_at": "2020-12-14T22:25:04.000000Z",
+                    "updated_at": "2020-12-14T22:25:04.000000Z"
+                }
+            ],
+            "reserved": []
+        }
     }
 }
 ```

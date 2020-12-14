@@ -146,15 +146,15 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-12-14T00:17:19.000000Z', updated_at: '2020-12-14T00:17:19.000000Z' }
-                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-12-14T00:17:20.000000Z', updated_at: '2020-12-14T00:17:20.000000Z' }
-                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-12-14T00:17:22.000000Z', updated_at: '2020-12-14T00:17:22.000000Z' }
-                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-12-14T00:17:23.000000Z', updated_at: '2020-12-14T00:17:23.000000Z' }
-                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-12-14T00:17:23.000000Z', updated_at: '2020-12-14T00:17:23.000000Z' }
-                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-12-14T00:17:25.000000Z', updated_at: '2020-12-14T00:17:25.000000Z' }
-                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-12-14T00:17:26.000000Z', updated_at: '2020-12-14T00:17:26.000000Z' }
-                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-12-14T00:17:28.000000Z', updated_at: '2020-12-14T00:17:28.000000Z' }
-                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-12-14T00:17:27.000000Z', updated_at: '2020-12-14T00:17:27.000000Z' }
+                                    - { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, created_at: '2020-12-14T22:24:30.000000Z', updated_at: '2020-12-14T22:24:30.000000Z' }
+                                    - { id: HW, title_en: 'Haking Wong', title_hk: 黃克競, title_cn: 黄克竞, created_at: '2020-12-14T22:24:31.000000Z', updated_at: '2020-12-14T22:24:31.000000Z' }
+                                    - { id: KC, title_en: 'Kwai Chung', title_hk: 葵涌, title_cn: 葵涌, created_at: '2020-12-14T22:24:32.000000Z', updated_at: '2020-12-14T22:24:32.000000Z' }
+                                    - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, created_at: '2020-12-14T22:24:33.000000Z', updated_at: '2020-12-14T22:24:33.000000Z' }
+                                    - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, created_at: '2020-12-14T22:24:35.000000Z', updated_at: '2020-12-14T22:24:35.000000Z' }
+                                    - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, created_at: '2020-12-14T22:24:35.000000Z', updated_at: '2020-12-14T22:24:35.000000Z' }
+                                    - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, created_at: '2020-12-14T22:24:36.000000Z', updated_at: '2020-12-14T22:24:36.000000Z' }
+                                    - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, created_at: '2020-12-14T22:24:38.000000Z', updated_at: '2020-12-14T22:24:38.000000Z' }
+                                    - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, created_at: '2020-12-14T22:24:37.000000Z', updated_at: '2020-12-14T22:24:37.000000Z' }
             tags:
                 - Branch
             security: []
@@ -233,15 +233,15 @@ paths:
                                     title_en: 'Sha Tin'
                                     title_hk: 沙田
                                     title_cn: 沙田
-                                    created_at: '2020-12-14T00:17:26.000000Z'
-                                    updated_at: '2020-12-14T00:17:26.000000Z'
+                                    created_at: '2020-12-14T22:24:36.000000Z'
+                                    updated_at: '2020-12-14T22:24:36.000000Z'
                                 properties:
                                     id: { type: string, example: ST }
                                     title_en: { type: string, example: 'Sha Tin' }
                                     title_hk: { type: string, example: 沙田 }
                                     title_cn: { type: string, example: 沙田 }
-                                    created_at: { type: string, example: '2020-12-14T00:17:26.000000Z' }
-                                    updated_at: { type: string, example: '2020-12-14T00:17:26.000000Z' }
+                                    created_at: { type: string, example: '2020-12-14T22:24:36.000000Z' }
+                                    updated_at: { type: string, example: '2020-12-14T22:24:36.000000Z' }
             tags:
                 - Branch
             security: []
@@ -335,13 +335,13 @@ paths:
                                     name: 'Default Settings'
                                     active_at: null
                                     is_active: true
-                                    settings: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:44.000000Z', updated_at: '2020-12-14T00:17:44.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '3' }, { id: MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '30' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '24:00:00' }]
+                                    settings: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T22:24:58.000000Z', updated_at: '2020-12-14T22:24:58.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '24:00:00' }, { id: TIME_ZONE, data_type: VARCHAR, default_value: Asia/Hong_Kong, created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: Asia/Hong_Kong }, { id: VENUE_MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T22:24:55.000000Z', updated_at: '2020-12-14T22:24:55.000000Z', value: '30' }]
                                 properties:
                                     version: { type: 'null', example: null }
                                     name: { type: string, example: 'Default Settings' }
                                     active_at: { type: 'null', example: null }
                                     is_active: { type: boolean, example: true }
-                                    settings: { type: array, example: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:44.000000Z', updated_at: '2020-12-14T00:17:44.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '3' }, { id: MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '30' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '24:00:00' }], items: { type: object } }
+                                    settings: { type: array, example: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T22:24:58.000000Z', updated_at: '2020-12-14T22:24:58.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '24:00:00' }, { id: TIME_ZONE, data_type: VARCHAR, default_value: Asia/Hong_Kong, created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: Asia/Hong_Kong }, { id: VENUE_MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T22:24:55.000000Z', updated_at: '2020-12-14T22:24:55.000000Z', value: '30' }], items: { type: object } }
             tags:
                 - 'Branch Setting'
             security: []
@@ -471,13 +471,13 @@ paths:
                                     name: 'Default Settings'
                                     active_at: 0
                                     is_active: true
-                                    settings: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:44.000000Z', updated_at: '2020-12-14T00:17:44.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '3' }, { id: MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '30' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '24:00:00' }]
+                                    settings: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T22:24:58.000000Z', updated_at: '2020-12-14T22:24:58.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '24:00:00' }, { id: TIME_ZONE, data_type: VARCHAR, default_value: Asia/Hong_Kong, created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: Asia/Hong_Kong }, { id: VENUE_MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T22:24:55.000000Z', updated_at: '2020-12-14T22:24:55.000000Z', value: '30' }]
                                 properties:
                                     version: { type: 'null', example: null }
                                     name: { type: string, example: 'Default Settings' }
                                     active_at: { type: integer, example: 0 }
                                     is_active: { type: boolean, example: true }
-                                    settings: { type: array, example: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:44.000000Z', updated_at: '2020-12-14T00:17:44.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '3' }, { id: MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '30' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z', value: '24:00:00' }], items: { type: object } }
+                                    settings: { type: array, example: [{ id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '20:00:00' }, { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z', value: '3' }, { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: '08:30:00' }, { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: '0', created_at: '2020-12-14T22:24:58.000000Z', updated_at: '2020-12-14T22:24:58.000000Z', value: '0' }, { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: '1', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: '1' }, { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z', value: 'Test String' }, { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z', value: '24:00:00' }, { id: TIME_ZONE, data_type: VARCHAR, default_value: Asia/Hong_Kong, created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z', value: Asia/Hong_Kong }, { id: VENUE_MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T22:24:55.000000Z', updated_at: '2020-12-14T22:24:55.000000Z', value: '30' }], items: { type: object } }
             tags:
                 - 'Branch Setting'
             security: []
@@ -870,9 +870,9 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-12-14T00:17:18.000000Z', updated_at: '2020-12-14T00:17:18.000000Z' }
-                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-12-14T00:17:17.000000Z', updated_at: '2020-12-14T00:17:17.000000Z' }
-                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: '2020-12-14T00:17:15.000000Z', updated_at: '2020-12-14T00:17:15.000000Z' }
+                                    - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: '2020-12-14T22:24:29.000000Z', updated_at: '2020-12-14T22:24:29.000000Z' }
+                                    - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: '2020-12-14T22:24:28.000000Z', updated_at: '2020-12-14T22:24:28.000000Z' }
+                                    - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: '2020-12-14T22:24:27.000000Z', updated_at: '2020-12-14T22:24:27.000000Z' }
             tags:
                 - Program
             security: []
@@ -978,15 +978,15 @@ paths:
                                     title_en: 'Higher Diploma in AI and Mobile Applications Development'
                                     title_hk: 人工智能及手機軟件開發高級文憑
                                     title_cn: 人工智能及手机软件开发高级文凭
-                                    created_at: '2020-12-14T00:17:15.000000Z'
-                                    updated_at: '2020-12-14T00:17:15.000000Z'
+                                    created_at: '2020-12-14T22:24:27.000000Z'
+                                    updated_at: '2020-12-14T22:24:27.000000Z'
                                 properties:
                                     id: { type: string, example: IT114118 }
                                     title_en: { type: string, example: 'Higher Diploma in AI and Mobile Applications Development' }
                                     title_hk: { type: string, example: 人工智能及手機軟件開發高級文憑 }
                                     title_cn: { type: string, example: 人工智能及手机软件开发高级文凭 }
-                                    created_at: { type: string, example: '2020-12-14T00:17:15.000000Z' }
-                                    updated_at: { type: string, example: '2020-12-14T00:17:15.000000Z' }
+                                    created_at: { type: string, example: '2020-12-14T22:24:27.000000Z' }
+                                    updated_at: { type: string, example: '2020-12-14T22:24:27.000000Z' }
             tags:
                 - Program
             security: []
@@ -1099,15 +1099,16 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z' }
-                                    - { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:44.000000Z', updated_at: '2020-12-14T00:17:44.000000Z' }
-                                    - { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z' }
-                                    - { id: MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z' }
-                                    - { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T00:17:42.000000Z', updated_at: '2020-12-14T00:17:42.000000Z' }
-                                    - { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: false, created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z' }
-                                    - { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: true, created_at: '2020-12-14T00:17:45.000000Z', updated_at: '2020-12-14T00:17:45.000000Z' }
-                                    - { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T00:17:46.000000Z', updated_at: '2020-12-14T00:17:46.000000Z' }
-                                    - { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T00:17:43.000000Z', updated_at: '2020-12-14T00:17:43.000000Z' }
+                                    - { id: CLOSE_TIME, data_type: TIME, default_value: '20:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z' }
+                                    - { id: MIN_CLIENT_PER_VENUE, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z' }
+                                    - { id: MIN_CLIENT_UNLOCK, data_type: INTEGER, default_value: '3', created_at: '2020-12-14T22:24:56.000000Z', updated_at: '2020-12-14T22:24:56.000000Z' }
+                                    - { id: OPEN_TIME, data_type: TIME, default_value: '08:30:00', created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z' }
+                                    - { id: TEST_BOOLEAN_FALSE, data_type: BOOLEAN, default_value: false, created_at: '2020-12-14T22:24:58.000000Z', updated_at: '2020-12-14T22:24:58.000000Z' }
+                                    - { id: TEST_BOOLEAN_TRUE, data_type: BOOLEAN, default_value: true, created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z' }
+                                    - { id: TEST_VARCHAR, data_type: VARCHAR, default_value: 'Test String', created_at: '2020-12-14T22:24:57.000000Z', updated_at: '2020-12-14T22:24:57.000000Z' }
+                                    - { id: TIME_IN_ADVANCE, data_type: TIME, default_value: '24:00:00', created_at: '2020-12-14T22:24:54.000000Z', updated_at: '2020-12-14T22:24:54.000000Z' }
+                                    - { id: TIME_ZONE, data_type: VARCHAR, default_value: Asia/Hong_Kong, created_at: '2020-12-14T22:24:53.000000Z', updated_at: '2020-12-14T22:24:53.000000Z' }
+                                    - { id: VENUE_MINUTE_PER_SESSION, data_type: INTEGER, default_value: '30', created_at: '2020-12-14T22:24:55.000000Z', updated_at: '2020-12-14T22:24:55.000000Z' }
             tags:
                 - Setting
             security: []
@@ -1141,14 +1142,14 @@ paths:
                                     id: OPEN_TIME
                                     data_type: TIME
                                     default_value: '08:30:00'
-                                    created_at: '2020-12-14T00:17:42.000000Z'
-                                    updated_at: '2020-12-14T00:17:42.000000Z'
+                                    created_at: '2020-12-14T22:24:53.000000Z'
+                                    updated_at: '2020-12-14T22:24:53.000000Z'
                                 properties:
                                     id: { type: string, example: OPEN_TIME }
                                     data_type: { type: string, example: TIME }
                                     default_value: { type: string, example: '08:30:00' }
-                                    created_at: { type: string, example: '2020-12-14T00:17:42.000000Z' }
-                                    updated_at: { type: string, example: '2020-12-14T00:17:42.000000Z' }
+                                    created_at: { type: string, example: '2020-12-14T22:24:53.000000Z' }
+                                    updated_at: { type: string, example: '2020-12-14T22:24:53.000000Z' }
             tags:
                 - Setting
             security: []
@@ -1742,13 +1743,13 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: 1, branch_id: ST, number: IT-421B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-12-14T00:17:29.000000Z', updated_at: '2020-12-14T00:17:29.000000Z' }
-                                    - { id: 2, branch_id: ST, number: CS-442, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-12-14T00:17:30.000000Z', updated_at: '2020-12-14T00:17:30.000000Z' }
-                                    - { id: 3, branch_id: ST, number: CS-404, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-12-14T00:17:31.000000Z', updated_at: '2020-12-14T00:17:31.000000Z' }
-                                    - { id: 4, branch_id: ST, number: CS-332B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-12-14T00:17:32.000000Z', updated_at: '2020-12-14T00:17:32.000000Z' }
-                                    - { id: 5, branch_id: ST, number: CS-N108B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-12-14T00:17:33.000000Z', updated_at: '2020-12-14T00:17:33.000000Z' }
-                                    - { id: 6, branch_id: ST, number: IT-427B, title_en: '', title_hk: '', title_cn: '', opening_time: '09:00:00', closing_time: '21:00:00', created_at: '2020-12-14T00:17:34.000000Z', updated_at: '2020-12-14T00:17:34.000000Z' }
-                                    - { id: 7, branch_id: ST, number: IT-417A, title_en: 'Interview Room', title_hk: 接見室, title_cn: 接见室, opening_time: '09:00:00', closing_time: '15:00:00', created_at: '2020-12-14T00:17:35.000000Z', updated_at: '2020-12-14T00:17:35.000000Z' }
+                                    - { id: 1, branch_id: ST, number: IT-421B, title_en: '', title_hk: '', title_cn: '', opening_time: '08:00:00', closing_time: '21:00:00', created_at: '2020-12-14T22:24:40.000000Z', updated_at: '2020-12-14T22:24:40.000000Z' }
+                                    - { id: 2, branch_id: ST, number: CS-442, title_en: '', title_hk: '', title_cn: '', opening_time: '08:00:00', closing_time: '21:00:00', created_at: '2020-12-14T22:24:41.000000Z', updated_at: '2020-12-14T22:24:41.000000Z' }
+                                    - { id: 3, branch_id: ST, number: CS-404, title_en: '', title_hk: '', title_cn: '', opening_time: '08:00:00', closing_time: '21:00:00', created_at: '2020-12-14T22:24:42.000000Z', updated_at: '2020-12-14T22:24:42.000000Z' }
+                                    - { id: 4, branch_id: ST, number: CS-332B, title_en: '', title_hk: '', title_cn: '', opening_time: '08:00:00', closing_time: '21:00:00', created_at: '2020-12-14T22:24:42.000000Z', updated_at: '2020-12-14T22:24:42.000000Z' }
+                                    - { id: 5, branch_id: ST, number: CS-N108B, title_en: '', title_hk: '', title_cn: '', opening_time: '08:00:00', closing_time: '21:00:00', created_at: '2020-12-14T22:24:43.000000Z', updated_at: '2020-12-14T22:24:43.000000Z' }
+                                    - { id: 6, branch_id: ST, number: IT-427B, title_en: '', title_hk: '', title_cn: '', opening_time: '08:00:00', closing_time: '21:00:00', created_at: '2020-12-14T22:24:45.000000Z', updated_at: '2020-12-14T22:24:45.000000Z' }
+                                    - { id: 7, branch_id: ST, number: IT-417A, title_en: 'Interview Room', title_hk: 接見室, title_cn: 接见室, opening_time: '08:00:00', closing_time: '15:00:00', created_at: '2020-12-14T22:24:46.000000Z', updated_at: '2020-12-14T22:24:46.000000Z' }
             tags:
                 - Venue
             security: []
@@ -1829,10 +1830,10 @@ paths:
                                     title_en: ''
                                     title_hk: ''
                                     title_cn: ''
-                                    opening_time: '09:00:00'
+                                    opening_time: '08:00:00'
                                     closing_time: '21:00:00'
-                                    created_at: '2020-12-14T00:17:29.000000Z'
-                                    updated_at: '2020-12-14T00:17:29.000000Z'
+                                    created_at: '2020-12-14T22:24:40.000000Z'
+                                    updated_at: '2020-12-14T22:24:40.000000Z'
                                 properties:
                                     id: { type: integer, example: 1 }
                                     branch_id: { type: string, example: ST }
@@ -1840,10 +1841,10 @@ paths:
                                     title_en: { type: string, example: '' }
                                     title_hk: { type: string, example: '' }
                                     title_cn: { type: string, example: '' }
-                                    opening_time: { type: string, example: '09:00:00' }
+                                    opening_time: { type: string, example: '08:00:00' }
                                     closing_time: { type: string, example: '21:00:00' }
-                                    created_at: { type: string, example: '2020-12-14T00:17:29.000000Z' }
-                                    updated_at: { type: string, example: '2020-12-14T00:17:29.000000Z' }
+                                    created_at: { type: string, example: '2020-12-14T22:24:40.000000Z' }
+                                    updated_at: { type: string, example: '2020-12-14T22:24:40.000000Z' }
             tags:
                 - Venue
             security: []
@@ -1934,10 +1935,16 @@ paths:
                                 type: object
                                 example:
                                     interval: 30
-                                    bookings: { reserved: [{ id: 1, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T09:00:00.000000Z', end_time: '2020-12-14T10:30:00.000000Z', created_at: '2020-12-14T00:17:48.000000Z', updated_at: '2020-12-14T00:17:48.000000Z' }, { id: 2, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T10:30:00.000000Z', end_time: '2020-12-14T12:30:00.000000Z', created_at: '2020-12-14T00:17:48.000000Z', updated_at: '2020-12-14T00:17:48.000000Z' }, { id: 5, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-15T13:00:00.000000Z', end_time: '2020-12-15T14:30:00.000000Z', created_at: '2020-12-14T00:17:50.000000Z', updated_at: '2020-12-14T00:17:50.000000Z' }, { id: 6, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-15T15:30:00.000000Z', end_time: '2020-12-15T16:30:00.000000Z', created_at: '2020-12-14T00:17:51.000000Z', updated_at: '2020-12-14T00:17:51.000000Z' }], unavailable: [] }
+                                    timezone: Asia/Hong_Kong
+                                    opening_time: '08:00:00'
+                                    closing_time: '21:00:00'
+                                    bookings: { allow_times: [{ id: 1, venue_id: 1, start_time: '2020-12-14T04:00:00.000000Z', end_time: '2020-12-14T21:00:00.000000Z', day_of_week: 1, repeat: 1, created_at: '2020-12-14T22:25:00.000000Z', updated_at: '2020-12-14T22:25:00.000000Z' }, { id: 2, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 2, repeat: 1, created_at: '2020-12-14T22:25:00.000000Z', updated_at: '2020-12-14T22:25:00.000000Z' }, { id: 3, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 3, repeat: 1, created_at: '2020-12-14T22:25:01.000000Z', updated_at: '2020-12-14T22:25:01.000000Z' }, { id: 4, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 4, repeat: 1, created_at: '2020-12-14T22:25:01.000000Z', updated_at: '2020-12-14T22:25:01.000000Z' }, { id: 5, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 5, repeat: 1, created_at: '2020-12-14T22:25:02.000000Z', updated_at: '2020-12-14T22:25:02.000000Z' }], unavailable: { booked: [{ id: 1, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T01:30:00.000000Z', end_time: '2020-12-14T02:30:00.000000Z', created_at: '2020-12-14T22:25:02.000000Z', updated_at: '2020-12-14T22:25:02.000000Z' }, { id: 2, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T02:30:00.000000Z', end_time: '2020-12-14T03:30:00.000000Z', created_at: '2020-12-14T22:25:03.000000Z', updated_at: '2020-12-14T22:25:03.000000Z' }, { id: 3, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T04:30:00.000000Z', end_time: '2020-12-14T05:30:00.000000Z', created_at: '2020-12-14T22:25:04.000000Z', updated_at: '2020-12-14T22:25:04.000000Z' }], reserved: [] } }
                                 properties:
                                     interval: { type: integer, example: 30 }
-                                    bookings: { type: object, example: { reserved: [{ id: 1, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T09:00:00.000000Z', end_time: '2020-12-14T10:30:00.000000Z', created_at: '2020-12-14T00:17:48.000000Z', updated_at: '2020-12-14T00:17:48.000000Z' }, { id: 2, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T10:30:00.000000Z', end_time: '2020-12-14T12:30:00.000000Z', created_at: '2020-12-14T00:17:48.000000Z', updated_at: '2020-12-14T00:17:48.000000Z' }, { id: 5, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-15T13:00:00.000000Z', end_time: '2020-12-15T14:30:00.000000Z', created_at: '2020-12-14T00:17:50.000000Z', updated_at: '2020-12-14T00:17:50.000000Z' }, { id: 6, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-15T15:30:00.000000Z', end_time: '2020-12-15T16:30:00.000000Z', created_at: '2020-12-14T00:17:51.000000Z', updated_at: '2020-12-14T00:17:51.000000Z' }], unavailable: [] } }
+                                    timezone: { type: string, example: Asia/Hong_Kong }
+                                    opening_time: { type: string, example: '08:00:00' }
+                                    closing_time: { type: string, example: '21:00:00' }
+                                    bookings: { type: object, example: { allow_times: [{ id: 1, venue_id: 1, start_time: '2020-12-14T04:00:00.000000Z', end_time: '2020-12-14T21:00:00.000000Z', day_of_week: 1, repeat: 1, created_at: '2020-12-14T22:25:00.000000Z', updated_at: '2020-12-14T22:25:00.000000Z' }, { id: 2, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 2, repeat: 1, created_at: '2020-12-14T22:25:00.000000Z', updated_at: '2020-12-14T22:25:00.000000Z' }, { id: 3, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 3, repeat: 1, created_at: '2020-12-14T22:25:01.000000Z', updated_at: '2020-12-14T22:25:01.000000Z' }, { id: 4, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 4, repeat: 1, created_at: '2020-12-14T22:25:01.000000Z', updated_at: '2020-12-14T22:25:01.000000Z' }, { id: 5, venue_id: 1, start_time: '2020-12-14T00:30:00.000000Z', end_time: '2020-12-14T22:00:00.000000Z', day_of_week: 5, repeat: 1, created_at: '2020-12-14T22:25:02.000000Z', updated_at: '2020-12-14T22:25:02.000000Z' }], unavailable: { booked: [{ id: 1, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T01:30:00.000000Z', end_time: '2020-12-14T02:30:00.000000Z', created_at: '2020-12-14T22:25:02.000000Z', updated_at: '2020-12-14T22:25:02.000000Z' }, { id: 2, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T02:30:00.000000Z', end_time: '2020-12-14T03:30:00.000000Z', created_at: '2020-12-14T22:25:03.000000Z', updated_at: '2020-12-14T22:25:03.000000Z' }, { id: 3, user_id: 2, venue_id: 1, branch_setting_version_id: null, start_time: '2020-12-14T04:30:00.000000Z', end_time: '2020-12-14T05:30:00.000000Z', created_at: '2020-12-14T22:25:04.000000Z', updated_at: '2020-12-14T22:25:04.000000Z' }], reserved: [] } } }
             tags:
                 - 'Venue Booking'
             security: []
