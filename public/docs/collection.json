@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "b2bd84c1-6f69-40bf-ad2e-6fb0e3adc4c1",
+        "_postman_id": "64a5e10a-057f-4412-8b29-bfd50c03ed76",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -1678,6 +1678,41 @@
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/:venue"
                         },
                         "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Venue Booking",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all venue's bookings timetable",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/venues\/:venue\/bookings",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/venues\/:venue\/bookings"
+                        },
+                        "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",

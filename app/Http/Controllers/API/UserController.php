@@ -32,7 +32,7 @@ class UserController extends Controller
      * 
      * @authenticated
      *
-     * @response status=200 scenario="success" [{"id":1,"name":"190189768","email":"190189768@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","campus_id":"ST","first_name":"Tat","last_name":"Chan","chinese_name":"\u4f55\u4e16","created_at":"2020-10-07T17:44:37.000000Z","updated_at":"2020-10-09T06:31:23.000000Z","deleted_at":null},{"id":6,"name":"190271174","email":"190271174@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","campus_id":"ST","first_name":"Wing Kit","last_name":"To","chinese_name":"CHinese name","created_at":"2020-10-09T06:42:02.000000Z","updated_at":"2020-10-09T06:42:02.000000Z","deleted_at":null}]
+     * @response status=200 scenario="success" [{"id":1,"name":"190189768","email":"190189768@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","branch_id":"ST","first_name":"Tat","last_name":"Chan","chinese_name":"\u4f55\u4e16","created_at":"2020-10-07T17:44:37.000000Z","updated_at":"2020-10-09T06:31:23.000000Z","deleted_at":null},{"id":6,"name":"190271174","email":"190271174@stu.vtc.edu.hk","permission":"1","program_id":"IT114118","branch_id":"ST","first_name":"Wing Kit","last_name":"To","chinese_name":"CHinese name","created_at":"2020-10-09T06:42:02.000000Z","updated_at":"2020-10-09T06:42:02.000000Z","deleted_at":null}]
      * 
      * @return \Illuminate\Http\Response
      */

@@ -25,7 +25,6 @@ class SettingController extends Controller
         for ($i = 0; $i < $len; $i++) {
             switch ($settings[$i]['data_type']) {
                 case 'BOOLEAN': $settings[$i]['default_value'] = $settings[$i]['default_value'] == 1; break;
-                case 'INTEGER': $settings[$i]['default_value'] = bindec($settings[$i]['default_value']); break;
             }
         }
 
@@ -48,7 +47,7 @@ class SettingController extends Controller
     {
         switch ($setting['data_type']) {
             case 'BOOLEAN': $setting['default_value'] = $setting['default_value'] == 1; break;
-            case 'INTEGER': $setting['default_value'] = bindec($setting['default_value']); break;
+            //case 'INTEGER': $setting['default_value'] = bindec($setting['default_value']); break;
         }
 
         return $setting;

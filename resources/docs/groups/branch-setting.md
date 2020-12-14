@@ -41,58 +41,82 @@ fetch(url, {
 
 ```json
 {
-    "version": 0,
+    "version": null,
     "name": "Default Settings",
-    "active_at": 0,
+    "active_at": null,
     "is_active": true,
     "settings": [
         {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2020-11-11T07:17:25.000000Z",
-            "updated_at": "2020-11-11T07:17:25.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "20:00:00"
+        },
+        {
+            "id": "MIN_CLIENT_PER_VENUE",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:44.000000Z",
+            "updated_at": "2020-12-14T00:17:44.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MIN_CLIENT_UNLOCK",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MINUTE_PER_SESSION",
+            "data_type": "INTEGER",
+            "default_value": "30",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "30"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2020-11-11T07:17:24.000000Z",
-            "updated_at": "2020-11-11T07:17:24.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "08:30:00"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2020-11-11T07:17:29.000000Z",
-            "updated_at": "2020-11-11T07:17:29.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2020-11-11T07:17:27.000000Z",
-            "updated_at": "2020-11-11T07:17:27.000000Z",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
             "value": "1"
-        },
-        {
-            "id": "TEST_INTEGER",
-            "data_type": "INTEGER",
-            "default_value": "10000",
-            "created_at": "2020-11-11T07:17:26.000000Z",
-            "updated_at": "2020-11-11T07:17:26.000000Z",
-            "value": "10000"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2020-11-11T07:17:28.000000Z",
-            "updated_at": "2020-11-11T07:17:28.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "Test String"
+        },
+        {
+            "id": "TIME_IN_ADVANCE",
+            "data_type": "TIME",
+            "default_value": "24:00:00",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "24:00:00"
         }
     ]
 }
@@ -148,15 +172,11 @@ fetch(url, {
 
 ```json
 {
-    "active_version": 0,
+    "active_version": null,
     "versions": [
         {
-            "version": 0,
+            "version": null,
             "name": "Default Settings"
-        },
-        {
-            "version": 1,
-            "name": "New"
         }
     ]
 }
@@ -269,7 +289,7 @@ fetch(url, {
 
 ```json
 {
-    "version": 0,
+    "version": null,
     "name": "Default Settings",
     "active_at": 0,
     "is_active": true,
@@ -278,49 +298,73 @@ fetch(url, {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2020-11-11T07:17:25.000000Z",
-            "updated_at": "2020-11-11T07:17:25.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "20:00:00"
+        },
+        {
+            "id": "MIN_CLIENT_PER_VENUE",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:44.000000Z",
+            "updated_at": "2020-12-14T00:17:44.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MIN_CLIENT_UNLOCK",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MINUTE_PER_SESSION",
+            "data_type": "INTEGER",
+            "default_value": "30",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "30"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2020-11-11T07:17:24.000000Z",
-            "updated_at": "2020-11-11T07:17:24.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "08:30:00"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2020-11-11T07:17:29.000000Z",
-            "updated_at": "2020-11-11T07:17:29.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2020-11-11T07:17:27.000000Z",
-            "updated_at": "2020-11-11T07:17:27.000000Z",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
             "value": "1"
-        },
-        {
-            "id": "TEST_INTEGER",
-            "data_type": "INTEGER",
-            "default_value": "10000",
-            "created_at": "2020-11-11T07:17:26.000000Z",
-            "updated_at": "2020-11-11T07:17:26.000000Z",
-            "value": "10000"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2020-11-11T07:17:28.000000Z",
-            "updated_at": "2020-11-11T07:17:28.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "Test String"
+        },
+        {
+            "id": "TIME_IN_ADVANCE",
+            "data_type": "TIME",
+            "default_value": "24:00:00",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "24:00:00"
         }
     ]
 }

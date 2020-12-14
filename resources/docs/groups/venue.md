@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/venues/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php21D9.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php95EB.tmp" 
 ```
 
 ```javascript
@@ -261,8 +261,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:16:59.000000Z",
-        "updated_at": "2020-11-11T07:16:59.000000Z"
+        "created_at": "2020-12-14T00:17:29.000000Z",
+        "updated_at": "2020-12-14T00:17:29.000000Z"
     },
     {
         "id": 2,
@@ -273,8 +273,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:01.000000Z",
-        "updated_at": "2020-11-11T07:17:01.000000Z"
+        "created_at": "2020-12-14T00:17:30.000000Z",
+        "updated_at": "2020-12-14T00:17:30.000000Z"
     },
     {
         "id": 3,
@@ -285,8 +285,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:03.000000Z",
-        "updated_at": "2020-11-11T07:17:03.000000Z"
+        "created_at": "2020-12-14T00:17:31.000000Z",
+        "updated_at": "2020-12-14T00:17:31.000000Z"
     },
     {
         "id": 4,
@@ -297,8 +297,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:05.000000Z",
-        "updated_at": "2020-11-11T07:17:05.000000Z"
+        "created_at": "2020-12-14T00:17:32.000000Z",
+        "updated_at": "2020-12-14T00:17:32.000000Z"
     },
     {
         "id": 5,
@@ -309,8 +309,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:07.000000Z",
-        "updated_at": "2020-11-11T07:17:07.000000Z"
+        "created_at": "2020-12-14T00:17:33.000000Z",
+        "updated_at": "2020-12-14T00:17:33.000000Z"
     },
     {
         "id": 6,
@@ -321,8 +321,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:09.000000Z",
-        "updated_at": "2020-11-11T07:17:09.000000Z"
+        "created_at": "2020-12-14T00:17:34.000000Z",
+        "updated_at": "2020-12-14T00:17:34.000000Z"
     },
     {
         "id": 7,
@@ -333,8 +333,8 @@ fetch(url, {
         "title_cn": "接见室",
         "opening_time": "09:00:00",
         "closing_time": "15:00:00",
-        "created_at": "2020-11-11T07:17:11.000000Z",
-        "updated_at": "2020-11-11T07:17:11.000000Z"
+        "created_at": "2020-12-14T00:17:35.000000Z",
+        "updated_at": "2020-12-14T00:17:35.000000Z"
     }
 ]
 ```
@@ -436,8 +436,8 @@ fetch(url, {
     "title_cn": "",
     "opening_time": "09:00:00",
     "closing_time": "21:00:00",
-    "created_at": "2020-11-11T07:16:59.000000Z",
-    "updated_at": "2020-11-11T07:16:59.000000Z"
+    "created_at": "2020-12-14T00:17:29.000000Z",
+    "updated_at": "2020-12-14T00:17:29.000000Z"
 }
 ```
 

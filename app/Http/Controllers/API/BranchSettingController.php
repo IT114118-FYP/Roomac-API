@@ -27,7 +27,7 @@ class BranchSettingController extends Controller
     public function index(Branch $branch)
     {
         $branch_svs = BranchSettingVersion::where('branch_id', $branch->id)->get();
-        $versions = array(['version' => 0, 'name' => $this->DEFAULT_SETTINGS_NAME]);
+        $versions = array(['version' => null, 'name' => $this->DEFAULT_SETTINGS_NAME]);
         foreach ($branch_svs as $branch_sv) {
             $versions[] = ['version' => $branch_sv->version, 'name' => $branch_sv->name];
         }
@@ -84,13 +84,13 @@ class BranchSettingController extends Controller
      */
     public function show(Branch $branch, int $version)
     {
-        if ($version == 0) {
+        if ($version == null) {
             return [
-                'version' => 0,
+                'version' => null,
                 'name' => $this->DEFAULT_SETTINGS_NAME,
                 'active_at' => 0,
                 'is_active' => $this->getActiveVersion($branch->id) == $version,
-                'settings' => $this->getFormattedSettings($branch->id, 0),
+                'settings' => $this->getFormattedSettings($branch->id, null),
             ];
         }
 
@@ -129,7 +129,7 @@ class BranchSettingController extends Controller
      */
     public function update(Request $request, Branch $branch, int $version)
     {
-        if ($version == 0) {
+        if ($version == null) {
             return response(null, 401);
         }
 
@@ -173,7 +173,7 @@ class BranchSettingController extends Controller
      */
     public function destroy(Branch $branch, int $version)
     {
-        if ($version == 0) {
+        if ($version == null) {
             return response(null, 401);
         }
 
@@ -209,14 +209,14 @@ class BranchSettingController extends Controller
 
         return [
             'version' => $active_version,
-            'name' => $active_version == 0 ? $this->DEFAULT_SETTINGS_NAME : BranchSettingVersion::where(['branch_id' => $branch->id, 'version' => $active_version])->first()->name,
-            'active_at' => $active_version == 0 ? 0 : BranchSettingVersion::where(['branch_id' => $branch->id, 'version' => $active_version])->first()->active_at,
+            'name' => $active_version == null ? $this->DEFAULT_SETTINGS_NAME : BranchSettingVersion::where(['branch_id' => $branch->id, 'version' => $active_version])->first()->name,
+            'active_at' => $active_version == null ? null : BranchSettingVersion::where(['branch_id' => $branch->id, 'version' => $active_version])->first()->active_at,
             'is_active' => true,
             'settings' => $this->getFormattedSettings($branch->id, $active_version),
         ];
     }
 
-    private function getFormattedSettings($branch_id, $version)
+    public function getFormattedSettings($branch_id, $version)
     {
         $branch_settings_kv = array();
         $branch_settings = BranchSetting::where(['branch_id' => $branch_id, 'version' => $version])->get();   
@@ -244,8 +244,9 @@ class BranchSettingController extends Controller
         return $settings;
     }
 
-    private function getActiveVersion($branch_id) 
+    public function getActiveVersion($branch_id) 
     {
-        return (BranchSettingVersion::where('branch_id', $branch_id)->whereDate('active_at', '>', now())->orderBy('active_at', 'desc')->first())['version'] ?? 0;
+        $version = BranchSettingVersion::where('branch_id', $branch_id)->whereDate('active_at', '>', now())->orderBy('active_at', 'desc')->first();
+        return $version == null ? null : $version['version'];
     }
 }

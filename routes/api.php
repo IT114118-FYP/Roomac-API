@@ -11,6 +11,7 @@ use App\Http\Controllers\API\BranchController;
 use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\VenueController;
+use App\Http\Controllers\API\VenueBookingController;
 use App\Http\Controllers\API\PermissionController;
 use App\Http\Controllers\API\SettingController;
 use App\Http\Controllers\API\BranchSettingController;
@@ -53,6 +54,8 @@ Route::post('/branches/{branch}/settings', [BranchSettingController::class, 'sto
 Route::get('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'show']);
 Route::put('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'update']);
 Route::delete('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'destroy']);
+
+Route::get('/venues/{venue}/bookings', [VenueBookingController::class, 'index']);
 
 Route::apiResource('/settings', SettingController::class);
 

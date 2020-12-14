@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: November 11 2020</li>
+            <li>Last updated: December 14 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -56,6 +56,8 @@
 API Docs: <a href="https://it114118-fyp.herokuapp.com/docs/" target="_blank" rel="noopener">https://it114118-fyp.herokuapp.com/docs/</a>
 <br>
 Admin Panel: <a href="https://it114118-fyp-admin.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-admin.herokuapp.com/</a>
+<br>
+Expo Client: <a href="https://it114118-fyp-mobile.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-mobile.herokuapp.com/</a>
 </p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p><h1>Branch Setting</h1>
@@ -87,58 +89,82 @@ fetch(url, {
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "version": 0,
+    "version": null,
     "name": "Default Settings",
-    "active_at": 0,
+    "active_at": null,
     "is_active": true,
     "settings": [
         {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2020-11-11T07:17:25.000000Z",
-            "updated_at": "2020-11-11T07:17:25.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "20:00:00"
+        },
+        {
+            "id": "MIN_CLIENT_PER_VENUE",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:44.000000Z",
+            "updated_at": "2020-12-14T00:17:44.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MIN_CLIENT_UNLOCK",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MINUTE_PER_SESSION",
+            "data_type": "INTEGER",
+            "default_value": "30",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "30"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2020-11-11T07:17:24.000000Z",
-            "updated_at": "2020-11-11T07:17:24.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "08:30:00"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2020-11-11T07:17:29.000000Z",
-            "updated_at": "2020-11-11T07:17:29.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2020-11-11T07:17:27.000000Z",
-            "updated_at": "2020-11-11T07:17:27.000000Z",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
             "value": "1"
-        },
-        {
-            "id": "TEST_INTEGER",
-            "data_type": "INTEGER",
-            "default_value": "10000",
-            "created_at": "2020-11-11T07:17:26.000000Z",
-            "updated_at": "2020-11-11T07:17:26.000000Z",
-            "value": "10000"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2020-11-11T07:17:28.000000Z",
-            "updated_at": "2020-11-11T07:17:28.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "Test String"
+        },
+        {
+            "id": "TIME_IN_ADVANCE",
+            "data_type": "TIME",
+            "default_value": "24:00:00",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "24:00:00"
         }
     ]
 }</code></pre>
@@ -176,15 +202,11 @@ fetch(url, {
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "active_version": 0,
+    "active_version": null,
     "versions": [
         {
-            "version": 0,
+            "version": null,
             "name": "Default Settings"
-        },
-        {
-            "version": 1,
-            "name": "New"
         }
     ]
 }</code></pre>
@@ -261,7 +283,7 @@ fetch(url, {
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "version": 0,
+    "version": null,
     "name": "Default Settings",
     "active_at": 0,
     "is_active": true,
@@ -270,49 +292,73 @@ fetch(url, {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2020-11-11T07:17:25.000000Z",
-            "updated_at": "2020-11-11T07:17:25.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "20:00:00"
+        },
+        {
+            "id": "MIN_CLIENT_PER_VENUE",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:44.000000Z",
+            "updated_at": "2020-12-14T00:17:44.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MIN_CLIENT_UNLOCK",
+            "data_type": "INTEGER",
+            "default_value": "3",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
+            "value": "3"
+        },
+        {
+            "id": "MINUTE_PER_SESSION",
+            "data_type": "INTEGER",
+            "default_value": "30",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "30"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2020-11-11T07:17:24.000000Z",
-            "updated_at": "2020-11-11T07:17:24.000000Z",
+            "created_at": "2020-12-14T00:17:42.000000Z",
+            "updated_at": "2020-12-14T00:17:42.000000Z",
             "value": "08:30:00"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2020-11-11T07:17:29.000000Z",
-            "updated_at": "2020-11-11T07:17:29.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2020-11-11T07:17:27.000000Z",
-            "updated_at": "2020-11-11T07:17:27.000000Z",
+            "created_at": "2020-12-14T00:17:45.000000Z",
+            "updated_at": "2020-12-14T00:17:45.000000Z",
             "value": "1"
-        },
-        {
-            "id": "TEST_INTEGER",
-            "data_type": "INTEGER",
-            "default_value": "10000",
-            "created_at": "2020-11-11T07:17:26.000000Z",
-            "updated_at": "2020-11-11T07:17:26.000000Z",
-            "value": "10000"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2020-11-11T07:17:28.000000Z",
-            "updated_at": "2020-11-11T07:17:28.000000Z",
+            "created_at": "2020-12-14T00:17:46.000000Z",
+            "updated_at": "2020-12-14T00:17:46.000000Z",
             "value": "Test String"
+        },
+        {
+            "id": "TIME_IN_ADVANCE",
+            "data_type": "TIME",
+            "default_value": "24:00:00",
+            "created_at": "2020-12-14T00:17:43.000000Z",
+            "updated_at": "2020-12-14T00:17:43.000000Z",
+            "value": "24:00:00"
         }
     ]
 }</code></pre>
@@ -447,7 +493,7 @@ string required The version of the setting.</p><h1>Branch</h1>
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php8394.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php1C92.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/branches/import"
 );
@@ -614,72 +660,72 @@ fetch(url, {
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
-        "created_at": "2020-11-11T07:16:39.000000Z",
-        "updated_at": "2020-11-11T07:16:39.000000Z"
+        "created_at": "2020-12-14T00:17:19.000000Z",
+        "updated_at": "2020-12-14T00:17:19.000000Z"
     },
     {
         "id": "HW",
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
-        "created_at": "2020-11-11T07:16:41.000000Z",
-        "updated_at": "2020-11-11T07:16:41.000000Z"
+        "created_at": "2020-12-14T00:17:20.000000Z",
+        "updated_at": "2020-12-14T00:17:20.000000Z"
     },
     {
         "id": "KC",
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
-        "created_at": "2020-11-11T07:16:44.000000Z",
-        "updated_at": "2020-11-11T07:16:44.000000Z"
+        "created_at": "2020-12-14T00:17:22.000000Z",
+        "updated_at": "2020-12-14T00:17:22.000000Z"
     },
     {
         "id": "KT",
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
-        "created_at": "2020-11-11T07:16:47.000000Z",
-        "updated_at": "2020-11-11T07:16:47.000000Z"
+        "created_at": "2020-12-14T00:17:23.000000Z",
+        "updated_at": "2020-12-14T00:17:23.000000Z"
     },
     {
         "id": "LWL",
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
-        "created_at": "2020-11-11T07:16:49.000000Z",
-        "updated_at": "2020-11-11T07:16:49.000000Z"
+        "created_at": "2020-12-14T00:17:23.000000Z",
+        "updated_at": "2020-12-14T00:17:23.000000Z"
     },
     {
         "id": "MH",
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
-        "created_at": "2020-11-11T07:16:51.000000Z",
-        "updated_at": "2020-11-11T07:16:51.000000Z"
+        "created_at": "2020-12-14T00:17:25.000000Z",
+        "updated_at": "2020-12-14T00:17:25.000000Z"
     },
     {
         "id": "ST",
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2020-11-11T07:16:53.000000Z",
-        "updated_at": "2020-11-11T07:16:53.000000Z"
+        "created_at": "2020-12-14T00:17:26.000000Z",
+        "updated_at": "2020-12-14T00:17:26.000000Z"
     },
     {
         "id": "TM",
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2020-11-11T07:16:57.000000Z",
-        "updated_at": "2020-11-11T07:16:57.000000Z"
+        "created_at": "2020-12-14T00:17:28.000000Z",
+        "updated_at": "2020-12-14T00:17:28.000000Z"
     },
     {
         "id": "TY",
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
-        "created_at": "2020-11-11T07:16:55.000000Z",
-        "updated_at": "2020-11-11T07:16:55.000000Z"
+        "created_at": "2020-12-14T00:17:27.000000Z",
+        "updated_at": "2020-12-14T00:17:27.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -744,8 +790,8 @@ fetch(url, {
     "title_en": "Sha Tin",
     "title_hk": "沙田",
     "title_cn": "沙田",
-    "created_at": "2020-11-11T07:16:53.000000Z",
-    "updated_at": "2020-11-11T07:16:53.000000Z"
+    "created_at": "2020-12-14T00:17:26.000000Z",
+    "updated_at": "2020-12-14T00:17:26.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -958,7 +1004,7 @@ When this value is set to true all of the tokens issued to the user will be revo
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpCDFC.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php5900.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/programs/import"
 );
@@ -1125,24 +1171,24 @@ fetch(url, {
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
-        "created_at": "2020-11-11T07:16:37.000000Z",
-        "updated_at": "2020-11-11T07:16:37.000000Z"
+        "created_at": "2020-12-14T00:17:18.000000Z",
+        "updated_at": "2020-12-14T00:17:18.000000Z"
     },
     {
         "id": "IT114105",
         "title_en": "Higher Diploma in Software Engineering",
         "title_hk": "軟件工程高級文憑",
         "title_cn": "软件工程高级文凭",
-        "created_at": "2020-11-11T07:16:35.000000Z",
-        "updated_at": "2020-11-11T07:16:35.000000Z"
+        "created_at": "2020-12-14T00:17:17.000000Z",
+        "updated_at": "2020-12-14T00:17:17.000000Z"
     },
     {
         "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
         "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2020-11-11T07:16:33.000000Z",
-        "updated_at": "2020-11-11T07:16:33.000000Z"
+        "created_at": "2020-12-14T00:17:15.000000Z",
+        "updated_at": "2020-12-14T00:17:15.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -1227,8 +1273,8 @@ fetch(url, {
     "title_en": "Higher Diploma in AI and Mobile Applications Development",
     "title_hk": "人工智能及手機軟件開發高級文憑",
     "title_cn": "人工智能及手机软件开发高级文凭",
-    "created_at": "2020-11-11T07:16:33.000000Z",
-    "updated_at": "2020-11-11T07:16:33.000000Z"
+    "created_at": "2020-12-14T00:17:15.000000Z",
+    "updated_at": "2020-12-14T00:17:15.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -1348,43 +1394,64 @@ fetch(url, {
         "id": "CLOSE_TIME",
         "data_type": "TIME",
         "default_value": "20:00:00",
-        "created_at": "2020-11-11T07:17:25.000000Z",
-        "updated_at": "2020-11-11T07:17:25.000000Z"
+        "created_at": "2020-12-14T00:17:42.000000Z",
+        "updated_at": "2020-12-14T00:17:42.000000Z"
+    },
+    {
+        "id": "MIN_CLIENT_PER_VENUE",
+        "data_type": "INTEGER",
+        "default_value": "3",
+        "created_at": "2020-12-14T00:17:44.000000Z",
+        "updated_at": "2020-12-14T00:17:44.000000Z"
+    },
+    {
+        "id": "MIN_CLIENT_UNLOCK",
+        "data_type": "INTEGER",
+        "default_value": "3",
+        "created_at": "2020-12-14T00:17:45.000000Z",
+        "updated_at": "2020-12-14T00:17:45.000000Z"
+    },
+    {
+        "id": "MINUTE_PER_SESSION",
+        "data_type": "INTEGER",
+        "default_value": "30",
+        "created_at": "2020-12-14T00:17:43.000000Z",
+        "updated_at": "2020-12-14T00:17:43.000000Z"
     },
     {
         "id": "OPEN_TIME",
         "data_type": "TIME",
         "default_value": "08:30:00",
-        "created_at": "2020-11-11T07:17:24.000000Z",
-        "updated_at": "2020-11-11T07:17:24.000000Z"
+        "created_at": "2020-12-14T00:17:42.000000Z",
+        "updated_at": "2020-12-14T00:17:42.000000Z"
     },
     {
         "id": "TEST_BOOLEAN_FALSE",
         "data_type": "BOOLEAN",
         "default_value": false,
-        "created_at": "2020-11-11T07:17:29.000000Z",
-        "updated_at": "2020-11-11T07:17:29.000000Z"
+        "created_at": "2020-12-14T00:17:46.000000Z",
+        "updated_at": "2020-12-14T00:17:46.000000Z"
     },
     {
         "id": "TEST_BOOLEAN_TRUE",
         "data_type": "BOOLEAN",
         "default_value": true,
-        "created_at": "2020-11-11T07:17:27.000000Z",
-        "updated_at": "2020-11-11T07:17:27.000000Z"
-    },
-    {
-        "id": "TEST_INTEGER",
-        "data_type": "INTEGER",
-        "default_value": 16,
-        "created_at": "2020-11-11T07:17:26.000000Z",
-        "updated_at": "2020-11-11T07:17:26.000000Z"
+        "created_at": "2020-12-14T00:17:45.000000Z",
+        "updated_at": "2020-12-14T00:17:45.000000Z"
     },
     {
         "id": "TEST_VARCHAR",
         "data_type": "VARCHAR",
         "default_value": "Test String",
-        "created_at": "2020-11-11T07:17:28.000000Z",
-        "updated_at": "2020-11-11T07:17:28.000000Z"
+        "created_at": "2020-12-14T00:17:46.000000Z",
+        "updated_at": "2020-12-14T00:17:46.000000Z"
+    },
+    {
+        "id": "TIME_IN_ADVANCE",
+        "data_type": "TIME",
+        "default_value": "24:00:00",
+        "created_at": "2020-12-14T00:17:43.000000Z",
+        "updated_at": "2020-12-14T00:17:43.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -1421,8 +1488,8 @@ fetch(url, {
     "id": "OPEN_TIME",
     "data_type": "TIME",
     "default_value": "08:30:00",
-    "created_at": "2020-11-11T07:17:24.000000Z",
-    "updated_at": "2020-11-11T07:17:24.000000Z"
+    "created_at": "2020-12-14T00:17:42.000000Z",
+    "updated_at": "2020-12-14T00:17:42.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -1571,7 +1638,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php79ED.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpD48B.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/users/import"
 );
@@ -1740,7 +1807,7 @@ fetch(url, {
         "email": "190189768@stu.vtc.edu.hk",
         "permission": "1",
         "program_id": "IT114118",
-        "campus_id": "ST",
+        "branch_id": "ST",
         "first_name": "Tat",
         "last_name": "Chan",
         "chinese_name": "何世",
@@ -1754,7 +1821,7 @@ fetch(url, {
         "email": "190271174@stu.vtc.edu.hk",
         "permission": "1",
         "program_id": "IT114118",
-        "campus_id": "ST",
+        "branch_id": "ST",
         "first_name": "Wing Kit",
         "last_name": "To",
         "chinese_name": "CHinese name",
@@ -2133,7 +2200,84 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p><code><b>create:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p>
 <p><code><b>update:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p>
-<p><code><b>delete:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p><h1>Venue</h1>
+<p><code><b>delete:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p><h1>Venue Booking</h1>
+<h2>Retrieve all venue&#039;s bookings timetable</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/venues/{venue}/bookings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/venues/{venue}/bookings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "interval": 30,
+    "bookings": {
+        "reserved": [
+            {
+                "id": 1,
+                "user_id": 2,
+                "venue_id": 1,
+                "branch_setting_version_id": null,
+                "start_time": "2020-12-14T09:00:00.000000Z",
+                "end_time": "2020-12-14T10:30:00.000000Z",
+                "created_at": "2020-12-14T00:17:48.000000Z",
+                "updated_at": "2020-12-14T00:17:48.000000Z"
+            },
+            {
+                "id": 2,
+                "user_id": 2,
+                "venue_id": 1,
+                "branch_setting_version_id": null,
+                "start_time": "2020-12-14T10:30:00.000000Z",
+                "end_time": "2020-12-14T12:30:00.000000Z",
+                "created_at": "2020-12-14T00:17:48.000000Z",
+                "updated_at": "2020-12-14T00:17:48.000000Z"
+            },
+            {
+                "id": 5,
+                "user_id": 2,
+                "venue_id": 1,
+                "branch_setting_version_id": null,
+                "start_time": "2020-12-15T13:00:00.000000Z",
+                "end_time": "2020-12-15T14:30:00.000000Z",
+                "created_at": "2020-12-14T00:17:50.000000Z",
+                "updated_at": "2020-12-14T00:17:50.000000Z"
+            },
+            {
+                "id": 6,
+                "user_id": 2,
+                "venue_id": 1,
+                "branch_setting_version_id": null,
+                "start_time": "2020-12-15T15:30:00.000000Z",
+                "end_time": "2020-12-15T16:30:00.000000Z",
+                "created_at": "2020-12-14T00:17:51.000000Z",
+                "updated_at": "2020-12-14T00:17:51.000000Z"
+            }
+        ],
+        "unavailable": []
+    }
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/venues/{venue}/bookings</code></strong></p><h1>Venue</h1>
 <h2>Import venues</h2>
 <p>Import venues.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
@@ -2144,7 +2288,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/venues/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php21D9.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php95EB.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/venues/import"
 );
@@ -2315,8 +2459,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:16:59.000000Z",
-        "updated_at": "2020-11-11T07:16:59.000000Z"
+        "created_at": "2020-12-14T00:17:29.000000Z",
+        "updated_at": "2020-12-14T00:17:29.000000Z"
     },
     {
         "id": 2,
@@ -2327,8 +2471,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:01.000000Z",
-        "updated_at": "2020-11-11T07:17:01.000000Z"
+        "created_at": "2020-12-14T00:17:30.000000Z",
+        "updated_at": "2020-12-14T00:17:30.000000Z"
     },
     {
         "id": 3,
@@ -2339,8 +2483,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:03.000000Z",
-        "updated_at": "2020-11-11T07:17:03.000000Z"
+        "created_at": "2020-12-14T00:17:31.000000Z",
+        "updated_at": "2020-12-14T00:17:31.000000Z"
     },
     {
         "id": 4,
@@ -2351,8 +2495,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:05.000000Z",
-        "updated_at": "2020-11-11T07:17:05.000000Z"
+        "created_at": "2020-12-14T00:17:32.000000Z",
+        "updated_at": "2020-12-14T00:17:32.000000Z"
     },
     {
         "id": 5,
@@ -2363,8 +2507,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:07.000000Z",
-        "updated_at": "2020-11-11T07:17:07.000000Z"
+        "created_at": "2020-12-14T00:17:33.000000Z",
+        "updated_at": "2020-12-14T00:17:33.000000Z"
     },
     {
         "id": 6,
@@ -2375,8 +2519,8 @@ fetch(url, {
         "title_cn": "",
         "opening_time": "09:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2020-11-11T07:17:09.000000Z",
-        "updated_at": "2020-11-11T07:17:09.000000Z"
+        "created_at": "2020-12-14T00:17:34.000000Z",
+        "updated_at": "2020-12-14T00:17:34.000000Z"
     },
     {
         "id": 7,
@@ -2387,8 +2531,8 @@ fetch(url, {
         "title_cn": "接见室",
         "opening_time": "09:00:00",
         "closing_time": "15:00:00",
-        "created_at": "2020-11-11T07:17:11.000000Z",
-        "updated_at": "2020-11-11T07:17:11.000000Z"
+        "created_at": "2020-12-14T00:17:35.000000Z",
+        "updated_at": "2020-12-14T00:17:35.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -2457,8 +2601,8 @@ fetch(url, {
     "title_cn": "",
     "opening_time": "09:00:00",
     "closing_time": "21:00:00",
-    "created_at": "2020-11-11T07:16:59.000000Z",
-    "updated_at": "2020-11-11T07:16:59.000000Z"
+    "created_at": "2020-12-14T00:17:29.000000Z",
+    "updated_at": "2020-12-14T00:17:29.000000Z"
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>

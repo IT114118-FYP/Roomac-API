@@ -15,6 +15,7 @@ use App\Models\Program;
 use App\Models\Venue;
 use App\Models\Setting;
 use App\Models\BranchSetting;
+use App\Models\VenueBooking;
 
 class DatabaseSeeder extends Seeder
 {
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         BranchSetting::truncate();
         Setting::truncate();
+        VenueBooking::truncate();
         Venue::truncate();
         User::truncate();
         Program::truncate();
@@ -78,6 +80,7 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedBranch($rows);
 
+        # Venue
         $rows = [
             ['ST', 'IT-421B', '', '', '', '09:00', '21:00'], ['ST', 'CS-442', '', '', '', '09:00', '21:00'],
             ['ST', 'CS-404', '', '', '', '09:00', '21:00'], ['ST', 'CS-332B', '', '', '', '09:00', '21:00'],
@@ -96,10 +99,14 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedUser($rows);
 
-        # Setting
+        # Branch Setting
         $rows = [
             ['OPEN_TIME', 'TIME', '08:30:00'], ['CLOSE_TIME', 'TIME', '20:00:00'],
-            ['TEST_INTEGER', 'INTEGER', '10000'], ['TEST_BOOLEAN_TRUE', 'BOOLEAN', '1'],
+            
+            ['TIME_IN_ADVANCE', 'TIME', '24:00:00'], ['MINUTE_PER_SESSION', 'INTEGER', '30'],
+            ['MIN_CLIENT_PER_VENUE', 'INTEGER', '3'], ['MIN_CLIENT_UNLOCK', 'INTEGER', '3'],
+            
+            ['TEST_BOOLEAN_TRUE', 'BOOLEAN', '1'],
             ['TEST_VARCHAR', 'VARCHAR', 'Test String'], ['TEST_BOOLEAN_FALSE', 'BOOLEAN', '0'],
         ];
         $this->seedSetting($rows);
@@ -109,6 +116,17 @@ class DatabaseSeeder extends Seeder
             ['ST', 'OPEN_TIME', '07:00:00', '1'], ['ST', 'CLOSE_TIME', '19:00:00', '1'],
         ];
         $this->seedBranchSetting($rows);
+
+        # Venue Booking
+        $rows = [
+            ['2', '1', null, '2020-12-14T09:00:00', '2020-12-14T10:30:00'],
+            ['2', '1', null, '2020-12-14T11:30:00', '2020-12-14T12:30:00'],
+            ['2', '2', null, '2020-12-15T09:00:00', '2020-12-15T10:30:00'],
+            ['2', '2', null, '2020-12-15T10:30:00', '2020-12-15T12:30:00'],
+            ['2', '1', null, '2020-12-15T13:00:00', '2020-12-15T14:30:00'],
+            ['2', '1', null, '2020-12-15T15:30:00', '2020-12-15T16:30:00'],
+        ];
+        $this->seedVenueBooking($rows);
 
         # User (Set roles and permissions)
         User::where('name', '000000000')->first()->assignRole('root');
@@ -197,6 +215,18 @@ class DatabaseSeeder extends Seeder
     private function seedRole($roles) {
         foreach ($roles as $role => $permissions) {
             Role::create(['name' => $role])->givePermissionTo($permissions);
+        }
+    }
+
+    private function seedVenueBooking($rows) {
+        foreach ($rows as $row) {
+            (new VenueBooking([
+                'user_id' => $row[0],
+                'venue_id' => $row[1],
+                'branch_setting_version_id' => $row[2],
+                'start_time' => $row[3],
+                'end_time' => $row[4],
+            ]))->save();
         }
     }
 }

@@ -164,7 +164,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php79ED.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpD48B.tmp" 
 ```
 
 ```javascript
@@ -407,7 +407,7 @@ fetch(url, {
         "email": "190189768@stu.vtc.edu.hk",
         "permission": "1",
         "program_id": "IT114118",
-        "campus_id": "ST",
+        "branch_id": "ST",
         "first_name": "Tat",
         "last_name": "Chan",
         "chinese_name": "何世",
@@ -421,7 +421,7 @@ fetch(url, {
         "email": "190271174@stu.vtc.edu.hk",
         "permission": "1",
         "program_id": "IT114118",
-        "campus_id": "ST",
+        "branch_id": "ST",
         "first_name": "Wing Kit",
         "last_name": "To",
         "chinese_name": "CHinese name",

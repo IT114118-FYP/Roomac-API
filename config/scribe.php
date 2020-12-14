@@ -91,6 +91,8 @@ Welcome to our API documentation!
 API Docs: <a href="https://it114118-fyp.herokuapp.com/docs/" target="_blank" rel="noopener">https://it114118-fyp.herokuapp.com/docs/</a>
 <br>
 Admin Panel: <a href="https://it114118-fyp-admin.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-admin.herokuapp.com/</a>
+<br>
+Expo Client: <a href="https://it114118-fyp-mobile.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-mobile.herokuapp.com/</a>
 </p>
 
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside>
