@@ -12,12 +12,13 @@ use Spatie\Permission\Models\Permission;
 use App\Models\User;
 use App\Models\Branch;
 use App\Models\Program;
-use App\Models\Venue;
+use App\Models\Resource;
 use App\Models\Setting;
 use App\Models\BranchSetting;
-use App\Models\VenueAvailable;
-use App\Models\VenueBooking;
-use App\Models\VenueReserved;
+use App\Models\ResourceAvailable;
+use App\Models\ResourceBooking;
+use App\Models\ResourceReserved;
+use App\Models\Category;
 
 use \DateTime;
 use \DateTimeZone;
@@ -40,15 +41,16 @@ class DatabaseSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         BranchSetting::truncate();
         Setting::truncate();
-        VenueAvailable::truncate();
-        VenueBooking::truncate();
-        VenueReserved::truncate();
-        Venue::truncate();
+        ResourceAvailable::truncate();
+        ResourceBooking::truncate();
+        ResourceReserved::truncate();
+        Resource::truncate();
         User::truncate();
         Program::truncate();
         Branch::truncate();
         Role::truncate();
         Permission::truncate();
+        Category::truncate();
         Schema::enableForeignKeyConstraints();
 
         # Permission
@@ -87,17 +89,24 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedBranch($rows);
 
-        # Venue
+        # Category
         $rows = [
-            ['ST', 'IT-421B', '', '', '', '08:00', '21:00'],
-            ['ST', 'CS-442', '', '', '', '08:00', '21:00'],
-            ['ST', 'CS-404', '', '', '', '08:00', '21:00'],
-            ['ST', 'CS-332B', '', '', '', '08:00', '21:00'],
-            ['ST', 'CS-N108B', '', '', '', '08:00', '21:00'],
-            ['ST', 'IT-427B', '', '', '', '08:00', '21:00'],
-            ['ST', 'IT-417A', 'Interview Room', '接見室', '接见室', '08:00', '15:00'],
+            ['Classroom', '課室', '教室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg'],
+            ['Library', '圖書館', '图书馆', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610343016/ca8zmlcwcbcspgw6sked.jpg'],
         ];
-        $this->seedVenue($rows);
+        $this->seedCategory($rows);
+
+        # Resource
+        $rows = [
+            [1, 'ST', 'IT-417A', 'Interview Room', '接見室', '接见室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', 1, 20, '08:00', '15:00'],
+            [1, 'ST', 'IT-421B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [1, 'ST', 'CS-442', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [1, 'ST', 'CS-404', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'ST', 'CS-332B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'ST', 'CS-N108B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'ST', 'IT-427B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+        ];
+        $this->seedResource($rows);
 
         # User
         $rows = [
@@ -115,8 +124,9 @@ class DatabaseSeeder extends Seeder
             ['OPEN_TIME', 'TIME', '08:30:00'],
             ['CLOSE_TIME', 'TIME', '20:00:00'],
             
-            ['TIME_IN_ADVANCE', 'TIME', '24:00:00'], ['VENUE_MINUTE_PER_SESSION', 'INTEGER', '30'],
-            ['MIN_CLIENT_PER_VENUE', 'INTEGER', '3'], ['MIN_CLIENT_UNLOCK', 'INTEGER', '3'],
+            ['TIME_IN_ADVANCE', 'TIME', '24:00:00'],
+            ['RESOURCE_MINUTE_PER_SESSION', 'INTEGER', '30'],
+            ['MIN_CLIENT_UNLOCK', 'INTEGER', '3'],
             
             ['TEST_BOOLEAN_TRUE', 'BOOLEAN', '1'],
             ['TEST_VARCHAR', 'VARCHAR', 'Test String'], ['TEST_BOOLEAN_FALSE', 'BOOLEAN', '0'],
@@ -129,17 +139,17 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedBranchSetting($rows);
 
-        # Venue Available
+        # Resource Available
         $rows = [
-            ['1', '12:00:00', '05:00:00', 1, true],
-            ['1', '08:30:00', '06:00:00', 2, true],
-            ['1', '08:30:00', '06:00:00', 3, true],
-            ['1', '08:30:00', '06:00:00', 4, true],
-            ['1', '08:30:00', '06:00:00', 5, true],
+            ['1', '12:00:00', '17:00:00', 1, true],
+            ['1', '08:30:00', '18:00:00', 2, true],
+            ['1', '06:30:00', '19:00:00', 3, true],
+            ['1', '04:30:00', '20:00:00', 4, true],
+            ['1', '02:30:00', '21:00:00', 5, true],
         ];
-        $this->seedVenueAvailable($rows);
+        $this->seedResourceAvailable($rows);
 
-        # Venue Booking
+        # Resource Booking
         $rows = [
             ['2', '1', null, '2020-12-14 09:30:00', '2020-12-14 10:30:00'],
             ['2', '1', null, '2020-12-14 10:30:00', '2020-12-14 11:30:00'],
@@ -147,7 +157,7 @@ class DatabaseSeeder extends Seeder
             ['2', '2', null, '2020-12-14 14:30:00', '2020-12-14 15:30:00'],
             ['2', '2', null, '2020-12-14 16:30:00', '2020-12-14 17:30:00'],
         ];
-        $this->seedVenueBooking($rows);
+        $this->seedResourceBooking($rows);
 
         # User (Set roles and permissions)
         User::where('name', '000000000')->first()->assignRole('root');
@@ -177,16 +187,31 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedVenue($rows) {
+    private function seedCategory($rows) {
         foreach ($rows as $row) {
-            (new Venue([
-                'branch_id' => $row[0],
-                'number' => $row[1], 
-                'title_en' => $row[2],
-                'title_hk' => $row[3],
-                'title_cn' => $row[4],
-                'opening_time' => $row[5],
-                'closing_time' => $row[6],
+            (new Category([
+                'title_en' => $row[0],
+                'title_hk' => $row[1],
+                'title_cn' => $row[2],
+                'image_url' => $row[3],
+            ]))->save();
+        }
+    }
+
+    private function seedResource($rows) {
+        foreach ($rows as $row) {
+            (new Resource([
+                'category_id' => $row[0],
+                'branch_id' => $row[1],            
+                'number' => $row[2], 
+                'title_en' => $row[3],
+                'title_hk' => $row[4],
+                'title_cn' => $row[5],
+                'image_url' => $row[6],
+                'min_user' => $row[7],
+                'max_user' => $row[8],
+                'opening_time' => $row[9],
+                'closing_time' => $row[10],
             ]))->save();
         }
     }
@@ -239,38 +264,38 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedVenueAvailable($rows) {
+    private function seedResourceAvailable($rows) {
         foreach ($rows as $row) {
-            $start_time = new DateTime($row[1], new DateTimeZone('Asia/Hong_Kong'));
-            $start_time->setTimezone(new DateTimeZone('UTC'));
+            //$start_time = new DateTime($row[1], new DateTimeZone('Asia/Hong_Kong'));
+            //$start_time->setTimezone(new DateTimeZone('UTC'));
 
-            $end_time = new DateTime($row[2], new DateTimeZone('Asia/Hong_Kong'));
-            $end_time->setTimezone(new DateTimeZone('UTC'));
+            //$end_time = new DateTime($row[2], new DateTimeZone('Asia/Hong_Kong'));
+            //$end_time->setTimezone(new DateTimeZone('UTC'));
 
-            (new VenueAvailable([
-                'venue_id' => $row[0],
-                'start_time' => $start_time,
-                'end_time' => $end_time,
+            (new ResourceAvailable([
+                'resource_id' => $row[0],
+                'start_time' => $row[1],
+                'end_time' => $row[2],
                 'day_of_week' => $row[3],
                 'repeat' => $row[4],
             ]))->save();
         }
     }
 
-    private function seedVenueBooking($rows) {
+    private function seedResourceBooking($rows) {
         foreach ($rows as $row) {
-            $start_time = new DateTime($row[3], new DateTimeZone('Asia/Hong_Kong'));
-            $start_time->setTimezone(new DateTimeZone('UTC'));
+            //$start_time = new DateTime($row[3], new DateTimeZone('Asia/Hong_Kong'));
+            //$start_time->setTimezone(new DateTimeZone('UTC'));
 
-            $end_time = new DateTime($row[4], new DateTimeZone('Asia/Hong_Kong'));
-            $end_time->setTimezone(new DateTimeZone('UTC'));
+            //$end_time = new DateTime($row[4], new DateTimeZone('Asia/Hong_Kong'));
+            //$end_time->setTimezone(new DateTimeZone('UTC'));
 
-            (new VenueBooking([
+            (new ResourceBooking([
                 'user_id' => $row[0],
-                'venue_id' => $row[1],
+                'resource_id' => $row[1],
                 'branch_setting_version_id' => $row[2],
-                'start_time' => $start_time,
-                'end_time' => $end_time,
+                'start_time' => $row[3],
+                'end_time' => $row[4],
             ]))->save();
         }
     }

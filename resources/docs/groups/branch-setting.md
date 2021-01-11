@@ -50,81 +50,73 @@ fetch(url, {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2020-12-14T22:24:54.000000Z",
-            "updated_at": "2020-12-14T22:24:54.000000Z",
+            "created_at": "2021-01-11T02:34:51.000000Z",
+            "updated_at": "2021-01-11T02:34:51.000000Z",
             "value": "20:00:00"
-        },
-        {
-            "id": "MIN_CLIENT_PER_VENUE",
-            "data_type": "INTEGER",
-            "default_value": "3",
-            "created_at": "2020-12-14T22:24:56.000000Z",
-            "updated_at": "2020-12-14T22:24:56.000000Z",
-            "value": "3"
         },
         {
             "id": "MIN_CLIENT_UNLOCK",
             "data_type": "INTEGER",
             "default_value": "3",
-            "created_at": "2020-12-14T22:24:56.000000Z",
-            "updated_at": "2020-12-14T22:24:56.000000Z",
+            "created_at": "2021-01-11T02:34:53.000000Z",
+            "updated_at": "2021-01-11T02:34:53.000000Z",
             "value": "3"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2020-12-14T22:24:53.000000Z",
-            "updated_at": "2020-12-14T22:24:53.000000Z",
+            "created_at": "2021-01-11T02:34:50.000000Z",
+            "updated_at": "2021-01-11T02:34:50.000000Z",
             "value": "08:30:00"
+        },
+        {
+            "id": "RESOURCE_MINUTE_PER_SESSION",
+            "data_type": "INTEGER",
+            "default_value": "30",
+            "created_at": "2021-01-11T02:34:53.000000Z",
+            "updated_at": "2021-01-11T02:34:53.000000Z",
+            "value": "30"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2020-12-14T22:24:58.000000Z",
-            "updated_at": "2020-12-14T22:24:58.000000Z",
+            "created_at": "2021-01-11T02:34:56.000000Z",
+            "updated_at": "2021-01-11T02:34:56.000000Z",
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2020-12-14T22:24:57.000000Z",
-            "updated_at": "2020-12-14T22:24:57.000000Z",
+            "created_at": "2021-01-11T02:34:54.000000Z",
+            "updated_at": "2021-01-11T02:34:54.000000Z",
             "value": "1"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2020-12-14T22:24:57.000000Z",
-            "updated_at": "2020-12-14T22:24:57.000000Z",
+            "created_at": "2021-01-11T02:34:55.000000Z",
+            "updated_at": "2021-01-11T02:34:55.000000Z",
             "value": "Test String"
         },
         {
             "id": "TIME_IN_ADVANCE",
             "data_type": "TIME",
             "default_value": "24:00:00",
-            "created_at": "2020-12-14T22:24:54.000000Z",
-            "updated_at": "2020-12-14T22:24:54.000000Z",
+            "created_at": "2021-01-11T02:34:51.000000Z",
+            "updated_at": "2021-01-11T02:34:51.000000Z",
             "value": "24:00:00"
         },
         {
             "id": "TIME_ZONE",
             "data_type": "VARCHAR",
             "default_value": "Asia\/Hong_Kong",
-            "created_at": "2020-12-14T22:24:53.000000Z",
-            "updated_at": "2020-12-14T22:24:53.000000Z",
+            "created_at": "2021-01-11T02:34:49.000000Z",
+            "updated_at": "2021-01-11T02:34:49.000000Z",
             "value": "Asia\/Hong_Kong"
-        },
-        {
-            "id": "VENUE_MINUTE_PER_SESSION",
-            "data_type": "INTEGER",
-            "default_value": "30",
-            "created_at": "2020-12-14T22:24:55.000000Z",
-            "updated_at": "2020-12-14T22:24:55.000000Z",
-            "value": "30"
         }
     ]
 }
@@ -306,81 +298,73 @@ fetch(url, {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2020-12-14T22:24:54.000000Z",
-            "updated_at": "2020-12-14T22:24:54.000000Z",
+            "created_at": "2021-01-11T02:34:51.000000Z",
+            "updated_at": "2021-01-11T02:34:51.000000Z",
             "value": "20:00:00"
-        },
-        {
-            "id": "MIN_CLIENT_PER_VENUE",
-            "data_type": "INTEGER",
-            "default_value": "3",
-            "created_at": "2020-12-14T22:24:56.000000Z",
-            "updated_at": "2020-12-14T22:24:56.000000Z",
-            "value": "3"
         },
         {
             "id": "MIN_CLIENT_UNLOCK",
             "data_type": "INTEGER",
             "default_value": "3",
-            "created_at": "2020-12-14T22:24:56.000000Z",
-            "updated_at": "2020-12-14T22:24:56.000000Z",
+            "created_at": "2021-01-11T02:34:53.000000Z",
+            "updated_at": "2021-01-11T02:34:53.000000Z",
             "value": "3"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2020-12-14T22:24:53.000000Z",
-            "updated_at": "2020-12-14T22:24:53.000000Z",
+            "created_at": "2021-01-11T02:34:50.000000Z",
+            "updated_at": "2021-01-11T02:34:50.000000Z",
             "value": "08:30:00"
+        },
+        {
+            "id": "RESOURCE_MINUTE_PER_SESSION",
+            "data_type": "INTEGER",
+            "default_value": "30",
+            "created_at": "2021-01-11T02:34:53.000000Z",
+            "updated_at": "2021-01-11T02:34:53.000000Z",
+            "value": "30"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2020-12-14T22:24:58.000000Z",
-            "updated_at": "2020-12-14T22:24:58.000000Z",
+            "created_at": "2021-01-11T02:34:56.000000Z",
+            "updated_at": "2021-01-11T02:34:56.000000Z",
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2020-12-14T22:24:57.000000Z",
-            "updated_at": "2020-12-14T22:24:57.000000Z",
+            "created_at": "2021-01-11T02:34:54.000000Z",
+            "updated_at": "2021-01-11T02:34:54.000000Z",
             "value": "1"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2020-12-14T22:24:57.000000Z",
-            "updated_at": "2020-12-14T22:24:57.000000Z",
+            "created_at": "2021-01-11T02:34:55.000000Z",
+            "updated_at": "2021-01-11T02:34:55.000000Z",
             "value": "Test String"
         },
         {
             "id": "TIME_IN_ADVANCE",
             "data_type": "TIME",
             "default_value": "24:00:00",
-            "created_at": "2020-12-14T22:24:54.000000Z",
-            "updated_at": "2020-12-14T22:24:54.000000Z",
+            "created_at": "2021-01-11T02:34:51.000000Z",
+            "updated_at": "2021-01-11T02:34:51.000000Z",
             "value": "24:00:00"
         },
         {
             "id": "TIME_ZONE",
             "data_type": "VARCHAR",
             "default_value": "Asia\/Hong_Kong",
-            "created_at": "2020-12-14T22:24:53.000000Z",
-            "updated_at": "2020-12-14T22:24:53.000000Z",
+            "created_at": "2021-01-11T02:34:49.000000Z",
+            "updated_at": "2021-01-11T02:34:49.000000Z",
             "value": "Asia\/Hong_Kong"
-        },
-        {
-            "id": "VENUE_MINUTE_PER_SESSION",
-            "data_type": "INTEGER",
-            "default_value": "30",
-            "created_at": "2020-12-14T22:24:55.000000Z",
-            "updated_at": "2020-12-14T22:24:55.000000Z",
-            "value": "30"
         }
     ]
 }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\VenueAvailable;
+use App\Models\ResourceAvailable;
 use Illuminate\Http\Request;
 
-class VenueAvailableController extends Controller
+class ResourceAvailableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class VenueAvailableController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\VenueAvailable  $venueAvailable
+     * @param  \App\Models\ResourceAvailable  $resourceAvailable
      * @return \Illuminate\Http\Response
      */
-    public function show(VenueAvailable $venueAvailable)
+    public function show(ResourceAvailable $resourceAvailable)
     {
         //
     }
@@ -44,10 +44,10 @@ class VenueAvailableController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\VenueAvailable  $venueAvailable
+     * @param  \App\Models\ResourceAvailable  $resourceAvailable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, VenueAvailable $venueAvailable)
+    public function update(Request $request, ResourceAvailable $resourceAvailable)
     {
         //
     }
@@ -55,10 +55,10 @@ class VenueAvailableController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\VenueAvailable  $venueAvailable
+     * @param  \App\Models\ResourceAvailable  $resourceAvailable
      * @return \Illuminate\Http\Response
      */
-    public function destroy(VenueAvailable $venueAvailable)
+    public function destroy(ResourceAvailable $resourceAvailable)
     {
         //
     }

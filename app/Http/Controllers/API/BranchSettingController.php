@@ -249,4 +249,22 @@ class BranchSettingController extends Controller
         $version = BranchSettingVersion::where('branch_id', $branch_id)->whereDate('active_at', '>', now())->orderBy('active_at', 'desc')->first();
         return $version == null ? null : $version['version'];
     }
+
+    public function getSettingsKeyValues($branch_id)
+    {
+        $settingsKV = array();
+        $settings = $this->getFormattedSettings($branch_id, $this->getActiveVersion($branch_id));
+
+        for ($i = 0; $i < sizeof($settings); $i++) {
+            if ($settings[$i]->data_type == 'BOOLEAN') {
+                $settingsKV[$settings[$i]->id] = $settings[$i]->value == 1;
+            } else if ($settings[$i]->data_type == 'INTEGER') {
+                $settingsKV[$settings[$i]->id] = (int)$settings[$i]->value;
+            } else {
+                $settingsKV[$settings[$i]->id] = $settings[$i]->value;
+            }
+        }
+
+        return $settingsKV;
+    }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Exports;
 
-use App\Models\Venue;
+use App\Models\Resource;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\Exportable;
 
-class VenuesExport implements FromCollection
+class ResourcesExport implements FromCollection
 {
     use Exportable;
 
@@ -15,6 +15,6 @@ class VenuesExport implements FromCollection
     */
     public function collection()
     {
-        return Venue::all();
+        return Resource::all();
     }
 }

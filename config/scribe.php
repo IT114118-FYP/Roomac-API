@@ -92,6 +92,8 @@ API Docs: <a href="https://it114118-fyp.herokuapp.com/docs/" target="_blank" rel
 <br>
 Admin Panel: <a href="https://it114118-fyp-admin.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-admin.herokuapp.com/</a>
 <br>
+Client Web: <a href="https://it114118-fyp-client.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-client.herokuapp.com/</a>
+<br>
 Expo Client: <a href="https://it114118-fyp-mobile.herokuapp.com/" target="_blank" rel="noopener">https://it114118-fyp-mobile.herokuapp.com/</a>
 </p>
 

@@ -1,9 +1,9 @@
-# Venue
+# Resource
 
 
-## Import venues
+## Import resources
 
-Import venues.
+Import resources.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -13,15 +13,15 @@ Import venues.
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/venues/import" \
+    "https://it114118-fyp.herokuapp.com/api/resources/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpD3E2.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php3FE9.tmp" 
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues/import"
+    "https://it114118-fyp.herokuapp.com/api/resources/import"
 );
 
 let headers = {
@@ -45,7 +45,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/venues/import`**
+ **`api/resources/import`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <code><b>file</b></code>&nbsp; <small>file</small>     <br>
@@ -53,9 +53,9 @@ fetch(url, {
 
 
 
-## Export venues
+## Export resources
 
-Export venues.
+Export resources.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -65,14 +65,14 @@ Export venues.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/venues/export?format=csv" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/export?format=csv" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues/export"
+    "https://it114118-fyp.herokuapp.com/api/resources/export"
 );
 
 let params = {
@@ -106,7 +106,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/venues/export`**
+ **`api/resources/export`**
 
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
@@ -114,9 +114,9 @@ fetch(url, {
 
 
 
-## Remove multiple venues
+## Remove multiple resources
 
-Remove multiple venues.
+Remove multiple resources.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -126,7 +126,7 @@ Remove multiple venues.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/venues" \
+    "https://it114118-fyp.herokuapp.com/api/resources" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"ids":"{\"ids\": [1, 2]}"}'
@@ -135,7 +135,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues"
+    "https://it114118-fyp.herokuapp.com/api/resources"
 );
 
 let headers = {
@@ -160,17 +160,17 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/venues`**
+ **`api/resources`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-    Array of the venues' id
+    Array of the resources' id
 
 
 
-## Reset venues
+## Reset resources
 
-Remove all venues.
+Remove all resources.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -180,14 +180,14 @@ Remove all venues.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/venues/reset" \
+    "https://it114118-fyp.herokuapp.com/api/resources/reset" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues/reset"
+    "https://it114118-fyp.herokuapp.com/api/resources/reset"
 );
 
 let headers = {
@@ -208,13 +208,13 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/venues/reset`**
+ **`api/resources/reset`**
 
 
 
-## Retrieve all venues
+## Retrieve all resources
 
-Retrieve all venues.
+Retrieve all resources.
 
 
 
@@ -223,14 +223,14 @@ Retrieve all venues.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/venues" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues"
+    "https://it114118-fyp.herokuapp.com/api/resources"
 );
 
 let headers = {
@@ -254,100 +254,128 @@ fetch(url, {
 [
     {
         "id": 1,
-        "branch_id": "ST",
-        "number": "IT-421B",
-        "title_en": "",
-        "title_hk": "",
-        "title_cn": "",
-        "opening_time": "08:00:00",
-        "closing_time": "21:00:00",
-        "created_at": "2020-12-14T22:24:40.000000Z",
-        "updated_at": "2020-12-14T22:24:40.000000Z"
-    },
-    {
-        "id": 2,
-        "branch_id": "ST",
-        "number": "CS-442",
-        "title_en": "",
-        "title_hk": "",
-        "title_cn": "",
-        "opening_time": "08:00:00",
-        "closing_time": "21:00:00",
-        "created_at": "2020-12-14T22:24:41.000000Z",
-        "updated_at": "2020-12-14T22:24:41.000000Z"
-    },
-    {
-        "id": 3,
-        "branch_id": "ST",
-        "number": "CS-404",
-        "title_en": "",
-        "title_hk": "",
-        "title_cn": "",
-        "opening_time": "08:00:00",
-        "closing_time": "21:00:00",
-        "created_at": "2020-12-14T22:24:42.000000Z",
-        "updated_at": "2020-12-14T22:24:42.000000Z"
-    },
-    {
-        "id": 4,
-        "branch_id": "ST",
-        "number": "CS-332B",
-        "title_en": "",
-        "title_hk": "",
-        "title_cn": "",
-        "opening_time": "08:00:00",
-        "closing_time": "21:00:00",
-        "created_at": "2020-12-14T22:24:42.000000Z",
-        "updated_at": "2020-12-14T22:24:42.000000Z"
-    },
-    {
-        "id": 5,
-        "branch_id": "ST",
-        "number": "CS-N108B",
-        "title_en": "",
-        "title_hk": "",
-        "title_cn": "",
-        "opening_time": "08:00:00",
-        "closing_time": "21:00:00",
-        "created_at": "2020-12-14T22:24:43.000000Z",
-        "updated_at": "2020-12-14T22:24:43.000000Z"
-    },
-    {
-        "id": 6,
-        "branch_id": "ST",
-        "number": "IT-427B",
-        "title_en": "",
-        "title_hk": "",
-        "title_cn": "",
-        "opening_time": "08:00:00",
-        "closing_time": "21:00:00",
-        "created_at": "2020-12-14T22:24:45.000000Z",
-        "updated_at": "2020-12-14T22:24:45.000000Z"
-    },
-    {
-        "id": 7,
+        "category_id": 1,
         "branch_id": "ST",
         "number": "IT-417A",
         "title_en": "Interview Room",
         "title_hk": "接見室",
         "title_cn": "接见室",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453326\/aqmyrwsqxucpt5ql5dwj.jpg",
+        "min_user": 1,
+        "max_user": 20,
         "opening_time": "08:00:00",
         "closing_time": "15:00:00",
-        "created_at": "2020-12-14T22:24:46.000000Z",
-        "updated_at": "2020-12-14T22:24:46.000000Z"
+        "created_at": "2021-01-11T02:34:29.000000Z",
+        "updated_at": "2021-01-11T02:34:29.000000Z"
+    },
+    {
+        "id": 2,
+        "category_id": 1,
+        "branch_id": "ST",
+        "number": "IT-421B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453111\/qqz4jdu2hyielwrjl6zj.jpg",
+        "min_user": 2,
+        "max_user": 10,
+        "opening_time": "08:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2021-01-11T02:34:31.000000Z",
+        "updated_at": "2021-01-11T02:34:31.000000Z"
+    },
+    {
+        "id": 3,
+        "category_id": 1,
+        "branch_id": "ST",
+        "number": "CS-442",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453111\/qqz4jdu2hyielwrjl6zj.jpg",
+        "min_user": 2,
+        "max_user": 10,
+        "opening_time": "08:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2021-01-11T02:34:33.000000Z",
+        "updated_at": "2021-01-11T02:34:33.000000Z"
+    },
+    {
+        "id": 4,
+        "category_id": 1,
+        "branch_id": "ST",
+        "number": "CS-404",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453111\/qqz4jdu2hyielwrjl6zj.jpg",
+        "min_user": 2,
+        "max_user": 10,
+        "opening_time": "08:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2021-01-11T02:34:34.000000Z",
+        "updated_at": "2021-01-11T02:34:34.000000Z"
+    },
+    {
+        "id": 5,
+        "category_id": 2,
+        "branch_id": "ST",
+        "number": "CS-332B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453111\/qqz4jdu2hyielwrjl6zj.jpg",
+        "min_user": 2,
+        "max_user": 10,
+        "opening_time": "08:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2021-01-11T02:34:36.000000Z",
+        "updated_at": "2021-01-11T02:34:36.000000Z"
+    },
+    {
+        "id": 6,
+        "category_id": 2,
+        "branch_id": "ST",
+        "number": "CS-N108B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453111\/qqz4jdu2hyielwrjl6zj.jpg",
+        "min_user": 2,
+        "max_user": 10,
+        "opening_time": "08:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2021-01-11T02:34:37.000000Z",
+        "updated_at": "2021-01-11T02:34:37.000000Z"
+    },
+    {
+        "id": 7,
+        "category_id": 2,
+        "branch_id": "ST",
+        "number": "IT-427B",
+        "title_en": "",
+        "title_hk": "",
+        "title_cn": "",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453111\/qqz4jdu2hyielwrjl6zj.jpg",
+        "min_user": 2,
+        "max_user": 10,
+        "opening_time": "08:00:00",
+        "closing_time": "21:00:00",
+        "created_at": "2021-01-11T02:34:38.000000Z",
+        "updated_at": "2021-01-11T02:34:38.000000Z"
     }
 ]
 ```
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/venues`**
+ **`api/resources`**
 
 
 
-## Add a venue
+## Add a resource
 
-Add a venue.
+Add a resource.
 
 
 
@@ -356,14 +384,14 @@ Add a venue.
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/venues" \
+    "https://it114118-fyp.herokuapp.com/api/resources" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues"
+    "https://it114118-fyp.herokuapp.com/api/resources"
 );
 
 let headers = {
@@ -384,13 +412,13 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/venues`**
+ **`api/resources`**
 
 
 
-## Retrieve a venue
+## Retrieve a resource
 
-Retrieve a venue.
+Retrieve a resource.
 
 
 
@@ -399,14 +427,14 @@ Retrieve a venue.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/venues/1" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues/1"
+    "https://it114118-fyp.herokuapp.com/api/resources/1"
 );
 
 let headers = {
@@ -429,31 +457,35 @@ fetch(url, {
 ```json
 {
     "id": 1,
+    "category_id": 1,
     "branch_id": "ST",
-    "number": "IT-421B",
-    "title_en": "",
-    "title_hk": "",
-    "title_cn": "",
+    "number": "IT-417A",
+    "title_en": "Interview Room",
+    "title_hk": "接見室",
+    "title_cn": "接见室",
+    "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1608453326\/aqmyrwsqxucpt5ql5dwj.jpg",
+    "min_user": 1,
+    "max_user": 20,
     "opening_time": "08:00:00",
-    "closing_time": "21:00:00",
-    "created_at": "2020-12-14T22:24:40.000000Z",
-    "updated_at": "2020-12-14T22:24:40.000000Z"
+    "closing_time": "15:00:00",
+    "created_at": "2021-01-11T02:34:29.000000Z",
+    "updated_at": "2021-01-11T02:34:29.000000Z"
 }
 ```
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/venues/{venue}`**
+ **`api/resources/{resource}`**
 
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-<code><b>venue</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    string required The ID of the venue.
+<code><b>resource</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    string required The ID of the resource.
 
 
 
-## Update a venue
+## Update a resource
 
-Update a venue.
+Update a resource.
 
 
 
@@ -462,14 +494,14 @@ Update a venue.
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
+    "https://it114118-fyp.herokuapp.com/api/resources/{resource}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
+    "https://it114118-fyp.herokuapp.com/api/resources/{resource}"
 );
 
 let headers = {
@@ -490,16 +522,16 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/venues/{venue}`**
+ **`api/resources/{resource}`**
 
 <small class="badge badge-purple">PATCH</small>
- **`api/venues/{venue}`**
+ **`api/resources/{resource}`**
 
 
 
-## Remove a venue
+## Remove a resource
 
-Remove a venue.
+Remove a resource.
 
 
 
@@ -508,14 +540,14 @@ Remove a venue.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/venues/{venue}" \
+    "https://it114118-fyp.herokuapp.com/api/resources/{resource}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/venues/{venue}"
+    "https://it114118-fyp.herokuapp.com/api/resources/{resource}"
 );
 
 let headers = {
@@ -536,7 +568,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/venues/{venue}`**
+ **`api/resources/{resource}`**
 
 
 

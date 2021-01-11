@@ -10,11 +10,12 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\API\BranchController;
 use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\VenueController;
-use App\Http\Controllers\API\VenueBookingController;
+use App\Http\Controllers\API\ResourceController;
+use App\Http\Controllers\API\ResourceBookingController;
 use App\Http\Controllers\API\PermissionController;
 use App\Http\Controllers\API\SettingController;
 use App\Http\Controllers\API\BranchSettingController;
+use App\Http\Controllers\API\CategoryController;
 
 Route::post('/branches/import', [BranchController::class, 'import']);
 Route::get('/branches/export', [BranchController::class, 'export']);
@@ -30,12 +31,15 @@ Route::delete('/programs/reset', [ProgramController::class, 'reset']);
 Route::delete('/programs', [ProgramController::class, 'destroyMany']);
 Route::apiResource('/programs', ProgramController::class);
 
-Route::post('/venues/import', [VenueController::class, 'import']);
-Route::get('/venues/export', [VenueController::class, 'export']);
-Route::delete('/venues', [VenueController::class, 'destroyMany']);
-Route::delete('/venues/reset', [VenueController::class, 'reset']);
-Route::delete('/venues', [VenueController::class, 'destroyMany']);
-Route::apiResource('/venues', VenueController::class);
+Route::post('/resources/import', [ResourceController::class, 'import']);
+Route::get('/resources/export', [ResourceController::class, 'export']);
+Route::delete('/resources', [ResourceController::class, 'destroyMany']);
+Route::delete('/resources/reset', [ResourceController::class, 'reset']);
+Route::delete('/resources', [ResourceController::class, 'destroyMany']);
+Route::apiResource('/resources', ResourceController::class);
+
+Route::get('/resources/{resource}/bookings', [ResourceBookingController::class, 'index']);
+Route::post('/resources/{resource}/bookings', [ResourceBookingController::class, 'store']);
 
 Route::get('/users/me', [UserController::class, 'myself']);
 Route::post('/users/import', [UserController::class, 'import']);
@@ -55,7 +59,12 @@ Route::get('/branches/{branch}/settings/{version}', [BranchSettingController::cl
 Route::put('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'update']);
 Route::delete('/branches/{branch}/settings/{version}', [BranchSettingController::class, 'destroy']);
 
-Route::get('/venues/{venue}/bookings', [VenueBookingController::class, 'index']);
+Route::post('/categories/import', [CategoryController::class, 'import']);
+Route::get('/categories/export', [CategoryController::class, 'export']);
+Route::delete('/categories', [CategoryController::class, 'destroyMany']);
+Route::delete('/categories/reset', [CategoryController::class, 'reset']);
+Route::delete('/categories', [CategoryController::class, 'destroyMany']);
+Route::apiResource('/categories', CategoryController::class);
 
 Route::apiResource('/settings', SettingController::class);
 

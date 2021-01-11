@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResourcesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,13 @@ class CreateResourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resources', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('branch_id');
-            $table->string('number');
-            $table->string('title_en')->nullable();
+            $table->string('title_en');
             $table->string('title_hk')->nullable();
             $table->string('title_cn')->nullable();
-            $table->timeTz('opening_time');
-            $table->timeTz('closing_time');
+            $table->string('image_url')->nullable();
             $table->timestamps();
-
-            $table->foreign('branch_id')->references('id')->on('branches')->constrained()->onDelete('cascade');
         });
     }
 
@@ -35,6 +30,6 @@ class CreateResourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resources');
+        Schema::dropIfExists('categories');
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\Models\Venue;
+use App\Models\Resource;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 
-class VenuesImport implements ToModel
+class ResourcesImport implements ToModel
 {
     use Importable;
 
@@ -22,19 +22,21 @@ class VenuesImport implements ToModel
     {
         $this->rows++;
 
-        if (Venue::where(['branch_id', $row[0], 'number', $row[1]])->exists()) {
+        if (Resource::where(['branch_id', $row[0], 'number', $row[1]])->exists()) {
             $this->errors[$this->rows] = 'number "'.$row[1].'" already exists in '.$row[0].', row skipped...';
             return null;
         }
 
-        return new Venue([
+        return new Resource([
             'branch_id' => $row[0],
             'number' => $row[1],
             'title_en' => $row[2],
             'title_hk' => $row[3],
             'title_cn' => $row[4],
-            'opening_time' => $row[5],
-            'closing_time' => $row[6],
+            'min_user' => $row[5],
+            'max_user' => $row[6],
+            'opening_time' => $row[7],
+            'closing_time' => $row[8],
         ]);
     }
 
