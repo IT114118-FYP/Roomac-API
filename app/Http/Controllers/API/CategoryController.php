@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Imports\CategoriesImport;
@@ -73,7 +74,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return $category->resources;
+        return Resource::where('category_id', $category->id)->with(['branch', 'category', 'tos'])->get();
     }
 
     /**
