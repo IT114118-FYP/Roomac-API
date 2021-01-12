@@ -15,8 +15,9 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->string('branch_id');
+            $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->bigInteger('tos_id')->unsigned()->nullable();
             $table->string('number');
             $table->string('title_en')->nullable();
             $table->string('title_hk')->nullable();
@@ -28,8 +29,9 @@ class CreateResourcesTable extends Migration
             $table->time('closing_time');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->constrained()->onDelete('set null');
             $table->foreign('branch_id')->references('id')->on('branches')->constrained()->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->constrained()->onDelete('set null');
+            $table->foreign('tos_id')->references('id')->on('tos')->constrained()->onDelete('set null');
         });
     }
 

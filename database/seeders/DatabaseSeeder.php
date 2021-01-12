@@ -19,6 +19,7 @@ use App\Models\ResourceAvailable;
 use App\Models\ResourceBooking;
 use App\Models\ResourceReserved;
 use App\Models\Category;
+use App\Models\Tos;
 
 use \DateTime;
 use \DateTimeZone;
@@ -51,6 +52,7 @@ class DatabaseSeeder extends Seeder
         Role::truncate();
         Permission::truncate();
         Category::truncate();
+        Tos::truncate();
         Schema::enableForeignKeyConstraints();
 
         # Permission
@@ -96,15 +98,27 @@ class DatabaseSeeder extends Seeder
         ];
         $this->seedCategory($rows);
 
+        # Terms and Conditions
+        $rows = [
+            [
+'- Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.
+- line 2
+- line 3',
+'',
+''
+            ],
+        ];
+        $this->seedTos($rows);
+
         # Resource
         $rows = [
-            [1, 'ST', 'IT-417A', 'Interview Room', '接見室', '接见室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', 1, 20, '08:00', '15:00'],
-            [1, 'ST', 'IT-421B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [1, 'ST', 'CS-442', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [1, 'ST', 'CS-404', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [2, 'ST', 'CS-332B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [2, 'ST', 'CS-N108B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [2, 'ST', 'IT-427B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [1, 'ST', 1, 'IT-417A', 'Interview Room', '接見室', '接见室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', 1, 20, '08:00', '15:00'],
+            [1, 'ST', 1, 'IT-421B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [1, 'ST', 1, 'CS-442', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [1, 'ST', 1, 'CS-404', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'ST', 1, 'CS-332B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'ST', 1, 'CS-N108B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'ST', 1, 'IT-427B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
         ];
         $this->seedResource($rows);
 
@@ -198,20 +212,31 @@ class DatabaseSeeder extends Seeder
         }
     }
 
+    private function seedTos($rows) {
+        foreach ($rows as $row) {
+            (new Tos([
+                'tos_en' => $row[0],
+                'tos_hk' => $row[1],
+                'tos_cn' => $row[2],
+            ]))->save();
+        }
+    }
+
     private function seedResource($rows) {
         foreach ($rows as $row) {
             (new Resource([
                 'category_id' => $row[0],
-                'branch_id' => $row[1],            
-                'number' => $row[2], 
-                'title_en' => $row[3],
-                'title_hk' => $row[4],
-                'title_cn' => $row[5],
-                'image_url' => $row[6],
-                'min_user' => $row[7],
-                'max_user' => $row[8],
-                'opening_time' => $row[9],
-                'closing_time' => $row[10],
+                'branch_id' => $row[1],
+                'tos_id' => $row[2],
+                'number' => $row[3],
+                'title_en' => $row[4],
+                'title_hk' => $row[5],
+                'title_cn' => $row[6],
+                'image_url' => $row[7],
+                'min_user' => $row[8],
+                'max_user' => $row[9],
+                'opening_time' => $row[10],
+                'closing_time' => $row[11],
             ]))->save();
         }
     }

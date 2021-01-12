@@ -44,9 +44,11 @@ class ResourceController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'branch_id' => 'required',
+            'branch_id' => 'required|exists:App\Models\Branch,id',
+            'category_id' => 'nullable',
+            'tos_id' => 'nullable',
             'number' => 'required',
-            'title_en' => 'required|nullable',
+            'title_en' => 'required',
             'title_hk' => 'required|nullable',
             'title_cn' => 'required|nullable',
             'opening_time' => 'required',
@@ -82,6 +84,9 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
+        $resource['branch'] = $resource->branch;
+        $resource['category'] = $resource->category;
+        $resource['tos'] = $resource->tos;
         return $resource;
     }
 
@@ -100,10 +105,12 @@ class ResourceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'branch_id' => 'required|exists:App\Models\Branch,id',
+            'category_id' => 'nullable',
+            'tos_id' => 'nullable',
             'number' => 'required',
             'title_en' => 'required',
-            'title_hk' => 'required',
-            'title_cn' => 'required',
+            'title_hk' => 'required|nullable',
+            'title_cn' => 'required|nullable',
             'opening_time' => 'required',
             'closing_time' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',

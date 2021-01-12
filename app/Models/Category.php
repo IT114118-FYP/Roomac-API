@@ -23,7 +23,8 @@ class Category extends Model
         'image_url',
     ];
 
-    public function resources(){
+    public function resources()
+    {
         return $this->hasMany(Resource::class);
     }
 }

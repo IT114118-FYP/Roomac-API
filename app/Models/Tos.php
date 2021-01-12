@@ -4,15 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 use App\Models\Resource;
 
-class Branch extends Model
+class Tos extends Model
 {
-    use HasFactory, Searchable;
-
-    public $incrementing = false;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -20,13 +17,13 @@ class Branch extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'title_en',
-        'title_hk',
-        'title_cn',
+        'tos_en',
+        'tos_hk',
+        'tos_cn',
     ];
 
-    public function resources(){
+    public function resources()
+    {
         return $this->hasMany(Resource::class);
     }
 }

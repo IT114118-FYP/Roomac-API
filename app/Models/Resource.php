@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
+use App\Models\Branch;
 use App\Models\Category;
+use App\Models\Tos;
 
 class Resource extends Model
 {
@@ -19,6 +21,8 @@ class Resource extends Model
      */
     protected $fillable = [
         'branch_id',
+        'category_id',
+        'tos_id',
         'number',
         'title_en',
         'title_hk',
@@ -30,8 +34,18 @@ class Resource extends Model
         'closing_time',
     ];
 
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function tos()
+    {
+        return $this->belongsTo(Tos::class);
     }
 }
