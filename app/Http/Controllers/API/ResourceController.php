@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Branch;
 use App\Models\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        return Resource::all();
+        return Resource::with(['branch', 'category', 'tos'])->get();
     }
 
     /**
@@ -84,10 +85,7 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
-        $resource['branch'] = $resource->branch;
-        $resource['category'] = $resource->category;
-        $resource['tos'] = $resource->tos;
-        return $resource;
+        return $resource->with(['branch', 'category', 'tos'])->get();
     }
 
     /**

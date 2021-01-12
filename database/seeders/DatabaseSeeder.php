@@ -101,9 +101,9 @@ class DatabaseSeeder extends Seeder
         # Terms and Conditions
         $rows = [
             [
-'- Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.
-- line 2
-- line 3',
+'* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.
+* line 2
+* line 3',
 '',
 ''
             ],
