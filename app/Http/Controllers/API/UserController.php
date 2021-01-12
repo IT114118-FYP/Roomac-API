@@ -60,9 +60,9 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
-            'program_id' => 'required',
-            'branch_id' => 'required',
+            'password' => 'nullable',
+            'program_id' => 'nullable',
+            'branch_id' => 'nullable',
             'first_name' => 'nullable',
             'last_name' => 'nullable',
             'chinese_name' => 'nullable',
@@ -132,9 +132,10 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
-            'program_id' => 'required',
-            'branch_id' => 'required',
+            'old_password' => 'nullable',
+            'new_password' => 'nullable',
+            'program_id' => 'nullable',
+            'branch_id' => 'nullable',
             'first_name' => 'nullable',
             'last_name' => 'nullable',
             'chinese_name' => 'nullable',
@@ -145,7 +146,14 @@ class UserController extends Controller
         }
 
         $validated_data = $validator->valid();
-        $validated_data['password'] = Hash::make($validated_data->password);
+        if (isset($validated_data['old_password']) && isset($validated_data['new_password'])) {
+            if (Hash::check($validated_data['old_password'], $user->password)) {
+                $validated_data['password'] = Hash::make($validated_data['new_password']);
+                // TODO: revoke all user login token
+            } else {
+                return response('Fail to change password', 402);
+            }
+        }
 
         return response(null, $user->update($validated_data) ? 200 : 401);
     }
