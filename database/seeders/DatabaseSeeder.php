@@ -134,7 +134,6 @@ class DatabaseSeeder extends Seeder
 
         # Branch Setting
         $rows = [
-            ['TIME_ZONE', 'VARCHAR', 'Asia/Hong_Kong'],
             ['OPEN_TIME', 'TIME', '08:30:00'],
             ['CLOSE_TIME', 'TIME', '20:00:00'],
             
@@ -143,7 +142,8 @@ class DatabaseSeeder extends Seeder
             ['MIN_CLIENT_UNLOCK', 'INTEGER', '3'],
             
             ['TEST_BOOLEAN_TRUE', 'BOOLEAN', '1'],
-            ['TEST_VARCHAR', 'VARCHAR', 'Test String'], ['TEST_BOOLEAN_FALSE', 'BOOLEAN', '0'],
+            ['TEST_VARCHAR', 'VARCHAR', 'Test String'],
+            ['TEST_BOOLEAN_FALSE', 'BOOLEAN', '0'],
         ];
         $this->seedSetting($rows);
 

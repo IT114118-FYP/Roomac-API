@@ -13,6 +13,19 @@ class ResourceBooking extends Model
 
     protected $dates = ['created_at', 'updated_at'];
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'resource_id',
+        'branch_setting_version_id',
+        'start_time',
+        'end_time',
+    ];
+    
     public function getStartTimeAttribute()
     {
         return (new Carbon($this->attributes['start_time']))->format('Y-m-d\TH:i:s');
