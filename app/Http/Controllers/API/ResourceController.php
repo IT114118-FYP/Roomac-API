@@ -29,7 +29,7 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        return Resource::all();
+        return Resource::with(['branch', 'category', 'tos'])->get();
     }
 
     /**
@@ -85,7 +85,7 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
-        return $resource;
+        return $resource->with(['branch', 'category', 'tos'])->get();
     }
 
     /**
