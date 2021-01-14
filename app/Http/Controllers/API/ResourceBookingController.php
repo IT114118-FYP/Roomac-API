@@ -259,7 +259,7 @@ class ResourceBookingController extends Controller
     }
 
     private function isBookingExists($resource, $startTime, $endTime) {
-        return ResourceBooking::where(function ($query) use ($startTime, $endTime) {
+        return ResourceBooking::where('resource_id', $resource->id)->where(function ($query) use ($startTime, $endTime) {
             $query->where(function ($query) use ($startTime, $endTime) {
                     $query->where('start_time', '>=', $startTime)->where('end_time', '<', $startTime);
                 })
