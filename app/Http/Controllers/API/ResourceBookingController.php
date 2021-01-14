@@ -159,15 +159,17 @@ class ResourceBookingController extends Controller
             return response('The booking was invalid.', 401);
         }
 
-        (new ResourceBooking([
+        $resourceBooking = new ResourceBooking([
             'user_id' => $request->user()->id,
             'resource_id' => $resource->id,
             'branch_setting_version_id' => (new BranchSettingController)->getActiveVersion($resource->branch_id),
             'start_time' => $startTime,
             'end_time' => $endTime,
-        ]))->save();
+        ]);
+        $resourceBooking->save();
 
-        return response(null, 200);
+        $bookingReference = "RM-" . str_replace('-', '', $validated_data['date']) . "-" . str_pad($resourceBooking->id, 5, '0', STR_PAD_LEFT);
+        return response($bookingReference, 200);
 
 
         dd( $validated_data->start_time);
