@@ -85,7 +85,7 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
-        return $resource->where('id', $resource->id)->with(['branch', 'category', 'tos'])->get();
+        return $resource->where('id', $resource->id)->with(['branch', 'category', 'tos'])->first();
     }
 
     /**
