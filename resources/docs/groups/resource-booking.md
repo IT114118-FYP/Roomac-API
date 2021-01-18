@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings - Display in Timetable
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=consequuntur&end=vero" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -21,6 +21,13 @@ curl -X GET \
 const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings"
 );
+
+let params = {
+    "start": "consequuntur",
+    "end": "vero",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -37,109 +44,24 @@ fetch(url, {
 ```
 
 
-> Example response (200, success):
+> Example response (401):
 
 ```json
 {
-    "interval": 30,
-    "timezone": "Asia\/Hong_Kong",
-    "opening_time": "08:00:00",
-    "closing_time": "21:00:00",
-    "bookings": {
-        "allow_times": [
-            {
-                "id": 1,
-                "resource_id": 1,
-                "start_time": "2020-12-14T04:00:00.000000Z",
-                "end_time": "2020-12-14T21:00:00.000000Z",
-                "day_of_week": 1,
-                "repeat": 1,
-                "created_at": "2020-12-14T22:25:00.000000Z",
-                "updated_at": "2020-12-14T22:25:00.000000Z"
-            },
-            {
-                "id": 2,
-                "resource_id": 1,
-                "start_time": "2020-12-14T00:30:00.000000Z",
-                "end_time": "2020-12-14T22:00:00.000000Z",
-                "day_of_week": 2,
-                "repeat": 1,
-                "created_at": "2020-12-14T22:25:00.000000Z",
-                "updated_at": "2020-12-14T22:25:00.000000Z"
-            },
-            {
-                "id": 3,
-                "resource_id": 1,
-                "start_time": "2020-12-14T00:30:00.000000Z",
-                "end_time": "2020-12-14T22:00:00.000000Z",
-                "day_of_week": 3,
-                "repeat": 1,
-                "created_at": "2020-12-14T22:25:01.000000Z",
-                "updated_at": "2020-12-14T22:25:01.000000Z"
-            },
-            {
-                "id": 4,
-                "resource_id": 1,
-                "start_time": "2020-12-14T00:30:00.000000Z",
-                "end_time": "2020-12-14T22:00:00.000000Z",
-                "day_of_week": 4,
-                "repeat": 1,
-                "created_at": "2020-12-14T22:25:01.000000Z",
-                "updated_at": "2020-12-14T22:25:01.000000Z"
-            },
-            {
-                "id": 5,
-                "resource_id": 1,
-                "start_time": "2020-12-14T00:30:00.000000Z",
-                "end_time": "2020-12-14T22:00:00.000000Z",
-                "day_of_week": 5,
-                "repeat": 1,
-                "created_at": "2020-12-14T22:25:02.000000Z",
-                "updated_at": "2020-12-14T22:25:02.000000Z"
-            }
-        ],
-        "unavailable": {
-            "booked": [
-                {
-                    "id": 1,
-                    "user_id": 2,
-                    "resource_id": 1,
-                    "branch_setting_version_id": null,
-                    "start_time": "2020-12-14T01:30:00.000000Z",
-                    "end_time": "2020-12-14T02:30:00.000000Z",
-                    "created_at": "2020-12-14T22:25:02.000000Z",
-                    "updated_at": "2020-12-14T22:25:02.000000Z"
-                },
-                {
-                    "id": 2,
-                    "user_id": 2,
-                    "resource_id": 1,
-                    "branch_setting_version_id": null,
-                    "start_time": "2020-12-14T02:30:00.000000Z",
-                    "end_time": "2020-12-14T03:30:00.000000Z",
-                    "created_at": "2020-12-14T22:25:03.000000Z",
-                    "updated_at": "2020-12-14T22:25:03.000000Z"
-                },
-                {
-                    "id": 3,
-                    "user_id": 2,
-                    "resource_id": 1,
-                    "branch_setting_version_id": null,
-                    "start_time": "2020-12-14T04:30:00.000000Z",
-                    "end_time": "2020-12-14T05:30:00.000000Z",
-                    "created_at": "2020-12-14T22:25:04.000000Z",
-                    "updated_at": "2020-12-14T22:25:04.000000Z"
-                }
-            ],
-            "reserved": []
-        }
-    }
+    "message": "Unauthenticated."
 }
 ```
 
 ### Request
 <small class="badge badge-green">GET</small>
  **`api/resources/{resource}/bookings`**
+
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<code><b>start</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    query start time in Y-m-d format. Defaults to 2021-01-13.
+
+<code><b>end</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    query end time in Y-m-d format. Defaults to 2021-01-15.
 
 
 
@@ -157,7 +79,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"start_time":"id","end_time":"ipsam"}'
+    -d '{"date":"culpa","start":"rem","end":"quae"}'
 
 ```
 
@@ -172,8 +94,9 @@ let headers = {
 };
 
 let body = {
-    "start_time": "id",
-    "end_time": "ipsam"
+    "date": "culpa",
+    "start": "rem",
+    "end": "quae"
 }
 
 fetch(url, {
@@ -192,11 +115,14 @@ fetch(url, {
  **`api/resources/{resource}/bookings`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>start_time</b></code>&nbsp; <small>string</small>     <br>
-    Start time of the booking in UTC datetime format (Y-m-dTH:i:sZ)
+<code><b>date</b></code>&nbsp; <small>string</small>     <br>
+    Date of the booking (Y-m-d).
 
-<code><b>end_time</b></code>&nbsp; <small>string</small>     <br>
-    End time of the booking in UTC datetime format (Y-m-dTH:i:sZ)
+<code><b>start</b></code>&nbsp; <small>string</small>     <br>
+    Start time of the booking (H:i:s).
+
+<code><b>end</b></code>&nbsp; <small>string</small>     <br>
+    End time of the booking (H:i:s).
 
 
 

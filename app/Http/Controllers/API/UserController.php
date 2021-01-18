@@ -60,7 +60,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'nullable',
+            'password' => 'required',
             'program_id' => 'nullable',
             'branch_id' => 'nullable',
             'first_name' => 'nullable',
@@ -92,7 +92,7 @@ class UserController extends Controller
         }*/
 
         $validated_data = $validator->valid();
-        $validated_data['password'] = Hash::make($validated_data->password);
+        $validated_data['password'] = Hash::make($validated_data['password']);
 
         return response(null, (new User($validated_data))->save() ? 200 : 401);
     }

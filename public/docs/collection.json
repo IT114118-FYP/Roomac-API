@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "79aaa249-1c4d-4d97-9811-57499786d154",
+        "_postman_id": "47cec6ee-e515-4752-a8ce-f5913ca53e4c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -1561,8 +1561,21 @@
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
                             "path": "api\/resources\/:resource\/bookings",
-                            "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings"
+                            "query": [
+                                {
+                                    "key": "start",
+                                    "value": "consequuntur",
+                                    "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end",
+                                    "value": "vero",
+                                    "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=consequuntur&end=vero"
                         },
                         "method": "GET",
                         "header": [
@@ -1606,7 +1619,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"start_time\": \"id\",\n    \"end_time\": \"ipsam\"\n}"
+                            "raw": "{\n    \"date\": \"culpa\",\n    \"start\": \"rem\",\n    \"end\": \"quae\"\n}"
                         },
                         "description": "",
                         "auth": {
