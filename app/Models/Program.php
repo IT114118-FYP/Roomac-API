@@ -8,7 +8,7 @@ use Laravel\Scout\Searchable;
 
 class Program extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory;//, Searchable;
 
     public $incrementing = false;
 

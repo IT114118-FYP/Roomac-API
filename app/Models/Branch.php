@@ -10,7 +10,7 @@ use App\Models\Resource;
 
 class Branch extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory;//, Searchable;
 
     public $incrementing = false;
 
