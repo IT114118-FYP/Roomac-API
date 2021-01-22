@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "47cec6ee-e515-4752-a8ce-f5913ca53e4c",
+        "_postman_id": "9c17940b-9835-46f1-a161-e6df17bc620d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -1564,18 +1564,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "consequuntur",
+                                    "value": "illum",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "vero",
+                                    "value": "qui",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=consequuntur&end=vero"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=illum&end=qui"
                         },
                         "method": "GET",
                         "header": [
@@ -1619,7 +1619,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"culpa\",\n    \"start\": \"rem\",\n    \"end\": \"quae\"\n}"
+                            "raw": "{\n    \"date\": \"libero\",\n    \"start\": \"molestias\",\n    \"end\": \"et\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2049,6 +2049,54 @@
                         },
                         "description": "",
                         "auth": null
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User Booking",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all user's bookings\n\nRetrieve all user's bookings - Display in Timetable",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/:user\/bookings",
+                            "query": [
+                                {
+                                    "key": "start",
+                                    "value": "consequatur",
+                                    "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end",
+                                    "value": "sed",
+                                    "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=consequatur&end=sed"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 }

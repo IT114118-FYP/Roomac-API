@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
 
+use App\Models\User;
+use App\Models\Resource;
+
 class ResourceBooking extends Model
 {
     use HasFactory;
@@ -34,5 +37,15 @@ class ResourceBooking extends Model
     public function getEndTimeAttribute()
     {
         return (new Carbon($this->attributes['end_time']))->format('Y-m-d\TH:i:s');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function resource()
+    {
+        return $this->belongsTo(Resource::class);
     }
 }

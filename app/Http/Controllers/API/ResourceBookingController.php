@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Resource;
 use App\Models\ResourceAvailable;
 use App\Models\ResourceBooking;
@@ -53,7 +54,6 @@ class ResourceBookingController extends Controller
 
         $controller = new BranchSettingController;
         $settingsKv = $controller->getSettingsKeyValues($resource->branch_id);
-        $available = ResourceAvailable::where('resource_id', $resource->id)->get();
         $booked = ResourceBooking::where('resource_id', $resource->id)->get();
         $reserved = ResourceReserved::where('resource_id', $resource->id)->get();
         $interval = $settingsKv['RESOURCE_MINUTE_PER_SESSION'];
@@ -96,20 +96,6 @@ class ResourceBookingController extends Controller
             'opening_time' => $resource->opening_time,
             'closing_time' => $resource->closing_time,
             'allow_times' => $allow_times
-        ];
-
-        // old
-        return [
-            'interval' => $settingsKv['RESOURCE_MINUTE_PER_SESSION'],
-            'opening_time' => $resource->opening_time,
-            'closing_time' => $resource->closing_time,
-            'bookings' => [
-                'allow_times' => $available,
-                'unavailable' => [
-                    'booked' => $booked,
-                    'reserved' => $reserved,
-                ]
-            ]
         ];
     }
 
@@ -170,44 +156,42 @@ class ResourceBookingController extends Controller
 
         $bookingReference = "RM-" . str_replace('-', '', $validated_data['date']) . "-" . str_pad($resourceBooking->id, 5, '0', STR_PAD_LEFT);
         return response($bookingReference, 200);
+    }
 
+    /**
+     * @group User Booking
+     * 
+     * Retrieve all user's bookings
+     * 
+     * Retrieve all user's bookings - Display in Timetable
+     * 
+     * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
+     * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexUser(Request $request, User $user)
+    {
+        $query_start = $request->query('start', now());
+        $query_end = $request->query('end', now());
 
-        dd( $validated_data->start_time);
-        dd(Carbon::now()->startOfWeek());
-        
-        // Check is it in avaliable times
-        $dtStartTime = Carbon::create($validated_data['start_time'], 'UTC')->setDate(now()->format("Y"), now()->format("m"), now()->format("d"));
-        $dtEndTime = Carbon::create($validated_data['end_time'], 'UTC')->setDate(now()->format("Y"), now()->format("m"), now()->format("d"));
-        $available = ResourceAvailable::where(['resource_id' => $resource->id, 'day_of_week' => $dtStartTime->dayOfWeek])->first();
-        if ($available->start_time->gt($dtStartTime) || $available->end_time->lt($dtEndTime)) {
-            dump($dtStartTime);
-            return response('The time range is not within the available time', 401);
+        try {
+            $start_date = Carbon::parse($query_start);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
         }
 
+        try {
+            $end_date = Carbon::parse($query_end);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
 
-        dd($dtStartTime->dayOfWeek);
-        dd($available);
-
-        // Check is it unavailable
-
-/*
-        $settingsKv = $controller->getSettingsKeyValues($venue->branch_id);
-
-        $start_time->setTimezone(new DateTimeZone('UTC'));
-
-        $end_time = new DateTime($row[4], new DateTimeZone('Asia/Hong_Kong'));
-        $end_time->setTimezone(new DateTimeZone('UTC'));
-
-        (new VenueBooking([
-            'user_id' => $row[0],
-            'venue_id' => $row[1],
-            'branch_setting_version_id' => $row[2],
-            'start_time' => $start_time,
-            'end_time' => $end_time,
-        ]))->save();
-
-
-        dd($request->user()->id);*/
+        return ResourceBooking::where('user_id', $user->id)
+                    ->whereBetween('start_time', [$start_date, $end_date])
+                    ->with(['resource'])->get();
     }
 
     /**

@@ -15,7 +15,6 @@ use App\Models\Program;
 use App\Models\Resource;
 use App\Models\Setting;
 use App\Models\BranchSetting;
-use App\Models\ResourceAvailable;
 use App\Models\ResourceBooking;
 use App\Models\ResourceReserved;
 use App\Models\Category;
@@ -42,7 +41,6 @@ class DatabaseSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         BranchSetting::truncate();
         Setting::truncate();
-        ResourceAvailable::truncate();
         ResourceBooking::truncate();
         ResourceReserved::truncate();
         Resource::truncate();
@@ -152,16 +150,6 @@ class DatabaseSeeder extends Seeder
             ['ST', 'OPEN_TIME', '07:00:00', '1'], ['ST', 'CLOSE_TIME', '19:00:00', '1'],
         ];
         $this->seedBranchSetting($rows);
-
-        # Resource Available
-        $rows = [
-            ['1', '12:00:00', '17:00:00', 1, true],
-            ['1', '08:30:00', '18:00:00', 2, true],
-            ['1', '06:30:00', '19:00:00', 3, true],
-            ['1', '04:30:00', '20:00:00', 4, true],
-            ['1', '02:30:00', '21:00:00', 5, true],
-        ];
-        $this->seedResourceAvailable($rows);
 
         # Resource Booking
         $rows = [
@@ -289,32 +277,8 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedResourceAvailable($rows) {
-        foreach ($rows as $row) {
-            //$start_time = new DateTime($row[1], new DateTimeZone('Asia/Hong_Kong'));
-            //$start_time->setTimezone(new DateTimeZone('UTC'));
-
-            //$end_time = new DateTime($row[2], new DateTimeZone('Asia/Hong_Kong'));
-            //$end_time->setTimezone(new DateTimeZone('UTC'));
-
-            (new ResourceAvailable([
-                'resource_id' => $row[0],
-                'start_time' => $row[1],
-                'end_time' => $row[2],
-                'day_of_week' => $row[3],
-                'repeat' => $row[4],
-            ]))->save();
-        }
-    }
-
     private function seedResourceBooking($rows) {
         foreach ($rows as $row) {
-            //$start_time = new DateTime($row[3], new DateTimeZone('Asia/Hong_Kong'));
-            //$start_time->setTimezone(new DateTimeZone('UTC'));
-
-            //$end_time = new DateTime($row[4], new DateTimeZone('Asia/Hong_Kong'));
-            //$end_time->setTimezone(new DateTimeZone('UTC'));
-
             (new ResourceBooking([
                 'user_id' => $row[0],
                 'resource_id' => $row[1],

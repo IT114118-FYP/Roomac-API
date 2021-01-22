@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings - Display in Timetable
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=consequuntur&end=vero" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=illum&end=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "consequuntur",
-    "end": "vero",
+    "start": "illum",
+    "end": "qui",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -79,7 +79,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"culpa","start":"rem","end":"quae"}'
+    -d '{"date":"libero","start":"molestias","end":"et"}'
 
 ```
 
@@ -94,9 +94,9 @@ let headers = {
 };
 
 let body = {
-    "date": "culpa",
-    "start": "rem",
-    "end": "quae"
+    "date": "libero",
+    "start": "molestias",
+    "end": "et"
 }
 
 fetch(url, {
