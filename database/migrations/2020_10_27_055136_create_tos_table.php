@@ -15,9 +15,9 @@ class CreateTosTable extends Migration
     {
         Schema::create('tos', function (Blueprint $table) {
             $table->id();
-            $table->string('tos_en');
-            $table->string('tos_hk')->nullable();
-            $table->string('tos_cn')->nullable();
+            $table->longText('tos_en');
+            $table->longText('tos_hk')->nullable();
+            $table->longText('tos_cn')->nullable();
             $table->timestamps();
         });
     }

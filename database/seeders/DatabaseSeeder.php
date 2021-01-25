@@ -93,6 +93,7 @@ class DatabaseSeeder extends Seeder
         $rows = [
             ['Classroom', '課室', '教室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg'],
             ['Library', '圖書館', '图书馆', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610343016/ca8zmlcwcbcspgw6sked.jpg'],
+            ['Computer Room', '電腦房', '电脑房', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611592893/o72p9styjrmdhbrf77zw.jpg'],
         ];
         $this->seedCategory($rows);
 
@@ -100,10 +101,16 @@ class DatabaseSeeder extends Seeder
         $rows = [
             [
 '* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.
-* line 2
-* line 3',
-'',
-''
+* Users are expected to behave in these bookable spaces in accordance with the VTC\'s code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)
+* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.',
+
+'* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。
+* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)
+* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。',
+
+'* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。
+* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)
+* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。',
             ],
         ];
         $this->seedTos($rows);
@@ -112,11 +119,23 @@ class DatabaseSeeder extends Seeder
         $rows = [
             [1, 'ST', 1, 'IT-417A', 'Interview Room', '接見室', '接见室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', 1, 20, '08:00', '15:00'],
             [1, 'ST', 1, 'IT-421B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [1, 'ST', 1, 'CS-442', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [1, 'ST', 1, 'CS-404', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [2, 'ST', 1, 'CS-332B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [2, 'ST', 1, 'CS-N108B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
-            [2, 'ST', 1, 'IT-427B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [1, 'CW', 1, 'CS-442', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [1, 'CW', 1, 'CS-404', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'HW', 1, 'CS-332B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'TM', 1, 'CS-N108B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [2, 'TM', 1, 'IT-427B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
+            [3, 'ST', 1, 'PC-001', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'ST', 1, 'PC-002', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'ST', 1, 'PC-003', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'ST', 1, 'PC-004', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'ST', 1, 'PC-005', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'ST', 1, 'PC-006', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'ST', 1, 'PC-007', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'TM', 1, 'PC-001', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'TM', 1, 'PC-002', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'TM', 1, 'PC-003', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'TM', 1, 'PC-004', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
+            [3, 'TM', 1, 'PC-005', 'Computer Desk', '電腦桌', '电脑桌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1611590696/e2mxmh5fcbbkcudch59s.jpg', 2, 10, '08:00', '18:00'],
         ];
         $this->seedResource($rows);
 

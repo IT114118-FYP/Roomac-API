@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Branch;
 use App\Models\Resource;
 use App\Models\ResourceAvailable;
 use App\Models\ResourceBooking;
@@ -26,7 +27,7 @@ class ResourceBookingController extends Controller
      * 
      * Retrieve all resource's bookings
      * 
-     * Retrieve all resource's bookings - Display in Timetable
+     * Retrieve all resource's bookings. Example: /api/resources/1/bookings?start=2021-01-24&end=2021-01-30
      * 
      * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
      * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
@@ -163,7 +164,7 @@ class ResourceBookingController extends Controller
      * 
      * Retrieve all user's bookings
      * 
-     * Retrieve all user's bookings - Display in Timetable
+     * Retrieve all user's bookings. Example: /api/users/1/bookings?start=2021-01-24&end=2021-01-30
      * 
      * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
      * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
@@ -192,6 +193,46 @@ class ResourceBookingController extends Controller
         return ResourceBooking::where('user_id', $user->id)
                     ->whereBetween('start_time', [$start_date, $end_date])
                     ->with(['resource'])->get();
+    }
+
+    /**
+     * @group Branch Booking
+     * 
+     * Retrieve all branch's bookings
+     * 
+     * Retrieve all branch's bookings. Example: /api/branches/1/bookings?start=2021-01-24&end=2021-01-30
+     * 
+     * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
+     * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexBranch(Request $request, Branch $branch)
+    {
+        $query_start = $request->query('start', null);
+        $query_end = $request->query('end', null);
+
+        try {
+            $start_date = Carbon::parse($query_start);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        try {
+            $end_date = Carbon::parse($query_end);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        $query = ResourceBooking::with(['resource'=> function($query){ $query->where('branch_id', $branch->id); }]);
+
+        if ($query_start !== null && $query_end !== null) {
+            $query = $query->whereBetween('start_time', [$start_date, $end_date]);
+        }
+
+        return $query->with(['user', 'resource'])->get();
     }
 
     /**

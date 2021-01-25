@@ -41,6 +41,7 @@ Route::apiResource('/resources', ResourceController::class);
 Route::get('/resources/{resource}/bookings', [ResourceBookingController::class, 'index']);
 Route::post('/resources/{resource}/bookings', [ResourceBookingController::class, 'store']);
 Route::get('/users/{user}/bookings', [ResourceBookingController::class, 'indexUser']);
+Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
 Route::get('/users/me', [UserController::class, 'myself']);
 Route::post('/users/import', [UserController::class, 'import']);
