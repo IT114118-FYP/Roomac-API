@@ -1,9 +1,9 @@
-# User Booking
+# Branch Booking
 
 
-## Retrieve all user&#039;s bookings
+## Retrieve all branch&#039;s bookings
 
-Retrieve all user&#039;s bookings. Example: /api/users/1/bookings?start=2021-01-24&amp;end=2021-01-30
+Retrieve all branch&#039;s bookings. Example: /api/branches/1/bookings?start=2021-01-24&amp;end=2021-01-30
 
 
 
@@ -12,19 +12,19 @@ Retrieve all user&#039;s bookings. Example: /api/users/1/bookings?start=2021-01-
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings?start=et&end=ut" \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings?start=corporis&end=eveniet" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings"
+    "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings"
 );
 
 let params = {
-    "start": "et",
-    "end": "ut",
+    "start": "corporis",
+    "end": "eveniet",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -54,7 +54,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/users/{user}/bookings`**
+ **`api/branches/{branch}/bookings`**
 
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <code><b>start</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>

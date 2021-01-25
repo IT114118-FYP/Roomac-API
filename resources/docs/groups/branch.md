@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpF9B1.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php30B2.tmp" 
 ```
 
 ```javascript
@@ -257,72 +257,72 @@ fetch(url, {
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
-        "created_at": "2021-01-22T10:12:12.000000Z",
-        "updated_at": "2021-01-22T10:12:12.000000Z"
+        "created_at": "2021-01-25T17:47:09.000000Z",
+        "updated_at": "2021-01-25T17:47:09.000000Z"
     },
     {
         "id": "HW",
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
-        "created_at": "2021-01-22T10:12:13.000000Z",
-        "updated_at": "2021-01-22T10:12:13.000000Z"
+        "created_at": "2021-01-25T17:47:09.000000Z",
+        "updated_at": "2021-01-25T17:47:09.000000Z"
     },
     {
         "id": "KC",
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
-        "created_at": "2021-01-22T10:12:13.000000Z",
-        "updated_at": "2021-01-22T10:12:13.000000Z"
+        "created_at": "2021-01-25T17:47:10.000000Z",
+        "updated_at": "2021-01-25T17:47:10.000000Z"
     },
     {
         "id": "KT",
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
-        "created_at": "2021-01-22T10:12:14.000000Z",
-        "updated_at": "2021-01-22T10:12:14.000000Z"
+        "created_at": "2021-01-25T17:47:10.000000Z",
+        "updated_at": "2021-01-25T17:47:10.000000Z"
     },
     {
         "id": "LWL",
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
-        "created_at": "2021-01-22T10:12:14.000000Z",
-        "updated_at": "2021-01-22T10:12:14.000000Z"
+        "created_at": "2021-01-25T17:47:11.000000Z",
+        "updated_at": "2021-01-25T17:47:11.000000Z"
     },
     {
         "id": "MH",
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
-        "created_at": "2021-01-22T10:12:15.000000Z",
-        "updated_at": "2021-01-22T10:12:15.000000Z"
+        "created_at": "2021-01-25T17:47:12.000000Z",
+        "updated_at": "2021-01-25T17:47:12.000000Z"
     },
     {
         "id": "ST",
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2021-01-22T10:12:15.000000Z",
-        "updated_at": "2021-01-22T10:12:15.000000Z"
+        "created_at": "2021-01-25T17:47:12.000000Z",
+        "updated_at": "2021-01-25T17:47:12.000000Z"
     },
     {
         "id": "TM",
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2021-01-22T10:12:16.000000Z",
-        "updated_at": "2021-01-22T10:12:16.000000Z"
+        "created_at": "2021-01-25T17:47:13.000000Z",
+        "updated_at": "2021-01-25T17:47:13.000000Z"
     },
     {
         "id": "TY",
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
-        "created_at": "2021-01-22T10:12:15.000000Z",
-        "updated_at": "2021-01-22T10:12:15.000000Z"
+        "created_at": "2021-01-25T17:47:13.000000Z",
+        "updated_at": "2021-01-25T17:47:13.000000Z"
     }
 ]
 ```
@@ -420,8 +420,8 @@ fetch(url, {
     "title_en": "Sha Tin",
     "title_hk": "沙田",
     "title_cn": "沙田",
-    "created_at": "2021-01-22T10:12:15.000000Z",
-    "updated_at": "2021-01-22T10:12:15.000000Z"
+    "created_at": "2021-01-25T17:47:12.000000Z",
+    "updated_at": "2021-01-25T17:47:12.000000Z"
 }
 ```
 

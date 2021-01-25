@@ -3,7 +3,7 @@
 
 ## Retrieve all resource&#039;s bookings
 
-Retrieve all resource&#039;s bookings - Display in Timetable
+Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=2021-01-24&amp;end=2021-01-30
 
 
 
@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings - Display in Timetable
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=illum&end=qui" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=nulla&end=nemo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "illum",
-    "end": "qui",
+    "start": "nulla",
+    "end": "nemo",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -79,7 +79,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"libero","start":"molestias","end":"et"}'
+    -d '{"date":"molestias","start":"in","end":"tenetur"}'
 
 ```
 
@@ -94,9 +94,9 @@ let headers = {
 };
 
 let body = {
-    "date": "libero",
-    "start": "molestias",
-    "end": "et"
+    "date": "molestias",
+    "start": "in",
+    "end": "tenetur"
 }
 
 fetch(url, {
