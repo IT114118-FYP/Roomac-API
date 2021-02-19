@@ -83,9 +83,15 @@ class DatabaseSeeder extends Seeder
 
         # Branch
         $rows = [
-            ['CW', 'Chai Wan', '柴灣', '柴湾'], ['HW', 'Haking Wong', '黃克競', '黄克竞'], ['KC', 'Kwai Chung', '葵涌', '葵涌'],
-            ['KT', 'Kwun Tong', '觀塘', '观塘'], ['LWL', 'Lee Wai Lee', '李惠利', '李惠利'], ['MH', 'Morrison Hill', '摩理臣山', '摩理臣山'],
-            ['ST', 'Sha Tin', '沙田', '沙田'], ['TY', 'Tsing Yi', '青衣', '青衣'], ['TM', 'Tuen Mun', '屯門', '屯门'],
+            ['CW', 'Chai Wan', '柴灣', '柴湾', 22.27184971280416, 114.23966999966933],
+            ['HW', 'Haking Wong', '黃克競', '黄克竞', 22.335515694307148, 114.15235303926177],
+            ['KC', 'Kwai Chung', '葵涌', '葵涌', 22.361874882559448, 114.12739740522944],
+            ['KT', 'Kwun Tong', '觀塘', '观塘', 22.313565596542393, 114.2319411398032],
+            ['LWL', 'Lee Wai Lee', '李惠利', '李惠利', 22.306200688765475, 114.25416772280548],
+            ['MH', 'Morrison Hill', '摩理臣山', '摩理臣山', 22.276190534604194, 114.17792360959957],
+            ['ST', 'Sha Tin', '沙田', '沙田', 22.39041332110964, 114.19803820902872],
+            ['TY', 'Tsing Yi', '青衣', '青衣', 22.342613629893574, 114.1062498109674],
+            ['TM', 'Tuen Mun', '屯門', '屯门', 22.393113443939484, 113.96646235039742],
         ];
         $this->seedBranch($rows);
 
@@ -187,51 +193,62 @@ class DatabaseSeeder extends Seeder
     }
 
     private function seedProgram($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new Program([
+            $r[] = [
                 'id' => $row[0],
                 'title_en' => $row[1], 
                 'title_hk' => $row[2],
                 'title_cn' => $row[3],
-            ]))->save();
+            ];
         }
+        Program::insert($r);
     }
 
     private function seedBranch($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new Branch([
+            $r[] = [
                 'id' => $row[0],
                 'title_en' => $row[1], 
                 'title_hk' => $row[2],
                 'title_cn' => $row[3],
-            ]))->save();
+                'lat' => $row[4],
+                'lng' => $row[5],
+            ];
         }
+        Branch::insert($r);
     }
 
     private function seedCategory($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new Category([
+            $r[] = [
                 'title_en' => $row[0],
                 'title_hk' => $row[1],
                 'title_cn' => $row[2],
                 'image_url' => $row[3],
-            ]))->save();
+            ];
         }
+        Category::insert($r);
     }
 
     private function seedTos($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new Tos([
+            $r[] = [
                 'tos_en' => $row[0],
                 'tos_hk' => $row[1],
                 'tos_cn' => $row[2],
-            ]))->save();
+            ];
         }
+        Tos::insert($r);
     }
 
     private function seedResource($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new Resource([
+            $r[] = [
                 'category_id' => $row[0],
                 'branch_id' => $row[1],
                 'tos_id' => $row[2],
@@ -244,13 +261,15 @@ class DatabaseSeeder extends Seeder
                 'max_user' => $row[9],
                 'opening_time' => $row[10],
                 'closing_time' => $row[11],
-            ]))->save();
+            ];
         }
+        Resource::insert($r);
     }
 
     private function seedUser($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new User([
+            $r[] = [
                 'name' => $row[0],
                 'email' => $row[1],
                 'password' => Hash::make($row[2]),
@@ -259,29 +278,34 @@ class DatabaseSeeder extends Seeder
                 'first_name' => $row[5],
                 'last_name' => $row[6],
                 'chinese_name' => $row[7],
-            ]))->save();
-        } 
+            ];
+        }
+        User::insert($r);
     }
 
     private function seedSetting($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new Setting([
+            $r[] = [
                 'id' => $row[0],
                 'data_type' => $row[1],
                 'default_value' => $row[2],
-            ]))->save();
+            ];
         }
+        Setting::insert($r);
     }
 
     private function seedBranchSetting($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new BranchSetting([
+            $r[] = [
                 'branch_id' => $row[0],
                 'setting_id' => $row[1],
                 'value' => $row[2],
                 'version' => $row[3],
-            ]))->save();
+            ];
         }
+        BranchSetting::insert($r);
     }
 
     private function seedPermission($permissions) {
@@ -297,14 +321,16 @@ class DatabaseSeeder extends Seeder
     }
 
     private function seedResourceBooking($rows) {
+        $r = [];
         foreach ($rows as $row) {
-            (new ResourceBooking([
+            $r[] = [
                 'user_id' => $row[0],
                 'resource_id' => $row[1],
                 'branch_setting_version_id' => $row[2],
                 'start_time' => $row[3],
                 'end_time' => $row[4],
-            ]))->save();
+            ];
         }
+        ResourceBooking::insert($r);
     }
 }

@@ -24,6 +24,8 @@ class Branch extends Model
         'title_en',
         'title_hk',
         'title_cn',
+        'lat',
+        'lng',
     ];
 
     public function resources(){

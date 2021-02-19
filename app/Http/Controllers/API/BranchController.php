@@ -48,6 +48,8 @@ class BranchController extends Controller
             'title_en' => 'required',
             'title_hk' => 'required',
             'title_cn' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -91,6 +93,8 @@ class BranchController extends Controller
             'title_en' => 'required',
             'title_hk' => 'required',
             'title_cn' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
         ]);
 
         if ($validator->fails()) {
