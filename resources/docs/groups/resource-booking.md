@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=nulla&end=nemo" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=tempore&end=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "nulla",
-    "end": "nemo",
+    "start": "tempore",
+    "end": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -79,7 +79,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"molestias","start":"in","end":"tenetur"}'
+    -d '{"date":"sunt","start":"doloribus","end":"nisi"}'
 
 ```
 
@@ -94,9 +94,9 @@ let headers = {
 };
 
 let body = {
-    "date": "molestias",
-    "start": "in",
-    "end": "tenetur"
+    "date": "sunt",
+    "start": "doloribus",
+    "end": "nisi"
 }
 
 fetch(url, {
@@ -123,6 +123,110 @@ fetch(url, {
 
 <code><b>end</b></code>&nbsp; <small>string</small>     <br>
     End time of the booking (H:i:s).
+
+
+
+## Update a booking record
+
+Update a booking record.
+
+
+
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"date":"dolores","start":"reprehenderit","end":"omnis"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "date": "dolores",
+    "start": "reprehenderit",
+    "end": "omnis"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-darkblue">PUT</small>
+ **`api/resourcebookings`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>date</b></code>&nbsp; <small>string</small>     <br>
+    Date of the booking (Y-m-d).
+
+<code><b>start</b></code>&nbsp; <small>string</small>     <br>
+    Start time of the booking (H:i:s).
+
+<code><b>end</b></code>&nbsp; <small>string</small>     <br>
+    End time of the booking (H:i:s).
+
+
+
+## Remove a booking record
+
+Remove a booking record.
+
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/resourcebookings`**
 
 
 

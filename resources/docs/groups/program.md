@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php90D4.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpD974.tmp" 
 ```
 
 ```javascript
@@ -257,24 +257,24 @@ fetch(url, {
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
-        "created_at": "2021-01-25T17:47:08.000000Z",
-        "updated_at": "2021-01-25T17:47:08.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "IT114105",
         "title_en": "Higher Diploma in Software Engineering",
         "title_hk": "軟件工程高級文憑",
         "title_cn": "软件工程高级文凭",
-        "created_at": "2021-01-25T17:47:07.000000Z",
-        "updated_at": "2021-01-25T17:47:07.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
         "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2021-01-25T17:47:07.000000Z",
-        "updated_at": "2021-01-25T17:47:07.000000Z"
+        "created_at": null,
+        "updated_at": null
     }
 ]
 ```
@@ -395,8 +395,8 @@ fetch(url, {
     "title_en": "Higher Diploma in AI and Mobile Applications Development",
     "title_hk": "人工智能及手機軟件開發高級文憑",
     "title_cn": "人工智能及手机软件开发高级文凭",
-    "created_at": "2021-01-25T17:47:07.000000Z",
-    "updated_at": "2021-01-25T17:47:07.000000Z"
+    "created_at": null,
+    "updated_at": null
 }
 ```
 

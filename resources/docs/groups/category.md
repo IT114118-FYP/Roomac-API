@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/categories/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php8B40.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php4D94.tmp" 
 ```
 
 ```javascript
@@ -251,8 +251,8 @@ fetch(url, {
         "title_hk": "課室",
         "title_cn": "教室",
         "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-        "created_at": "2021-01-25T17:47:14.000000Z",
-        "updated_at": "2021-01-25T17:47:14.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": 2,
@@ -260,8 +260,8 @@ fetch(url, {
         "title_hk": "圖書館",
         "title_cn": "图书馆",
         "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610343016\/ca8zmlcwcbcspgw6sked.jpg",
-        "created_at": "2021-01-25T17:47:14.000000Z",
-        "updated_at": "2021-01-25T17:47:14.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": 3,
@@ -269,8 +269,8 @@ fetch(url, {
         "title_hk": "電腦房",
         "title_cn": "电脑房",
         "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-        "created_at": "2021-01-25T17:47:15.000000Z",
-        "updated_at": "2021-01-25T17:47:15.000000Z"
+        "created_at": null,
+        "updated_at": null
     }
 ]
 ```

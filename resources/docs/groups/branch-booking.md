@@ -12,7 +12,7 @@ Retrieve all branch&#039;s bookings. Example: /api/branches/1/bookings?start=202
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings?start=corporis&end=eveniet" \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings?start=tempore&end=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "corporis",
-    "end": "eveniet",
+    "start": "tempore",
+    "end": "dolor",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));

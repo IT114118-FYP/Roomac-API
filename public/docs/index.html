@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: January 26 2021</li>
+            <li>Last updated: February 21 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -69,7 +69,7 @@ Expo Client: <a href="https://it114118-fyp-mobile.herokuapp.com/" target="_blank
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings?start=corporis&amp;end=eveniet" \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings?start=tempore&amp;end=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -77,8 +77,8 @@ Expo Client: <a href="https://it114118-fyp-mobile.herokuapp.com/" target="_blank
 );
 
 let params = {
-    "start": "corporis",
-    "end": "eveniet",
+    "start": "tempore",
+    "end": "dolor",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -145,64 +145,64 @@ fetch(url, {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2021-01-25T17:47:30.000000Z",
-            "updated_at": "2021-01-25T17:47:30.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "20:00:00"
         },
         {
             "id": "MIN_CLIENT_UNLOCK",
             "data_type": "INTEGER",
             "default_value": "3",
-            "created_at": "2021-01-25T17:47:32.000000Z",
-            "updated_at": "2021-01-25T17:47:32.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "3"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2021-01-25T17:47:29.000000Z",
-            "updated_at": "2021-01-25T17:47:29.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "08:30:00"
         },
         {
             "id": "RESOURCE_MINUTE_PER_SESSION",
             "data_type": "INTEGER",
             "default_value": "30",
-            "created_at": "2021-01-25T17:47:31.000000Z",
-            "updated_at": "2021-01-25T17:47:31.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "30"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2021-01-25T17:47:33.000000Z",
-            "updated_at": "2021-01-25T17:47:33.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2021-01-25T17:47:32.000000Z",
-            "updated_at": "2021-01-25T17:47:32.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "1"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2021-01-25T17:47:33.000000Z",
-            "updated_at": "2021-01-25T17:47:33.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "Test String"
         },
         {
             "id": "TIME_IN_ADVANCE",
             "data_type": "TIME",
             "default_value": "24:00:00",
-            "created_at": "2021-01-25T17:47:30.000000Z",
-            "updated_at": "2021-01-25T17:47:30.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "24:00:00"
         }
     ]
@@ -331,64 +331,64 @@ fetch(url, {
             "id": "CLOSE_TIME",
             "data_type": "TIME",
             "default_value": "20:00:00",
-            "created_at": "2021-01-25T17:47:30.000000Z",
-            "updated_at": "2021-01-25T17:47:30.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "20:00:00"
         },
         {
             "id": "MIN_CLIENT_UNLOCK",
             "data_type": "INTEGER",
             "default_value": "3",
-            "created_at": "2021-01-25T17:47:32.000000Z",
-            "updated_at": "2021-01-25T17:47:32.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "3"
         },
         {
             "id": "OPEN_TIME",
             "data_type": "TIME",
             "default_value": "08:30:00",
-            "created_at": "2021-01-25T17:47:29.000000Z",
-            "updated_at": "2021-01-25T17:47:29.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "08:30:00"
         },
         {
             "id": "RESOURCE_MINUTE_PER_SESSION",
             "data_type": "INTEGER",
             "default_value": "30",
-            "created_at": "2021-01-25T17:47:31.000000Z",
-            "updated_at": "2021-01-25T17:47:31.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "30"
         },
         {
             "id": "TEST_BOOLEAN_FALSE",
             "data_type": "BOOLEAN",
             "default_value": "0",
-            "created_at": "2021-01-25T17:47:33.000000Z",
-            "updated_at": "2021-01-25T17:47:33.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "0"
         },
         {
             "id": "TEST_BOOLEAN_TRUE",
             "data_type": "BOOLEAN",
             "default_value": "1",
-            "created_at": "2021-01-25T17:47:32.000000Z",
-            "updated_at": "2021-01-25T17:47:32.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "1"
         },
         {
             "id": "TEST_VARCHAR",
             "data_type": "VARCHAR",
             "default_value": "Test String",
-            "created_at": "2021-01-25T17:47:33.000000Z",
-            "updated_at": "2021-01-25T17:47:33.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "Test String"
         },
         {
             "id": "TIME_IN_ADVANCE",
             "data_type": "TIME",
             "default_value": "24:00:00",
-            "created_at": "2021-01-25T17:47:30.000000Z",
-            "updated_at": "2021-01-25T17:47:30.000000Z",
+            "created_at": null,
+            "updated_at": null,
             "value": "24:00:00"
         }
     ]
@@ -524,7 +524,7 @@ string required The version of the setting.</p><h1>Branch</h1>
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php30B2.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php6404.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/branches/import"
 );
@@ -691,72 +691,90 @@ fetch(url, {
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
-        "created_at": "2021-01-25T17:47:09.000000Z",
-        "updated_at": "2021-01-25T17:47:09.000000Z"
+        "lat": "22.27184971",
+        "lng": "114.23967000",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "HW",
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
-        "created_at": "2021-01-25T17:47:09.000000Z",
-        "updated_at": "2021-01-25T17:47:09.000000Z"
+        "lat": "22.33551569",
+        "lng": "114.15235304",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "KC",
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
-        "created_at": "2021-01-25T17:47:10.000000Z",
-        "updated_at": "2021-01-25T17:47:10.000000Z"
+        "lat": "22.36187488",
+        "lng": "114.12739741",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "KT",
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
-        "created_at": "2021-01-25T17:47:10.000000Z",
-        "updated_at": "2021-01-25T17:47:10.000000Z"
+        "lat": "22.31356560",
+        "lng": "114.23194114",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "LWL",
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
-        "created_at": "2021-01-25T17:47:11.000000Z",
-        "updated_at": "2021-01-25T17:47:11.000000Z"
+        "lat": "22.30620069",
+        "lng": "114.25416772",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "MH",
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
-        "created_at": "2021-01-25T17:47:12.000000Z",
-        "updated_at": "2021-01-25T17:47:12.000000Z"
+        "lat": "22.27619053",
+        "lng": "114.17792361",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "ST",
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2021-01-25T17:47:12.000000Z",
-        "updated_at": "2021-01-25T17:47:12.000000Z"
+        "lat": "22.39041332",
+        "lng": "114.19803821",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TM",
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
-        "created_at": "2021-01-25T17:47:13.000000Z",
-        "updated_at": "2021-01-25T17:47:13.000000Z"
+        "lat": "22.39311344",
+        "lng": "113.96646235",
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TY",
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
-        "created_at": "2021-01-25T17:47:13.000000Z",
-        "updated_at": "2021-01-25T17:47:13.000000Z"
+        "lat": "22.34261363",
+        "lng": "114.10624981",
+        "created_at": null,
+        "updated_at": null
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -821,8 +839,10 @@ fetch(url, {
     "title_en": "Sha Tin",
     "title_hk": "沙田",
     "title_cn": "沙田",
-    "created_at": "2021-01-25T17:47:12.000000Z",
-    "updated_at": "2021-01-25T17:47:12.000000Z"
+    "lat": "22.39041332",
+    "lng": "114.19803821",
+    "created_at": null,
+    "updated_at": null
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -896,7 +916,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/categories/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php8B40.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php4D94.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/categories/import"
 );
@@ -1058,8 +1078,8 @@ fetch(url, {
         "title_hk": "課室",
         "title_cn": "教室",
         "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-        "created_at": "2021-01-25T17:47:14.000000Z",
-        "updated_at": "2021-01-25T17:47:14.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": 2,
@@ -1067,8 +1087,8 @@ fetch(url, {
         "title_hk": "圖書館",
         "title_cn": "图书馆",
         "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610343016\/ca8zmlcwcbcspgw6sked.jpg",
-        "created_at": "2021-01-25T17:47:14.000000Z",
-        "updated_at": "2021-01-25T17:47:14.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": 3,
@@ -1076,8 +1096,8 @@ fetch(url, {
         "title_hk": "電腦房",
         "title_cn": "电脑房",
         "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-        "created_at": "2021-01-25T17:47:15.000000Z",
-        "updated_at": "2021-01-25T17:47:15.000000Z"
+        "created_at": null,
+        "updated_at": null
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -1735,7 +1755,7 @@ When this value is set to true all of the tokens issued to the user will be revo
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php90D4.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpD974.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/programs/import"
 );
@@ -1902,24 +1922,24 @@ fetch(url, {
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
-        "created_at": "2021-01-25T17:47:08.000000Z",
-        "updated_at": "2021-01-25T17:47:08.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "IT114105",
         "title_en": "Higher Diploma in Software Engineering",
         "title_hk": "軟件工程高級文憑",
         "title_cn": "软件工程高级文凭",
-        "created_at": "2021-01-25T17:47:07.000000Z",
-        "updated_at": "2021-01-25T17:47:07.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "IT114118",
         "title_en": "Higher Diploma in AI and Mobile Applications Development",
         "title_hk": "人工智能及手機軟件開發高級文憑",
         "title_cn": "人工智能及手机软件开发高级文凭",
-        "created_at": "2021-01-25T17:47:07.000000Z",
-        "updated_at": "2021-01-25T17:47:07.000000Z"
+        "created_at": null,
+        "updated_at": null
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -2004,8 +2024,8 @@ fetch(url, {
     "title_en": "Higher Diploma in AI and Mobile Applications Development",
     "title_hk": "人工智能及手機軟件開發高級文憑",
     "title_cn": "人工智能及手机软件开发高级文凭",
-    "created_at": "2021-01-25T17:47:07.000000Z",
-    "updated_at": "2021-01-25T17:47:07.000000Z"
+    "created_at": null,
+    "updated_at": null
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -2099,7 +2119,7 @@ string required The ID of the program.</p><h1>Resource Booking</h1>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=nulla&amp;end=nemo" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=tempore&amp;end=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2107,8 +2127,8 @@ string required The ID of the program.</p><h1>Resource Booking</h1>
 );
 
 let params = {
-    "start": "nulla",
-    "end": "nemo",
+    "start": "tempore",
+    "end": "aut",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2147,7 +2167,7 @@ query end time in Y-m-d format. Defaults to 2021-01-15.</p>
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"molestias","start":"in","end":"tenetur"}'
+    -d '{"date":"sunt","start":"doloribus","end":"nisi"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings"
@@ -2159,9 +2179,9 @@ let headers = {
 };
 
 let body = {
-    "date": "molestias",
-    "start": "in",
-    "end": "tenetur"
+    "date": "sunt",
+    "start": "doloribus",
+    "end": "nisi"
 }
 
 fetch(url, {
@@ -2180,7 +2200,77 @@ Date of the booking (Y-m-d).</p>
 <p><code><b>start</b></code>&nbsp; <small>string</small>     <br>
 Start time of the booking (H:i:s).</p>
 <p><code><b>end</b></code>&nbsp; <small>string</small>     <br>
-End time of the booking (H:i:s).</p><h1>Resource</h1>
+End time of the booking (H:i:s).</p>
+<h2>Update a booking record</h2>
+<p>Update a booking record.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"date":"dolores","start":"reprehenderit","end":"omnis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "date": "dolores",
+    "start": "reprehenderit",
+    "end": "omnis"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-darkblue">PUT</small>
+<strong><code>api/resourcebookings</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>date</b></code>&nbsp; <small>string</small>     <br>
+Date of the booking (Y-m-d).</p>
+<p><code><b>start</b></code>&nbsp; <small>string</small>     <br>
+Start time of the booking (H:i:s).</p>
+<p><code><b>end</b></code>&nbsp; <small>string</small>     <br>
+End time of the booking (H:i:s).</p>
+<h2>Remove a booking record</h2>
+<p>Remove a booking record.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>api/resourcebookings</code></strong></p><h1>Resource</h1>
 <h2>Import resources</h2>
 <p>Import resources.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
@@ -2191,7 +2281,7 @@ End time of the booking (H:i:s).</p><h1>Resource</h1>
     "https://it114118-fyp.herokuapp.com/api/resources/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpF387.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php4F02.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/resources/import"
 );
@@ -2367,15 +2457,17 @@ fetch(url, {
         "max_user": 20,
         "opening_time": "08:00:00",
         "closing_time": "15:00:00",
-        "created_at": "2021-01-25T17:47:16.000000Z",
-        "updated_at": "2021-01-25T17:47:16.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 1,
@@ -2383,16 +2475,16 @@ fetch(url, {
             "title_hk": "課室",
             "title_cn": "教室",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-            "created_at": "2021-01-25T17:47:14.000000Z",
-            "updated_at": "2021-01-25T17:47:14.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2409,15 +2501,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2021-01-25T17:47:17.000000Z",
-        "updated_at": "2021-01-25T17:47:17.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 1,
@@ -2425,16 +2519,16 @@ fetch(url, {
             "title_hk": "課室",
             "title_cn": "教室",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-            "created_at": "2021-01-25T17:47:14.000000Z",
-            "updated_at": "2021-01-25T17:47:14.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2451,15 +2545,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2021-01-25T17:47:18.000000Z",
-        "updated_at": "2021-01-25T17:47:18.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "CW",
             "title_en": "Chai Wan",
             "title_hk": "柴灣",
             "title_cn": "柴湾",
-            "created_at": "2021-01-25T17:47:09.000000Z",
-            "updated_at": "2021-01-25T17:47:09.000000Z"
+            "lat": "22.27184971",
+            "lng": "114.23967000",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 1,
@@ -2467,16 +2563,16 @@ fetch(url, {
             "title_hk": "課室",
             "title_cn": "教室",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-            "created_at": "2021-01-25T17:47:14.000000Z",
-            "updated_at": "2021-01-25T17:47:14.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2493,15 +2589,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2021-01-25T17:47:18.000000Z",
-        "updated_at": "2021-01-25T17:47:18.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "CW",
             "title_en": "Chai Wan",
             "title_hk": "柴灣",
             "title_cn": "柴湾",
-            "created_at": "2021-01-25T17:47:09.000000Z",
-            "updated_at": "2021-01-25T17:47:09.000000Z"
+            "lat": "22.27184971",
+            "lng": "114.23967000",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 1,
@@ -2509,16 +2607,16 @@ fetch(url, {
             "title_hk": "課室",
             "title_cn": "教室",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-            "created_at": "2021-01-25T17:47:14.000000Z",
-            "updated_at": "2021-01-25T17:47:14.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2535,15 +2633,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2021-01-25T17:47:18.000000Z",
-        "updated_at": "2021-01-25T17:47:18.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "HW",
             "title_en": "Haking Wong",
             "title_hk": "黃克競",
             "title_cn": "黄克竞",
-            "created_at": "2021-01-25T17:47:09.000000Z",
-            "updated_at": "2021-01-25T17:47:09.000000Z"
+            "lat": "22.33551569",
+            "lng": "114.15235304",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 2,
@@ -2551,16 +2651,16 @@ fetch(url, {
             "title_hk": "圖書館",
             "title_cn": "图书馆",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610343016\/ca8zmlcwcbcspgw6sked.jpg",
-            "created_at": "2021-01-25T17:47:14.000000Z",
-            "updated_at": "2021-01-25T17:47:14.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2577,15 +2677,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2021-01-25T17:47:19.000000Z",
-        "updated_at": "2021-01-25T17:47:19.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "TM",
             "title_en": "Tuen Mun",
             "title_hk": "屯門",
             "title_cn": "屯门",
-            "created_at": "2021-01-25T17:47:13.000000Z",
-            "updated_at": "2021-01-25T17:47:13.000000Z"
+            "lat": "22.39311344",
+            "lng": "113.96646235",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 2,
@@ -2593,16 +2695,16 @@ fetch(url, {
             "title_hk": "圖書館",
             "title_cn": "图书馆",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610343016\/ca8zmlcwcbcspgw6sked.jpg",
-            "created_at": "2021-01-25T17:47:14.000000Z",
-            "updated_at": "2021-01-25T17:47:14.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2619,15 +2721,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "21:00:00",
-        "created_at": "2021-01-25T17:47:19.000000Z",
-        "updated_at": "2021-01-25T17:47:19.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "TM",
             "title_en": "Tuen Mun",
             "title_hk": "屯門",
             "title_cn": "屯门",
-            "created_at": "2021-01-25T17:47:13.000000Z",
-            "updated_at": "2021-01-25T17:47:13.000000Z"
+            "lat": "22.39311344",
+            "lng": "113.96646235",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 2,
@@ -2635,16 +2739,16 @@ fetch(url, {
             "title_hk": "圖書館",
             "title_cn": "图书馆",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610343016\/ca8zmlcwcbcspgw6sked.jpg",
-            "created_at": "2021-01-25T17:47:14.000000Z",
-            "updated_at": "2021-01-25T17:47:14.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2661,15 +2765,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:20.000000Z",
-        "updated_at": "2021-01-25T17:47:20.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2677,16 +2783,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2703,15 +2809,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:21.000000Z",
-        "updated_at": "2021-01-25T17:47:21.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2719,16 +2827,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2745,15 +2853,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:21.000000Z",
-        "updated_at": "2021-01-25T17:47:21.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2761,16 +2871,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2787,15 +2897,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:22.000000Z",
-        "updated_at": "2021-01-25T17:47:22.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2803,16 +2915,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2829,15 +2941,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:22.000000Z",
-        "updated_at": "2021-01-25T17:47:22.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2845,16 +2959,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2871,15 +2985,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:23.000000Z",
-        "updated_at": "2021-01-25T17:47:23.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2887,16 +3003,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2913,15 +3029,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:23.000000Z",
-        "updated_at": "2021-01-25T17:47:23.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
             "title_hk": "沙田",
             "title_cn": "沙田",
-            "created_at": "2021-01-25T17:47:12.000000Z",
-            "updated_at": "2021-01-25T17:47:12.000000Z"
+            "lat": "22.39041332",
+            "lng": "114.19803821",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2929,16 +3047,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2955,15 +3073,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:24.000000Z",
-        "updated_at": "2021-01-25T17:47:24.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "TM",
             "title_en": "Tuen Mun",
             "title_hk": "屯門",
             "title_cn": "屯门",
-            "created_at": "2021-01-25T17:47:13.000000Z",
-            "updated_at": "2021-01-25T17:47:13.000000Z"
+            "lat": "22.39311344",
+            "lng": "113.96646235",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -2971,16 +3091,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -2997,15 +3117,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:24.000000Z",
-        "updated_at": "2021-01-25T17:47:24.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "TM",
             "title_en": "Tuen Mun",
             "title_hk": "屯門",
             "title_cn": "屯门",
-            "created_at": "2021-01-25T17:47:13.000000Z",
-            "updated_at": "2021-01-25T17:47:13.000000Z"
+            "lat": "22.39311344",
+            "lng": "113.96646235",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -3013,16 +3135,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -3039,15 +3161,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:25.000000Z",
-        "updated_at": "2021-01-25T17:47:25.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "TM",
             "title_en": "Tuen Mun",
             "title_hk": "屯門",
             "title_cn": "屯门",
-            "created_at": "2021-01-25T17:47:13.000000Z",
-            "updated_at": "2021-01-25T17:47:13.000000Z"
+            "lat": "22.39311344",
+            "lng": "113.96646235",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -3055,16 +3179,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -3081,15 +3205,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:25.000000Z",
-        "updated_at": "2021-01-25T17:47:25.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "TM",
             "title_en": "Tuen Mun",
             "title_hk": "屯門",
             "title_cn": "屯门",
-            "created_at": "2021-01-25T17:47:13.000000Z",
-            "updated_at": "2021-01-25T17:47:13.000000Z"
+            "lat": "22.39311344",
+            "lng": "113.96646235",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -3097,16 +3223,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     },
     {
@@ -3123,15 +3249,17 @@ fetch(url, {
         "max_user": 10,
         "opening_time": "08:00:00",
         "closing_time": "18:00:00",
-        "created_at": "2021-01-25T17:47:26.000000Z",
-        "updated_at": "2021-01-25T17:47:26.000000Z",
+        "created_at": null,
+        "updated_at": null,
         "branch": {
             "id": "TM",
             "title_en": "Tuen Mun",
             "title_hk": "屯門",
             "title_cn": "屯门",
-            "created_at": "2021-01-25T17:47:13.000000Z",
-            "updated_at": "2021-01-25T17:47:13.000000Z"
+            "lat": "22.39311344",
+            "lng": "113.96646235",
+            "created_at": null,
+            "updated_at": null
         },
         "category": {
             "id": 3,
@@ -3139,16 +3267,16 @@ fetch(url, {
             "title_hk": "電腦房",
             "title_cn": "电脑房",
             "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         },
         "tos": {
             "id": 1,
             "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
             "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
             "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": "2021-01-25T17:47:15.000000Z",
-            "updated_at": "2021-01-25T17:47:15.000000Z"
+            "created_at": null,
+            "updated_at": null
         }
     }
 ]</code></pre>
@@ -3223,15 +3351,17 @@ fetch(url, {
     "max_user": 20,
     "opening_time": "08:00:00",
     "closing_time": "15:00:00",
-    "created_at": "2021-01-25T17:47:16.000000Z",
-    "updated_at": "2021-01-25T17:47:16.000000Z",
+    "created_at": null,
+    "updated_at": null,
     "branch": {
         "id": "ST",
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
-        "created_at": "2021-01-25T17:47:12.000000Z",
-        "updated_at": "2021-01-25T17:47:12.000000Z"
+        "lat": "22.39041332",
+        "lng": "114.19803821",
+        "created_at": null,
+        "updated_at": null
     },
     "category": {
         "id": 1,
@@ -3239,16 +3369,16 @@ fetch(url, {
         "title_hk": "課室",
         "title_cn": "教室",
         "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-        "created_at": "2021-01-25T17:47:14.000000Z",
-        "updated_at": "2021-01-25T17:47:14.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     "tos": {
         "id": 1,
         "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
         "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
         "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-        "created_at": "2021-01-25T17:47:15.000000Z",
-        "updated_at": "2021-01-25T17:47:15.000000Z"
+        "created_at": null,
+        "updated_at": null
     }
 }</code></pre>
 <h3>Request</h3>
@@ -3345,57 +3475,57 @@ fetch(url, {
         "id": "CLOSE_TIME",
         "data_type": "TIME",
         "default_value": "20:00:00",
-        "created_at": "2021-01-25T17:47:30.000000Z",
-        "updated_at": "2021-01-25T17:47:30.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "MIN_CLIENT_UNLOCK",
         "data_type": "INTEGER",
         "default_value": "3",
-        "created_at": "2021-01-25T17:47:32.000000Z",
-        "updated_at": "2021-01-25T17:47:32.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "OPEN_TIME",
         "data_type": "TIME",
         "default_value": "08:30:00",
-        "created_at": "2021-01-25T17:47:29.000000Z",
-        "updated_at": "2021-01-25T17:47:29.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "RESOURCE_MINUTE_PER_SESSION",
         "data_type": "INTEGER",
         "default_value": "30",
-        "created_at": "2021-01-25T17:47:31.000000Z",
-        "updated_at": "2021-01-25T17:47:31.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TEST_BOOLEAN_FALSE",
         "data_type": "BOOLEAN",
         "default_value": false,
-        "created_at": "2021-01-25T17:47:33.000000Z",
-        "updated_at": "2021-01-25T17:47:33.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TEST_BOOLEAN_TRUE",
         "data_type": "BOOLEAN",
         "default_value": true,
-        "created_at": "2021-01-25T17:47:32.000000Z",
-        "updated_at": "2021-01-25T17:47:32.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TEST_VARCHAR",
         "data_type": "VARCHAR",
         "default_value": "Test String",
-        "created_at": "2021-01-25T17:47:33.000000Z",
-        "updated_at": "2021-01-25T17:47:33.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TIME_IN_ADVANCE",
         "data_type": "TIME",
         "default_value": "24:00:00",
-        "created_at": "2021-01-25T17:47:30.000000Z",
-        "updated_at": "2021-01-25T17:47:30.000000Z"
+        "created_at": null,
+        "updated_at": null
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -3432,8 +3562,8 @@ fetch(url, {
     "id": "OPEN_TIME",
     "data_type": "TIME",
     "default_value": "08:30:00",
-    "created_at": "2021-01-25T17:47:29.000000Z",
-    "updated_at": "2021-01-25T17:47:29.000000Z"
+    "created_at": null,
+    "updated_at": null
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -3447,7 +3577,7 @@ string required The ID of the setting.</p><h1>User Booking</h1>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings?start=et&amp;end=ut" \
+    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings?start=aperiam&amp;end=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3455,8 +3585,8 @@ string required The ID of the setting.</p><h1>User Booking</h1>
 );
 
 let params = {
-    "start": "et",
-    "end": "ut",
+    "start": "aperiam",
+    "end": "aut",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3627,7 +3757,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpB050.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php60A2.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/users/import"
 );

@@ -248,7 +248,15 @@ class ResourceBookingController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @group Resource Booking
+     * 
+     * Update a booking record
+     * 
+     * Update a booking record.
+     * 
+     * @bodyParam date string required Date of the booking (Y-m-d).
+     * @bodyParam start string required Start time of the booking (H:i:s).
+     * @bodyParam end string required End time of the booking (H:i:s).
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\ResourceBooking  $resourceBooking
@@ -256,18 +264,53 @@ class ResourceBookingController extends Controller
      */
     public function update(Request $request, ResourceBooking $resourceBooking)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'date' => 'required|date|date_format:Y-m-d',
+            'start' => 'required',
+            'end' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        $validated_data = $validator->valid();
+
+        try {
+            $startTime = Carbon::parse($validated_data['date'] . 'T' . $validated_data['start']);
+        }
+        catch (Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        try {
+            $endTime = Carbon::parse($validated_data['date'] . 'T' . $validated_data['end']);
+        }
+        catch (Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        if ($this->isBookingExists($resource, $startTime, $endTime)) {
+            return response('The update was invalid.', 401);
+        }
+
+        return response(null, $resourceBooking->update(['start_time' => $startTime, 'end_time' => $endTime]) ? 200 : 401);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @group Resource Booking
+     * 
+     * Remove a booking record
+     * 
+     * Remove a booking record.
      *
      * @param  \App\Models\ResourceBooking  $resourceBooking
      * @return \Illuminate\Http\Response
      */
     public function destroy(ResourceBooking $resourceBooking)
     {
-        //
+        ResourceBooking::destroy($resourceBooking->id);
+        return response(null, 200);
     }
 
     public function getSettingsKV(Resource $resource) {

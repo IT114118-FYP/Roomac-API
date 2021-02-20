@@ -45,57 +45,57 @@ fetch(url, {
         "id": "CLOSE_TIME",
         "data_type": "TIME",
         "default_value": "20:00:00",
-        "created_at": "2021-01-25T17:47:30.000000Z",
-        "updated_at": "2021-01-25T17:47:30.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "MIN_CLIENT_UNLOCK",
         "data_type": "INTEGER",
         "default_value": "3",
-        "created_at": "2021-01-25T17:47:32.000000Z",
-        "updated_at": "2021-01-25T17:47:32.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "OPEN_TIME",
         "data_type": "TIME",
         "default_value": "08:30:00",
-        "created_at": "2021-01-25T17:47:29.000000Z",
-        "updated_at": "2021-01-25T17:47:29.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "RESOURCE_MINUTE_PER_SESSION",
         "data_type": "INTEGER",
         "default_value": "30",
-        "created_at": "2021-01-25T17:47:31.000000Z",
-        "updated_at": "2021-01-25T17:47:31.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TEST_BOOLEAN_FALSE",
         "data_type": "BOOLEAN",
         "default_value": false,
-        "created_at": "2021-01-25T17:47:33.000000Z",
-        "updated_at": "2021-01-25T17:47:33.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TEST_BOOLEAN_TRUE",
         "data_type": "BOOLEAN",
         "default_value": true,
-        "created_at": "2021-01-25T17:47:32.000000Z",
-        "updated_at": "2021-01-25T17:47:32.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TEST_VARCHAR",
         "data_type": "VARCHAR",
         "default_value": "Test String",
-        "created_at": "2021-01-25T17:47:33.000000Z",
-        "updated_at": "2021-01-25T17:47:33.000000Z"
+        "created_at": null,
+        "updated_at": null
     },
     {
         "id": "TIME_IN_ADVANCE",
         "data_type": "TIME",
         "default_value": "24:00:00",
-        "created_at": "2021-01-25T17:47:30.000000Z",
-        "updated_at": "2021-01-25T17:47:30.000000Z"
+        "created_at": null,
+        "updated_at": null
     }
 ]
 ```
@@ -149,8 +149,8 @@ fetch(url, {
     "id": "OPEN_TIME",
     "data_type": "TIME",
     "default_value": "08:30:00",
-    "created_at": "2021-01-25T17:47:29.000000Z",
-    "updated_at": "2021-01-25T17:47:29.000000Z"
+    "created_at": null,
+    "updated_at": null
 }
 ```
 
