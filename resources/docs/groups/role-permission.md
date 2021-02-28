@@ -1,61 +1,9 @@
-# Category
+# Role Permission
 
 
-## Import categories
+## Retrieve a role&#039;s permissions
 
-Import categories.
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/categories/import" \
-    -H "Content-Type: multipart/form-data" \
-    -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php139A.tmp" 
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/import"
-);
-
-let headers = {
-    "Content-Type": "multipart/form-data",
-    "Accept": "application/json",
-};
-
-const body = new FormData();
-body.append('file', document.querySelector('input[name="file"]').files[0]);
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-black">POST</small>
- **`api/categories/import`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>file</b></code>&nbsp; <small>file</small>     <br>
-    
-
-
-
-## Export categories
-
-Export categories.
+Retrieve a role&#039;s permissions.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -65,285 +13,14 @@ Export categories.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/categories/export?format=csv" \
+    -G "https://it114118-fyp.herokuapp.com/api/roles/{role}/permissions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/export"
-);
-
-let params = {
-    "format": "csv",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-green">GET</small>
- **`api/categories/export`**
-
-<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-<code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.
-
-
-
-## Remove multiple categories
-
-Remove multiple categories.
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"ids":"{\"ids\": [1, 2]}"}'
-
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "ids": "{\"ids\": [1, 2]}"
-}
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-red">DELETE</small>
- **`api/categories`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-    Array of the categories' id
-
-
-
-## Reset categories
-
-Remove all categories.
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/categories/reset" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/reset"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-red">DELETE</small>
- **`api/categories/reset`**
-
-
-
-## Retrieve all categories
-
-Retrieve all categories.
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-[
-    {
-        "id": 1,
-        "title_en": "Classroom",
-        "title_hk": "課室",
-        "title_cn": "教室",
-        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-        "created_at": null,
-        "updated_at": null
-    },
-    {
-        "id": 2,
-        "title_en": "Library",
-        "title_hk": "圖書館",
-        "title_cn": "图书馆",
-        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610343016\/ca8zmlcwcbcspgw6sked.jpg",
-        "created_at": null,
-        "updated_at": null
-    },
-    {
-        "id": 3,
-        "title_en": "Computer Room",
-        "title_hk": "電腦房",
-        "title_cn": "电脑房",
-        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-        "created_at": null,
-        "updated_at": null
-    }
-]
-```
-
-### Request
-<small class="badge badge-green">GET</small>
- **`api/categories`**
-
-
-
-## Add a category
-
-Add a category.
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-black">POST</small>
- **`api/categories`**
-
-
-
-## Retrieve category items (Resources)
-
-Retrieve category items (Resources).
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/categories/{category}" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}"
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}/permissions"
 );
 
 let headers = {
@@ -365,7 +42,7 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Category] {category}",
+    "message": "No query results for model [Spatie\\Permission\\Models\\Role] {role}",
     "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
     "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
     "line": 364,
@@ -757,13 +434,13 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/categories/{category}`**
+ **`api/roles/{role}/permissions`**
 
 
 
-## Update a category
+## Update a role permissions
 
-Update a category.
+Update a role permissions.
 
 
 
@@ -771,15 +448,17 @@ Update a category.
 > Example request:
 
 ```bash
-curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}" \
+curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}/permissions" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"create:roles":true,"update:roles":true,"delete:roles":true}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}"
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}/permissions"
 );
 
 let headers = {
@@ -787,10 +466,16 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "create:roles": true,
+    "update:roles": true,
+    "delete:roles": true
+}
 
 fetch(url, {
-    method: "PUT",
+    method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
@@ -799,54 +484,18 @@ fetch(url, {
 
 
 ### Request
-<small class="badge badge-darkblue">PUT</small>
- **`api/categories/{category}`**
+<small class="badge badge-black">POST</small>
+ **`api/roles/{role}/permissions`**
 
-<small class="badge badge-purple">PATCH</small>
- **`api/categories/{category}`**
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>create:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br>
+    
 
+<code><b>update:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br>
+    
 
-
-## Remove a category
-
-Remove a category.
-
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-red">DELETE</small>
- **`api/categories/{category}`**
+<code><b>delete:roles</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br>
+    
 
 
 

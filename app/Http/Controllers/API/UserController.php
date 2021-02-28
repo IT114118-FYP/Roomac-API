@@ -66,6 +66,8 @@ class UserController extends Controller
             'first_name' => 'nullable',
             'last_name' => 'nullable',
             'chinese_name' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -93,6 +95,10 @@ class UserController extends Controller
 
         $validated_data = $validator->valid();
         $validated_data['password'] = Hash::make($validated_data['password']);
+
+        if (isset($request->image) && !is_null($request->image)) {
+            $validated_data['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+        }
 
         return response(null, (new User($validated_data))->save() ? 200 : 401);
     }
@@ -139,6 +145,8 @@ class UserController extends Controller
             'first_name' => 'nullable',
             'last_name' => 'nullable',
             'chinese_name' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -146,6 +154,11 @@ class UserController extends Controller
         }
 
         $validated_data = $validator->valid();
+
+        if (isset($request->image) && !is_null($request->image)) {
+            $validated_data['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+        }
+
         if (isset($validated_data['old_password']) && isset($validated_data['new_password'])) {
             if (Hash::check($validated_data['old_password'], $user->password)) {
                 $validated_data['password'] = Hash::make($validated_data['new_password']);
@@ -278,8 +291,6 @@ class UserController extends Controller
      */
     public function myself(Request $request)
     {
-        $myself = $request->user();
-        $myself['permissions'] = app(PermissionController::class)->show(User::find($myself->id)->first());
-        return $myself;
+        return User::find($request->user()->id)->first();
     }
 }

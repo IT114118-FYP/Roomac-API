@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=tempore&end=aut" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=et&end=quaerat" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "tempore",
-    "end": "aut",
+    "start": "et",
+    "end": "quaerat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -79,7 +79,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"sunt","start":"doloribus","end":"nisi"}'
+    -d '{"date":"placeat","start":"natus","end":"quis"}'
 
 ```
 
@@ -94,9 +94,9 @@ let headers = {
 };
 
 let body = {
-    "date": "sunt",
-    "start": "doloribus",
-    "end": "nisi"
+    "date": "placeat",
+    "start": "natus",
+    "end": "quis"
 }
 
 fetch(url, {
@@ -137,16 +137,16 @@ Update a booking record.
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/resourcebookings" \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"dolores","start":"reprehenderit","end":"omnis"}'
+    -d '{"date":"sapiente","start":"reiciendis","end":"qui"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/resourcebookings"
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}"
 );
 
 let headers = {
@@ -155,9 +155,9 @@ let headers = {
 };
 
 let body = {
-    "date": "dolores",
-    "start": "reprehenderit",
-    "end": "omnis"
+    "date": "sapiente",
+    "start": "reiciendis",
+    "end": "qui"
 }
 
 fetch(url, {
@@ -173,7 +173,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/resourcebookings`**
+ **`api/resourcebookings/{resourceBooking}`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <code><b>date</b></code>&nbsp; <small>string</small>     <br>
@@ -198,14 +198,14 @@ Remove a booking record.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/resourcebookings" \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/resourcebookings"
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{/{resourceBooking}"
 );
 
 let headers = {
@@ -226,7 +226,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/resourcebookings`**
+ **`api/resourcebookings/{/{resourceBooking}`**
 
 
 

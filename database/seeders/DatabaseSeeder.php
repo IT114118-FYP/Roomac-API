@@ -83,15 +83,15 @@ class DatabaseSeeder extends Seeder
 
         # Branch
         $rows = [
-            ['CW', 'Chai Wan', '柴灣', '柴湾', 22.27184971280416, 114.23966999966933],
-            ['HW', 'Haking Wong', '黃克競', '黄克竞', 22.335515694307148, 114.15235303926177],
-            ['KC', 'Kwai Chung', '葵涌', '葵涌', 22.361874882559448, 114.12739740522944],
-            ['KT', 'Kwun Tong', '觀塘', '观塘', 22.313565596542393, 114.2319411398032],
-            ['LWL', 'Lee Wai Lee', '李惠利', '李惠利', 22.306200688765475, 114.25416772280548],
-            ['MH', 'Morrison Hill', '摩理臣山', '摩理臣山', 22.276190534604194, 114.17792360959957],
-            ['ST', 'Sha Tin', '沙田', '沙田', 22.39041332110964, 114.19803820902872],
-            ['TY', 'Tsing Yi', '青衣', '青衣', 22.342613629893574, 114.1062498109674],
-            ['TM', 'Tuen Mun', '屯門', '屯门', 22.393113443939484, 113.96646235039742],
+            ['CW', 'Chai Wan', '柴灣', '柴湾', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/CW_limxvp.jpg', 22.27184971280416, 114.23966999966933],
+            ['HW', 'Haking Wong', '黃克競', '黄克竞', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/HW_nhu0jr.jpg', 22.335515694307148, 114.15235303926177],
+            ['KC', 'Kwai Chung', '葵涌', '葵涌', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/KC_hxxaga.jpg', 22.361874882559448, 114.12739740522944],
+            ['KT', 'Kwun Tong', '觀塘', '观塘', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550861/KT_ktbvgg.jpg', 22.313565596542393, 114.2319411398032],
+            ['LWL', 'Lee Wai Lee', '李惠利', '李惠利', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/LWL_s7uimr.jpg', 22.306200688765475, 114.25416772280548],
+            ['MH', 'Morrison Hill', '摩理臣山', '摩理臣山', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/MH_tt43bg.jpg', 22.276190534604194, 114.17792360959957],
+            ['ST', 'Sha Tin', '沙田', '沙田', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', 22.39041332110964, 114.19803820902872],
+            ['TY', 'Tsing Yi', '青衣', '青衣', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/TY_rli7ox.jpg', 22.342613629893574, 114.1062498109674],
+            ['TM', 'Tuen Mun', '屯門', '屯门', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/TM_vwyaga.jpg', 22.393113443939484, 113.96646235039742],
         ];
         $this->seedBranch($rows);
 
@@ -147,11 +147,11 @@ class DatabaseSeeder extends Seeder
 
         # User
         $rows = [
-            ['000000000', 'admin@vtc.edu.hk', '12345678', null, null, null, 'admin', null],
-            ['190189768', '190189768@stu.vtc.edu.hk', '12345678', 'CE114301', 'CW', 'Pui Tat', 'Tse', '謝沛達'],
-            ['190271174', '190271174@stu.vtc.edu.hk', '12345678', 'IT114118', 'ST', 'Wing Kit', 'To', '涂穎傑'],
-            ['190057409', '190057409@stu.vtc.edu.hk', '12345678', 'IT114105', 'ST', 'Wai Shing Vincent', 'Tai', '戴偉城'],
-            ['190184921', '190184921@stu.vtc.edu.hk', '12345678', 'IT114118', 'KT', 'Cho Lok', 'Lam', '林祖樂'],
+            ['000000000', 'admin@vtc.edu.hk', '12345678', null, null, null, 'admin', null, 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553760/room_avzedt.png'],
+            ['190189768', '190189768@stu.vtc.edu.hk', '12345678', 'CE114301', 'CW', 'Pui Tat', 'Tse', '謝沛達', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553613/tat_pztvry.jpg'],
+            ['190271174', '190271174@stu.vtc.edu.hk', '12345678', 'IT114118', 'ST', 'Wing Kit', 'To', '涂穎傑', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553755/tommy_txftkf.png'],
+            ['190057409', '190057409@stu.vtc.edu.hk', '12345678', 'IT114105', 'ST', 'Wai Shing Vincent', 'Tai', '戴偉城', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553853/vin_o2nvrj.jpg'],
+            ['190184921', '190184921@stu.vtc.edu.hk', '12345678', 'IT114118', 'KT', 'Cho Lok', 'Lam', '林祖樂', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553850/mo_rtpvry.jpg'],
         ];
         $this->seedUser($rows);
 
@@ -213,8 +213,9 @@ class DatabaseSeeder extends Seeder
                 'title_en' => $row[1], 
                 'title_hk' => $row[2],
                 'title_cn' => $row[3],
-                'lat' => $row[4],
-                'lng' => $row[5],
+                'image_url' => $row[4],
+                'lat' => $row[5],
+                'lng' => $row[6],
             ];
         }
         Branch::insert($r);
@@ -278,6 +279,7 @@ class DatabaseSeeder extends Seeder
                 'first_name' => $row[5],
                 'last_name' => $row[6],
                 'chinese_name' => $row[7],
+                'image_url' => $row[8],
             ];
         }
         User::insert($r);

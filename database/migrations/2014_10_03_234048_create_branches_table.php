@@ -18,6 +18,7 @@ class CreateBranchesTable extends Migration
             $table->string('title_en');
             $table->string('title_hk');
             $table->string('title_cn');
+            $table->string('image_url')->nullable();
             $table->decimal('lat', 10, 8);
             $table->decimal('lng', 11, 8);
             $table->timestamps();

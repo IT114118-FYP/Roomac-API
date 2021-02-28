@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php6404.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpABCD.tmp" 
 ```
 
 ```javascript
@@ -257,6 +257,7 @@ fetch(url, {
         "title_en": "Chai Wan",
         "title_hk": "柴灣",
         "title_cn": "柴湾",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550859\/CW_limxvp.jpg",
         "lat": "22.27184971",
         "lng": "114.23967000",
         "created_at": null,
@@ -267,6 +268,7 @@ fetch(url, {
         "title_en": "Haking Wong",
         "title_hk": "黃克競",
         "title_cn": "黄克竞",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550860\/HW_nhu0jr.jpg",
         "lat": "22.33551569",
         "lng": "114.15235304",
         "created_at": null,
@@ -277,6 +279,7 @@ fetch(url, {
         "title_en": "Kwai Chung",
         "title_hk": "葵涌",
         "title_cn": "葵涌",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550860\/KC_hxxaga.jpg",
         "lat": "22.36187488",
         "lng": "114.12739741",
         "created_at": null,
@@ -287,6 +290,7 @@ fetch(url, {
         "title_en": "Kwun Tong",
         "title_hk": "觀塘",
         "title_cn": "观塘",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550861\/KT_ktbvgg.jpg",
         "lat": "22.31356560",
         "lng": "114.23194114",
         "created_at": null,
@@ -297,6 +301,7 @@ fetch(url, {
         "title_en": "Lee Wai Lee",
         "title_hk": "李惠利",
         "title_cn": "李惠利",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550860\/LWL_s7uimr.jpg",
         "lat": "22.30620069",
         "lng": "114.25416772",
         "created_at": null,
@@ -307,6 +312,7 @@ fetch(url, {
         "title_en": "Morrison Hill",
         "title_hk": "摩理臣山",
         "title_cn": "摩理臣山",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550860\/MH_tt43bg.jpg",
         "lat": "22.27619053",
         "lng": "114.17792361",
         "created_at": null,
@@ -317,6 +323,7 @@ fetch(url, {
         "title_en": "Sha Tin",
         "title_hk": "沙田",
         "title_cn": "沙田",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550859\/ST_riofal.jpg",
         "lat": "22.39041332",
         "lng": "114.19803821",
         "created_at": null,
@@ -327,6 +334,7 @@ fetch(url, {
         "title_en": "Tuen Mun",
         "title_hk": "屯門",
         "title_cn": "屯门",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550860\/TM_vwyaga.jpg",
         "lat": "22.39311344",
         "lng": "113.96646235",
         "created_at": null,
@@ -337,6 +345,7 @@ fetch(url, {
         "title_en": "Tsing Yi",
         "title_hk": "青衣",
         "title_cn": "青衣",
+        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550859\/TY_rli7ox.jpg",
         "lat": "22.34261363",
         "lng": "114.10624981",
         "created_at": null,
@@ -438,6 +447,7 @@ fetch(url, {
     "title_en": "Sha Tin",
     "title_hk": "沙田",
     "title_cn": "沙田",
+    "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1614550859\/ST_riofal.jpg",
     "lat": "22.39041332",
     "lng": "114.19803821",
     "created_at": null,

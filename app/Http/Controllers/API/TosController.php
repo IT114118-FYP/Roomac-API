@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class TosController extends Controller
 {
     /**
-     * @group TOS
+     * @group Terms & Conditions
      * 
      * Retrieve all tos
      * 
@@ -23,55 +23,92 @@ class TosController extends Controller
     }
 
     /**
-     * @group TOS
+     * @group Terms & Conditions
      * 
      * Add a tos
      * 
      * Add a tos.
+     * 
+     * @bodyParam tos_en string required
+     * @bodyParam tos_hk string required
+     * @bodyParam tos_cn string required
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'tos_en' => 'required',
+            'tos_hk' => 'required',
+            'tos_cn' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        return response(null, (new Tos($validator->valid()))->save() ? 200 : 401);
     }
 
     /**
-     * @group TOS
+     * @group Terms & Conditions
      * 
-     * Display the specified resource.
+     * Retrieve a tos
+     * 
+     * Retrieve a tos.
      *
      * @param  \App\Models\Tos  $tos
      * @return \Illuminate\Http\Response
      */
-    public function show(Tos $tos)
+    public function show(Tos $to)
     {
-        return $tos;
+        return $to;
     }
 
     /**
-     * @group TOS
+     * @group Terms & Conditions
      * 
-     * Update the specified resource in storage.
+     * Update a tos
+     * 
+     * Update a tos.
+     * 
+     * @bodyParam tos_en string required
+     * @bodyParam tos_hk string required
+     * @bodyParam tos_cn string required
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Tos  $tos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tos $tos)
+    public function update(Request $request, Tos $to)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'tos_en' => 'required',
+            'tos_hk' => 'required',
+            'tos_cn' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        return response(null, $to->update($validator->valid()) ? 200 : 401);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @group Terms & Conditions
+     * 
+     * Remove a tos
+     * 
+     * Remove a tos.
      *
      * @param  \App\Models\Tos  $tos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tos $tos)
+    public function destroy(Tos $to)
     {
-        //
+        Branch::destroy($to->id);
+        return response(null, 200);
     }
 }

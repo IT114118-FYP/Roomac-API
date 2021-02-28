@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('chinese_name')->nullable();
+            $table->string('image_url')->nullable();
             $table->timestamps();
             //$table->softDeletes();
 

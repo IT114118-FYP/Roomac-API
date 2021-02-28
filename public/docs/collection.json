@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "ba71340d-a809-4cf5-b6c4-e1b275a283dd",
+        "_postman_id": "b9eda3e9-32e2-412a-ae0d-68c0c6bc0637",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -307,18 +307,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "tempore",
+                                    "value": "enim",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "dolor",
+                                    "value": "et",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=tempore&end=dolor"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=enim&end=et"
                         },
                         "method": "GET",
                         "header": [
@@ -1612,18 +1612,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "tempore",
+                                    "value": "et",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "aut",
+                                    "value": "quaerat",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=tempore&end=aut"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=et&end=quaerat"
                         },
                         "method": "GET",
                         "header": [
@@ -1667,7 +1667,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"sunt\",\n    \"start\": \"doloribus\",\n    \"end\": \"nisi\"\n}"
+                            "raw": "{\n    \"date\": \"placeat\",\n    \"start\": \"natus\",\n    \"end\": \"quis\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1682,9 +1682,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/resourcebookings",
+                            "path": "api\/resourcebookings\/:resourceBooking",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resourcebookings"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resourcebookings\/:resourceBooking"
                         },
                         "method": "PUT",
                         "header": [
@@ -1699,7 +1699,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"dolores\",\n    \"start\": \"reprehenderit\",\n    \"end\": \"omnis\"\n}"
+                            "raw": "{\n    \"date\": \"sapiente\",\n    \"start\": \"reiciendis\",\n    \"end\": \"qui\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1714,9 +1714,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/resourcebookings",
+                            "path": "api\/resourcebookings\/{\/:resourceBooking",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resourcebookings"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resourcebookings\/{\/:resourceBooking"
                         },
                         "method": "DELETE",
                         "header": [
@@ -1730,6 +1730,224 @@
                             }
                         ],
                         "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all roles\n\nRetrieve all roles.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/roles",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/roles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add a new role\n\nAdd a new role.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/roles",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/roles"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"quia\"\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve a role\n\nRetrieve a role.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/roles\/:role",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/roles\/:role"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a role\n\nUpdate a role.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/roles\/:role",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/roles\/:role"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"nesciunt\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove a role\n\nRemove a role.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/roles\/:role",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/roles\/:role"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Role Permission",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve a role's permissions\n\nRetrieve a role's permissions.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/roles\/:role\/permissions",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/roles\/:role\/permissions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a role permissions\n\nUpdate a role permissions.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/roles\/:role\/permissions",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/roles\/:role\/permissions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"create:roles\": true,\n    \"update:roles\": true,\n    \"delete:roles\": true\n}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -1791,6 +2009,163 @@
                             ]
                         },
                         "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Terms & Conditions",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all tos\n\nRetrieve all tos.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/tos",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/tos"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add a tos\n\nAdd a tos.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/tos",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/tos"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tos_en\": \"natus\",\n    \"tos_hk\": \"doloremque\",\n    \"tos_cn\": \"voluptatem\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Retrieve a tos\n\nRetrieve a tos.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/tos\/:to",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/tos\/:to"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a tos\n\nUpdate a tos.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/tos\/:to",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/tos\/:to"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tos_en\": \"magnam\",\n    \"tos_hk\": \"harum\",\n    \"tos_cn\": \"facilis\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove a tos\n\nRemove a tos.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/tos\/:to",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/tos\/:to"
+                        },
+                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -2103,7 +2478,61 @@
                         "auth": null
                     },
                     "response": []
-                },
+                }
+            ]
+        },
+        {
+            "name": "User Booking",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieve all user's bookings\n\nRetrieve all user's bookings. Example: \/api\/users\/1\/bookings?start=2021-01-24&end=2021-01-30",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/:user\/bookings",
+                            "query": [
+                                {
+                                    "key": "start",
+                                    "value": "dolore",
+                                    "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end",
+                                    "value": "consequuntur",
+                                    "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=dolore&end=consequuntur"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User Permission",
+            "description": "",
+            "item": [
                 {
                     "name": "Get a user's permissions\n\nRetrieve all permissions associated with the user.",
                     "request": {
@@ -2164,31 +2593,18 @@
             ]
         },
         {
-            "name": "User Booking",
+            "name": "User Role",
             "description": "",
             "item": [
                 {
-                    "name": "Retrieve all user's bookings\n\nRetrieve all user's bookings. Example: \/api\/users\/1\/bookings?start=2021-01-24&end=2021-01-30",
+                    "name": "Get a user's roles\n\nRetrieve all roles associated with the user.",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/users\/:user\/bookings",
-                            "query": [
-                                {
-                                    "key": "start",
-                                    "value": "aperiam",
-                                    "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "end",
-                                    "value": "aut",
-                                    "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
-                                    "disabled": false
-                                }
-                            ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=aperiam&end=aut"
+                            "path": "api\/users\/:user\/roles",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/roles"
                         },
                         "method": "GET",
                         "header": [
@@ -2203,9 +2619,7 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 }

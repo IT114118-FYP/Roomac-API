@@ -48,6 +48,8 @@ class BranchController extends Controller
             'title_en' => 'required',
             'title_hk' => 'required',
             'title_cn' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'nullable',
             'lat' => 'required',
             'lng' => 'required',
         ]);
@@ -56,7 +58,13 @@ class BranchController extends Controller
             return response($validator->errors(), 400);
         }
 
-        return response(null, (new Branch($validator->valid()))->save() ? 200 : 401);
+        $validated_data = $validator->valid();
+        
+        if (isset($request->image) && !is_null($request->image)) {
+            $validated_data['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+        }
+
+        return response(null, (new Branch($validated_data))->save() ? 200 : 401);
     }
 
     /**
@@ -93,6 +101,8 @@ class BranchController extends Controller
             'title_en' => 'required',
             'title_hk' => 'required',
             'title_cn' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'nullable',
             'lat' => 'required',
             'lng' => 'required',
         ]);
@@ -101,7 +111,13 @@ class BranchController extends Controller
             return response($validator->errors(), 400);
         }
 
-        return response(null, $branch->update($validator->valid()) ? 200 : 401);
+        $validated_data = $validator->valid();
+        
+        if (isset($request->image) && !is_null($request->image)) {
+            $validated_data['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+        }
+
+        return response(null, $branch->update($validated_data) ? 200 : 401);
     }
 
     /**

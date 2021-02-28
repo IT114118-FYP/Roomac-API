@@ -1,61 +1,9 @@
-# Category
+# Role
 
 
-## Import categories
+## Retrieve all roles
 
-Import categories.
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/categories/import" \
-    -H "Content-Type: multipart/form-data" \
-    -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php139A.tmp" 
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/import"
-);
-
-let headers = {
-    "Content-Type": "multipart/form-data",
-    "Accept": "application/json",
-};
-
-const body = new FormData();
-body.append('file', document.querySelector('input[name="file"]').files[0]);
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-black">POST</small>
- **`api/categories/import`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>file</b></code>&nbsp; <small>file</small>     <br>
-    
-
-
-
-## Export categories
-
-Export categories.
+Retrieve all roles.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -65,165 +13,14 @@ Export categories.
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/categories/export?format=csv" \
+    -G "https://it114118-fyp.herokuapp.com/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/export"
-);
-
-let params = {
-    "format": "csv",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-green">GET</small>
- **`api/categories/export`**
-
-<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-<code><b>format</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    Define the export format. Accepted: xlsx, csv, tsv, ods, xls, html. Defaults to xlsx.
-
-
-
-## Remove multiple categories
-
-Remove multiple categories.
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"ids":"{\"ids\": [1, 2]}"}'
-
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "ids": "{\"ids\": [1, 2]}"
-}
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-red">DELETE</small>
- **`api/categories`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>ids</b></code>&nbsp; <small>array</small>     <br>
-    Array of the categories' id
-
-
-
-## Reset categories
-
-Remove all categories.
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/categories/reset" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/reset"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### Request
-<small class="badge badge-red">DELETE</small>
- **`api/categories/reset`**
-
-
-
-## Retrieve all categories
-
-Retrieve all categories.
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories"
+    "https://it114118-fyp.herokuapp.com/api/roles"
 );
 
 let headers = {
@@ -247,43 +44,37 @@ fetch(url, {
 [
     {
         "id": 1,
-        "title_en": "Classroom",
-        "title_hk": "課室",
-        "title_cn": "教室",
-        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610342834\/riak0mox4pqzxesenegs.jpg",
-        "created_at": null,
-        "updated_at": null
+        "name": "root",
+        "guard_name": "web",
+        "created_at": "2021-02-28T22:24:04.000000Z",
+        "updated_at": "2021-02-28T22:24:04.000000Z"
     },
     {
         "id": 2,
-        "title_en": "Library",
-        "title_hk": "圖書館",
-        "title_cn": "图书馆",
-        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1610343016\/ca8zmlcwcbcspgw6sked.jpg",
-        "created_at": null,
-        "updated_at": null
+        "name": "User Admin",
+        "guard_name": "web",
+        "created_at": "2021-02-28T22:24:14.000000Z",
+        "updated_at": "2021-02-28T22:24:14.000000Z"
     },
     {
         "id": 3,
-        "title_en": "Computer Room",
-        "title_hk": "電腦房",
-        "title_cn": "电脑房",
-        "image_url": "https:\/\/res.cloudinary.com\/hkzbjzedn\/image\/upload\/v1611592893\/o72p9styjrmdhbrf77zw.jpg",
-        "created_at": null,
-        "updated_at": null
+        "name": "Custom Create",
+        "guard_name": "web",
+        "created_at": "2021-02-28T22:24:18.000000Z",
+        "updated_at": "2021-02-28T22:24:18.000000Z"
     }
 ]
 ```
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/categories`**
+ **`api/roles`**
 
 
 
-## Add a category
+## Add a new role
 
-Add a category.
+Add a new role.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -293,14 +84,16 @@ Add a category.
 
 ```bash
 curl -X POST \
-    "https://it114118-fyp.herokuapp.com/api/categories" \
+    "https://it114118-fyp.herokuapp.com/api/roles" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"name":"quia"}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories"
+    "https://it114118-fyp.herokuapp.com/api/roles"
 );
 
 let headers = {
@@ -308,10 +101,14 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "quia"
+}
 
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
@@ -321,13 +118,17 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/categories`**
+ **`api/roles`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>name</b></code>&nbsp; <small>string</small>     <br>
+    The role name.
 
 
 
-## Retrieve category items (Resources)
+## Retrieve a role
 
-Retrieve category items (Resources).
+Retrieve a role.
 
 
 
@@ -336,14 +137,14 @@ Retrieve category items (Resources).
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/categories/{category}" \
+    -G "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}"
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}"
 );
 
 let headers = {
@@ -365,7 +166,7 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Category] {category}",
+    "message": "No query results for model [Spatie\\Permission\\Models\\Role] {role}",
     "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
     "file": "C:\\Users\\hkdse\\Documents\\GitHub\\Laravel-Web-App\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
     "line": 364,
@@ -757,13 +558,13 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/categories/{category}`**
+ **`api/roles/{role}`**
 
 
 
-## Update a category
+## Update a role
 
-Update a category.
+Update a role.
 
 
 
@@ -772,14 +573,16 @@ Update a category.
 
 ```bash
 curl -X PUT \
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}" \
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"name":"nesciunt"}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}"
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}"
 );
 
 let headers = {
@@ -787,10 +590,14 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "nesciunt"
+}
 
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
@@ -800,16 +607,20 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-darkblue">PUT</small>
- **`api/categories/{category}`**
+ **`api/roles/{role}`**
 
 <small class="badge badge-purple">PATCH</small>
- **`api/categories/{category}`**
+ **`api/roles/{role}`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>name</b></code>&nbsp; <small>string</small>     <br>
+    
 
 
 
-## Remove a category
+## Remove a role
 
-Remove a category.
+Remove a role.
 
 
 
@@ -818,14 +629,14 @@ Remove a category.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}" \
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/categories/{category}"
+    "https://it114118-fyp.herokuapp.com/api/roles/{role}"
 );
 
 let headers = {
@@ -846,7 +657,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/categories/{category}`**
+ **`api/roles/{role}`**
 
 
 

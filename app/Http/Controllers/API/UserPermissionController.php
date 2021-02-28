@@ -8,10 +8,10 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
 
-class PermissionController extends Controller
+class UserPermissionController extends Controller
 {
     /**
-     * @group User
+     * @group User Permission
      * 
      * Get a user's permissions
      * 
@@ -22,7 +22,6 @@ class PermissionController extends Controller
      * @response status=200 scenario="success" [{"name":"create:roles","granted":true,"role":null},{"name":"update:roles","granted":true,"role":null},{"name":"delete:roles","granted":false,"role":null},{"name":"grant:roles","granted":false,"role":null},{"name":"revoke:roles","granted":false,"role":null},{"name":"create:programs","granted":true,"role":"Custom Create"},{"name":"update:programs","granted":true,"role":null},{"name":"delete:programs","granted":false,"role":null},{"name":"create:branches","granted":true,"role":"Custom Create"},{"name":"update:branches","granted":false,"role":null},{"name":"delete:branches","granted":false,"role":null},{"name":"create:users","granted":true,"role":"Custom Create"},{"name":"update:users","granted":true,"role":"User Admin"},{"name":"delete:users","granted":true,"role":"User Admin"},{"name":"grant:permissions","granted":false,"role":null},{"name":"revoke:permissions","granted":false,"role":null}]
      * 
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -54,7 +53,7 @@ class PermissionController extends Controller
     }
 
     /**
-     * @group User
+     * @group User Permission
      * 
      * Update permissions from a user
      * 

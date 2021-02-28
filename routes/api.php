@@ -12,37 +12,38 @@ use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ResourceController;
 use App\Http\Controllers\API\ResourceBookingController;
-use App\Http\Controllers\API\PermissionController;
+use App\Http\Controllers\API\RoleController;
+use App\Http\Controllers\API\RolePermissionController;
+use App\Http\Controllers\API\UserRoleController;
+use App\Http\Controllers\API\UserPermissionController;
 use App\Http\Controllers\API\SettingController;
 use App\Http\Controllers\API\BranchSettingController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\TosController;
 
 Route::post('/branches/import', [BranchController::class, 'import']);
 Route::get('/branches/export', [BranchController::class, 'export']);
 Route::delete('/branches', [BranchController::class, 'destroyMany']);
 Route::delete('/branches/reset', [BranchController::class, 'reset']);
-Route::delete('/branches', [BranchController::class, 'destroyMany']);
 Route::apiResource('/branches', BranchController::class);
 
 Route::post('/programs/import', [ProgramController::class, 'import']);
 Route::get('/programs/export', [ProgramController::class, 'export']);
 Route::delete('/programs', [ProgramController::class, 'destroyMany']);
 Route::delete('/programs/reset', [ProgramController::class, 'reset']);
-Route::delete('/programs', [ProgramController::class, 'destroyMany']);
 Route::apiResource('/programs', ProgramController::class);
 
 Route::post('/resources/import', [ResourceController::class, 'import']);
 Route::get('/resources/export', [ResourceController::class, 'export']);
 Route::delete('/resources', [ResourceController::class, 'destroyMany']);
 Route::delete('/resources/reset', [ResourceController::class, 'reset']);
-Route::delete('/resources', [ResourceController::class, 'destroyMany']);
 Route::apiResource('/resources', ResourceController::class);
 
 Route::get('/resources/{resource}/bookings', [ResourceBookingController::class, 'index']);
 Route::post('/resources/{resource}/bookings', [ResourceBookingController::class, 'store']);
 Route::get('/users/{user}/bookings', [ResourceBookingController::class, 'indexUser']);
-Route::put('/resourcebookings', [ResourceBookingController::class, 'update']);
-Route::delete('/resourcebookings', [ResourceBookingController::class, 'destroy']);
+Route::put('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'update']);
+Route::delete('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'destroy']);
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
 Route::get('/users/me', [UserController::class, 'myself']);
@@ -50,11 +51,19 @@ Route::post('/users/import', [UserController::class, 'import']);
 Route::get('/users/export', [UserController::class, 'export']);
 Route::delete('/users', [UserController::class, 'destroyMany']);
 Route::delete('/users/reset', [UserController::class, 'reset']);
-Route::delete('/users', [UserController::class, 'destroyMany']);
 Route::apiResource('/users', UserController::class);
 
-Route::get('/users/{user}/permissions', [PermissionController::class, 'show']);
-Route::post('/users/{user}/permissions', [PermissionController::class, 'update']);
+Route::apiResource('/roles', RoleController::class);
+
+Route::get('/roles/{role}/permissions', [RolePermissionController::class, 'show']);
+Route::post('/roles/{role}/permissions', [RolePermissionController::class, 'update']);
+
+Route::get('/users/{user}/roles', [UserRoleController::class, 'index']);
+Route::post('/users/{user}/roles', [UserRoleController::class, 'store']);
+Route::delete('/users/{user}/roles', [UserRoleController::class, 'destroy']);
+
+Route::get('/users/{user}/permissions', [UserPermissionController::class, 'show']);
+Route::post('/users/{user}/permissions', [UserPermissionController::class, 'update']);
 
 Route::get('/branches/{branch}/settings/active', [BranchSettingController::class, 'active']);
 Route::get('/branches/{branch}/settings', [BranchSettingController::class, 'index']);
@@ -67,8 +76,9 @@ Route::post('/categories/import', [CategoryController::class, 'import']);
 Route::get('/categories/export', [CategoryController::class, 'export']);
 Route::delete('/categories', [CategoryController::class, 'destroyMany']);
 Route::delete('/categories/reset', [CategoryController::class, 'reset']);
-Route::delete('/categories', [CategoryController::class, 'destroyMany']);
 Route::apiResource('/categories', CategoryController::class);
+
+Route::apiResource('/tos', TosController::class);
 
 Route::apiResource('/settings', SettingController::class);
 

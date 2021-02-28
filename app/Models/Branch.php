@@ -24,6 +24,7 @@ class Branch extends Model
         'title_en',
         'title_hk',
         'title_cn',
+        'image_url',
         'lat',
         'lng',
     ];
