@@ -291,6 +291,6 @@ class UserController extends Controller
      */
     public function myself(Request $request)
     {
-        return User::find($request->user()->id)->first();
+        return $request->user();
     }
 }
