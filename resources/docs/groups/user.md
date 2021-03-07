@@ -149,6 +149,58 @@ fetch(url, {
 
 
 
+## Update myself avatar
+
+Update current account avatar.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/users/me/avatar" \
+    -H "Content-Type: multipart/form-data" \
+    -H "Accept: application/json" \
+    -F "image=@C:\Users\hkdse\AppData\Local\Temp\phpC06.tmp" 
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/me/avatar"
+);
+
+let headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/users/me/avatar`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>image</b></code>&nbsp; <small>file</small>         <i>optional</i>    <br>
+    
+
+
+
 ## Import users
 
 Import users.
@@ -164,7 +216,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php7A7.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php15AC.tmp" 
 ```
 
 ```javascript

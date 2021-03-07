@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=et&end=quaerat" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=omnis&end=odit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "et",
-    "end": "quaerat",
+    "start": "omnis",
+    "end": "odit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -79,7 +79,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"placeat","start":"natus","end":"quis"}'
+    -d '{"date":"est","start":"facere","end":"molestiae"}'
 
 ```
 
@@ -94,9 +94,9 @@ let headers = {
 };
 
 let body = {
-    "date": "placeat",
-    "start": "natus",
-    "end": "quis"
+    "date": "est",
+    "start": "facere",
+    "end": "molestiae"
 }
 
 fetch(url, {
@@ -140,7 +140,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"sapiente","start":"reiciendis","end":"qui"}'
+    -d '{"date":"reiciendis","start":"molestiae","end":"iure"}'
 
 ```
 
@@ -155,9 +155,9 @@ let headers = {
 };
 
 let body = {
-    "date": "sapiente",
-    "start": "reiciendis",
-    "end": "qui"
+    "date": "reiciendis",
+    "start": "molestiae",
+    "end": "iure"
 }
 
 fetch(url, {
@@ -198,14 +198,14 @@ Remove a booking record.
 
 ```bash
 curl -X DELETE \
-    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{/{resourceBooking}" \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{/{resourceBooking}"
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}"
 );
 
 let headers = {
@@ -226,7 +226,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-red">DELETE</small>
- **`api/resourcebookings/{/{resourceBooking}`**
+ **`api/resourcebookings/{resourceBooking}`**
 
 
 

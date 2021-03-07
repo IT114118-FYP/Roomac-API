@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "b9eda3e9-32e2-412a-ae0d-68c0c6bc0637",
+        "_postman_id": "e9f7f6a8-0db7-4890-a802-35317f579085",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -307,18 +307,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "enim",
+                                    "value": "iste",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "et",
+                                    "value": "veniam",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=enim&end=et"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=iste&end=veniam"
                         },
                         "method": "GET",
                         "header": [
@@ -1612,18 +1612,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "et",
+                                    "value": "omnis",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "quaerat",
+                                    "value": "odit",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=et&end=quaerat"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=omnis&end=odit"
                         },
                         "method": "GET",
                         "header": [
@@ -1667,7 +1667,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"placeat\",\n    \"start\": \"natus\",\n    \"end\": \"quis\"\n}"
+                            "raw": "{\n    \"date\": \"est\",\n    \"start\": \"facere\",\n    \"end\": \"molestiae\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1699,7 +1699,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"sapiente\",\n    \"start\": \"reiciendis\",\n    \"end\": \"qui\"\n}"
+                            "raw": "{\n    \"date\": \"reiciendis\",\n    \"start\": \"molestiae\",\n    \"end\": \"iure\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1714,9 +1714,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "it114118-fyp.herokuapp.com",
-                            "path": "api\/resourcebookings\/{\/:resourceBooking",
+                            "path": "api\/resourcebookings\/:resourceBooking",
                             "query": [],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resourcebookings\/{\/:resourceBooking"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resourcebookings\/:resourceBooking"
                         },
                         "method": "DELETE",
                         "header": [
@@ -1793,7 +1793,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"quia\"\n}"
+                            "raw": "{\n    \"name\": \"ipsa\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -1852,7 +1852,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"nesciunt\"\n}"
+                            "raw": "{\n    \"name\": \"dolorem\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2085,7 +2085,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"natus\",\n    \"tos_hk\": \"doloremque\",\n    \"tos_cn\": \"voluptatem\"\n}"
+                            "raw": "{\n    \"tos_en\": \"amet\",\n    \"tos_hk\": \"eum\",\n    \"tos_cn\": \"aut\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2146,7 +2146,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"magnam\",\n    \"tos_hk\": \"harum\",\n    \"tos_cn\": \"facilis\"\n}"
+                            "raw": "{\n    \"tos_en\": \"vero\",\n    \"tos_hk\": \"et\",\n    \"tos_cn\": \"sequi\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2212,6 +2212,42 @@
                             }
                         ],
                         "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update myself avatar\n\nUpdate current account avatar.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/me\/avatar",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/me\/avatar"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
                         "description": "",
                         "auth": null
                     },
@@ -2495,18 +2531,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "dolore",
+                                    "value": "molestiae",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "consequuntur",
+                                    "value": "eos",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=dolore&end=consequuntur"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=molestiae&end=eos"
                         },
                         "method": "GET",
                         "header": [

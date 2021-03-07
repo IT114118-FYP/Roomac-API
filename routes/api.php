@@ -47,6 +47,7 @@ Route::delete('/resourcebookings/{resourceBooking}', [ResourceBookingController:
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
 Route::get('/users/me', [UserController::class, 'myself']);
+Route::post('/users/me/avatar', [UserController::class, 'myselfAvatar']);
 Route::post('/users/import', [UserController::class, 'import']);
 Route::get('/users/export', [UserController::class, 'export']);
 Route::delete('/users', [UserController::class, 'destroyMany']);

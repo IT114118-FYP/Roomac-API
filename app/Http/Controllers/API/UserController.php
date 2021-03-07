@@ -293,4 +293,33 @@ class UserController extends Controller
     {
         return $request->user();
     }
+
+    /**
+     * @group User
+     * 
+     * Update myself avatar
+     * 
+     * Update current account avatar.
+     * 
+     * @bodyParam image file
+     * 
+     * @authenticated
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function myselfAvatar(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        $validatedData = $validator->valid();
+        $validatedData['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+
+        return response(null, $request->user()->update($validatedData) ? 200 : 401);
+    }
 }

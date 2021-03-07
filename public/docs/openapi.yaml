@@ -319,7 +319,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: enim
+                    example: iste
                     required: false
                     schema:
                         type: string
@@ -327,7 +327,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: et
+                    example: veniam
                     required: false
                     schema:
                         type: string
@@ -1728,7 +1728,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: et
+                    example: omnis
                     required: false
                     schema:
                         type: string
@@ -1736,7 +1736,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: quaerat
+                    example: odit
                     required: false
                     schema:
                         type: string
@@ -1799,15 +1799,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: placeat
+                                    example: est
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: natus
+                                    example: facere
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: quis
+                                    example: molestiae
                             required:
                                 - date
                                 - start
@@ -1845,21 +1845,20 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: sapiente
+                                    example: reiciendis
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: reiciendis
+                                    example: molestiae
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: qui
+                                    example: iure
                             required:
                                 - date
                                 - start
                                 - end
             security: []
-    '/api/resourcebookings/{/{resourceBooking}':
         delete:
             summary: "Remove a booking record\n\nRemove a booking record."
             description: ''
@@ -1911,9 +1910,9 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: 1, name: root, guard_name: web, created_at: '2021-02-28T22:24:04.000000Z', updated_at: '2021-02-28T22:24:04.000000Z' }
-                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-02-28T22:24:14.000000Z', updated_at: '2021-02-28T22:24:14.000000Z' }
-                                    - { id: 3, name: 'Custom Create', guard_name: web, created_at: '2021-02-28T22:24:18.000000Z', updated_at: '2021-02-28T22:24:18.000000Z' }
+                                    - { id: 1, name: root, guard_name: web, created_at: '2021-02-28T23:14:51.000000Z', updated_at: '2021-02-28T23:14:51.000000Z' }
+                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-02-28T23:15:01.000000Z', updated_at: '2021-02-28T23:15:01.000000Z' }
+                                    - { id: 3, name: 'Custom Create', guard_name: web, created_at: '2021-02-28T23:15:05.000000Z', updated_at: '2021-02-28T23:15:05.000000Z' }
             tags:
                 - Role
         post:
@@ -1947,7 +1946,7 @@ paths:
                                 name:
                                     type: string
                                     description: 'The role name.'
-                                    example: quia
+                                    example: ipsa
                             required:
                                 - name
     '/api/roles/{role}':
@@ -2022,7 +2021,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: nesciunt
+                                    example: dolorem
                             required:
                                 - name
             security: []
@@ -2289,15 +2288,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: natus
+                                    example: amet
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: doloremque
+                                    example: eum
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: voluptatem
+                                    example: aut
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2375,15 +2374,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: magnam
+                                    example: vero
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: harum
+                                    example: et
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: facilis
+                                    example: sequi
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2465,6 +2464,39 @@ paths:
                                     permissions: { type: array, example: [{ name: 'login:admin', granted: true, role: root }, { name: 'create:roles', granted: true, role: root }, { name: 'update:roles', granted: true, role: root }, { name: 'delete:roles', granted: true, role: root }, { name: 'grant:roles', granted: true, role: root }, { name: 'revoke:roles', granted: true, role: root }, { name: 'create:programs', granted: true, role: root }, { name: 'update:programs', granted: true, role: root }, { name: 'delete:programs', granted: true, role: root }, { name: 'create:branches', granted: true, role: root }, { name: 'update:branches', granted: true, role: root }, { name: 'delete:branches', granted: true, role: root }, { name: 'create:users', granted: true, role: root }, { name: 'update:users', granted: true, role: root }, { name: 'delete:users', granted: true, role: root }, { name: 'grant:permissions', granted: true, role: root }, { name: 'revoke:permissions', granted: true, role: root }], items: { type: object } }
             tags:
                 - User
+    /api/users/me/avatar:
+        post:
+            summary: "Update myself avatar\n\nUpdate current account avatar."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - User
+            requestBody:
+                required: false
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                image:
+                                    type: string
+                                    format: binary
+                                    description: ''
     /api/users/import:
         post:
             summary: "Import users\n\nImport users."
@@ -2734,7 +2766,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: dolore
+                    example: molestiae
                     required: false
                     schema:
                         type: string
@@ -2742,7 +2774,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: consequuntur
+                    example: eos
                     required: false
                     schema:
                         type: string
