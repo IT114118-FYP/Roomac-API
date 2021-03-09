@@ -310,7 +310,8 @@ class UserController extends Controller
     public function myselfAvatar(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'required|image',
         ]);
 
         if ($validator->fails()) {
