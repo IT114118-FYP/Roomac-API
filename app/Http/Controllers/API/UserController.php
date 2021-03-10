@@ -136,17 +136,17 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required',
-            'old_password' => 'nullable',
-            'new_password' => 'nullable',
-            'program_id' => 'nullable',
-            'branch_id' => 'nullable',
-            'first_name' => 'nullable',
-            'last_name' => 'nullable',
-            'chinese_name' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'image_url' => 'nullable',
+            'name' => 'sometimes|required',
+            'email' => 'sometimes|required',
+            'old_password' => 'sometimes|nullable',
+            'new_password' => 'sometimes|nullable',
+            'program_id' => 'sometimes|nullable',
+            'branch_id' => 'sometimes|nullable',
+            'first_name' => 'sometimes|nullable',
+            'last_name' => 'sometimes|nullable',
+            'chinese_name' => 'sometimes|nullable',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'sometimes|nullable',
         ]);
 
         if ($validator->fails()) {
@@ -161,10 +161,14 @@ class UserController extends Controller
 
         if (isset($validated_data['old_password']) && isset($validated_data['new_password'])) {
             if (Hash::check($validated_data['old_password'], $user->password)) {
+                if ($validated_data['old_password'] === $validated_data['new_password']) {
+                    return response('Old password cannot be the same as new password', 403);
+                }
+
                 $validated_data['password'] = Hash::make($validated_data['new_password']);
                 // TODO: revoke all user login token
             } else {
-                return response('Fail to change password', 402);
+                return response('Old password cannot be the same', 402);
             }
         }
 
