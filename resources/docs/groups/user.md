@@ -164,7 +164,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/me/avatar" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "image=@C:\Users\hkdse\AppData\Local\Temp\phpC06.tmp" 
+    -F "image=@C:\Users\hkdse\AppData\Local\Temp\phpC784.tmp" 
 ```
 
 ```javascript
@@ -201,6 +201,64 @@ fetch(url, {
 
 
 
+## Update myself password
+
+Update current account password.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/users/me/password" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"old_password":"consequatur","new_password":"impedit"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/me/password"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "old_password": "consequatur",
+    "new_password": "impedit"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/users/me/password`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>old_password</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
+
+<code><b>new_password</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
+
+
+
 ## Import users
 
 Import users.
@@ -216,7 +274,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php15AC.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpDB2C.tmp" 
 ```
 
 ```javascript

@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "e9f7f6a8-0db7-4890-a802-35317f579085",
+        "_postman_id": "13352727-45ca-4080-96cb-ba848d52cdc8",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -307,18 +307,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "iste",
+                                    "value": "nihil",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "veniam",
+                                    "value": "laudantium",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=iste&end=veniam"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=nihil&end=laudantium"
                         },
                         "method": "GET",
                         "header": [
@@ -919,6 +919,35 @@
                             "path": "\/",
                             "query": [],
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/\/"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "checkin\/{resource}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "checkin\/:resource",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/checkin\/:resource"
                         },
                         "method": "GET",
                         "header": [
@@ -1612,18 +1641,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "omnis",
+                                    "value": "eveniet",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "odit",
+                                    "value": "id",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=omnis&end=odit"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=eveniet&end=id"
                         },
                         "method": "GET",
                         "header": [
@@ -1667,7 +1696,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"est\",\n    \"start\": \"facere\",\n    \"end\": \"molestiae\"\n}"
+                            "raw": "{\n    \"date\": \"ut\",\n    \"start\": \"veniam\",\n    \"end\": \"aut\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1699,7 +1728,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"reiciendis\",\n    \"start\": \"molestiae\",\n    \"end\": \"iure\"\n}"
+                            "raw": "{\n    \"date\": \"deleniti\",\n    \"start\": \"aut\",\n    \"end\": \"nemo\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1793,7 +1822,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"ipsa\"\n}"
+                            "raw": "{\n    \"name\": \"eveniet\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -1852,7 +1881,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"dolorem\"\n}"
+                            "raw": "{\n    \"name\": \"quia\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2085,7 +2114,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"amet\",\n    \"tos_hk\": \"eum\",\n    \"tos_cn\": \"aut\"\n}"
+                            "raw": "{\n    \"tos_en\": \"vel\",\n    \"tos_hk\": \"quam\",\n    \"tos_cn\": \"vel\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2146,7 +2175,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"vero\",\n    \"tos_hk\": \"et\",\n    \"tos_cn\": \"sequi\"\n}"
+                            "raw": "{\n    \"tos_en\": \"mollitia\",\n    \"tos_hk\": \"omnis\",\n    \"tos_cn\": \"eveniet\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2247,6 +2276,36 @@
                                     "type": "file"
                                 }
                             ]
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update myself password\n\nUpdate current account password.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/me\/password",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/me\/password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"old_password\": \"consequatur\",\n    \"new_password\": \"impedit\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -2537,12 +2596,12 @@
                                 },
                                 {
                                     "key": "end",
-                                    "value": "eos",
+                                    "value": "nisi",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=molestiae&end=eos"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=molestiae&end=nisi"
                         },
                         "method": "GET",
                         "header": [

@@ -138,8 +138,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|required',
             'email' => 'sometimes|required',
-            'old_password' => 'sometimes|nullable',
-            'new_password' => 'sometimes|nullable',
+            'password' => 'sometimes|required',
             'program_id' => 'sometimes|nullable',
             'branch_id' => 'sometimes|nullable',
             'first_name' => 'sometimes|nullable',
@@ -155,21 +154,12 @@ class UserController extends Controller
 
         $validated_data = $validator->valid();
 
-        if (isset($request->image) && !is_null($request->image)) {
-            $validated_data['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+        if (isset($validatedData['password'])) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
         }
 
-        if (isset($validated_data['old_password']) && isset($validated_data['new_password'])) {
-            if (Hash::check($validated_data['old_password'], $user->password)) {
-                if ($validated_data['old_password'] === $validated_data['new_password']) {
-                    return response('Old password cannot be the same as new password', 403);
-                }
-
-                $validated_data['password'] = Hash::make($validated_data['new_password']);
-                // TODO: revoke all user login token
-            } else {
-                return response('Old password cannot be the same', 402);
-            }
+        if (isset($request->image) && !is_null($request->image)) {
+            $validated_data['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
         }
 
         return response(null, $user->update($validated_data) ? 200 : 401);
@@ -326,5 +316,48 @@ class UserController extends Controller
         $validatedData['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
 
         return response(null, $request->user()->update($validatedData) ? 200 : 401);
+    }
+
+    /**
+     * @group User
+     * 
+     * Update myself password
+     * 
+     * Update current account password.
+     * 
+     * @bodyParam old_password string
+     * @bodyParam new_password string
+     * 
+     * @authenticated
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function myselfPassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'new_password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        $validatedData = $validator->valid();
+
+        if (Hash::check($validatedData['old_password'], $request->user()->password)) {
+            if ($validatedData['old_password'] === $validatedData['new_password']) {
+                return response('Old password cannot be the same as new password', 403);
+            }
+
+            $validatedData['password'] = Hash::make($validatedData['new_password']);
+
+            // revoke all user login token
+            $request->user()->tokens()->delete();
+
+            return response(null, $request->user()->update($validatedData) ? 200 : 401);
+        }
+
+        return response('Old password is not the valid', 402);
     }
 }

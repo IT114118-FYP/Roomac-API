@@ -39,7 +39,7 @@ Route::delete('/resources', [ResourceController::class, 'destroyMany']);
 Route::delete('/resources/reset', [ResourceController::class, 'reset']);
 Route::apiResource('/resources', ResourceController::class);
 
-Route::get('/resources/{resource}/bookings', [ResourceBookingController::class, 'index']);
+Route::get('/resources/{resource}/bookings', [ResourceBookingController::class, 'index'])->name('resources.bookings.index');
 Route::post('/resources/{resource}/bookings', [ResourceBookingController::class, 'store']);
 Route::get('/users/{user}/bookings', [ResourceBookingController::class, 'indexUser']);
 Route::put('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'update']);
@@ -48,6 +48,7 @@ Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'in
 
 Route::get('/users/me', [UserController::class, 'myself']);
 Route::post('/users/me/avatar', [UserController::class, 'myselfAvatar']);
+Route::post('/users/me/password', [UserController::class, 'myselfPassword']);
 Route::post('/users/import', [UserController::class, 'import']);
 Route::get('/users/export', [UserController::class, 'export']);
 Route::delete('/users', [UserController::class, 'destroyMany']);
