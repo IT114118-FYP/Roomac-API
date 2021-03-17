@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\ResourceBooking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -359,5 +360,22 @@ class UserController extends Controller
         }
 
         return response('Old password is not the valid', 402);
+    }
+
+    /**
+     * @group User
+     * 
+     * Get myself bookings
+     * 
+     * Get current account bookings.
+     * 
+     * @authenticated
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function myselfBookings(Request $request)
+    {
+        return ResourceBooking::where('user_id', $request->user()->id)
+            ->with(['resource'])->orderBy('created_at', 'desc')->get();
     }
 }

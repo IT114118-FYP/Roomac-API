@@ -46,22 +46,22 @@ fetch(url, {
         "id": 1,
         "name": "root",
         "guard_name": "web",
-        "created_at": "2021-03-17T20:20:33.000000Z",
-        "updated_at": "2021-03-17T20:20:33.000000Z"
+        "created_at": "2021-03-17T21:34:10.000000Z",
+        "updated_at": "2021-03-17T21:34:10.000000Z"
     },
     {
         "id": 2,
         "name": "User Admin",
         "guard_name": "web",
-        "created_at": "2021-03-17T20:20:43.000000Z",
-        "updated_at": "2021-03-17T20:20:43.000000Z"
+        "created_at": "2021-03-17T21:34:20.000000Z",
+        "updated_at": "2021-03-17T21:34:20.000000Z"
     },
     {
         "id": 3,
         "name": "Custom Create",
         "guard_name": "web",
-        "created_at": "2021-03-17T20:20:47.000000Z",
-        "updated_at": "2021-03-17T20:20:47.000000Z"
+        "created_at": "2021-03-17T21:34:24.000000Z",
+        "updated_at": "2021-03-17T21:34:24.000000Z"
     }
 ]
 ```
@@ -87,7 +87,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"consequatur"}'
+    -d '{"name":"explicabo"}'
 
 ```
 
@@ -102,7 +102,7 @@ let headers = {
 };
 
 let body = {
-    "name": "consequatur"
+    "name": "explicabo"
 }
 
 fetch(url, {
@@ -576,7 +576,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"error"}'
+    -d '{"name":"temporibus"}'
 
 ```
 
@@ -591,7 +591,7 @@ let headers = {
 };
 
 let body = {
-    "name": "error"
+    "name": "temporibus"
 }
 
 fetch(url, {

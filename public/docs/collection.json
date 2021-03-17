@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "1fa1754a-1f08-4c6e-afba-23ad9014a1ae",
+        "_postman_id": "cc833dba-f4fa-4e8f-bba2-07b2a40b1423",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -307,18 +307,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "dolores",
+                                    "value": "similique",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "est",
+                                    "value": "sint",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=dolores&end=est"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=similique&end=sint"
                         },
                         "method": "GET",
                         "header": [
@@ -1670,18 +1670,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "nemo",
+                                    "value": "et",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "voluptatem",
+                                    "value": "est",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=nemo&end=voluptatem"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=et&end=est"
                         },
                         "method": "GET",
                         "header": [
@@ -1725,7 +1725,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"omnis\",\n    \"start\": \"nesciunt\",\n    \"end\": \"omnis\"\n}"
+                            "raw": "{\n    \"date\": \"deleniti\",\n    \"start\": \"hic\",\n    \"end\": \"neque\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1757,7 +1757,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"ut\",\n    \"start\": \"rem\",\n    \"end\": \"dignissimos\"\n}"
+                            "raw": "{\n    \"date\": \"magni\",\n    \"start\": \"ratione\",\n    \"end\": \"et\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1909,7 +1909,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"consequatur\"\n}"
+                            "raw": "{\n    \"name\": \"explicabo\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -1968,7 +1968,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"error\"\n}"
+                            "raw": "{\n    \"name\": \"temporibus\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2201,7 +2201,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"pariatur\",\n    \"tos_hk\": \"quo\",\n    \"tos_cn\": \"distinctio\"\n}"
+                            "raw": "{\n    \"tos_en\": \"dolore\",\n    \"tos_hk\": \"et\",\n    \"tos_cn\": \"libero\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2262,7 +2262,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"molestiae\",\n    \"tos_hk\": \"qui\",\n    \"tos_cn\": \"autem\"\n}"
+                            "raw": "{\n    \"tos_en\": \"qui\",\n    \"tos_hk\": \"aperiam\",\n    \"tos_cn\": \"asperiores\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2306,6 +2306,33 @@
             "name": "User",
             "description": "",
             "item": [
+                {
+                    "name": "Get myself bookings\n\nGet current account bookings.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/users\/me\/bookings",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/me\/bookings"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
                 {
                     "name": "Get myself\n\nGet current account informations with permissions.",
                     "request": {
@@ -2392,7 +2419,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"old_password\": \"aperiam\",\n    \"new_password\": \"ducimus\"\n}"
+                            "raw": "{\n    \"old_password\": \"quibusdam\",\n    \"new_password\": \"enim\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -2677,18 +2704,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "quia",
+                                    "value": "est",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "ut",
+                                    "value": "consequuntur",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=quia&end=ut"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=est&end=consequuntur"
                         },
                         "method": "GET",
                         "header": [

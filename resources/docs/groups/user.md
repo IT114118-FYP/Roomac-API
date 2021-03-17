@@ -1,6 +1,57 @@
 # User
 
 
+## Get myself bookings
+
+Get current account bookings.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/users/me/bookings" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/me/bookings"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/users/me/bookings`**
+
+
+
 ## Get myself
 
 Get current account informations with permissions.
@@ -164,7 +215,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/me/avatar" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "image=@C:\Users\hkdse\AppData\Local\Temp\php9D1E.tmp" 
+    -F "image=@C:\Users\hkdse\AppData\Local\Temp\php9C27.tmp" 
 ```
 
 ```javascript
@@ -216,7 +267,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/me/password" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"old_password":"aperiam","new_password":"ducimus"}'
+    -d '{"old_password":"quibusdam","new_password":"enim"}'
 
 ```
 
@@ -231,8 +282,8 @@ let headers = {
 };
 
 let body = {
-    "old_password": "aperiam",
-    "new_password": "ducimus"
+    "old_password": "quibusdam",
+    "new_password": "enim"
 }
 
 fetch(url, {
@@ -274,7 +325,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpB635.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpAE58.tmp" 
 ```
 
 ```javascript
