@@ -103,9 +103,9 @@ class ProgramController extends Controller
     public function update(Request $request, Program $program)
     {
         $validator = Validator::make($request->all(), [
-            'title_en' => 'required',
-            'title_hk' => 'required',
-            'title_cn' => 'required',
+            'title_en' => 'sometimes|required',
+            'title_hk' => 'sometimes|required',
+            'title_cn' => 'sometimes|required',
         ]);
         
         if ($validator->fails()) {

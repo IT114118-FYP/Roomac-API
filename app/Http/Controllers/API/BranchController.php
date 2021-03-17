@@ -98,13 +98,13 @@ class BranchController extends Controller
     public function update(Request $request, Branch $branch)
     {
         $validator = Validator::make($request->all(), [
-            'title_en' => 'required',
-            'title_hk' => 'required',
-            'title_cn' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'image_url' => 'nullable',
-            'lat' => 'required',
-            'lng' => 'required',
+            'title_en' => 'sometimes|required',
+            'title_hk' => 'sometimes|required',
+            'title_cn' => 'sometimes|required',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'sometimes|nullable',
+            'lat' => 'sometimes|required',
+            'lng' => 'sometimes|required',
         ]);
 
         if ($validator->fails()) {

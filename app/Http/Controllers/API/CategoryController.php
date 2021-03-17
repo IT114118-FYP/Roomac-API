@@ -91,11 +91,11 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $validator = Validator::make($request->all(), [
-            'title_en' => 'required',
-            'title_hk' => 'nullable',
-            'title_cn' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'image_url' => 'nullable',
+            'title_en' => 'sometimes|required',
+            'title_hk' => 'sometimes|nullable',
+            'title_cn' => 'sometimes|nullable',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'sometimes|nullable',
         ]);
 
         if ($validator->fails()) {

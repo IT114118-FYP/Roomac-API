@@ -44,6 +44,8 @@ Route::post('/resources/{resource}/bookings', [ResourceBookingController::class,
 Route::get('/users/{user}/bookings', [ResourceBookingController::class, 'indexUser']);
 Route::put('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'update']);
 Route::delete('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'destroy']);
+Route::get('/resourcebookings/{resourceBooking}/code', [ResourceBookingController::class, 'getCode']);
+Route::post('/resources/{resource}/checkin', [ResourceBookingController::class, 'checkIn']);
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
 Route::get('/users/me', [UserController::class, 'myself']);

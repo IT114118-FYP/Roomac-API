@@ -18,6 +18,7 @@ class CreateResourcesTable extends Migration
             $table->string('branch_id');
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->bigInteger('tos_id')->unsigned()->nullable();
+            $table->integer('interval')->default(30);
             $table->string('number');
             $table->string('title_en')->nullable();
             $table->string('title_hk')->nullable();

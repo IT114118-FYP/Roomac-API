@@ -84,9 +84,9 @@ class TosController extends Controller
     public function update(Request $request, Tos $to)
     {
         $validator = Validator::make($request->all(), [
-            'tos_en' => 'required',
-            'tos_hk' => 'required',
-            'tos_cn' => 'required',
+            'tos_en' => 'sometimes|required',
+            'tos_hk' => 'sometimes|required',
+            'tos_cn' => 'sometimes|required',
         ]);
 
         if ($validator->fails()) {

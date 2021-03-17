@@ -9,7 +9,9 @@ use App\Models\Resource;
 use App\Models\ResourceAvailable;
 use App\Models\ResourceBooking;
 use App\Models\ResourceReserved;
+use App\Models\CheckInCode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\API\BranchSettingController;
 
@@ -19,7 +21,7 @@ class ResourceBookingController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:sanctum');
+        $this->middleware('auth:sanctum')->except(['checkIn']);
     }
 
     /**
@@ -53,11 +55,9 @@ class ResourceBookingController extends Controller
             return response($err->getMessage(), 400);
         }
 
-        $controller = new BranchSettingController;
-        $settingsKv = $controller->getSettingsKeyValues($resource->branch_id);
         $booked = ResourceBooking::where('resource_id', $resource->id)->get();
         $reserved = ResourceReserved::where('resource_id', $resource->id)->get();
-        $interval = $settingsKv['RESOURCE_MINUTE_PER_SESSION'];
+        $interval = $resource->interval;
 
         $closing_time = explode(":", $resource->closing_time);
         $closing_hour = (int)$closing_time[0]; $closing_minute = (int)$closing_time[1]; $closing_second = (int)$closing_time[2];
@@ -150,12 +150,15 @@ class ResourceBookingController extends Controller
             'user_id' => $request->user()->id,
             'resource_id' => $resource->id,
             'branch_setting_version_id' => (new BranchSettingController)->getActiveVersion($resource->branch_id),
+            'number' => '',
             'start_time' => $startTime,
             'end_time' => $endTime,
         ]);
         $resourceBooking->save();
 
-        $bookingReference = "RM-" . str_replace('-', '', $validated_data['date']) . "-" . str_pad($resourceBooking->id, 5, '0', STR_PAD_LEFT);
+        $bookingReference = "RM-" . str_replace('-', '', $validated_data['date']) . str_pad($resourceBooking->id, 5, '0', STR_PAD_LEFT);
+        $resourceBooking->update(['number' => $bookingReference]);
+
         return response($bookingReference, 200);
     }
 
@@ -173,8 +176,13 @@ class ResourceBookingController extends Controller
      */
     public function indexUser(Request $request, User $user)
     {
-        $query_start = $request->query('start', now());
-        $query_end = $request->query('end', now());
+        $query_start = $request->query('start', null);
+        $query_end = $request->query('end', null);
+
+        if ($query_start == null && $query_end == null) {
+            return ResourceBooking::where('user_id', $user->id)
+                    ->with(['resource'])->get();
+        }
 
         try {
             $start_date = Carbon::parse($query_start);
@@ -227,7 +235,7 @@ class ResourceBookingController extends Controller
             return response($err->getMessage(), 400);
         }
 
-        $query = ResourceBooking::with(['resource'=> function($query){ $query->where('branch_id', $branch->id); }]);
+        $query = ResourceBooking::with(['resource' => function($query){ $query->where('branch_id', $branch->id); }]);
 
         if ($query_start !== null && $query_end !== null) {
             $query = $query->whereBetween('start_time', [$start_date, $end_date]);
@@ -310,6 +318,79 @@ class ResourceBookingController extends Controller
     public function destroy(ResourceBooking $resourceBooking)
     {
         ResourceBooking::destroy($resourceBooking->id);
+        return response(null, 200);
+    }
+
+    /**
+     * @group Resource Booking
+     * 
+     * Get a check-in code
+     * 
+     * Get a check-in code (Convert to QR code in front-end).
+     *
+     * @param  \App\Models\ResourceBooking  $resourceBooking
+     * @return \Illuminate\Http\Response
+     */
+    public function getCode(Request $request, ResourceBooking $resourceBooking)
+    {
+        // Return if the resource booking is not belong to user
+        if ($request->user()->id !== $resourceBooking->user_id) {
+            return response('Unauthorized', 401);
+        }
+
+        // Return if the resource booking is already checked-in
+        if ($resourceBooking->checkin_time !== null) {
+            return response('Already checked-in', 402);
+        }
+
+        // Generate or update the code
+        $checkInCode = CheckInCode::updateOrCreate([
+            'resource_booking_id' => $resourceBooking->id,
+        ], [
+            'code' => Str::uuid()->toString(),
+        ]);
+
+        return response(['code' => $checkInCode->code], 200);
+    }
+
+    /**
+     * @group Resource Booking
+     * 
+     * Check-in
+     * 
+     * Check-in.
+     *
+     * @param  \App\Models\Resource  $resource
+     * @return \Illuminate\Http\Response
+     */
+    public function checkIn(Request $request, Resource $resource)
+    {
+        $validator = Validator::make($request->all(), [
+            'code' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors(), 400);
+        }
+
+        $validatedData = $validator->valid();
+
+        $checkInCode = CheckInCode::where('code', $validatedData['code'])->first();
+
+        if ($checkInCode === null) {
+            return response('Invalid code', 401);
+        }
+
+        $resourceBooking = ResourceBooking::where('id', $checkInCode->resource_booking_id)->first();
+
+        if ($resourceBooking === null || $resourceBooking->resource_id !== $resource->id) {
+            return response('Invalid code', 402);
+        }
+
+        $resourceBooking->update(['checkin_time' => now()]);
+
+        CheckInCode::destroy($checkInCode->id);
+
         return response(null, 200);
     }
 

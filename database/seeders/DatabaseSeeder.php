@@ -17,6 +17,7 @@ use App\Models\Setting;
 use App\Models\BranchSetting;
 use App\Models\ResourceBooking;
 use App\Models\ResourceReserved;
+use App\Models\CheckInCode;
 use App\Models\Category;
 use App\Models\Tos;
 
@@ -50,6 +51,7 @@ class DatabaseSeeder extends Seeder
         Role::truncate();
         Permission::truncate();
         Category::truncate();
+        CheckInCode::truncate();
         Tos::truncate();
         Schema::enableForeignKeyConstraints();
 
@@ -123,7 +125,7 @@ class DatabaseSeeder extends Seeder
 
         # Resource
         $rows = [
-            [1, 'ST', 1, 'IT-417A', 'Interview Room', '接見室', '接见室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', 1, 20, '08:00', '15:00'],
+            [1, 'ST', 1, 'IT-417A', 'Interview Room', '接見室', '接见室', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', 1, 20, '00:00', '24:00'],
             [1, 'ST', 1, 'IT-421B', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
             [1, 'CW', 1, 'CS-442', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
             [1, 'CW', 1, 'CS-404', '', '', '', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', 2, 10, '08:00', '21:00'],
@@ -177,13 +179,7 @@ class DatabaseSeeder extends Seeder
         $this->seedBranchSetting($rows);
 
         # Resource Booking
-        $rows = [
-            ['2', '1', null, '2020-12-14 09:30:00', '2020-12-14 10:30:00'],
-            ['2', '1', null, '2020-12-14 10:30:00', '2020-12-14 11:30:00'],
-            ['2', '1', null, '2020-12-14 12:30:00', '2020-12-14 13:30:00'],
-            ['2', '2', null, '2020-12-14 14:30:00', '2020-12-14 15:30:00'],
-            ['2', '2', null, '2020-12-14 16:30:00', '2020-12-14 17:30:00'],
-        ];
+        $rows = [];
         $this->seedResourceBooking($rows);
 
         # User (Set roles and permissions)

@@ -25,8 +25,10 @@ class ResourceBooking extends Model
         'user_id',
         'resource_id',
         'branch_setting_version_id',
+        'number',
         'start_time',
         'end_time',
+        'checkin_time',
     ];
     
     public function getStartTimeAttribute()

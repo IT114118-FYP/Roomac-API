@@ -18,8 +18,10 @@ class CreateResourceBookingsTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('resource_id')->unsigned()->nullable();
             $table->bigInteger('branch_setting_version_id')->unsigned()->nullable();
+            $table->string('number');
             $table->timestamp('start_time');
             $table->timestamp('end_time');
+            $table->timestamp('checkin_time')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->constrained()->onDelete('set null');

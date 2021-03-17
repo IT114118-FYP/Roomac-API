@@ -48,6 +48,7 @@ class ResourceController extends Controller
             'branch_id' => 'required|exists:App\Models\Branch,id',
             'category_id' => 'nullable',
             'tos_id' => 'nullable',
+            'interval' => 'required',
             'number' => 'required',
             'title_en' => 'required',
             'title_hk' => 'required|nullable',
@@ -102,17 +103,18 @@ class ResourceController extends Controller
     public function update(Request $request, Resource $resource)
     {
         $validator = Validator::make($request->all(), [
-            'branch_id' => 'required|exists:App\Models\Branch,id',
-            'category_id' => 'nullable',
-            'tos_id' => 'nullable',
-            'number' => 'required',
-            'title_en' => 'required',
-            'title_hk' => 'required|nullable',
-            'title_cn' => 'required|nullable',
-            'opening_time' => 'required',
-            'closing_time' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'image_url' => 'nullable',
+            'branch_id' => 'sometimes|required|exists:App\Models\Branch,id',
+            'category_id' => 'sometimes|nullable',
+            'tos_id' => 'sometimes|nullable',
+            'interval' => 'sometimes|required',
+            'number' => 'sometimes|required',
+            'title_en' => 'sometimes|required',
+            'title_hk' => 'sometimes|required|nullable',
+            'title_cn' => 'sometimes|required|nullable',
+            'opening_time' => 'sometimes|required',
+            'closing_time' => 'sometimes|required',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'sometimes|nullable',
         ]);
 
         if ($validator->fails()) {

@@ -23,6 +23,7 @@ class Resource extends Model
         'branch_id',
         'category_id',
         'tos_id',
+        'interval',
         'number',
         'title_en',
         'title_hk',
