@@ -67,8 +67,8 @@ class UserController extends Controller
             'first_name' => 'nullable',
             'last_name' => 'nullable',
             'chinese_name' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'image_url' => 'nullable',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'sometimes|nullable',
         ]);
 
         if ($validator->fails()) {
