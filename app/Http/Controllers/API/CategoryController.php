@@ -45,8 +45,8 @@ class CategoryController extends Controller
             'title_en' => 'required',
             'title_hk' => 'nullable',
             'title_cn' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'image_url' => 'nullable',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image_url' => 'sometimes|nullable',
         ]);
 
         if ($validator->fails()) {
