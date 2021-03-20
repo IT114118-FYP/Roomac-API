@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Tos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TosController extends Controller
 {
@@ -108,7 +109,7 @@ class TosController extends Controller
      */
     public function destroy(Tos $to)
     {
-        Branch::destroy($to->id);
+        Tos::destroy($to->id);
         return response(null, 200);
     }
 }
