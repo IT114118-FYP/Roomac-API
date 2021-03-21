@@ -70,7 +70,7 @@ Route::post('/users/{user}/roles', [UserRoleController::class, 'store']);
 Route::delete('/users/{user}/roles', [UserRoleController::class, 'destroy']);
 
 Route::get('/users/{user}/permissions', [UserPermissionController::class, 'show']);
-Route::post('/users/{user}/permissions', [UserPermissionController::class, 'update']);
+Route::put('/users/{user}/permissions', [UserPermissionController::class, 'update']);
 
 Route::get('/branches/{branch}/settings/active', [BranchSettingController::class, 'active']);
 Route::get('/branches/{branch}/settings', [BranchSettingController::class, 'index']);

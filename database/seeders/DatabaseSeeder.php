@@ -58,11 +58,14 @@ class DatabaseSeeder extends Seeder
         # Permission
         $permissions = [
             'login:admin',
-            'create:roles', 'update:roles', 'delete:roles', 'grant:roles', 'revoke:roles',
-            'create:programs', 'update:programs', 'delete:programs',
-            'create:branches', 'update:branches', 'delete:branches',
-            'create:users', 'update:users', 'delete:users',
+            'create:roles', 'read:roles', 'update:roles', 'delete:roles', 'grant:roles', 'revoke:roles',
             'grant:permissions', 'revoke:permissions',
+            'create:programs', 'read:programs', 'update:programs', 'delete:programs',
+            'create:branches', 'read:branches', 'update:branches', 'delete:branches',
+            'create:users', 'read:users', 'update:users', 'delete:users',
+            'create:tos', 'read:tos', 'update:tos', 'delete:tos',
+            'create:categories', 'read:categories', 'update:categories', 'delete:categories',
+            'create:resources', 'read:resources', 'update:resources', 'delete:resources',
         ];
         $this->seedPermission($permissions);
 
@@ -70,7 +73,6 @@ class DatabaseSeeder extends Seeder
         $roles = [
             'root' => $permissions,
             'User Admin' => ['create:users', 'update:users', 'delete:users'],
-            'Custom Create' => ['create:programs', 'create:branches', 'create:users'],
             //'staff' => ''
         ];
         $this->seedRole($roles);
@@ -184,8 +186,19 @@ class DatabaseSeeder extends Seeder
 
         # User (Set roles and permissions)
         User::where('name', '000000000')->first()->assignRole('root');
-        User::where('name', '190189768')->first()->assignRole(['User Admin', 'Custom Create']);
-        User::where('name', '190189768')->first()->givePermissionTo('update:programs');
+        User::where('name', '190189768')->first()->assignRole(['User Admin']);
+
+        User::where('name', '190189768')->first()
+            ->givePermissionTo($permissions);
+
+        User::where('name', '190271174')->first()
+            ->givePermissionTo($permissions);
+
+        User::where('name', '190057409')->first()
+            ->givePermissionTo($permissions);
+
+        User::where('name', '190184921')->first()
+            ->givePermissionTo($permissions);
     }
 
     private function seedProgram($rows) {

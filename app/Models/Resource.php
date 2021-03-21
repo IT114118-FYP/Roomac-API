@@ -12,7 +12,7 @@ use App\Models\Tos;
 
 class Resource extends Model
 {
-    use HasFactory;//, Searchable;
+    use HasFactory, Searchable;
 
     /**
      * The attributes that are mass assignable.
