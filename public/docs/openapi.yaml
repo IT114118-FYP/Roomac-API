@@ -152,6 +152,7 @@ paths:
                                     - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550861/KT_ktbvgg.jpg', lat: '22.31356560', lng: '114.23194114', created_at: null, updated_at: null }
                                     - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/LWL_s7uimr.jpg', lat: '22.30620069', lng: '114.25416772', created_at: null, updated_at: null }
                                     - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/MH_tt43bg.jpg', lat: '22.27619053', lng: '114.17792361', created_at: null, updated_at: null }
+                                    - { id: samsam, title_en: sam, title_hk: sam, title_cn: sam, image_url: null, lat: '22.37203930', lng: '114.11557720', created_at: '2021-04-06T10:54:17.000000Z', updated_at: '2021-04-06T10:54:17.000000Z' }
                                     - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null }
                                     - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/TM_vwyaga.jpg', lat: '22.39311344', lng: '113.96646235', created_at: null, updated_at: null }
                                     - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/TY_rli7ox.jpg', lat: '22.34261363', lng: '114.10624981', created_at: null, updated_at: null }
@@ -319,7 +320,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: similique
+                    example: ipsa
                     required: false
                     schema:
                         type: string
@@ -327,7 +328,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: sint
+                    example: et
                     required: false
                     schema:
                         type: string
@@ -935,6 +936,41 @@ paths:
             responses: {  }
             tags:
                 - Category
+            security: []
+    /api/dashboard:
+        get:
+            summary: 'Get Dashboard data'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    count: { user: 5, branch: 10, category: 3, resource: 19, active_bookings: 1, total_bookings: 10 }
+                                    active_bookings: [{ id: 17, user_id: 2, resource_id: 4, branch_setting_version_id: null, number: RM-2021041300017, start_time: '2021-04-13T13:00:00', end_time: '2021-04-13T13:30:00', checkin_time: null, created_at: '2021-04-10T17:22:47.000000Z', updated_at: '2021-04-10T17:22:47.000000Z' }]
+                                properties:
+                                    count: { type: object, example: { user: 5, branch: 10, category: 3, resource: 19, active_bookings: 1, total_bookings: 10 } }
+                                    active_bookings: { type: array, example: [{ id: 17, user_id: 2, resource_id: 4, branch_setting_version_id: null, number: RM-2021041300017, start_time: '2021-04-13T13:00:00', end_time: '2021-04-13T13:30:00', checkin_time: null, created_at: '2021-04-10T17:22:47.000000Z', updated_at: '2021-04-10T17:22:47.000000Z' }], items: { type: object } }
+            tags:
+                - Dashboard
             security: []
     /sanctum/csrf-cookie:
         get:
@@ -1812,7 +1848,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: et
+                    example: laudantium
                     required: false
                     schema:
                         type: string
@@ -1820,7 +1856,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: est
+                    example: eaque
                     required: false
                     schema:
                         type: string
@@ -1883,15 +1919,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: deleniti
+                                    example: omnis
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: hic
+                                    example: consequuntur
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: neque
+                                    example: id
                             required:
                                 - date
                                 - start
@@ -1929,15 +1965,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: magni
+                                    example: qui
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: ratione
+                                    example: reiciendis
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: et
+                                    example: culpa
                             required:
                                 - date
                                 - start
@@ -2050,9 +2086,8 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: 1, name: root, guard_name: web, created_at: '2021-03-17T21:34:10.000000Z', updated_at: '2021-03-17T21:34:10.000000Z' }
-                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-03-17T21:34:20.000000Z', updated_at: '2021-03-17T21:34:20.000000Z' }
-                                    - { id: 3, name: 'Custom Create', guard_name: web, created_at: '2021-03-17T21:34:24.000000Z', updated_at: '2021-03-17T21:34:24.000000Z' }
+                                    - { id: 1, name: root, guard_name: web, created_at: '2021-03-21T22:30:26.000000Z', updated_at: '2021-03-21T22:30:26.000000Z' }
+                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-03-21T22:30:48.000000Z', updated_at: '2021-03-21T22:30:48.000000Z' }
             tags:
                 - Role
         post:
@@ -2086,7 +2121,7 @@ paths:
                                 name:
                                     type: string
                                     description: 'The role name.'
-                                    example: explicabo
+                                    example: maiores
                             required:
                                 - name
     '/api/roles/{role}':
@@ -2161,7 +2196,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: temporibus
+                                    example: ducimus
                             required:
                                 - name
             security: []
@@ -2428,15 +2463,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: dolore
+                                    example: aut
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: incidunt
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: libero
+                                    example: sequi
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2514,15 +2549,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: qui
+                                    example: nihil
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: aperiam
+                                    example: omnis
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: asperiores
+                                    example: qui
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2701,11 +2736,11 @@ paths:
                                 old_password:
                                     type: string
                                     description: ''
-                                    example: quibusdam
+                                    example: fugiat
                                 new_password:
                                     type: string
                                     description: ''
-                                    example: enim
+                                    example: et
     /api/users/import:
         post:
             summary: "Import users\n\nImport users."
@@ -2975,7 +3010,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: est
+                    example: asperiores
                     required: false
                     schema:
                         type: string
@@ -2983,7 +3018,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: consequuntur
+                    example: qui
                     required: false
                     schema:
                         type: string
@@ -3062,7 +3097,7 @@ paths:
                                     - { name: 'revoke:permissions', granted: false, role: null }
             tags:
                 - 'User Permission'
-        post:
+        put:
             summary: "Update permissions from a user\n\nUpdate permissions from a user."
             description: ''
             parameters:
@@ -3080,42 +3115,7 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses:
-                200:
-                    description: '200, success'
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    type: object
-                                example:
-                                    - { name: 'create:roles', granted: true, role: null }
-                                    - { name: 'update:roles', granted: true, role: null }
-                                    - { name: 'delete:roles', granted: false, role: null }
-                                    - { name: 'grant:roles', granted: false, role: null }
-                                    - { name: 'revoke:roles', granted: false, role: null }
-                                    - { name: 'create:programs', granted: true, role: 'Custom Create' }
-                                    - { name: 'update:programs', granted: true, role: null }
-                                    - { name: 'delete:programs', granted: false, role: null }
-                                    - { name: 'create:branches', granted: true, role: 'Custom Create' }
-                                    - { name: 'update:branches', granted: false, role: null }
-                                    - { name: 'delete:branches', granted: false, role: null }
-                                    - { name: 'create:users', granted: true, role: 'Custom Create' }
-                                    - { name: 'update:users', granted: true, role: 'User Admin' }
-                                    - { name: 'delete:users', granted: true, role: 'User Admin' }
-                                    - { name: 'grant:permissions', granted: false, role: null }
-                                    - { name: 'revoke:permissions', granted: false, role: null }
-                401:
-                    description: '401, not_exist'
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                example:
-                                    not_exist: ['create:roless', 'update:rolex']
-                                properties:
-                                    not_exist: { type: array, example: ['create:roless', 'update:rolex'], items: { type: string } }
+            responses: {  }
             tags:
                 - 'User Permission'
             requestBody:
@@ -3125,15 +3125,11 @@ paths:
                         schema:
                             type: object
                             properties:
-                                'create:roles':
-                                    type: boolean
+                                name:
+                                    type: String
                                     description: ''
-                                    example: true
-                                'update:roles':
-                                    type: boolean
-                                    description: ''
-                                    example: true
-                                'delete:roles':
+                                    example: '"create:users"'
+                                granted:
                                     type: boolean
                                     description: ''
                                     example: true

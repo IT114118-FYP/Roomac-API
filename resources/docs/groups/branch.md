@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpD639.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpDD3D.tmp" 
 ```
 
 ```javascript
@@ -317,6 +317,17 @@ fetch(url, {
         "lng": "114.17792361",
         "created_at": null,
         "updated_at": null
+    },
+    {
+        "id": "samsam",
+        "title_en": "sam",
+        "title_hk": "sam",
+        "title_cn": "sam",
+        "image_url": null,
+        "lat": "22.37203930",
+        "lng": "114.11557720",
+        "created_at": "2021-04-06T10:54:17.000000Z",
+        "updated_at": "2021-04-06T10:54:17.000000Z"
     },
     {
         "id": "ST",

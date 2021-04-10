@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "cc833dba-f4fa-4e8f-bba2-07b2a40b1423",
+        "_postman_id": "af8fb5e9-64d2-4a67-8856-940966aab048",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -307,18 +307,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "similique",
+                                    "value": "ipsa",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "sint",
+                                    "value": "et",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=similique&end=sint"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=ipsa&end=et"
                         },
                         "method": "GET",
                         "header": [
@@ -857,6 +857,41 @@
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/categories\/:category"
                         },
                         "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Dashboard",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Dashboard data",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "it114118-fyp.herokuapp.com",
+                            "path": "api\/dashboard",
+                            "query": [],
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/dashboard"
+                        },
+                        "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -1670,18 +1705,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "et",
+                                    "value": "laudantium",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "est",
+                                    "value": "eaque",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=et&end=est"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=laudantium&end=eaque"
                         },
                         "method": "GET",
                         "header": [
@@ -1725,7 +1760,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"deleniti\",\n    \"start\": \"hic\",\n    \"end\": \"neque\"\n}"
+                            "raw": "{\n    \"date\": \"omnis\",\n    \"start\": \"consequuntur\",\n    \"end\": \"id\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1757,7 +1792,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"magni\",\n    \"start\": \"ratione\",\n    \"end\": \"et\"\n}"
+                            "raw": "{\n    \"date\": \"qui\",\n    \"start\": \"reiciendis\",\n    \"end\": \"culpa\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1909,7 +1944,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"explicabo\"\n}"
+                            "raw": "{\n    \"name\": \"maiores\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -1968,7 +2003,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"temporibus\"\n}"
+                            "raw": "{\n    \"name\": \"ducimus\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2201,7 +2236,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"dolore\",\n    \"tos_hk\": \"et\",\n    \"tos_cn\": \"libero\"\n}"
+                            "raw": "{\n    \"tos_en\": \"aut\",\n    \"tos_hk\": \"incidunt\",\n    \"tos_cn\": \"sequi\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2262,7 +2297,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"qui\",\n    \"tos_hk\": \"aperiam\",\n    \"tos_cn\": \"asperiores\"\n}"
+                            "raw": "{\n    \"tos_en\": \"nihil\",\n    \"tos_hk\": \"omnis\",\n    \"tos_cn\": \"qui\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2419,7 +2454,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"old_password\": \"quibusdam\",\n    \"new_password\": \"enim\"\n}"
+                            "raw": "{\n    \"old_password\": \"fugiat\",\n    \"new_password\": \"et\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -2704,18 +2739,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "est",
+                                    "value": "asperiores",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "consequuntur",
+                                    "value": "qui",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=est&end=consequuntur"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=asperiores&end=qui"
                         },
                         "method": "GET",
                         "header": [
@@ -2779,7 +2814,7 @@
                             "query": [],
                             "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/permissions"
                         },
-                        "method": "POST",
+                        "method": "PUT",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -2792,7 +2827,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"create:roles\": true,\n    \"update:roles\": true,\n    \"delete:roles\": true\n}"
+                            "raw": "{\n    \"name\": \"\\\"create:users\\\"\",\n    \"granted\": true\n}"
                         },
                         "description": "",
                         "auth": null

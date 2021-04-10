@@ -1,6 +1,10 @@
 <?php
 
 use App\Models\User;
+use App\Models\Branch;
+use App\Models\Category;
+use App\Models\Resource;
+use App\Models\ResourceBooking;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -88,6 +92,28 @@ Route::apiResource('/categories', CategoryController::class);
 Route::apiResource('/tos', TosController::class);
 
 Route::apiResource('/settings', SettingController::class);
+
+/**
+ * @group Dashboard
+ * 
+ * Get Dashboard data
+ * 
+ * @response status=200 scenario="success" {"count":{"user":5,"branch":10,"category":3,"resource":19,"active_bookings":1,"total_bookings":10},"active_bookings":[{"id":17,"user_id":2,"resource_id":4,"branch_setting_version_id":null,"number":"RM-2021041300017","start_time":"2021-04-13T13:00:00","end_time":"2021-04-13T13:30:00","checkin_time":null,"created_at":"2021-04-10T17:22:47.000000Z","updated_at":"2021-04-10T17:22:47.000000Z"}]}
+ * 
+ */
+Route::get('/dashboard', function () {
+    return [
+        'count' => [
+            'user' => User::count(),
+            'branch' => Branch::count(),
+            'category' => Category::count(),
+            'resource' => Resource::count(),
+            'active_bookings' => ResourceBooking::whereDate('start_time', '>', now())->count(),
+            'total_bookings' => ResourceBooking::count(),
+        ],
+        'active_bookings' => ResourceBooking::whereDate('start_time', '>', now())->get(),
+    ];
+});
 
 /**
  * @group Login
