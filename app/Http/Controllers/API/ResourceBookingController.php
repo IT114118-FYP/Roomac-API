@@ -394,6 +394,23 @@ class ResourceBookingController extends Controller
         return response(null, 200);
     }
 
+    /**
+     * @group Resource Booking
+     * 
+     * Check-in (admin)
+     * 
+     * Check-in (admin).
+     *
+     * @param  \App\Models\Resource  $resource
+     * @return \Illuminate\Http\Response
+     */
+    public function adminCheckIn(ResourceBooking $resourceBooking)
+    {
+        $resourceBooking->update(['checkin_time' => now()]);
+
+        return response(null, 200);
+    }
+
     public function getSettingsKV(Resource $resource) {
         $settingsKV = array();
         $settings = $controller->getFormattedSettings($resource->branch_id, $controller->getActiveVersion($resource->branch_id));

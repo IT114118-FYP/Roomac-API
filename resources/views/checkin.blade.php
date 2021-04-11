@@ -34,7 +34,7 @@
 
                 <h2 id="timeString" class="text-4xl text-white pt-4 pb-4">{{ $timeString }}</h2>
     
-                <button type="button" onclick="onCheckInClick()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-8 py-3 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button id="checkinButton" type="button" onclick="onCheckInClick()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-8 py-3 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Check-in
                 </button>
             </div>
@@ -96,6 +96,7 @@
             var number = document.getElementById("number");
             var username = document.getElementById("username");
             var timeString = document.getElementById("timeString");
+            var checkinButton = document.getElementById("checkinButton");
 
             // UI
             var cancelCount = 20, cancelCountDown = document.getElementById("cancelCountDown");

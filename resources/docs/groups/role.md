@@ -46,15 +46,15 @@ fetch(url, {
         "id": 1,
         "name": "root",
         "guard_name": "web",
-        "created_at": "2021-03-21T22:30:26.000000Z",
-        "updated_at": "2021-03-21T22:30:26.000000Z"
+        "created_at": "2021-04-11T15:30:43.000000Z",
+        "updated_at": "2021-04-11T15:30:43.000000Z"
     },
     {
         "id": 2,
         "name": "User Admin",
         "guard_name": "web",
-        "created_at": "2021-03-21T22:30:48.000000Z",
-        "updated_at": "2021-03-21T22:30:48.000000Z"
+        "created_at": "2021-04-11T15:31:01.000000Z",
+        "updated_at": "2021-04-11T15:31:01.000000Z"
     }
 ]
 ```
@@ -80,7 +80,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"maiores"}'
+    -d '{"name":"ipsam"}'
 
 ```
 
@@ -95,7 +95,7 @@ let headers = {
 };
 
 let body = {
-    "name": "maiores"
+    "name": "ipsam"
 }
 
 fetch(url, {
@@ -569,7 +569,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ducimus"}'
+    -d '{"name":"dolorum"}'
 
 ```
 
@@ -584,7 +584,7 @@ let headers = {
 };
 
 let body = {
-    "name": "ducimus"
+    "name": "dolorum"
 }
 
 fetch(url, {

@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=laudantium&end=eaque" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=ut&end=non" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "laudantium",
-    "end": "eaque",
+    "start": "ut",
+    "end": "non",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -79,7 +79,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"omnis","start":"consequuntur","end":"id"}'
+    -d '{"date":"incidunt","start":"et","end":"praesentium"}'
 
 ```
 
@@ -94,9 +94,9 @@ let headers = {
 };
 
 let body = {
-    "date": "omnis",
-    "start": "consequuntur",
-    "end": "id"
+    "date": "incidunt",
+    "start": "et",
+    "end": "praesentium"
 }
 
 fetch(url, {
@@ -140,7 +140,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"qui","start":"reiciendis","end":"culpa"}'
+    -d '{"date":"magnam","start":"debitis","end":"velit"}'
 
 ```
 
@@ -155,9 +155,9 @@ let headers = {
 };
 
 let body = {
-    "date": "qui",
-    "start": "reiciendis",
-    "end": "culpa"
+    "date": "magnam",
+    "start": "debitis",
+    "end": "velit"
 }
 
 fetch(url, {
@@ -320,6 +320,49 @@ fetch(url, {
 ### Request
 <small class="badge badge-black">POST</small>
  **`api/resources/{resource}/checkin`**
+
+
+
+## Check-in (admin)
+
+Check-in (admin).
+
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}/checkin" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}/checkin"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/resourcebookings/{resourceBooking}/checkin`**
 
 
 

@@ -52,6 +52,7 @@ Route::put('/resourcebookings/{resourceBooking}', [ResourceBookingController::cl
 Route::delete('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'destroy']);
 Route::get('/resourcebookings/{resourceBooking}/code', [ResourceBookingController::class, 'getCode']);
 Route::post('/resources/{resource}/checkin', [ResourceBookingController::class, 'checkIn']);
+Route::post('/resourcebookings/{resourceBooking}/checkin', [ResourceBookingController::class, 'adminCheckIn']);
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
 

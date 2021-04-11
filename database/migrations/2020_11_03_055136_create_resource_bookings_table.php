@@ -22,6 +22,7 @@ class CreateResourceBookingsTable extends Migration
             $table->timestamp('start_time');
             $table->timestamp('end_time');
             $table->timestamp('checkin_time')->nullable();
+            $table->integer('edit_count')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->constrained()->onDelete('set null');

@@ -152,7 +152,6 @@ paths:
                                     - { id: KT, title_en: 'Kwun Tong', title_hk: 觀塘, title_cn: 观塘, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550861/KT_ktbvgg.jpg', lat: '22.31356560', lng: '114.23194114', created_at: null, updated_at: null }
                                     - { id: LWL, title_en: 'Lee Wai Lee', title_hk: 李惠利, title_cn: 李惠利, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/LWL_s7uimr.jpg', lat: '22.30620069', lng: '114.25416772', created_at: null, updated_at: null }
                                     - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/MH_tt43bg.jpg', lat: '22.27619053', lng: '114.17792361', created_at: null, updated_at: null }
-                                    - { id: samsam, title_en: sam, title_hk: sam, title_cn: sam, image_url: null, lat: '22.37203930', lng: '114.11557720', created_at: '2021-04-06T10:54:17.000000Z', updated_at: '2021-04-06T10:54:17.000000Z' }
                                     - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null }
                                     - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/TM_vwyaga.jpg', lat: '22.39311344', lng: '113.96646235', created_at: null, updated_at: null }
                                     - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/TY_rli7ox.jpg', lat: '22.34261363', lng: '114.10624981', created_at: null, updated_at: null }
@@ -320,7 +319,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: ipsa
+                    example: harum
                     required: false
                     schema:
                         type: string
@@ -328,7 +327,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: et
+                    example: consequatur
                     required: false
                     schema:
                         type: string
@@ -1848,7 +1847,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: laudantium
+                    example: ut
                     required: false
                     schema:
                         type: string
@@ -1856,7 +1855,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: eaque
+                    example: non
                     required: false
                     schema:
                         type: string
@@ -1919,15 +1918,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: omnis
+                                    example: incidunt
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: consequuntur
+                                    example: et
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: id
+                                    example: praesentium
                             required:
                                 - date
                                 - start
@@ -1965,15 +1964,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: qui
+                                    example: magnam
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: reiciendis
+                                    example: debitis
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: culpa
+                                    example: velit
                             required:
                                 - date
                                 - start
@@ -2057,6 +2056,29 @@ paths:
             tags:
                 - 'Resource Booking'
             security: []
+    '/api/resourcebookings/{resourceBooking}/checkin':
+        post:
+            summary: "Check-in (admin)\n\nCheck-in (admin)."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - 'Resource Booking'
+            security: []
     /api/roles:
         get:
             summary: "Retrieve all roles\n\nRetrieve all roles."
@@ -2086,8 +2108,8 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: 1, name: root, guard_name: web, created_at: '2021-03-21T22:30:26.000000Z', updated_at: '2021-03-21T22:30:26.000000Z' }
-                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-03-21T22:30:48.000000Z', updated_at: '2021-03-21T22:30:48.000000Z' }
+                                    - { id: 1, name: root, guard_name: web, created_at: '2021-04-11T15:30:43.000000Z', updated_at: '2021-04-11T15:30:43.000000Z' }
+                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-04-11T15:31:01.000000Z', updated_at: '2021-04-11T15:31:01.000000Z' }
             tags:
                 - Role
         post:
@@ -2121,7 +2143,7 @@ paths:
                                 name:
                                     type: string
                                     description: 'The role name.'
-                                    example: maiores
+                                    example: ipsam
                             required:
                                 - name
     '/api/roles/{role}':
@@ -2196,7 +2218,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: ducimus
+                                    example: dolorum
                             required:
                                 - name
             security: []
@@ -2463,15 +2485,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: aut
+                                    example: corporis
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: incidunt
+                                    example: blanditiis
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: sequi
+                                    example: adipisci
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2549,15 +2571,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: nihil
+                                    example: debitis
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: omnis
+                                    example: ducimus
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: qui
+                                    example: officiis
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2736,11 +2758,11 @@ paths:
                                 old_password:
                                     type: string
                                     description: ''
-                                    example: fugiat
+                                    example: iste
                                 new_password:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: omnis
     /api/users/import:
         post:
             summary: "Import users\n\nImport users."
@@ -3010,7 +3032,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: asperiores
+                    example: rerum
                     required: false
                     schema:
                         type: string
@@ -3018,7 +3040,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: qui
+                    example: id
                     required: false
                     schema:
                         type: string
