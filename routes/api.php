@@ -109,10 +109,10 @@ Route::get('/dashboard', function () {
             'branch' => Branch::count(),
             'category' => Category::count(),
             'resource' => Resource::count(),
-            'active_bookings' => ResourceBooking::whereDate('start_time', '>', now())->count(),
+            'active_bookings' => ResourceBooking::where('end_time', '>', today())->count(),
             'total_bookings' => ResourceBooking::count(),
         ],
-        'active_bookings' => ResourceBooking::whereDate('start_time', '>', now())->get(),
+        'active_bookings' => ResourceBooking::where('end_time', '>', today())->get(),
     ];
 });
 
