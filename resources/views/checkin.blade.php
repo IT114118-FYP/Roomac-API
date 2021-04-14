@@ -87,6 +87,48 @@
                 </div>
             </div>
         </div>
+
+        <div id="model2" class="fixed z-10 inset-0 overflow-y-auto">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <!--
+                    Background overlay, show/hide based on modal state.
+            
+                    Entering: "ease-out duration-300"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                    Leaving: "ease-in duration-200"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                -->
+                <div id="backgroundOverlay2" class="opacity-0 fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+            
+                <!-- This element is to trick the browser into centering the modal contents. -->
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <!--
+                    Modal panel, show/hide based on modal state.
+            
+                    Entering: "ease-out duration-300"
+                    From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    To: "opacity-100 translate-y-0 sm:scale-100"
+                    Leaving: "ease-in duration-200"
+                    From: "opacity-100 translate-y-0 sm:scale-100"
+                    To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                -->
+                <div id="modelPanel2" class="opacity-0 inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div class="bg-gray-50 px-4 py-3">
+                        <div>
+                            Invalid Check-in QR code...
+                        </div>
+
+                        <button type="button" onclick="hideErrorModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.min.js"></script>
@@ -105,6 +147,10 @@
             var modelPanel = document.getElementById("modelPanel");
             var liveTime = document.getElementById("liveTime");
 
+            var model2 = document.getElementById("model2");
+            var backgroundOverlay2 = document.getElementById("backgroundOverlay2");
+            var modelPanel2 = document.getElementById("modelPanel2");
+
             var video = document.createElement("video");
             var canvasElement = document.getElementById("canvas");
             var canvas = canvasElement.getContext("2d");
@@ -114,6 +160,23 @@
             var outputData = document.getElementById("outputData");
 
             $(model).hide();
+            $(model2).hide();
+
+            function showErrorModal() {
+                $(model2).show();
+                $(backgroundOverlay2).removeClass("opacity-0");
+                $(backgroundOverlay2).addClass("ease-out duration-300 opacity-100");
+                $(modelPanel2).removeClass("opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95");
+                $(modelPanel2).addClass("ease-out duration-300 opacity-100 translate-y-0 sm:scale-100");
+            }
+
+            function hideErrorModal() {
+                $(backgroundOverlay2).removeClass("opacity-100");
+                $(backgroundOverlay2).addClass("ease-in duration-200 opacity-0");
+                $(modelPanel2).removeClass("opacity-100 translate-y-0 sm:scale-100");
+                $(modelPanel2).addClass("ease-in duration-200 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95");
+                setTimeout(() => $(model2).hide(), 200);
+            }
 
             function onCheckInClick() {
                 $(model).show();
@@ -194,7 +257,7 @@
                         //outputData.parentElement.hidden = false;
                         //outputData.innerText = code.data;
                         checkin(code.data);
-                        onCancelClick();
+                        //onCancelClick();
 
                     } else {
                         //outputMessage.hidden = false;
@@ -219,6 +282,9 @@
                         $(number).text(data.resource.number);
                         $(username).text(data.booking?.user?.name ?? '');
                         $(timeString).text(data.timeString);
+                        $(checkinButton).text(data.booking?.checkin_time ? 'Checked-in (' + data.booking?.checkin_time + ')' : 'Check-in');
+                        $(checkinButton).prop('disabled', data.booking?.checkin_time ? true : false);
+
                         resource = data;
                         //console.log(resource);
                         setTimeout(() => updateResource(), 1000);
@@ -235,10 +301,20 @@
             var checkin = function(code) {
                 console.log(code)
 
+                $(modelPanel).removeClass("opacity-100 translate-y-0 sm:scale-100");
+                $(modelPanel).addClass("ease-in duration-200 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95");
+
+                video.srcObject?.getTracks().forEach(function(track) {
+                    if (track.readyState == 'live' && track.kind === 'video') {
+                        track.stop();
+                    }
+                });
+
+                video.srcObject = null;
+
                 $.ajax({
                     url: "/api/resources/{{ $resource->id }}/checkin",
                     type: 'POST',
-                    dataType: 'json',
                     data: {
                         'code': code,
                     },
@@ -247,9 +323,19 @@
                     },
                     success: function(data) {
                         console.log('ok');
+                        $(backgroundOverlay).removeClass("opacity-100");
+                        $(backgroundOverlay).addClass("ease-in duration-200 opacity-0");
+                        setTimeout(() => $(model).hide(), 200);
                     },
                     error: function(data) {
                         console.log('error');
+                        console.log(data)
+                        $(backgroundOverlay).removeClass("opacity-100");
+                        $(backgroundOverlay).addClass("ease-in duration-200 opacity-0");
+                        setTimeout(() => {
+                            $(model).hide()
+                            showErrorModal()
+                        }, 200);
                     }
                 });
             }
