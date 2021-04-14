@@ -45,6 +45,7 @@ Route::apiResource('/resources', ResourceController::class);
 
 Route::get('/users/me/bookings', [UserController::class, 'myselfBookings']);
 
+Route::get('/resources/{resource}/bookings_admin', [ResourceBookingController::class, 'indexAdmin']);
 Route::get('/resources/{resource}/bookings', [ResourceBookingController::class, 'index'])->name('resources.bookings.index');
 Route::post('/resources/{resource}/bookings', [ResourceBookingController::class, 'store']);
 Route::get('/users/{user}/bookings', [ResourceBookingController::class, 'indexUser']);

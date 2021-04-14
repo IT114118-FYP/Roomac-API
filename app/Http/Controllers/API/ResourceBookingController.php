@@ -103,6 +103,45 @@ class ResourceBookingController extends Controller
     /**
      * @group Resource Booking
      * 
+     * Retrieve all resource's bookings (admin)
+     * 
+     * Retrieve all resource's bookings. Example: /api/resources/1/bookings_admin?start=2021-01-24&end=2021-01-30
+     * 
+     * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
+     * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexAdmin(Request $request, Resource $resource)
+    {
+        $query_start = $request->query('start', now());
+        $query_end = $request->query('end', now());
+
+        try {
+            $start_date = Carbon::parse($query_start);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        try {
+            $end_date = Carbon::parse($query_end);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        return [
+            'interval' => $resource->interval,
+            'opening_time' => $resource->opening_time,
+            'closing_time' => $resource->closing_time,
+            'bookings' => ResourceBooking::where('resource_id', $resource->id)->where('start_time', '>=', $query_start)->where('end_time', '<=', $query_end)->get(),
+        ];
+    }
+
+    /**
+     * @group Resource Booking
+     * 
      * Add a new booking record
      * 
      * Add a new booking record.
