@@ -1,6 +1,70 @@
 # Resource Booking
 
 
+## Retrieve all resource&#039;s bookings (admin)
+
+Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings_admin?start=2021-01-24&amp;end=2021-01-30
+
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin?start=voluptas&end=recusandae" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin"
+);
+
+let params = {
+    "start": "voluptas",
+    "end": "recusandae",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/resources/{resource}/bookings_admin`**
+
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<code><b>start</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    query start time in Y-m-d format. Defaults to 2021-01-13.
+
+<code><b>end</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    query end time in Y-m-d format. Defaults to 2021-01-15.
+
+
+
 ## Retrieve all resource&#039;s bookings
 
 Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=2021-01-24&amp;end=2021-01-30
@@ -12,7 +76,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=ut&end=non" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=et&end=adipisci" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +87,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "ut",
-    "end": "non",
+    "start": "et",
+    "end": "adipisci",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -79,7 +143,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"incidunt","start":"et","end":"praesentium"}'
+    -d '{"date":"id","start":"aut","end":"necessitatibus"}'
 
 ```
 
@@ -94,9 +158,9 @@ let headers = {
 };
 
 let body = {
-    "date": "incidunt",
-    "start": "et",
-    "end": "praesentium"
+    "date": "id",
+    "start": "aut",
+    "end": "necessitatibus"
 }
 
 fetch(url, {
@@ -140,7 +204,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"magnam","start":"debitis","end":"velit"}'
+    -d '{"date":"rerum","start":"esse","end":"similique"}'
 
 ```
 
@@ -155,9 +219,9 @@ let headers = {
 };
 
 let body = {
-    "date": "magnam",
-    "start": "debitis",
-    "end": "velit"
+    "date": "rerum",
+    "start": "esse",
+    "end": "similique"
 }
 
 fetch(url, {

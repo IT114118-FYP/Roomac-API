@@ -215,7 +215,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/me/avatar" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "image=@C:\Users\hkdse\AppData\Local\Temp\phpA88.tmp" 
+    -F "image=@C:\Users\hkdse\AppData\Local\Temp\phpA26B.tmp" 
 ```
 
 ```javascript
@@ -267,7 +267,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/me/password" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"old_password":"iste","new_password":"omnis"}'
+    -d '{"old_password":"quisquam","new_password":"optio"}'
 
 ```
 
@@ -282,8 +282,8 @@ let headers = {
 };
 
 let body = {
-    "old_password": "iste",
-    "new_password": "omnis"
+    "old_password": "quisquam",
+    "new_password": "optio"
 }
 
 fetch(url, {
@@ -325,7 +325,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php1B42.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpB122.tmp" 
 ```
 
 ```javascript
