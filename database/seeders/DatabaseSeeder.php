@@ -66,6 +66,7 @@ class DatabaseSeeder extends Seeder
             'create:tos', 'read:tos', 'update:tos', 'delete:tos',
             'create:categories', 'read:categories', 'update:categories', 'delete:categories',
             'create:resources', 'read:resources', 'update:resources', 'delete:resources',
+            'create:bookings', 'read:bookings', 'update:bookings', 'delete:bookings',
         ];
         $this->seedPermission($permissions);
 
