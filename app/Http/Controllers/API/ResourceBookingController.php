@@ -337,10 +337,6 @@ class ResourceBookingController extends Controller
             return response($err->getMessage(), 400);
         }
 
-        if ($this->isBookingExists($resource, $startTime, $endTime)) {
-            return response('The update was invalid.', 401);
-        }
-
         return response(null, $resourceBooking->update(['start_time' => $startTime, 'end_time' => $endTime]) ? 200 : 401);
     }
 
