@@ -12,7 +12,7 @@ Retrieve all user&#039;s bookings. Example: /api/users/1/bookings?start=2021-01-
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings?start=tempore&end=illo" \
+    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings?start=aut&end=tempore" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "tempore",
-    "end": "illo",
+    "start": "aut",
+    "end": "tempore",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));

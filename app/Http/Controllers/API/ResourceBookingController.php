@@ -284,14 +284,18 @@ class ResourceBookingController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @group Resource Booking
+     *
+     * Retrieve a booking record
+     * 
+     * Retrieve a booking record.
      *
      * @param  \App\Models\ResourceBooking  $resourceBooking
      * @return \Illuminate\Http\Response
      */
     public function show(ResourceBooking $resourceBooking)
     {
-        //
+        return $resourceBooking;
     }
 
     /**

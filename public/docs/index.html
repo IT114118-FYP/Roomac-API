@@ -69,7 +69,7 @@ Expo Client: <a href="https://it114118-fyp-mobile.herokuapp.com/" target="_blank
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings?start=iusto&amp;end=odit" \
+    -G "https://it114118-fyp.herokuapp.com/api/branches/{branch}/bookings?start=maiores&amp;end=vitae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -77,8 +77,8 @@ Expo Client: <a href="https://it114118-fyp-mobile.herokuapp.com/" target="_blank
 );
 
 let params = {
-    "start": "iusto",
-    "end": "odit",
+    "start": "maiores",
+    "end": "vitae",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -524,7 +524,7 @@ string required The version of the setting.</p><h1>Branch</h1>
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php1B6B.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php79DE.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/branches/import"
 );
@@ -926,7 +926,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/categories/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpB1F9.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php2339.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/categories/import"
 );
@@ -2752,7 +2752,7 @@ When this value is set to true all of the tokens issued to the user will be revo
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php7350.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpCF62.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/programs/import"
 );
@@ -3116,7 +3116,7 @@ string required The ID of the program.</p><h1>Resource Booking</h1>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin?start=voluptas&amp;end=recusandae" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin?start=nostrum&amp;end=exercitationem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3124,8 +3124,8 @@ string required The ID of the program.</p><h1>Resource Booking</h1>
 );
 
 let params = {
-    "start": "voluptas",
-    "end": "recusandae",
+    "start": "nostrum",
+    "end": "exercitationem",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3161,7 +3161,7 @@ query end time in Y-m-d format. Defaults to 2021-01-15.</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=et&amp;end=adipisci" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=officiis&amp;end=sit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3169,8 +3169,8 @@ query end time in Y-m-d format. Defaults to 2021-01-15.</p>
 );
 
 let params = {
-    "start": "et",
-    "end": "adipisci",
+    "start": "officiis",
+    "end": "sit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3209,7 +3209,7 @@ query end time in Y-m-d format. Defaults to 2021-01-15.</p>
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"id","start":"aut","end":"necessitatibus"}'
+    -d '{"date":"repudiandae","start":"error","end":"quis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings"
@@ -3221,9 +3221,9 @@ let headers = {
 };
 
 let body = {
-    "date": "id",
-    "start": "aut",
-    "end": "necessitatibus"
+    "date": "repudiandae",
+    "start": "error",
+    "end": "quis"
 }
 
 fetch(url, {
@@ -3243,6 +3243,39 @@ Date of the booking (Y-m-d).</p>
 Start time of the booking (H:i:s).</p>
 <p><code><b>end</b></code>&nbsp; <small>string</small>     <br>
 End time of the booking (H:i:s).</p>
+<h2>Retrieve a booking record</h2>
+<p>Retrieve a booking record.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/resourcebookings/{resourceBooking}</code></strong></p>
 <h2>Update a booking record</h2>
 <p>Update a booking record.</p>
 <blockquote>
@@ -3252,7 +3285,7 @@ End time of the booking (H:i:s).</p>
     "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"rerum","start":"esse","end":"similique"}'
+    -d '{"date":"reprehenderit","start":"et","end":"sit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}"
@@ -3264,9 +3297,9 @@ let headers = {
 };
 
 let body = {
-    "date": "rerum",
-    "start": "esse",
-    "end": "similique"
+    "date": "reprehenderit",
+    "start": "et",
+    "end": "sit"
 }
 
 fetch(url, {
@@ -3410,7 +3443,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/resources/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpCC6D.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php2505.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/resources/import"
 );
@@ -5105,15 +5138,15 @@ fetch(url, {
         "id": 1,
         "name": "root",
         "guard_name": "web",
-        "created_at": "2021-04-11T15:30:43.000000Z",
-        "updated_at": "2021-04-11T15:30:43.000000Z"
+        "created_at": "2021-04-14T20:14:43.000000Z",
+        "updated_at": "2021-04-14T20:14:43.000000Z"
     },
     {
         "id": 2,
         "name": "User Admin",
         "guard_name": "web",
-        "created_at": "2021-04-11T15:31:01.000000Z",
-        "updated_at": "2021-04-11T15:31:01.000000Z"
+        "created_at": "2021-04-14T20:15:02.000000Z",
+        "updated_at": "2021-04-14T20:15:02.000000Z"
     }
 ]</code></pre>
 <h3>Request</h3>
@@ -5129,7 +5162,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"asperiores"}'
+    -d '{"name":"qui"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/roles"
@@ -5141,7 +5174,7 @@ let headers = {
 };
 
 let body = {
-    "name": "asperiores"
+    "name": "qui"
 }
 
 fetch(url, {
@@ -5585,7 +5618,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"odit"}'
+    -d '{"name":"nihil"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/roles/{role}"
@@ -5597,7 +5630,7 @@ let headers = {
 };
 
 let body = {
-    "name": "odit"
+    "name": "nihil"
 }
 
 fetch(url, {
@@ -5818,7 +5851,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/tos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"ut","tos_hk":"inventore","tos_cn":"voluptatem"}'
+    -d '{"tos_en":"illum","tos_hk":"aut","tos_cn":"adipisci"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/tos"
@@ -5830,9 +5863,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "ut",
-    "tos_hk": "inventore",
-    "tos_cn": "voluptatem"
+    "tos_en": "illum",
+    "tos_hk": "aut",
+    "tos_cn": "adipisci"
 }
 
 fetch(url, {
@@ -6277,7 +6310,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/tos/{to}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"ratione","tos_hk":"laborum","tos_cn":"enim"}'
+    -d '{"tos_en":"quidem","tos_hk":"sed","tos_cn":"aliquam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/tos/{to}"
@@ -6289,9 +6322,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "ratione",
-    "tos_hk": "laborum",
-    "tos_cn": "enim"
+    "tos_en": "quidem",
+    "tos_hk": "sed",
+    "tos_cn": "aliquam"
 }
 
 fetch(url, {
@@ -6343,7 +6376,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings?start=tempore&amp;end=illo" \
+    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bookings?start=aut&amp;end=tempore" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6351,8 +6384,8 @@ fetch(url, {
 );
 
 let params = {
-    "start": "tempore",
-    "end": "illo",
+    "start": "aut",
+    "end": "tempore",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -7129,7 +7162,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/users/me/avatar" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "image=@C:\Users\hkdse\AppData\Local\Temp\phpA26B.tmp" </code></pre>
+    -F "image=@C:\Users\hkdse\AppData\Local\Temp\php9E7.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/users/me/avatar"
 );
@@ -7164,7 +7197,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/users/me/password" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"old_password":"quisquam","new_password":"optio"}'
+    -d '{"old_password":"aperiam","new_password":"necessitatibus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/users/me/password"
@@ -7176,8 +7209,8 @@ let headers = {
 };
 
 let body = {
-    "old_password": "quisquam",
-    "new_password": "optio"
+    "old_password": "aperiam",
+    "new_password": "necessitatibus"
 }
 
 fetch(url, {
@@ -7203,7 +7236,7 @@ fetch(url, {
     "https://it114118-fyp.herokuapp.com/api/users/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpB122.tmp" </code></pre>
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php1998.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://it114118-fyp.herokuapp.com/api/users/import"
 );
