@@ -155,8 +155,8 @@ Route::post('/login', function (Request $request) {
     }
 
     // Check is user banned
-    if (UserBan::where('user_id', $request->user()->id)->where('expire_time', '>', now())->exists()) {
-        $userban = UserBan::where('user_id', $request->user()->id)->where('expire_time', '>', now())->select('expire_time');
+    if (UserBan::where('user_id', $user->id)->where('expire_time', '>', now())->exists()) {
+        $userban = UserBan::where('user_id', $user->id)->where('expire_time', '>', now())->select('expire_time');
         return response($userban->expire_time, 402);
     }
     
