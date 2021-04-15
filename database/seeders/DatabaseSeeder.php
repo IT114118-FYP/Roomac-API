@@ -186,7 +186,7 @@ class DatabaseSeeder extends Seeder
         $this->seedResourceBooking($rows);
 
         # User (Set roles and permissions)
-        User::where('name', '000000000')->first()->assignRole('root');
+        User::where('name', 'admin')->first()->assignRole('root');
         User::where('name', '190189768')->first()->assignRole(['User Admin']);
 
         User::where('name', '190189768')->first()
