@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\UserBan;
 use App\Models\Branch;
 use App\Models\Category;
 use App\Models\Resource;
@@ -14,6 +15,7 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\API\BranchController;
 use App\Http\Controllers\API\ProgramController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\UserBanController;
 use App\Http\Controllers\API\ResourceController;
 use App\Http\Controllers\API\ResourceBookingController;
 use App\Http\Controllers\API\RoleController;
@@ -57,6 +59,7 @@ Route::post('/resources/{resource}/checkin', [ResourceBookingController::class, 
 Route::post('/resourcebookings/{resourceBooking}/checkin', [ResourceBookingController::class, 'adminCheckIn']);
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
+Route::apiResource('/userbans', UserBanController::class);
 
 Route::get('/users/me', [UserController::class, 'myself']);
 Route::post('/users/me/avatar', [UserController::class, 'myselfAvatar']);
@@ -144,6 +147,17 @@ Route::post('/login', function (Request $request) {
     // If user not exist OR password not match => return error message
     if (!$user || !Hash::check($request->password, $user->password)) {
         return response('The provided credentials are incorrect.', 401);
+    }
+    
+    // Check is admin
+    if ($request->device_name == 'admin pc' && $user->can('login:admin')) {
+        return $user->createToken($request->device_name)->plainTextToken;
+    }
+
+    // Check is user banned
+    if (UserBan::where('user_id', $request->user()->id)->where('expire_time', '>', now())->exists()) {
+        $userban = UserBan::where('user_id', $request->user()->id)->where('expire_time', '>', now())->select('expire_time');
+        return response($userban->expire_time, 402);
     }
     
     return $user->createToken($request->device_name)->plainTextToken;

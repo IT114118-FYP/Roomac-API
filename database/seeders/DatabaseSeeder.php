@@ -152,7 +152,7 @@ class DatabaseSeeder extends Seeder
 
         # User
         $rows = [
-            ['000000000', 'admin@vtc.edu.hk', '12345678', null, null, null, 'admin', null, 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553760/room_avzedt.png'],
+            ['admin', 'admin@vtc.edu.hk', '12345678', null, null, null, 'admin', null, 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553760/room_avzedt.png'],
             ['190189768', '190189768@stu.vtc.edu.hk', '12345678', 'CE114301', 'CW', 'Pui Tat', 'Tse', '謝沛達', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553613/tat_pztvry.jpg'],
             ['190271174', '190271174@stu.vtc.edu.hk', '12345678', 'IT114118', 'ST', 'Wing Kit', 'To', '涂穎傑', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553755/tommy_txftkf.png'],
             ['190057409', '190057409@stu.vtc.edu.hk', '12345678', 'IT114105', 'ST', 'Wai Shing Vincent', 'Tai', '戴偉城', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553853/vin_o2nvrj.jpg'],
