@@ -1,8 +1,11 @@
 # User Ban
 
 
-## Display a listing of the resource.
+## Retrieve all user ban records
 
+Retrieve all user ban records.
+
+<small class="badge badge-darkred">requires authentication</small>
 
 
 
@@ -35,6 +38,13 @@ fetch(url, {
 ```
 
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
 
 ### Request
 <small class="badge badge-green">GET</small>
@@ -42,8 +52,11 @@ fetch(url, {
 
 
 
-## Store a newly created resource in storage.
+## Ban a user
 
+Ban a user.
+
+<small class="badge badge-darkred">requires authentication</small>
 
 
 
@@ -53,7 +66,9 @@ fetch(url, {
 curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/userbans" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"user_id":"et","ban_minutes":9}'
+
 ```
 
 ```javascript
@@ -66,10 +81,15 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "user_id": "et",
+    "ban_minutes": 9
+}
 
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
@@ -81,10 +101,20 @@ fetch(url, {
 <small class="badge badge-black">POST</small>
  **`api/userbans`**
 
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>user_id</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>ban_minutes</b></code>&nbsp; <small>integer</small>     <br>
+    
 
 
-## Display the specified resource.
 
+## Retrieve a user ban record
+
+Retrieve a user ban record.
+
+<small class="badge badge-darkred">requires authentication</small>
 
 
 
@@ -117,6 +147,13 @@ fetch(url, {
 ```
 
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
 
 ### Request
 <small class="badge badge-green">GET</small>
@@ -124,8 +161,11 @@ fetch(url, {
 
 
 
-## Update the specified resource in storage.
+## Update a user ban record
 
+Update a user ban record.
+
+<small class="badge badge-darkred">requires authentication</small>
 
 
 
@@ -168,7 +208,9 @@ fetch(url, {
 
 
 
-## Remove the specified resource from storage.
+## Remove a user ban record
+
+Remove a user ban record
 
 
 

@@ -91,7 +91,7 @@ class UserBanController extends Controller
      * 
      * Update a user ban record
      * 
-     * Update a user ban record.
+     * Update a user ban record (Add more minutes).
      * 
      * @authenticated
      *
@@ -103,7 +103,7 @@ class UserBanController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'sometimes|required',
-            'expire_time' => 'sometimes|required',
+            'ban_minutes' => 'sometimes|required',
         ]);
 
         if ($validator->fails()) {
@@ -111,6 +111,8 @@ class UserBanController extends Controller
         }
 
         $validated_data = $validator->valid();
+
+        $validated_data['expire_time'] = Carbon::parse($userBan->expire_time)->addMinutes($validated_data['ban_minutes']);
 
         return response(null, $userBan->update($validated_data) ? 200 : 401);
     }

@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "API Documentation - Roomac",
-        "_postman_id": "1c6cbfac-3ee9-4405-8030-39725257b017",
+        "_postman_id": "748da34c-00ea-47df-a113-711f1dbd5bc6",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -307,18 +307,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "illo",
+                                    "value": "ut",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "excepturi",
+                                    "value": "aut",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=illo&end=excepturi"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/branches\/:branch\/bookings?start=ut&end=aut"
                         },
                         "method": "GET",
                         "header": [
@@ -1705,18 +1705,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "odio",
+                                    "value": "id",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "sit",
+                                    "value": "error",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings_admin?start=odio&end=sit"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings_admin?start=id&end=error"
                         },
                         "method": "GET",
                         "header": [
@@ -1747,18 +1747,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "cumque",
+                                    "value": "explicabo",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "maiores",
+                                    "value": "voluptatem",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=cumque&end=maiores"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/resources\/:resource\/bookings?start=explicabo&end=voluptatem"
                         },
                         "method": "GET",
                         "header": [
@@ -1802,7 +1802,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"aut\",\n    \"start\": \"quasi\",\n    \"end\": \"quas\"\n}"
+                            "raw": "{\n    \"date\": \"et\",\n    \"start\": \"pariatur\",\n    \"end\": \"ducimus\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -1863,7 +1863,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"date\": \"rerum\",\n    \"start\": \"aut\",\n    \"end\": \"iste\"\n}"
+                            "raw": "{\n    \"date\": \"minima\",\n    \"start\": \"similique\",\n    \"end\": \"numquam\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2044,7 +2044,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"officiis\"\n}"
+                            "raw": "{\n    \"name\": \"laudantium\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -2103,7 +2103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"doloremque\"\n}"
+                            "raw": "{\n    \"name\": \"laudantium\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2336,7 +2336,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"ad\",\n    \"tos_hk\": \"deserunt\",\n    \"tos_cn\": \"veritatis\"\n}"
+                            "raw": "{\n    \"tos_en\": \"qui\",\n    \"tos_hk\": \"molestiae\",\n    \"tos_cn\": \"aut\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2397,7 +2397,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"tos_en\": \"maiores\",\n    \"tos_hk\": \"veniam\",\n    \"tos_cn\": \"ut\"\n}"
+                            "raw": "{\n    \"tos_en\": \"quidem\",\n    \"tos_hk\": \"tempora\",\n    \"tos_cn\": \"qui\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -2554,7 +2554,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"old_password\": \"reprehenderit\",\n    \"new_password\": \"velit\"\n}"
+                            "raw": "{\n    \"old_password\": \"consequuntur\",\n    \"new_password\": \"id\"\n}"
                         },
                         "description": "",
                         "auth": null
@@ -2830,7 +2830,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Retrieve all user ban records\n\nRetrieve all user ban records.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -2852,14 +2852,12 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
                 {
-                    "name": "Store a newly created resource in storage.",
+                    "name": "Ban a user\n\nBan a user.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -2879,16 +2877,17 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": \"et\",\n    \"ban_minutes\": 9\n}"
+                        },
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
                 {
-                    "name": "Display the specified resource.",
+                    "name": "Retrieve a user ban record\n\nRetrieve a user ban record.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -2910,14 +2909,12 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
                 {
-                    "name": "Update the specified resource in storage.",
+                    "name": "Update a user ban record\n\nUpdate a user ban record.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -2939,14 +2936,12 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "auth": null
                     },
                     "response": []
                 },
                 {
-                    "name": "Remove the specified resource from storage.",
+                    "name": "Remove a user ban record\n\nRemove a user ban record",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -2990,18 +2985,18 @@
                             "query": [
                                 {
                                     "key": "start",
-                                    "value": "optio",
+                                    "value": "aut",
                                     "description": "query start time in Y-m-d format. Defaults to 2021-01-13.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "end",
-                                    "value": "et",
+                                    "value": "fugiat",
                                     "description": "query end time in Y-m-d format. Defaults to 2021-01-15.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=optio&end=et"
+                            "raw": "http:\/\/it114118-fyp.herokuapp.com\/api\/users\/:user\/bookings?start=aut&end=fugiat"
                         },
                         "method": "GET",
                         "header": [

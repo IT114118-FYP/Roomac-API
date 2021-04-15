@@ -319,7 +319,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: illo
+                    example: ut
                     required: false
                     schema:
                         type: string
@@ -327,7 +327,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: excepturi
+                    example: aut
                     required: false
                     schema:
                         type: string
@@ -1847,7 +1847,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: odio
+                    example: id
                     required: false
                     schema:
                         type: string
@@ -1855,7 +1855,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: sit
+                    example: error
                     required: false
                     schema:
                         type: string
@@ -1896,7 +1896,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: cumque
+                    example: explicabo
                     required: false
                     schema:
                         type: string
@@ -1904,7 +1904,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: maiores
+                    example: voluptatem
                     required: false
                     schema:
                         type: string
@@ -1967,15 +1967,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: aut
+                                    example: et
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: quasi
+                                    example: pariatur
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: quas
+                                    example: ducimus
                             required:
                                 - date
                                 - start
@@ -2045,15 +2045,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: rerum
+                                    example: minima
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: aut
+                                    example: similique
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: iste
+                                    example: numquam
                             required:
                                 - date
                                 - start
@@ -2189,8 +2189,8 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: 1, name: root, guard_name: web, created_at: '2021-04-14T20:14:43.000000Z', updated_at: '2021-04-14T20:14:43.000000Z' }
-                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-04-14T20:15:02.000000Z', updated_at: '2021-04-14T20:15:02.000000Z' }
+                                    - { id: 1, name: root, guard_name: web, created_at: '2021-04-15T10:25:09.000000Z', updated_at: '2021-04-15T10:25:09.000000Z' }
+                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-04-15T10:25:29.000000Z', updated_at: '2021-04-15T10:25:29.000000Z' }
             tags:
                 - Role
         post:
@@ -2224,7 +2224,7 @@ paths:
                                 name:
                                     type: string
                                     description: 'The role name.'
-                                    example: officiis
+                                    example: laudantium
                             required:
                                 - name
     '/api/roles/{role}':
@@ -2299,7 +2299,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: doloremque
+                                    example: laudantium
                             required:
                                 - name
             security: []
@@ -2566,15 +2566,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: ad
+                                    example: qui
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: deserunt
+                                    example: molestiae
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: veritatis
+                                    example: aut
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2652,15 +2652,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: maiores
+                                    example: quidem
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: veniam
+                                    example: tempora
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: ut
+                                    example: qui
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2839,11 +2839,11 @@ paths:
                                 old_password:
                                     type: string
                                     description: ''
-                                    example: reprehenderit
+                                    example: consequuntur
                                 new_password:
                                     type: string
                                     description: ''
-                                    example: velit
+                                    example: id
     /api/users/import:
         post:
             summary: "Import users\n\nImport users."
@@ -3106,7 +3106,7 @@ paths:
                 - User
     /api/userbans:
         get:
-            summary: 'Display a listing of the resource.'
+            summary: "Retrieve all user ban records\n\nRetrieve all user ban records."
             description: ''
             parameters:
                 -
@@ -3123,12 +3123,21 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'User Ban'
-            security: []
         post:
-            summary: 'Store a newly created resource in storage.'
+            summary: "Ban a user\n\nBan a user."
             description: ''
             parameters:
                 -
@@ -3148,10 +3157,27 @@ paths:
             responses: {  }
             tags:
                 - 'User Ban'
-            security: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                user_id:
+                                    type: string
+                                    description: ''
+                                    example: et
+                                ban_minutes:
+                                    type: integer
+                                    description: ''
+                                    example: 9
+                            required:
+                                - user_id
+                                - ban_minutes
     '/api/userbans/{userban}':
         get:
-            summary: 'Display the specified resource.'
+            summary: "Retrieve a user ban record\n\nRetrieve a user ban record."
             description: ''
             parameters:
                 -
@@ -3168,12 +3194,21 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'User Ban'
-            security: []
         put:
-            summary: 'Update the specified resource in storage.'
+            summary: "Update a user ban record\n\nUpdate a user ban record."
             description: ''
             parameters:
                 -
@@ -3193,9 +3228,8 @@ paths:
             responses: {  }
             tags:
                 - 'User Ban'
-            security: []
         delete:
-            summary: 'Remove the specified resource from storage.'
+            summary: "Remove a user ban record\n\nRemove a user ban record"
             description: ''
             parameters:
                 -
@@ -3225,7 +3259,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: optio
+                    example: aut
                     required: false
                     schema:
                         type: string
@@ -3233,7 +3267,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: et
+                    example: fugiat
                     required: false
                     schema:
                         type: string
