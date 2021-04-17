@@ -75,6 +75,8 @@ Route::apiResource('/roles', RoleController::class);
 Route::get('/roles/{role}/permissions', [RolePermissionController::class, 'show']);
 Route::post('/roles/{role}/permissions', [RolePermissionController::class, 'update']);
 
+Route::get('/users/{user}/bans', [UserController::class, 'indexBan']);
+
 Route::get('/users/{user}/roles', [UserRoleController::class, 'index']);
 Route::post('/users/{user}/roles', [UserRoleController::class, 'store']);
 Route::delete('/users/{user}/roles', [UserRoleController::class, 'destroy']);

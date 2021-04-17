@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserBan;
 use App\Models\ResourceBooking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -182,6 +183,28 @@ class UserController extends Controller
     {
         User::destroy($user->id);
         return response(null, 200);
+    }
+
+    /**
+     * @group User Ban
+     * 
+     * Get ban status
+     * 
+     * Get ban status.
+     * 
+     * @authenticated
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function indexBan(Request $request, User $user)
+    {
+        if (UserBan::where('user_id', $user->id)->where('expire_time', '>', now())->exists()) {
+            $userban = UserBan::where('user_id', $user->id)->where('expire_time', '>', now())->select('expire_time')->first();
+            return response(["expire_time" => $userban->expire_time], 200);
+        }
+
+        return response(["expire_time" => null], 200);
     }
 
     /**

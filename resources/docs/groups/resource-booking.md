@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings_admin?
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin?start=id&end=error" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin?start=tempore&end=error" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,7 +23,7 @@ const url = new URL(
 );
 
 let params = {
-    "start": "id",
+    "start": "tempore",
     "end": "error",
 };
 Object.keys(params)
@@ -76,7 +76,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=explicabo&end=voluptatem" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=sunt&end=id" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -87,8 +87,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "explicabo",
-    "end": "voluptatem",
+    "start": "sunt",
+    "end": "id",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -143,7 +143,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"et","start":"pariatur","end":"ducimus"}'
+    -d '{"date":"a","start":"a","end":"fuga"}'
 
 ```
 
@@ -158,9 +158,9 @@ let headers = {
 };
 
 let body = {
-    "date": "et",
-    "start": "pariatur",
-    "end": "ducimus"
+    "date": "a",
+    "start": "a",
+    "end": "fuga"
 }
 
 fetch(url, {
@@ -254,7 +254,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"minima","start":"similique","end":"numquam"}'
+    -d '{"date":"cum","start":"ut","end":"nisi"}'
 
 ```
 
@@ -269,9 +269,9 @@ let headers = {
 };
 
 let body = {
-    "date": "minima",
-    "start": "similique",
-    "end": "numquam"
+    "date": "cum",
+    "start": "ut",
+    "end": "nisi"
 }
 
 fetch(url, {

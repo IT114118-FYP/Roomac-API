@@ -67,7 +67,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/userbans" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":"et","ban_minutes":9}'
+    -d '{"user_id":"distinctio","ban_minutes":20}'
 
 ```
 
@@ -82,8 +82,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": "et",
-    "ban_minutes": 9
+    "user_id": "distinctio",
+    "ban_minutes": 20
 }
 
 fetch(url, {
@@ -163,7 +163,7 @@ fetch(url, {
 
 ## Update a user ban record
 
-Update a user ban record.
+Update a user ban record (Add more minutes).
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -248,6 +248,57 @@ fetch(url, {
 ### Request
 <small class="badge badge-red">DELETE</small>
  **`api/userbans/{userban}`**
+
+
+
+## Get ban status
+
+Get ban status.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://it114118-fyp.herokuapp.com/api/users/{user}/bans" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/{user}/bans"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/users/{user}/bans`**
 
 
 

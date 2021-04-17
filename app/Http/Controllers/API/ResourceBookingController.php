@@ -114,8 +114,17 @@ class ResourceBookingController extends Controller
      */
     public function indexAdmin(Request $request, Resource $resource)
     {
-        $query_start = $request->query('start', now());
-        $query_end = $request->query('end', now());
+        $query_start = $request->query('start', null);
+        $query_end = $request->query('end', null);
+
+        if ($query_start == null || $query_end == null) {
+            return [
+                'interval' => $resource->interval,
+                'opening_time' => $resource->opening_time,
+                'closing_time' => $resource->closing_time,
+                'bookings' => ResourceBooking::where('resource_id', $resource->id)->get(),
+            ];
+        }
 
         try {
             $start_date = Carbon::parse($query_start);
