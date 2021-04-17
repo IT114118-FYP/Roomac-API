@@ -55,7 +55,7 @@ class ResourceBookingController extends Controller
         catch (\Exception $err) {
             return response($err->getMessage(), 400);
         }
-        
+
 /*
         if ($except == null) {
             $booked = ResourceBooking::where('resource_id', $resource->id)->get();
@@ -155,6 +155,44 @@ class ResourceBookingController extends Controller
             'closing_time' => $resource->closing_time,
             'bookings' => ResourceBooking::where('resource_id', $resource->id)->where('start_time', '>=', $query_start)->where('end_time', '<=', $query_end)->get(),
         ];
+    }
+
+    /**
+     * @group Resource Booking
+     * 
+     * Retrieve all resource's bookings (traditional)
+     * 
+     * Retrieve all resource's bookings. Example: /api/resourcebookings?start=2021-01-24&end=2021-01-30
+     * 
+     * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
+     * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexTraditional(Request $request)
+    {
+        $query_start = $request->query('start', null);
+        $query_end = $request->query('end', null);
+
+        if ($query_start == null || $query_end == null) {
+            return ResourceBooking::all();
+        }
+
+        try {
+            $start_date = Carbon::parse($query_start);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        try {
+            $end_date = Carbon::parse($query_end);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        return ResourceBooking::where('start_time', '>=', $query_start)->where('end_time', '<=', $query_end)->get();
     }
 
     /**

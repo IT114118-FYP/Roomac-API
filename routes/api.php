@@ -52,6 +52,7 @@ Route::get('/resources/{resource}/bookings_admin', [ResourceBookingController::c
 Route::get('/resources/{resource}/bookings', [ResourceBookingController::class, 'index'])->name('resources.bookings.index');
 Route::post('/resources/{resource}/bookings', [ResourceBookingController::class, 'store']);
 Route::get('/users/{user}/bookings', [ResourceBookingController::class, 'indexUser']);
+Route::get('/resourcebookings', [ResourceBookingController::class, 'indexTraditional']);
 Route::get('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'show']);
 Route::put('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'update']);
 Route::delete('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'destroy']);
