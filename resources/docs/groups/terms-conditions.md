@@ -72,7 +72,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/tos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"amet","tos_hk":"ut","tos_cn":"sunt"}'
+    -d '{"tos_en":"occaecati","tos_hk":"autem","tos_cn":"quis"}'
 
 ```
 
@@ -87,9 +87,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "amet",
-    "tos_hk": "ut",
-    "tos_cn": "sunt"
+    "tos_en": "occaecati",
+    "tos_hk": "autem",
+    "tos_cn": "quis"
 }
 
 fetch(url, {
@@ -569,7 +569,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/tos/{to}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"vel","tos_hk":"reiciendis","tos_cn":"ut"}'
+    -d '{"tos_en":"rem","tos_hk":"rerum","tos_cn":"accusantium"}'
 
 ```
 
@@ -584,9 +584,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "vel",
-    "tos_hk": "reiciendis",
-    "tos_cn": "ut"
+    "tos_en": "rem",
+    "tos_hk": "rerum",
+    "tos_cn": "accusantium"
 }
 
 fetch(url, {
