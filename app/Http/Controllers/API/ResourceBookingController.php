@@ -29,7 +29,7 @@ class ResourceBookingController extends Controller
      * 
      * Retrieve all resource's bookings
      * 
-     * Retrieve all resource's bookings. Example: /api/resources/1/bookings?start=2021-01-24&end=2021-01-30
+     * Retrieve all resource's bookings. Example: /api/resources/1/bookings?start=2021-01-24&end=2021-01-30&except=1
      * 
      * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
      * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
@@ -40,6 +40,7 @@ class ResourceBookingController extends Controller
     {
         $query_start = $request->query('start', now());
         $query_end = $request->query('end', now());
+        $except = $request->query('except', null);
 
         try {
             $start_date = Carbon::parse($query_start);
@@ -55,7 +56,12 @@ class ResourceBookingController extends Controller
             return response($err->getMessage(), 400);
         }
 
-        $booked = ResourceBooking::where('resource_id', $resource->id)->get();
+        if ($except == null) {
+            $booked = ResourceBooking::where('resource_id', $resource->id)->get();
+        } else {
+            $booked = ResourceBooking::where('resource_id', $resource->id)->where('id', '!=' , $except)->get();
+        }
+
         $reserved = ResourceReserved::where('resource_id', $resource->id)->get();
         $interval = $resource->interval;
 
