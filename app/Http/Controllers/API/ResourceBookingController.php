@@ -55,7 +55,8 @@ class ResourceBookingController extends Controller
         catch (\Exception $err) {
             return response($err->getMessage(), 400);
         }
-
+        
+/*
         if ($except == null) {
             $booked = ResourceBooking::where('resource_id', $resource->id)->get();
         } else {
@@ -63,6 +64,8 @@ class ResourceBookingController extends Controller
         }
 
         $reserved = ResourceReserved::where('resource_id', $resource->id)->get();
+*/
+
         $interval = $resource->interval;
 
         $closing_time = explode(":", $resource->closing_time);
@@ -90,7 +93,7 @@ class ResourceBookingController extends Controller
                     'id' => $i + 1,
                     'start_time' => $start_time,
                     'end_time' => $end_time,
-                    'available' => !$this->isBookingExists($resource, Carbon::parse($current_date->toDateString() . 'T' . $start_time), Carbon::parse($current_date->toDateString() . 'T' . $end_time)),
+                    'available' => !$this->isBookingExists($resource, Carbon::parse($current_date->toDateString() . 'T' . $start_time), Carbon::parse($current_date->toDateString() . 'T' . $end_time), $except),
                 ];
             }
 
@@ -481,17 +484,23 @@ class ResourceBookingController extends Controller
         }
     }
     
-    private function isBookingExists($resource, $startTime, $endTime) {
-        return ResourceBooking::where('resource_id', $resource->id)->where(function ($query) use ($startTime, $endTime) {
-            $query->where(function ($query) use ($startTime, $endTime) {
-                    $query->where('start_time', '>', $startTime)->where('end_time', '<', $startTime);
-                })->orWhere(function ($query) use ($startTime, $endTime) {
-                    $query->where('start_time', '<', $endTime)->where('end_time', '>', $endTime);
-                })->orWhere(function ($query) use ($startTime, $endTime) {
-                    $query->where('start_time', '>', $startTime)->where('end_time', '<', $endTime);
-                })->orWhere(function ($query) use ($startTime, $endTime) {
-                    $query->where('start_time', '<', $endTime)->where('end_time', '>', $startTime);
-                });
-            })->exists();
+    private function isBookingExists($resource, $startTime, $endTime, $except=null) {
+        $rb = ResourceBooking::where('resource_id', $resource->id);
+
+        if ($except !== null) {
+            $rb = $rb->where('id', '!=' , $except);
+        }
+
+        return $rb->where(function ($query) use ($startTime, $endTime) {
+                $query->where(function ($query) use ($startTime, $endTime) {
+                        $query->where('start_time', '>', $startTime)->where('end_time', '<', $startTime);
+                    })->orWhere(function ($query) use ($startTime, $endTime) {
+                        $query->where('start_time', '<', $endTime)->where('end_time', '>', $endTime);
+                    })->orWhere(function ($query) use ($startTime, $endTime) {
+                        $query->where('start_time', '>', $startTime)->where('end_time', '<', $endTime);
+                    })->orWhere(function ($query) use ($startTime, $endTime) {
+                        $query->where('start_time', '<', $endTime)->where('end_time', '>', $startTime);
+                    });
+                })->exists();
     }
 }
