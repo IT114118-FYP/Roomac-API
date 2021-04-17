@@ -23,12 +23,18 @@ class ResourceController extends Controller
      * 
      * Retrieve all resources
      * 
-     * Retrieve all resources.
+     * Retrieve all resources. With filter example: /api/resources?branch=ST
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $branch = $request->query('branch', null);
+
+        if ($branch !== null) {
+            return Resource::where('branch_id', $branch)->with(['branch', 'category', 'tos'])->get();
+        }
+
         return Resource::with(['branch', 'category', 'tos'])->get();
     }
 
