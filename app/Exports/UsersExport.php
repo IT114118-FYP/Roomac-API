@@ -17,7 +17,8 @@ class UsersExport implements FromCollection
     {
         $user = User::all();
         $user->makeHidden(['id']);
-        
+        $user->makeVisible(['password']);
+
         return $user;
     }
 }
