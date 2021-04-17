@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\UserBan;
 use App\Models\Branch;
 use App\Models\Category;
+use App\Models\Program;
 use App\Models\Resource;
 use App\Models\ResourceBooking;
 
@@ -115,6 +116,7 @@ Route::get('/dashboard', function () {
             'user' => User::count(),
             'branch' => Branch::count(),
             'category' => Category::count(),
+            'program' => Program::count(),
             'resource' => Resource::count(),
             'active_bookings' => ResourceBooking::where('end_time', '>', today())->count(),
             'total_bookings' => ResourceBooking::count(),
