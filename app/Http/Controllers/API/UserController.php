@@ -309,7 +309,7 @@ class UserController extends Controller
      */
     public function myself(Request $request)
     {
-        return $request->user();
+        return User::where('id', $request->user()->id)->with(['branch', 'program'])->first();
     }
 
     /**
