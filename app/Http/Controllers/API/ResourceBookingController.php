@@ -435,7 +435,7 @@ class ResourceBookingController extends Controller
 
         // Return if the resource booking is already checked-in
         if ($resourceBooking->checkin_time !== null) {
-            return response('Already checked-in', 402);
+            //return response('Already checked-in', 402);
         }
 
         // Generate or update the code
