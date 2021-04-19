@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/programs/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpC071.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php7781.tmp" 
 ```
 
 ```javascript
@@ -253,12 +253,28 @@ fetch(url, {
 ```json
 [
     {
+        "id": "AS114103",
+        "title_en": "Higher Diploma in Analytical Science",
+        "title_hk": "化驗科學高級文憑",
+        "title_cn": "化验科学高级文凭",
+        "created_at": "2021-04-17T21:34:32.000000Z",
+        "updated_at": "2021-04-17T21:34:32.000000Z"
+    },
+    {
         "id": "CE114301",
         "title_en": "Higher Diploma in Child Care and Education",
         "title_hk": "幼兒教育高級文憑",
         "title_cn": "幼儿教育高级文凭",
         "created_at": null,
         "updated_at": null
+    },
+    {
+        "id": "DS125101",
+        "title_en": "Bachelor of Arts (Honours) in Advertising",
+        "title_hk": "廣告（榮譽）文學士",
+        "title_cn": "广告（荣誉）文学士",
+        "created_at": "2021-04-17T21:35:28.000000Z",
+        "updated_at": "2021-04-17T21:35:28.000000Z"
     },
     {
         "id": "IT114105",

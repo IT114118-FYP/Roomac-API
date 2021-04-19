@@ -67,7 +67,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/userbans" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":"dolor","ban_minutes":2}'
+    -d '{"user_id":"deleniti","ban_minutes":16}'
 
 ```
 
@@ -82,8 +82,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": "dolor",
-    "ban_minutes": 2
+    "user_id": "deleniti",
+    "ban_minutes": 16
 }
 
 fetch(url, {
@@ -299,6 +299,50 @@ fetch(url, {
 ### Request
 <small class="badge badge-green">GET</small>
  **`api/users/{user}/bans`**
+
+
+
+## Unban a user
+
+Unban a user.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://it114118-fyp.herokuapp.com/api/users/{user}/unban" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/users/{user}/unban"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-red">DELETE</small>
+ **`api/users/{user}/unban`**
 
 
 

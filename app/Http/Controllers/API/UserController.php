@@ -199,12 +199,34 @@ class UserController extends Controller
      */
     public function indexBan(Request $request, User $user)
     {
-        if (UserBan::where('user_id', $user->id)->where('expire_time', '>', now())->exists()) {
-            $userban = UserBan::where('user_id', $user->id)->where('expire_time', '>', now())->select('expire_time')->first();
+        if (UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->exists()) {
+            $userban = UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->select('expire_time')->first();
             return response(["expire_time" => $userban->expire_time], 200);
         }
 
         return response(["expire_time" => null], 200);
+    }
+
+    /**
+     * @group User Ban
+     * 
+     * Unban a user
+     * 
+     * Unban a user.
+     * 
+     * @authenticated
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyBan(Request $request, User $user)
+    {
+        if (UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->exists()) {
+            $userban = UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->select('expire_time')->first();
+            $userban->update(['is_cancelled' => 1]);
+        }
+
+        return response(null, 200);
     }
 
     /**

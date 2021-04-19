@@ -16,6 +16,7 @@ class CreateUserBansTable extends Migration
         Schema::create('user_bans', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->boolean('is_cancelled')->default(0);
             $table->timestamp('expire_time');
             $table->timestamps();
 
