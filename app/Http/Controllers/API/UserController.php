@@ -156,8 +156,8 @@ class UserController extends Controller
 
         $validated_data = $validator->valid();
 
-        if (isset($validatedData['password'])) {
-            $validatedData['password'] = Hash::make($validatedData['password']);
+        if (isset($validated_data['password'])) {
+            $validated_data['password'] = Hash::make($validated_data['password']);
         }
 
         if (isset($request->image) && !is_null($request->image)) {
@@ -222,7 +222,7 @@ class UserController extends Controller
     public function destroyBan(Request $request, User $user)
     {
         if (UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->exists()) {
-            $userban = UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->select('expire_time')->first();
+            $userban = UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->first();
             $userban->update(['is_cancelled' => 1]);
         }
 
