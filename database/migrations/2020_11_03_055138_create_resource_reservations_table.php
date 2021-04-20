@@ -18,8 +18,8 @@ class CreateResourceReservationsTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('resource_id')->unsigned();
 
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
 
             $table->time('start');
             $table->time('end');

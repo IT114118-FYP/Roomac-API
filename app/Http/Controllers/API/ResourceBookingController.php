@@ -89,11 +89,15 @@ class ResourceBookingController extends Controller
                 if ($closing_hour <= $hour && $closing_minute < $minute || $closing_hour < $hour && $closing_minute <= $minute) { break; }
 
                 $end_time = str_pad($hour, 2, '0', STR_PAD_LEFT).':'.str_pad($minute, 2, '0', STR_PAD_LEFT).':'.str_pad($second, 2, '0', STR_PAD_LEFT);
+
+                $startTime = Carbon::parse($current_date->toDateString() . 'T' . $start_time);
+                $endTime = Carbon::parse($current_date->toDateString() . 'T' . $end_time);
+
                 $date_times[] = [
                     'id' => $i + 1,
                     'start_time' => $start_time,
                     'end_time' => $end_time,
-                    'available' => !$this->isBookingExists($resource, Carbon::parse($current_date->toDateString() . 'T' . $start_time), Carbon::parse($current_date->toDateString() . 'T' . $end_time), $except),
+                    'available' => !$this->isBookingExists($resource, $startTime, $endTime, $except) && !$this->isReserved($resource, $startTime, $endTime),
                 ];
             }
 
@@ -215,6 +219,7 @@ class ResourceBookingController extends Controller
             'date' => 'required|date|date_format:Y-m-d',
             'start' => 'required',
             'end' => 'required',
+            'user_id' => 'sometimes|required',
         ]);
 
         if ($validator->fails()) {
@@ -241,8 +246,19 @@ class ResourceBookingController extends Controller
             return response('The booking was invalid.', 401);
         }
 
+        if ($this->isReserved($resource, $startTime, $endTime)) {
+            return response('The booking was invalid.', 402);
+        }
+
+        if (isset($validated_data['user_id'])) {
+            $user = User::where('id', $validated_data['user_id'])->first();
+            $user_id = $user->id;
+        } else {
+            $user_id = $request->user()->id;
+        }
+
         $resourceBooking = new ResourceBooking([
-            'user_id' => $request->user()->id,
+            'user_id' => $user_id,
             'resource_id' => $resource->id,
             'branch_setting_version_id' => (new BranchSettingController)->getActiveVersion($resource->branch_id),
             'number' => '',
@@ -559,17 +575,20 @@ class ResourceBookingController extends Controller
                 return true;
             }
 
+        $start = $startTime->format('h:i:s');
+        $end = $endTime->format('h:i:s');
+
         return $rr->where('repeat', 1)
             ->where('day_of_week', $startTime->dayOfWeek)
-            ->where(function ($query) use ($startTime, $endTime) {
-                $query->where(function ($query) use ($startTime, $endTime) {
-                        $query->where('start', '>', $startTime)->where('end', '<', $startTime);
-                    })->orWhere(function ($query) use ($startTime, $endTime) {
-                        $query->where('start', '<', $endTime)->where('end', '>', $endTime);
-                    })->orWhere(function ($query) use ($startTime, $endTime) {
-                        $query->where('start', '>', $startTime)->where('end', '<', $endTime);
-                    })->orWhere(function ($query) use ($startTime, $endTime) {
-                        $query->where('start', '<', $endTime)->where('end', '>', $startTime);
+            ->where(function ($query) use ($start, $end) {
+                $query->where(function ($query) use ($start, $end) {
+                        $query->where('start', '>', $start)->where('end', '<', $start);
+                    })->orWhere(function ($query) use ($start, $end) {
+                        $query->where('start', '<', $end)->where('end', '>', $end);
+                    })->orWhere(function ($query) use ($start, $end) {
+                        $query->where('start', '>', $start)->where('end', '<', $end);
+                    })->orWhere(function ($query) use ($start, $end) {
+                        $query->where('start', '<', $end)->where('end', '>', $start);
                     });
                 })->exists();
     }
