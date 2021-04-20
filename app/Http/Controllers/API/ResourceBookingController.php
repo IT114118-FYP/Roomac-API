@@ -559,9 +559,9 @@ class ResourceBookingController extends Controller
     }
 
     private function isReserved($resource, $startTime, $endTime) {
-        $rr = ResourceReservation::where('resource_id', $resource->id);
-
-        if ($rr->where('repeat', 0)->where(function ($query) use ($startTime, $endTime) {
+        if (ResourceReservation::where('resource_id', $resource->id)
+            ->where('repeat', 0)
+            ->where(function ($query) use ($startTime, $endTime) {
             $query->where(function ($query) use ($startTime, $endTime) {
                     $query->where('start_time', '>', $startTime)->where('end_time', '<', $startTime);
                 })->orWhere(function ($query) use ($startTime, $endTime) {
@@ -575,11 +575,13 @@ class ResourceBookingController extends Controller
                 return true;
             }
 
+        $dayOfWeek = $startTime->dayOfWeek;
         $start = $startTime->format('h:i:s');
         $end = $endTime->format('h:i:s');
 
-        return $rr->where('repeat', 1)
-            ->where('day_of_week', $startTime->dayOfWeek)
+        return ResourceReservation::where('resource_id', $resource->id)
+            ->where('repeat', 1)
+            ->where('day_of_week', $dayOfWeek)
             ->where(function ($query) use ($start, $end) {
                 $query->where(function ($query) use ($start, $end) {
                         $query->where('start', '>', $start)->where('end', '<', $start);
