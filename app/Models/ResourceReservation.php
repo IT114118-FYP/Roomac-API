@@ -23,7 +23,8 @@ class ResourceReservation extends Model
         'resource_id',
         'start_time',
         'end_time',
-        'date',
+        'start',
+        'end',
         'day_of_week',
         'repeat',
     ];

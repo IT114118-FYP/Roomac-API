@@ -16,7 +16,6 @@ use App\Models\Resource;
 use App\Models\Setting;
 use App\Models\BranchSetting;
 use App\Models\ResourceBooking;
-use App\Models\ResourceReserved;
 use App\Models\CheckInCode;
 use App\Models\Category;
 use App\Models\Tos;
@@ -43,7 +42,6 @@ class DatabaseSeeder extends Seeder
         BranchSetting::truncate();
         Setting::truncate();
         ResourceBooking::truncate();
-        ResourceReserved::truncate();
         Resource::truncate();
         User::truncate();
         Program::truncate();

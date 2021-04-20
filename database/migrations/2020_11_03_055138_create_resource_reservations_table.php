@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResourceReservationTable extends Migration
+class CreateResourceReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,8 +23,8 @@ class CreateResourceReservationTable extends Migration
 
             $table->time('start');
             $table->time('end');
-
             $table->integer('day_of_week')->default(-1);
+
             $table->boolean('repeat')->default(0); // If not repeat, read start_time, end_time. Else, read start, end, day_of_week
 
             $table->timestamps();

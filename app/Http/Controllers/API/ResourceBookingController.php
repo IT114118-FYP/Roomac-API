@@ -8,7 +8,7 @@ use App\Models\Branch;
 use App\Models\Resource;
 use App\Models\ResourceAvailable;
 use App\Models\ResourceBooking;
-use App\Models\ResourceReserved;
+use App\Models\ResourceReservation;
 use App\Models\CheckInCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -538,6 +538,38 @@ class ResourceBookingController extends Controller
                         $query->where('start_time', '>', $startTime)->where('end_time', '<', $endTime);
                     })->orWhere(function ($query) use ($startTime, $endTime) {
                         $query->where('start_time', '<', $endTime)->where('end_time', '>', $startTime);
+                    });
+                })->exists();
+    }
+
+    private function isReserved($resource, $startTime, $endTime) {
+        $rr = ResourceReservation::where('resource_id', $resource->id);
+
+        if ($rr->where('repeat', 0)->where(function ($query) use ($startTime, $endTime) {
+            $query->where(function ($query) use ($startTime, $endTime) {
+                    $query->where('start_time', '>', $startTime)->where('end_time', '<', $startTime);
+                })->orWhere(function ($query) use ($startTime, $endTime) {
+                    $query->where('start_time', '<', $endTime)->where('end_time', '>', $endTime);
+                })->orWhere(function ($query) use ($startTime, $endTime) {
+                    $query->where('start_time', '>', $startTime)->where('end_time', '<', $endTime);
+                })->orWhere(function ($query) use ($startTime, $endTime) {
+                    $query->where('start_time', '<', $endTime)->where('end_time', '>', $startTime);
+                });
+            })->exists()) {
+                return true;
+            }
+
+        return $rr->where('repeat', 1)
+            ->where('day_of_week', $startTime->dayOfWeek)
+            ->where(function ($query) use ($startTime, $endTime) {
+                $query->where(function ($query) use ($startTime, $endTime) {
+                        $query->where('start', '>', $startTime)->where('end', '<', $startTime);
+                    })->orWhere(function ($query) use ($startTime, $endTime) {
+                        $query->where('start', '<', $endTime)->where('end', '>', $endTime);
+                    })->orWhere(function ($query) use ($startTime, $endTime) {
+                        $query->where('start', '>', $startTime)->where('end', '<', $endTime);
+                    })->orWhere(function ($query) use ($startTime, $endTime) {
+                        $query->where('start', '<', $endTime)->where('end', '>', $startTime);
                     });
                 })->exists();
     }
