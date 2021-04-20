@@ -7,11 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
 
-class ResourceReserved extends Model
+class ResourceReservation extends Model
 {
     use HasFactory;
 
     protected $dates = ['created_at', 'updated_at'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'resource_id',
+        'start_time',
+        'end_time',
+        'date',
+        'day_of_week',
+        'repeat',
+    ];
 
     public function getStartTimeAttribute()
     {

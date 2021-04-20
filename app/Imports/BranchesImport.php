@@ -32,6 +32,9 @@ class BranchesImport implements ToModel
             'title_en' => $row[1],
             'title_hk' => $row[2],
             'title_cn' => $row[3],
+            'image_url'=> $row[4],
+            'lat' => $row[5],
+            'lng' => $row[6],
         ]);
     }
 

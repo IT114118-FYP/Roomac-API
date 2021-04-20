@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\VenueReserved;
+use App\Models\ResourceReservation;
 use Illuminate\Http\Request;
 
-class VenueReservedController extends Controller
+class ResourceReservationController extends Controller
 {
     /**
+     * @group Resource Reservation
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -32,10 +34,10 @@ class VenueReservedController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\VenueReserved  $venueReserved
+     * @param  \App\Models\ResourceReservation  $resourceReservation
      * @return \Illuminate\Http\Response
      */
-    public function show(VenueReserved $venueReserved)
+    public function show(ResourceReservation $resourceReservation)
     {
         //
     }
@@ -44,10 +46,10 @@ class VenueReservedController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\VenueReserved  $venueReserved
+     * @param  \App\Models\ResourceReservation  $resourceReservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, VenueReserved $venueReserved)
+    public function update(Request $request, ResourceReservation $resourceReservation)
     {
         //
     }
@@ -55,10 +57,10 @@ class VenueReservedController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\VenueReserved  $venueReserved
+     * @param  \App\Models\ResourceReservation  $resourceReservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(VenueReserved $venueReserved)
+    public function destroy(ResourceReservation $resourceReservation)
     {
         //
     }
