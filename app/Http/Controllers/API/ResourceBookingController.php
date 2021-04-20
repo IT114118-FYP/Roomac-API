@@ -576,8 +576,8 @@ class ResourceBookingController extends Controller
             }
 
         $dayOfWeek = $startTime->dayOfWeek;
-        $start = $startTime->format('h:i:s');
-        $end = $endTime->format('h:i:s');
+        $start = $startTime->format('H:i:s');
+        $end = $endTime->format('H:i:s');
 
         return ResourceReservation::where('resource_id', $resource->id)
             ->where('repeat', 1)
