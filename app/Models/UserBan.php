@@ -16,6 +16,7 @@ class UserBan extends Model
      */
     protected $fillable = [
         'user_id',
+        'is_cancelled',
         'expire_time',
     ];
 

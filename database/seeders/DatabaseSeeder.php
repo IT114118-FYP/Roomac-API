@@ -157,6 +157,9 @@ class DatabaseSeeder extends Seeder
             ['190271174', '190271174@stu.vtc.edu.hk', '12345678', 'IT114118', 'ST', 'Wing Kit', 'To', '涂穎傑', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553755/tommy_txftkf.png'],
             ['190057409', '190057409@stu.vtc.edu.hk', '12345678', 'IT114105', 'ST', 'Wai Shing Vincent', 'Tai', '戴偉城', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553853/vin_o2nvrj.jpg'],
             ['190184921', '190184921@stu.vtc.edu.hk', '12345678', 'IT114118', 'KT', 'Cho Lok', 'Lam', '林祖樂', 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614553850/mo_rtpvry.jpg'],
+            ['190037030', '190037030@stu.vtc.edu.hk', '12345678', 'IT114118', 'ST', 'Kai Yeung', 'Or', '柯啟揚', null],
+            ['cosmow', 'cosmow@vtc.edu.hk', '12345678', null, null, 'Cosmo', 'Wong', null, null],
+            ['cstcfu', 'cstcfu@vtc.edu.hk', '12345678', null, null, 'Tak Chung', 'Fu', null, null],
         ];
         $this->seedUser($rows);
 
@@ -187,19 +190,12 @@ class DatabaseSeeder extends Seeder
 
         # User (Set roles and permissions)
         User::where('name', 'admin')->first()->assignRole('root');
-        User::where('name', '190189768')->first()->assignRole(['User Admin']);
+        //User::where('name', '190189768')->first()->assignRole(['User Admin']);
 
-        User::where('name', '190189768')->first()
-            ->givePermissionTo($permissions);
-
-        User::where('name', '190271174')->first()
-            ->givePermissionTo($permissions);
-
-        User::where('name', '190057409')->first()
-            ->givePermissionTo($permissions);
-
-        User::where('name', '190184921')->first()
-            ->givePermissionTo($permissions);
+        User::where('name', '190189768')->first()->givePermissionTo($permissions);
+        User::where('name', '190271174')->first()->givePermissionTo($permissions);
+        User::where('name', '190057409')->first()->givePermissionTo($permissions);
+        User::where('name', '190184921')->first()->givePermissionTo($permissions);
     }
 
     private function seedProgram($rows) {

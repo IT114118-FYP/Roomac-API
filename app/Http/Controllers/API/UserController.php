@@ -223,7 +223,8 @@ class UserController extends Controller
     {
         if (UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->exists()) {
             $userban = UserBan::where('user_id', $user->id)->where('is_cancelled', 0)->where('expire_time', '>', now())->first();
-            $userban->update(['is_cancelled' => 1]);
+            $userban->update(['is_cancelled' => true]);
+            return response(null, 201);
         }
 
         return response(null, 200);
