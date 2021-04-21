@@ -30,6 +30,7 @@ class ResourceReservationController extends Controller
      * 
      * Add a new resource reservation record.
      * 
+     * @bodyParam resource_id integer required Resource Id.
      * @bodyParam date string required Date of the booking (Y-m-d).
      * @bodyParam start string required Start time of the booking (H:i:s).
      * @bodyParam end string required End time of the booking (H:i:s).
@@ -41,6 +42,7 @@ class ResourceReservationController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'resource_id' => 'required',
             'date' => 'required|date|date_format:Y-m-d',
             'start' => 'required',
             'end' => 'required',
@@ -51,6 +53,8 @@ class ResourceReservationController extends Controller
         if ($validator->fails()) {
             return response($validator->errors(), 400);
         }
+
+        $validated_data = $validator->valid();
 
         try {
             $startTime = Carbon::parse($validated_data['date'] . 'T' . $validated_data['start']);
@@ -69,8 +73,6 @@ class ResourceReservationController extends Controller
             return response($err->getMessage(), 400);
         }
 
-        $validated_data = $validator->valid();
-
         if (isset($validated_data['user_id'])) {
             $user = User::where('id', $validated_data['user_id'])->first();
             $user_id = $user->id;
@@ -82,7 +84,7 @@ class ResourceReservationController extends Controller
 
         $resourceReservation = new ResourceReservation([
             'user_id' => $user_id,
-            'resource_id' => $resource->id,
+            'resource_id' => $validated_data['resource_id'],
             'start_time' => $startTime,
             'end_time' => $endTime,
             'start' => Carbon::parse($startTime->format('H:i:s')),
