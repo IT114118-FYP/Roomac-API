@@ -105,9 +105,9 @@ class ResourceReservationController extends Controller
      * @param  \App\Models\ResourceReservation  $resourceReservation
      * @return \Illuminate\Http\Response
      */
-    public function show(ResourceReservation $resourceReservation)
+    public function show(ResourceReservation $reservation)
     {
-        return $resourceReservation;
+        return $reservation;
     }
 
     /**
@@ -131,9 +131,9 @@ class ResourceReservationController extends Controller
      * @param  \App\Models\ResourceReservation  $resourceReservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ResourceReservation $resourceReservation)
+    public function destroy(ResourceReservation $reservation)
     {
-        ResourceReservation::destroy($resourceReservation->id);
+        ResourceReservation::destroy($reservation->id);
         return response(null, 200);
     }
 }
