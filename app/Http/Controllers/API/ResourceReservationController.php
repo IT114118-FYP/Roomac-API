@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class ResourceReservationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
+
     /**
      * @group Resource Reservation
      * 
@@ -93,6 +98,8 @@ class ResourceReservationController extends Controller
             'repeat' => $validated_data['repeat'],
         ]);
         $resourceReservation->save();
+
+        return response(null, 200);
     }
 
     /**
