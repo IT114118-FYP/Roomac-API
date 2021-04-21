@@ -61,6 +61,9 @@ class ResourceReservationController extends Controller
 
         try {
             $endTime = Carbon::parse($validated_data['date'] . 'T' . $validated_data['end']);
+            if ($endTime->format('H:i:s') === '00:00:00') {
+                $endTime->addDay();
+            }
         }
         catch (Exception $err) {
             return response($err->getMessage(), 400);

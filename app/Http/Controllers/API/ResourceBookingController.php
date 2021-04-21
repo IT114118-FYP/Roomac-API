@@ -97,7 +97,7 @@ class ResourceBookingController extends Controller
                     'id' => $i + 1,
                     'start_time' => $start_time,
                     'end_time' => $end_time,
-                    'available' => !$this->isBookingExists($resource, $startTime, $endTime, $except) && !$this->isReserved($resource, $startTime, $endTime),
+                    'available' => !$this->isBookingExists($resource->id, $startTime, $endTime, $except) && !$this->isReserved($resource->id, $startTime, $endTime),
                 ];
             }
 
@@ -237,16 +237,19 @@ class ResourceBookingController extends Controller
 
         try {
             $endTime = Carbon::parse($validated_data['date'] . 'T' . $validated_data['end']);
+            if ($endTime->format('H:i:s') === '00:00:00') {
+                $endTime->addDay();
+            }
         }
         catch (Exception $err) {
             return response($err->getMessage(), 400);
         }
 
-        if ($this->isBookingExists($resource, $startTime, $endTime)) {
+        if ($this->isBookingExists($resource->id, $startTime, $endTime)) {
             return response('The booking was invalid.', 401);
         }
 
-        if ($this->isReserved($resource, $startTime, $endTime)) {
+        if ($this->isReserved($resource->id, $startTime, $endTime)) {
             return response('The booking was invalid.', 402);
         }
 
@@ -408,9 +411,20 @@ class ResourceBookingController extends Controller
 
         try {
             $endTime = Carbon::parse($validated_data['date'] . 'T' . $validated_data['end']);
+            if ($endTime->format('H:i:s') === '00:00:00') {
+                $endTime->addDay();
+            }
         }
         catch (Exception $err) {
             return response($err->getMessage(), 400);
+        }
+
+        if ($this->isBookingExists($resourceBooking->resource_id, $startTime, $endTime)) {
+            return response('The booking was invalid.', 401);
+        }
+
+        if ($this->isReserved($resourceBooking->resource_id, $startTime, $endTime)) {
+            return response('The booking was invalid.', 402);
         }
 
         return response(null, $resourceBooking->update(['start_time' => $startTime, 'end_time' => $endTime]) ? 200 : 401);
@@ -538,8 +552,8 @@ class ResourceBookingController extends Controller
         }
     }
     
-    private function isBookingExists($resource, $startTime, $endTime, $except=null) {
-        $rb = ResourceBooking::where('resource_id', $resource->id);
+    private function isBookingExists($resourceId, $startTime, $endTime, $except=null) {
+        $rb = ResourceBooking::where('resource_id', $resourceId);
 
         if ($except !== null) {
             $rb = $rb->where('id', '!=' , $except);
@@ -558,8 +572,8 @@ class ResourceBookingController extends Controller
                 })->exists();
     }
 
-    private function isReserved($resource, $startTime, $endTime) {
-        if (ResourceReservation::where('resource_id', $resource->id)
+    private function isReserved($resourceId, $startTime, $endTime) {
+        if (ResourceReservation::where('resource_id', $resourceId)
             ->where('repeat', 0)
             ->where(function ($query) use ($startTime, $endTime) {
             $query->where(function ($query) use ($startTime, $endTime) {
@@ -579,7 +593,7 @@ class ResourceBookingController extends Controller
         $start = $startTime->format('H:i:s');
         $end = $endTime->format('H:i:s');
 
-        return ResourceReservation::where('resource_id', $resource->id)
+        return ResourceReservation::where('resource_id', $resourceId)
             ->where('repeat', 1)
             ->where('day_of_week', $dayOfWeek)
             ->where(function ($query) use ($start, $end) {
