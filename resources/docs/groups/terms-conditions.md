@@ -48,6 +48,14 @@ fetch(url, {
         "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
         "created_at": null,
         "updated_at": null
+    },
+    {
+        "id": 2,
+        "tos_en": "tos2",
+        "tos_hk": "tos2",
+        "tos_cn": "tos2",
+        "created_at": "2021-04-20T16:16:28.000000Z",
+        "updated_at": "2021-04-20T16:16:28.000000Z"
     }
 ]
 ```
@@ -72,7 +80,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/tos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"sunt","tos_hk":"rerum","tos_cn":"veniam"}'
+    -d '{"tos_en":"earum","tos_hk":"pariatur","tos_cn":"pariatur"}'
 
 ```
 
@@ -87,9 +95,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "sunt",
-    "tos_hk": "rerum",
-    "tos_cn": "veniam"
+    "tos_en": "earum",
+    "tos_hk": "pariatur",
+    "tos_cn": "pariatur"
 }
 
 fetch(url, {
@@ -569,7 +577,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/tos/{to}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"doloribus","tos_hk":"dicta","tos_cn":"quia"}'
+    -d '{"tos_en":"nisi","tos_hk":"tenetur","tos_cn":"ea"}'
 
 ```
 
@@ -584,9 +592,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "doloribus",
-    "tos_hk": "dicta",
-    "tos_cn": "quia"
+    "tos_en": "nisi",
+    "tos_hk": "tenetur",
+    "tos_cn": "ea"
 }
 
 fetch(url, {

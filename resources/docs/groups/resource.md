@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpAE8.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\php412.tmp" 
 ```
 
 ```javascript
@@ -256,7 +256,7 @@ fetch(url, {
         "id": 1,
         "branch_id": "ST",
         "category_id": 1,
-        "tos_id": 1,
+        "tos_id": 2,
         "interval": 30,
         "number": "IT-417A",
         "title_en": "Interview Room",
@@ -268,7 +268,7 @@ fetch(url, {
         "opening_time": "00:00:00",
         "closing_time": "24:00:00",
         "created_at": null,
-        "updated_at": null,
+        "updated_at": "2021-04-20T23:21:14.000000Z",
         "branch": {
             "id": "ST",
             "title_en": "Sha Tin",
@@ -290,12 +290,12 @@ fetch(url, {
             "updated_at": null
         },
         "tos": {
-            "id": 1,
-            "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
-            "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
-            "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-            "created_at": null,
-            "updated_at": null
+            "id": 2,
+            "tos_en": "tos2",
+            "tos_hk": "tos2",
+            "tos_cn": "tos2",
+            "created_at": "2021-04-20T16:16:28.000000Z",
+            "updated_at": "2021-04-20T16:16:28.000000Z"
         }
     },
     {
@@ -1221,7 +1221,7 @@ fetch(url, {
     "id": 1,
     "branch_id": "ST",
     "category_id": 1,
-    "tos_id": 1,
+    "tos_id": 2,
     "interval": 30,
     "number": "IT-417A",
     "title_en": "Interview Room",
@@ -1233,7 +1233,7 @@ fetch(url, {
     "opening_time": "00:00:00",
     "closing_time": "24:00:00",
     "created_at": null,
-    "updated_at": null,
+    "updated_at": "2021-04-20T23:21:14.000000Z",
     "branch": {
         "id": "ST",
         "title_en": "Sha Tin",
@@ -1255,12 +1255,12 @@ fetch(url, {
         "updated_at": null
     },
     "tos": {
-        "id": 1,
-        "tos_en": "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.",
-        "tos_hk": "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。",
-        "tos_cn": "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf](https:\/\/www.vtc.edu.hk\/ti\/mhti\/hp2011\/ivesite\/html\/tc\/campus\/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。",
-        "created_at": null,
-        "updated_at": null
+        "id": 2,
+        "tos_en": "tos2",
+        "tos_hk": "tos2",
+        "tos_cn": "tos2",
+        "created_at": "2021-04-20T16:16:28.000000Z",
+        "updated_at": "2021-04-20T16:16:28.000000Z"
     }
 }
 ```

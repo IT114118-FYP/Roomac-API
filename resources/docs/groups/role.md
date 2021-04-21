@@ -46,15 +46,15 @@ fetch(url, {
         "id": 1,
         "name": "root",
         "guard_name": "web",
-        "created_at": "2021-04-15T11:03:14.000000Z",
-        "updated_at": "2021-04-15T11:03:14.000000Z"
+        "created_at": "2021-04-20T16:08:28.000000Z",
+        "updated_at": "2021-04-20T16:08:28.000000Z"
     },
     {
         "id": 2,
         "name": "User Admin",
         "guard_name": "web",
-        "created_at": "2021-04-15T11:03:33.000000Z",
-        "updated_at": "2021-04-15T11:03:33.000000Z"
+        "created_at": "2021-04-20T16:09:03.000000Z",
+        "updated_at": "2021-04-20T16:09:03.000000Z"
     }
 ]
 ```
@@ -80,7 +80,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolorem"}'
+    -d '{"name":"et"}'
 
 ```
 
@@ -95,7 +95,7 @@ let headers = {
 };
 
 let body = {
-    "name": "dolorem"
+    "name": "et"
 }
 
 fetch(url, {
@@ -569,7 +569,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"exercitationem"}'
+    -d '{"name":"consequatur"}'
 
 ```
 
@@ -584,7 +584,7 @@ let headers = {
 };
 
 let body = {
-    "name": "exercitationem"
+    "name": "consequatur"
 }
 
 fetch(url, {

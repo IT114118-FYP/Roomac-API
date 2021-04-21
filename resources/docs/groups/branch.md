@@ -16,7 +16,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/branches/import" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpEA63.tmp" 
+    -F "file=@C:\Users\hkdse\AppData\Local\Temp\phpFD4F.tmp" 
 ```
 
 ```javascript
@@ -339,6 +339,17 @@ fetch(url, {
         "lng": "113.96646235",
         "created_at": null,
         "updated_at": null
+    },
+    {
+        "id": "TW",
+        "title_en": "Tsuen Wan",
+        "title_hk": "荃灣",
+        "title_cn": "荃灣",
+        "image_url": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/38\/Lik_Sang_Plaza_and_Tsuen_Wan_Footbridge_Network_%28Hong_Kong%29.jpg",
+        "lat": "22.37356060",
+        "lng": "114.11919230",
+        "created_at": "2021-04-20T16:53:11.000000Z",
+        "updated_at": "2021-04-20T16:53:11.000000Z"
     },
     {
         "id": "TY",

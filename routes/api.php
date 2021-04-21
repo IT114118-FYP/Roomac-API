@@ -19,6 +19,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\UserBanController;
 use App\Http\Controllers\API\ResourceController;
 use App\Http\Controllers\API\ResourceBookingController;
+use App\Http\Controllers\API\ResourceReservationController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\RolePermissionController;
 use App\Http\Controllers\API\UserRoleController;
@@ -60,6 +61,8 @@ Route::get('/resourcebookings/{resourceBooking}/code', [ResourceBookingControlle
 Route::post('/resources/{resource}/checkin', [ResourceBookingController::class, 'checkIn']);
 Route::post('/resourcebookings/{resourceBooking}/checkin', [ResourceBookingController::class, 'adminCheckIn']);
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
+
+Route::apiResource('/reservations', ResourceReservationController::class);
 
 Route::apiResource('/userbans', UserBanController::class);
 

@@ -67,7 +67,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/userbans" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":"deleniti","ban_minutes":16}'
+    -d '{"user_id":"eum","ban_minutes":7}'
 
 ```
 
@@ -82,8 +82,8 @@ let headers = {
 };
 
 let body = {
-    "user_id": "deleniti",
-    "ban_minutes": 16
+    "user_id": "eum",
+    "ban_minutes": 7
 }
 
 fetch(url, {

@@ -12,7 +12,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings_admin?
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin?start=cumque&end=beatae" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings_admin?start=eum&end=reiciendis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "cumque",
-    "end": "beatae",
+    "start": "eum",
+    "end": "reiciendis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -76,7 +76,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resources/1/bookings?start=
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=incidunt&end=neque" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings?start=velit&end=molestiae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -87,8 +87,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "incidunt",
-    "end": "neque",
+    "start": "velit",
+    "end": "molestiae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -143,7 +143,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/resources/{resource}/bookings" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"saepe","start":"est","end":"amet"}'
+    -d '{"date":"repudiandae","start":"mollitia","end":"inventore"}'
 
 ```
 
@@ -158,9 +158,9 @@ let headers = {
 };
 
 let body = {
-    "date": "saepe",
-    "start": "est",
-    "end": "amet"
+    "date": "repudiandae",
+    "start": "mollitia",
+    "end": "inventore"
 }
 
 fetch(url, {
@@ -201,7 +201,7 @@ Retrieve all resource&#039;s bookings. Example: /api/resourcebookings?start=2021
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resourcebookings?start=ut&end=unde" \
+    -G "https://it114118-fyp.herokuapp.com/api/resourcebookings?start=et&end=nam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -212,8 +212,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "ut",
-    "end": "unde",
+    "start": "et",
+    "end": "nam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -318,7 +318,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/resourcebookings/{resourceBooking}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"eius","start":"numquam","end":"repellendus"}'
+    -d '{"date":"officiis","start":"non","end":"qui"}'
 
 ```
 
@@ -333,9 +333,9 @@ let headers = {
 };
 
 let body = {
-    "date": "eius",
-    "start": "numquam",
-    "end": "repellendus"
+    "date": "officiis",
+    "start": "non",
+    "end": "qui"
 }
 
 fetch(url, {

@@ -154,6 +154,7 @@ paths:
                                     - { id: MH, title_en: 'Morrison Hill', title_hk: 摩理臣山, title_cn: 摩理臣山, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/MH_tt43bg.jpg', lat: '22.27619053', lng: '114.17792361', created_at: null, updated_at: null }
                                     - { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null }
                                     - { id: TM, title_en: 'Tuen Mun', title_hk: 屯門, title_cn: 屯门, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550860/TM_vwyaga.jpg', lat: '22.39311344', lng: '113.96646235', created_at: null, updated_at: null }
+                                    - { id: TW, title_en: 'Tsuen Wan', title_hk: 荃灣, title_cn: 荃灣, image_url: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Lik_Sang_Plaza_and_Tsuen_Wan_Footbridge_Network_%28Hong_Kong%29.jpg', lat: '22.37356060', lng: '114.11919230', created_at: '2021-04-20T16:53:11.000000Z', updated_at: '2021-04-20T16:53:11.000000Z' }
                                     - { id: TY, title_en: 'Tsing Yi', title_hk: 青衣, title_cn: 青衣, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/TY_rli7ox.jpg', lat: '22.34261363', lng: '114.10624981', created_at: null, updated_at: null }
             tags:
                 - Branch
@@ -319,7 +320,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: sed
+                    example: quam
                     required: false
                     schema:
                         type: string
@@ -327,7 +328,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: non
+                    example: dolores
                     required: false
                     schema:
                         type: string
@@ -1305,9 +1306,7 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: AS114103, title_en: 'Higher Diploma in Analytical Science', title_hk: 化驗科學高級文憑, title_cn: 化验科学高级文凭, created_at: '2021-04-17T21:34:32.000000Z', updated_at: '2021-04-17T21:34:32.000000Z' }
                                     - { id: CE114301, title_en: 'Higher Diploma in Child Care and Education', title_hk: 幼兒教育高級文憑, title_cn: 幼儿教育高级文凭, created_at: null, updated_at: null }
-                                    - { id: DS125101, title_en: 'Bachelor of Arts (Honours) in Advertising', title_hk: 廣告（榮譽）文學士, title_cn: 广告（荣誉）文学士, created_at: '2021-04-17T21:35:28.000000Z', updated_at: '2021-04-17T21:35:28.000000Z' }
                                     - { id: IT114105, title_en: 'Higher Diploma in Software Engineering', title_hk: 軟件工程高級文憑, title_cn: 软件工程高级文凭, created_at: null, updated_at: null }
                                     - { id: IT114118, title_en: 'Higher Diploma in AI and Mobile Applications Development', title_hk: 人工智能及手機軟件開發高級文憑, title_cn: 人工智能及手机软件开发高级文凭, created_at: null, updated_at: null }
             tags:
@@ -1646,7 +1645,7 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: 1, branch_id: ST, category_id: 1, tos_id: 1, interval: 30, number: IT-417A, title_en: 'Interview Room', title_hk: 接見室, title_cn: 接见室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', min_user: 1, max_user: 20, opening_time: '00:00:00', closing_time: '24:00:00', created_at: null, updated_at: null, branch: { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null }, category: { id: 1, title_en: Classroom, title_hk: 課室, title_cn: 教室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg', created_at: null, updated_at: null }, tos: { id: 1, tos_en: "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.", tos_hk: "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。", tos_cn: "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。", created_at: null, updated_at: null } }
+                                    - { id: 1, branch_id: ST, category_id: 1, tos_id: 2, interval: 30, number: IT-417A, title_en: 'Interview Room', title_hk: 接見室, title_cn: 接见室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453326/aqmyrwsqxucpt5ql5dwj.jpg', min_user: 1, max_user: 20, opening_time: '00:00:00', closing_time: '24:00:00', created_at: null, updated_at: '2021-04-20T23:21:14.000000Z', branch: { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null }, category: { id: 1, title_en: Classroom, title_hk: 課室, title_cn: 教室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg', created_at: null, updated_at: null }, tos: { id: 2, tos_en: tos2, tos_hk: tos2, tos_cn: tos2, created_at: '2021-04-20T16:16:28.000000Z', updated_at: '2021-04-20T16:16:28.000000Z' } }
                                     - { id: 2, branch_id: ST, category_id: 1, tos_id: 1, interval: 30, number: IT-421B, title_en: '', title_hk: '', title_cn: '', image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', min_user: 2, max_user: 10, opening_time: '08:00:00', closing_time: '21:00:00', created_at: null, updated_at: null, branch: { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null }, category: { id: 1, title_en: Classroom, title_hk: 課室, title_cn: 教室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg', created_at: null, updated_at: null }, tos: { id: 1, tos_en: "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.", tos_hk: "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。", tos_cn: "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。", created_at: null, updated_at: null } }
                                     - { id: 3, branch_id: CW, category_id: 1, tos_id: 1, interval: 30, number: CS-442, title_en: '', title_hk: '', title_cn: '', image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', min_user: 2, max_user: 10, opening_time: '08:00:00', closing_time: '21:00:00', created_at: null, updated_at: null, branch: { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/CW_limxvp.jpg', lat: '22.27184971', lng: '114.23967000', created_at: null, updated_at: null }, category: { id: 1, title_en: Classroom, title_hk: 課室, title_cn: 教室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg', created_at: null, updated_at: null }, tos: { id: 1, tos_en: "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.", tos_hk: "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。", tos_cn: "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。", created_at: null, updated_at: null } }
                                     - { id: 4, branch_id: CW, category_id: 1, tos_id: 1, interval: 30, number: CS-404, title_en: '', title_hk: '', title_cn: '', image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1608453111/qqz4jdu2hyielwrjl6zj.jpg', min_user: 2, max_user: 10, opening_time: '08:00:00', closing_time: '21:00:00', created_at: null, updated_at: null, branch: { id: CW, title_en: 'Chai Wan', title_hk: 柴灣, title_cn: 柴湾, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/CW_limxvp.jpg', lat: '22.27184971', lng: '114.23967000', created_at: null, updated_at: null }, category: { id: 1, title_en: Classroom, title_hk: 課室, title_cn: 教室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg', created_at: null, updated_at: null }, tos: { id: 1, tos_en: "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.", tos_hk: "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。", tos_cn: "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。", created_at: null, updated_at: null } }
@@ -1742,7 +1741,7 @@ paths:
                                     id: 1
                                     branch_id: ST
                                     category_id: 1
-                                    tos_id: 1
+                                    tos_id: 2
                                     interval: 30
                                     number: IT-417A
                                     title_en: 'Interview Room'
@@ -1754,15 +1753,15 @@ paths:
                                     opening_time: '00:00:00'
                                     closing_time: '24:00:00'
                                     created_at: null
-                                    updated_at: null
+                                    updated_at: '2021-04-20T23:21:14.000000Z'
                                     branch: { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null }
                                     category: { id: 1, title_en: Classroom, title_hk: 課室, title_cn: 教室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg', created_at: null, updated_at: null }
-                                    tos: { id: 1, tos_en: "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.", tos_hk: "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。", tos_cn: "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。", created_at: null, updated_at: null }
+                                    tos: { id: 2, tos_en: tos2, tos_hk: tos2, tos_cn: tos2, created_at: '2021-04-20T16:16:28.000000Z', updated_at: '2021-04-20T16:16:28.000000Z' }
                                 properties:
                                     id: { type: integer, example: 1 }
                                     branch_id: { type: string, example: ST }
                                     category_id: { type: integer, example: 1 }
-                                    tos_id: { type: integer, example: 1 }
+                                    tos_id: { type: integer, example: 2 }
                                     interval: { type: integer, example: 30 }
                                     number: { type: string, example: IT-417A }
                                     title_en: { type: string, example: 'Interview Room' }
@@ -1774,10 +1773,10 @@ paths:
                                     opening_time: { type: string, example: '00:00:00' }
                                     closing_time: { type: string, example: '24:00:00' }
                                     created_at: { type: 'null', example: null }
-                                    updated_at: { type: 'null', example: null }
+                                    updated_at: { type: string, example: '2021-04-20T23:21:14.000000Z' }
                                     branch: { type: object, example: { id: ST, title_en: 'Sha Tin', title_hk: 沙田, title_cn: 沙田, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1614550859/ST_riofal.jpg', lat: '22.39041332', lng: '114.19803821', created_at: null, updated_at: null } }
                                     category: { type: object, example: { id: 1, title_en: Classroom, title_hk: 課室, title_cn: 教室, image_url: 'https://res.cloudinary.com/hkzbjzedn/image/upload/v1610342834/riak0mox4pqzxesenegs.jpg', created_at: null, updated_at: null } }
-                                    tos: { type: object, example: { id: 1, tos_en: "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.", tos_hk: "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。", tos_cn: "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。", created_at: null, updated_at: null } }
+                                    tos: { type: object, example: { id: 2, tos_en: tos2, tos_hk: tos2, tos_cn: tos2, created_at: '2021-04-20T16:16:28.000000Z', updated_at: '2021-04-20T16:16:28.000000Z' } }
             tags:
                 - Resource
             security: []
@@ -1849,7 +1848,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: cumque
+                    example: eum
                     required: false
                     schema:
                         type: string
@@ -1857,7 +1856,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: beatae
+                    example: reiciendis
                     required: false
                     schema:
                         type: string
@@ -1898,7 +1897,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: incidunt
+                    example: velit
                     required: false
                     schema:
                         type: string
@@ -1906,7 +1905,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: neque
+                    example: molestiae
                     required: false
                     schema:
                         type: string
@@ -1969,15 +1968,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: saepe
+                                    example: repudiandae
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: est
+                                    example: mollitia
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: amet
+                                    example: inventore
                             required:
                                 - date
                                 - start
@@ -1992,7 +1991,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: ut
+                    example: et
                     required: false
                     schema:
                         type: string
@@ -2000,7 +1999,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: unde
+                    example: nam
                     required: false
                     schema:
                         type: string
@@ -2096,15 +2095,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: eius
+                                    example: officiis
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: numquam
+                                    example: non
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: repellendus
+                                    example: qui
                             required:
                                 - date
                                 - start
@@ -2211,6 +2210,143 @@ paths:
             tags:
                 - 'Resource Booking'
             security: []
+    /api/reservations:
+        get:
+            summary: "Retrieve all resource's reservations\n\nRetrieve all resource's reservations."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                example:
+                                    - { id: 1, user_id: 2, resource_id: 1, start_time: '2021-04-24T01:30:00', end_time: '2021-04-24T02:00:00', start: '01:30:00', end: '02:00:00', day_of_week: 0, repeat: 1, created_at: null, updated_at: null }
+            tags:
+                - 'Resource Reservation'
+            security: []
+        post:
+            summary: "Add a new resource reservation record\n\nAdd a new resource reservation record."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - 'Resource Reservation'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                date:
+                                    type: string
+                                    description: 'Date of the booking (Y-m-d).'
+                                    example: quibusdam
+                                start:
+                                    type: string
+                                    description: 'Start time of the booking (H:i:s).'
+                                    example: et
+                                end:
+                                    type: string
+                                    description: 'End time of the booking (H:i:s).'
+                                    example: fuga
+                                repeat:
+                                    type: boolean
+                                    description: 'Is repeat? true or false.'
+                                    example: true
+                            required:
+                                - date
+                                - start
+                                - end
+                                - repeat
+            security: []
+    '/api/reservations/{reservation}':
+        get:
+            summary: "Retrieve a resource's reservation record\n\nRetrieve a resource's reservation record."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                example: []
+            tags:
+                - 'Resource Reservation'
+            security: []
+        delete:
+            summary: "Remove a resource's reservation record\n\nRemove a resource's reservation record."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - 'Resource Reservation'
+            security: []
     /api/roles:
         get:
             summary: "Retrieve all roles\n\nRetrieve all roles."
@@ -2240,8 +2376,8 @@ paths:
                                 items:
                                     type: object
                                 example:
-                                    - { id: 1, name: root, guard_name: web, created_at: '2021-04-15T11:03:14.000000Z', updated_at: '2021-04-15T11:03:14.000000Z' }
-                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-04-15T11:03:33.000000Z', updated_at: '2021-04-15T11:03:33.000000Z' }
+                                    - { id: 1, name: root, guard_name: web, created_at: '2021-04-20T16:08:28.000000Z', updated_at: '2021-04-20T16:08:28.000000Z' }
+                                    - { id: 2, name: 'User Admin', guard_name: web, created_at: '2021-04-20T16:09:03.000000Z', updated_at: '2021-04-20T16:09:03.000000Z' }
             tags:
                 - Role
         post:
@@ -2275,7 +2411,7 @@ paths:
                                 name:
                                     type: string
                                     description: 'The role name.'
-                                    example: dolorem
+                                    example: et
                             required:
                                 - name
     '/api/roles/{role}':
@@ -2350,7 +2486,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: exercitationem
+                                    example: consequatur
                             required:
                                 - name
             security: []
@@ -2583,6 +2719,7 @@ paths:
                                     type: object
                                 example:
                                     - { id: 1, tos_en: "* Users should check-in within 15 minutes of the first session, otherwise the booking system will forfeit their reservation and will count against the quota limit.\n* Users are expected to behave in these bookable spaces in accordance with the VTC's code of conduct: [https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* Resources bookinged are for your use only, booking made via your account on behalf of other users will be invalid.", tos_hk: "* 用戶應在15分鐘內到達，否則預訂系統將取消其預訂，併計入配額限制。\n* 用戶應按照VTC的行為準則：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 預訂的資源僅供您使用，通過您的帳戶代表其他用戶進行的預訂將無效。", tos_cn: "* 用户应在15分钟内到达，否则预订系统将取消其预订，并计入重新限制。\n* 用户应遵循VTC的行为规范：[https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf](https://www.vtc.edu.hk/ti/mhti/hp2011/ivesite/html/tc/campus/OHD_Handbook_AY20-21.pdf)\n* 预订的资源仅供您使用，通过您的帐户代表其他用户进行的预订将无效。", created_at: null, updated_at: null }
+                                    - { id: 2, tos_en: tos2, tos_hk: tos2, tos_cn: tos2, created_at: '2021-04-20T16:16:28.000000Z', updated_at: '2021-04-20T16:16:28.000000Z' }
             tags:
                 - 'Terms & Conditions'
             security: []
@@ -2617,15 +2754,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: sunt
+                                    example: earum
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: rerum
+                                    example: pariatur
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: veniam
+                                    example: pariatur
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2703,15 +2840,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: doloribus
+                                    example: nisi
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: dicta
+                                    example: tenetur
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: ea
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2890,7 +3027,7 @@ paths:
                                 old_password:
                                     type: string
                                     description: ''
-                                    example: quisquam
+                                    example: dignissimos
                                 new_password:
                                     type: string
                                     description: ''
@@ -3218,11 +3355,11 @@ paths:
                                 user_id:
                                     type: string
                                     description: ''
-                                    example: deleniti
+                                    example: eum
                                 ban_minutes:
                                     type: integer
                                     description: ''
-                                    example: 16
+                                    example: 7
                             required:
                                 - user_id
                                 - ban_minutes
@@ -3364,7 +3501,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: harum
+                    example: non
                     required: false
                     schema:
                         type: string
@@ -3372,7 +3509,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: aut
+                    example: amet
                     required: false
                     schema:
                         type: string
