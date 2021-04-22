@@ -37,24 +37,12 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (401):
 
 ```json
-[
-    {
-        "id": 1,
-        "user_id": 2,
-        "resource_id": 1,
-        "start_time": "2021-04-24T01:30:00",
-        "end_time": "2021-04-24T02:00:00",
-        "start": "01:30:00",
-        "end": "02:00:00",
-        "day_of_week": 0,
-        "repeat": 1,
-        "created_at": null,
-        "updated_at": null
-    }
-]
+{
+    "message": "Unauthenticated."
+}
 ```
 
 ### Request
@@ -77,7 +65,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/reservations" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"date":"quibusdam","start":"et","end":"fuga","repeat":true}'
+    -d '{"resource_id":14,"date":"cumque","start":"autem","end":"sint","repeat":false}'
 
 ```
 
@@ -92,10 +80,11 @@ let headers = {
 };
 
 let body = {
-    "date": "quibusdam",
-    "start": "et",
-    "end": "fuga",
-    "repeat": true
+    "resource_id": 14,
+    "date": "cumque",
+    "start": "autem",
+    "end": "sint",
+    "repeat": false
 }
 
 fetch(url, {
@@ -114,6 +103,9 @@ fetch(url, {
  **`api/reservations`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>resource_id</b></code>&nbsp; <small>integer</small>     <br>
+    Resource Id.
+
 <code><b>date</b></code>&nbsp; <small>string</small>     <br>
     Date of the booking (Y-m-d).
 
@@ -164,11 +156,12 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (401):
 
 ```json
-
-[]
+{
+    "message": "Unauthenticated."
+}
 ```
 
 ### Request
