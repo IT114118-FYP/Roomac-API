@@ -274,11 +274,13 @@
                 $.ajax({
                     url: "/api/checkin/{{ $resource->id }}/refresh", // {{ route('resources.bookings.index', $resource->id) }}
                     type: 'GET',
+                    cache: false,
                     dataType: 'json',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     success: function(data) {
+                        console.log(data)
                         $(number).text(data.resource.number);
                         $(username).text(data.booking?.user?.name ?? '');
                         $(timeString).text(data.timeString);
