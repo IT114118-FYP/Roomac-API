@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Program;
 use App\Models\Resource;
 use App\Models\ResourceBooking;
+use App\Models\CheckInCode;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -58,7 +59,9 @@ Route::get('/resourcebookings/{resourceBooking}', [ResourceBookingController::cl
 Route::put('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'update']);
 Route::delete('/resourcebookings/{resourceBooking}', [ResourceBookingController::class, 'destroy']);
 Route::get('/resourcebookings/{resourceBooking}/code', [ResourceBookingController::class, 'getCode']);
-Route::post('/resources/{resource}/checkin', [ResourceBookingController::class, 'checkIn']);
+
+//Route::post('/resources/{resource}/checkin', [ResourceBookingController::class, 'checkIn']);
+
 Route::post('/resourcebookings/{resourceBooking}/checkin', [ResourceBookingController::class, 'adminCheckIn']);
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
@@ -129,6 +132,48 @@ Route::get('/dashboard', function () {
         'active_bookings' => ResourceBooking::where('end_time', '>', today())->get(),
     ];
 });
+
+
+/**
+ * @group Resource Booking
+ * 
+ * Check-in
+ * 
+ * Check-in.
+ *
+ * @param  \App\Models\Resource  $resource
+ * @return \Illuminate\Http\Response
+ */
+Route::post('/resources/{resource}/checkin', function (Request $request, Resource $resource) {
+    $validator = Validator::make($request->all(), [
+        'code' => 'required',
+    ]);
+
+    if ($validator->fails()) {
+        return response($validator->errors(), 400);
+    }
+
+    $validatedData = $validator->valid();
+
+    $checkInCode = CheckInCode::where('code', $validatedData['code'])->first();
+
+    if ($checkInCode === null) {
+        return response('Invalid code', 401);
+    }
+
+    $resourceBooking = ResourceBooking::where('id', $checkInCode->resource_booking_id)->first();
+
+    if ($resourceBooking === null || $resourceBooking->resource_id !== $resource->id) {
+        return response('Invalid code', 402);
+    }
+
+    $resourceBooking->update(['checkin_time' => now()]);
+
+    CheckInCode::destroy($checkInCode->id);
+
+    return response(null, 200);
+});
+
 
 /**
  * @group Login

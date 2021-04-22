@@ -30,9 +30,12 @@
             <div class="container m-auto px-4">
                 <h1 id="number" class="text-6xl text-white pt-4 pb-4">{{ $resource->number }}</h1>
 
-                <h2 id="username" class="text-4xl text-white pt-4 pb-4"></h2>
-
                 <h2 id="timeString" class="text-4xl text-white pt-4 pb-4">{{ $timeString }}</h2>
+
+                <div class="block inline-block mt-3">
+                    <img id="useravatar" class="inline-block h-11 w-11 rounded-full ring-2 ring-white mb-4" src="/favicon.ico" />
+                    <span id="username" class="text-4xl text-white ml-1"></span>
+                </div>
     
                 <button id="checkinButton" type="button" onclick="onCheckInClick()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-8 py-3 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Check-in
@@ -136,6 +139,7 @@
             // Resource
             var resource = {!! json_encode($resource, JSON_UNESCAPED_SLASHES) !!}
             var number = document.getElementById("number");
+            var useravatar = document.getElementById("useravatar");
             var username = document.getElementById("username");
             var timeString = document.getElementById("timeString");
             var checkinButton = document.getElementById("checkinButton");
@@ -161,6 +165,8 @@
 
             $(model).hide();
             $(model2).hide();
+            $(useravatar).hide();
+            $(checkinButton).hide();
 
             function showErrorModal() {
                 $(model2).show();
@@ -273,19 +279,32 @@
             var updateResource = function() {
                 $.ajax({
                     url: "/api/checkin/{{ $resource->id }}/refresh", // {{ route('resources.bookings.index', $resource->id) }}
-                    type: 'GET',
                     cache: false,
+                    type: 'GET',
                     dataType: 'json',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     success: function(data) {
-                        console.log(data)
                         $(number).text(data.resource.number);
+
+                        if (data.booking?.user?.image_url === null) {
+                            $(useravatar).hide();
+                        } else {
+                            $(useravatar).show();
+                            $(useravatar).attr("src", data.booking?.user?.image_url);
+                        }
+                        
                         $(username).text(data.booking?.user?.name ?? '');
                         $(timeString).text(data.timeString);
-                        $(checkinButton).text(data.booking?.checkin_time !== null ? 'Checked-in (' + data.booking?.checkin_time + ')' : 'Check-in');
-                        $(checkinButton).prop('disabled', data.booking?.checkin_time !== null);
+
+                        if (data.booking === null) {
+                            $(checkinButton).hide();
+                        } else {
+                            $(checkinButton).show();
+                            $(checkinButton).text(data.booking?.checkin_time ? 'Checked-in (' + data.booking?.checkin_time + ')' : 'Check-in');
+                            $(checkinButton).prop('disabled', data.booking?.checkin_time ? true : false);
+                        }
 
                         resource = data;
                         //console.log(resource);

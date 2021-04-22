@@ -488,7 +488,7 @@ class ResourceBookingController extends Controller
      * @param  \App\Models\Resource  $resource
      * @return \Illuminate\Http\Response
      */
-    public function checkIn(Request $request, Resource $resource)
+    /*public function checkIn(Request $request, Resource $resource)
     {
         $validator = Validator::make($request->all(), [
             'code' => 'required',
@@ -517,7 +517,7 @@ class ResourceBookingController extends Controller
         CheckInCode::destroy($checkInCode->id);
 
         return response(null, 200);
-    }
+    }*/
 
     /**
      * @group Resource Booking
