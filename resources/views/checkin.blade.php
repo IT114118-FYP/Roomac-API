@@ -282,8 +282,8 @@
                         $(number).text(data.resource.number);
                         $(username).text(data.booking?.user?.name ?? '');
                         $(timeString).text(data.timeString);
-                        $(checkinButton).text(data.booking?.checkin_time ? 'Checked-in (' + data.booking?.checkin_time + ')' : 'Check-in');
-                        $(checkinButton).prop('disabled', data.booking?.checkin_time ? true : false);
+                        $(checkinButton).text(data.booking?.checkin_time !== null ? 'Checked-in (' + data.booking?.checkin_time + ')' : 'Check-in');
+                        $(checkinButton).prop('disabled', data.booking?.checkin_time !== null);
 
                         resource = data;
                         //console.log(resource);
