@@ -288,13 +288,13 @@
                     success: function(data) {
                         $(number).text(data.resource.number);
 
-                        if (data.booking?.user?.image_url === null) {
+                        if (data.booking === null || data.booking?.user?.image_url === null) {
                             $(useravatar).hide();
                         } else {
                             $(useravatar).show();
                             $(useravatar).attr("src", data.booking?.user?.image_url);
                         }
-                        
+
                         $(username).text(data.booking?.user?.name ?? '');
                         $(timeString).text(data.timeString);
 
