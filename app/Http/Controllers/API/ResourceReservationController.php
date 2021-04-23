@@ -63,13 +63,13 @@ class ResourceReservationController extends Controller
             return response($err->getMessage(), 400);
         }
 
-        $resourceReservations = $this->getReservationsForTimeTable($start_date, $end_date);
+        $resourceReservations = $this->getReservationsForTimeTable($resource->id, $start_date, $end_date);
 
         return response($resourceReservations, 200);
     }
 
-    public function getReservationsForTimeTable($start_date, $end_date) {
-        $resourceReservations = ResourceReservation::where('resource_id', $resource->id)
+    public function getReservationsForTimeTable($resourceId, $start_date, $end_date) {
+        $resourceReservations = ResourceReservation::where('resource_id', $resourceId)
         ->where('repeat', 0)
         ->where('start_time', '>=', $start_date)
         ->where('end_time', '<=', $end_date)
@@ -79,7 +79,7 @@ class ResourceReservationController extends Controller
         $diff = $start_date->diffInDays($end_date);
 
         for ($i = 0; $i < $diff; $i++) {
-            $rrs = ResourceReservation::where('resource_id', $resource->id)
+            $rrs = ResourceReservation::where('resource_id', $resourceId)
                 ->where('repeat', 1)
                 ->where('day_of_week', $start_date->dayOfWeek)
                 ->get();

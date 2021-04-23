@@ -156,7 +156,7 @@ class ResourceBookingController extends Controller
             ->get();
 
         $reservations = (new ResourceReservationController)
-            ->getReservationsForTimeTable($start_date, $end_date);
+            ->getReservationsForTimeTable($resource->id, $start_date, $end_date);
 
         $data = [];
 
