@@ -77,21 +77,23 @@ class ResourceReservationController extends Controller
             ->get();
 
         for ($i = 0; $i < $diff; $i++) {
-            $rr = ResourceReservation::where('resource_id', $resource->id)
+            $rrs = ResourceReservation::where('resource_id', $resource->id)
                 ->where('repeat', 1)
                 ->where('day_of_week', $start_date->dayOfWeek)
                 ->get();
 
-            $date = $start_date->format('YYYY-MM-DD');
-            $startTime = Carbon::parse($date.'T'.$rr->start->format('H:i:s'));
-            $endTime = Carbon::parse($date.'T'.$rr->end->format('H:i:s'));
-
-            $resourceReservations[] = [
-                'id' => $rr->id,
-                'start_time' => $startTime,
-                'end_time' => $endTime,
-                'repeat' => $rr->repeat,
-            ];
+            foreach ($rrs as $rr) {
+                $date = $start_date->format('YYYY-MM-DD');
+                $startTime = Carbon::parse($date.'T'.$rr->start->format('H:i:s'));
+                $endTime = Carbon::parse($date.'T'.$rr->end->format('H:i:s'));
+    
+                $resourceReservations[] = [
+                    'id' => $rr->id,
+                    'start_time' => $startTime,
+                    'end_time' => $endTime,
+                    'repeat' => $rr->repeat,
+                ];
+            }
 
             $start_date->addDay();
         }
