@@ -320,7 +320,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: enim
+                    example: veritatis
                     required: false
                     schema:
                         type: string
@@ -328,7 +328,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: incidunt
+                    example: vero
                     required: false
                     schema:
                         type: string
@@ -1848,7 +1848,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: quod
+                    example: dolor
                     required: false
                     schema:
                         type: string
@@ -1856,7 +1856,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: aperiam
+                    example: expedita
                     required: false
                     schema:
                         type: string
@@ -1897,7 +1897,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: quo
+                    example: perferendis
                     required: false
                     schema:
                         type: string
@@ -1905,7 +1905,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: quod
+                    example: alias
                     required: false
                     schema:
                         type: string
@@ -1968,15 +1968,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: facilis
+                                    example: facere
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: dolorem
+                                    example: aut
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: in
+                                    example: temporibus
                             required:
                                 - date
                                 - start
@@ -1991,7 +1991,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: quos
+                    example: dignissimos
                     required: false
                     schema:
                         type: string
@@ -1999,7 +1999,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: quia
+                    example: animi
                     required: false
                     schema:
                         type: string
@@ -2095,15 +2095,15 @@ paths:
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: ea
+                                    example: commodi
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: dolore
+                                    example: non
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: id
+                                    example: et
                             required:
                                 - date
                                 - start
@@ -2212,14 +2212,14 @@ paths:
             security: []
     '/api/resources/{resource}/reservations':
         get:
-            summary: "Retrieve all resource's reservations (admin)\n\nRetrieve all resource's reservations. Example: /api/resources/1/bookings_admin?start=2021-01-24&end=2021-01-30"
+            summary: "Retrieve all resource's reservations (admin)\n\nRetrieve all resource's reservations. Example: /api/resources/1/reservations?start=2021-01-24&end=2021-01-30"
             description: ''
             parameters:
                 -
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: dolore
+                    example: consequatur
                     required: false
                     schema:
                         type: string
@@ -2227,7 +2227,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: dolore
+                    example: illum
                     required: false
                     schema:
                         type: string
@@ -2323,23 +2323,23 @@ paths:
                                 resource_id:
                                     type: integer
                                     description: 'Resource Id.'
-                                    example: 17
+                                    example: 6
                                 date:
                                     type: string
                                     description: 'Date of the booking (Y-m-d).'
-                                    example: inventore
+                                    example: quaerat
                                 start:
                                     type: string
                                     description: 'Start time of the booking (H:i:s).'
-                                    example: mollitia
+                                    example: ex
                                 end:
                                     type: string
                                     description: 'End time of the booking (H:i:s).'
-                                    example: id
+                                    example: rerum
                                 repeat:
                                     type: boolean
                                     description: 'Is repeat? true or false.'
-                                    example: true
+                                    example: false
                             required:
                                 - resource_id
                                 - date
@@ -2466,7 +2466,7 @@ paths:
                                 name:
                                     type: string
                                     description: 'The role name.'
-                                    example: fuga
+                                    example: dolorem
                             required:
                                 - name
     '/api/roles/{role}':
@@ -2541,7 +2541,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: ad
+                                    example: neque
                             required:
                                 - name
             security: []
@@ -2809,15 +2809,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: cupiditate
+                                    example: est
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: sed
+                                    example: est
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: sit
                             required:
                                 - tos_en
                                 - tos_hk
@@ -2895,15 +2895,15 @@ paths:
                                 tos_en:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: accusantium
                                 tos_hk:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: consequatur
                                 tos_cn:
                                     type: string
                                     description: ''
-                                    example: consequatur
+                                    example: id
                             required:
                                 - tos_en
                                 - tos_hk
@@ -3082,7 +3082,7 @@ paths:
                                 old_password:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: qui
                                 new_password:
                                     type: string
                                     description: ''
@@ -3410,11 +3410,11 @@ paths:
                                 user_id:
                                     type: string
                                     description: ''
-                                    example: earum
+                                    example: velit
                                 ban_minutes:
                                     type: integer
                                     description: ''
-                                    example: 9
+                                    example: 18
                             required:
                                 - user_id
                                 - ban_minutes
@@ -3556,7 +3556,7 @@ paths:
                     in: query
                     name: start
                     description: 'query start time in Y-m-d format. Defaults to 2021-01-13.'
-                    example: exercitationem
+                    example: tempora
                     required: false
                     schema:
                         type: string
@@ -3564,7 +3564,7 @@ paths:
                     in: query
                     name: end
                     description: 'query end time in Y-m-d format. Defaults to 2021-01-15.'
-                    example: numquam
+                    example: est
                     required: false
                     schema:
                         type: string

@@ -3,7 +3,7 @@
 
 ## Retrieve all resource&#039;s reservations (admin)
 
-Retrieve all resource&#039;s reservations. Example: /api/resources/1/bookings_admin?start=2021-01-24&amp;end=2021-01-30
+Retrieve all resource&#039;s reservations. Example: /api/resources/1/reservations?start=2021-01-24&amp;end=2021-01-30
 
 
 
@@ -12,7 +12,7 @@ Retrieve all resource&#039;s reservations. Example: /api/resources/1/bookings_ad
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/reservations?start=dolore&end=dolore" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/reservations?start=consequatur&end=illum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "dolore",
-    "end": "dolore",
+    "start": "consequatur",
+    "end": "illum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -129,7 +129,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/reservations" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"resource_id":17,"date":"inventore","start":"mollitia","end":"id","repeat":true}'
+    -d '{"resource_id":6,"date":"quaerat","start":"ex","end":"rerum","repeat":false}'
 
 ```
 
@@ -144,11 +144,11 @@ let headers = {
 };
 
 let body = {
-    "resource_id": 17,
-    "date": "inventore",
-    "start": "mollitia",
-    "end": "id",
-    "repeat": true
+    "resource_id": 6,
+    "date": "quaerat",
+    "start": "ex",
+    "end": "rerum",
+    "repeat": false
 }
 
 fetch(url, {

@@ -80,7 +80,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/tos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"cupiditate","tos_hk":"sed","tos_cn":"et"}'
+    -d '{"tos_en":"est","tos_hk":"est","tos_cn":"sit"}'
 
 ```
 
@@ -95,9 +95,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "cupiditate",
-    "tos_hk": "sed",
-    "tos_cn": "et"
+    "tos_en": "est",
+    "tos_hk": "est",
+    "tos_cn": "sit"
 }
 
 fetch(url, {
@@ -577,7 +577,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/tos/{to}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"tos_en":"et","tos_hk":"et","tos_cn":"consequatur"}'
+    -d '{"tos_en":"accusantium","tos_hk":"consequatur","tos_cn":"id"}'
 
 ```
 
@@ -592,9 +592,9 @@ let headers = {
 };
 
 let body = {
-    "tos_en": "et",
-    "tos_hk": "et",
-    "tos_cn": "consequatur"
+    "tos_en": "accusantium",
+    "tos_hk": "consequatur",
+    "tos_cn": "id"
 }
 
 fetch(url, {
