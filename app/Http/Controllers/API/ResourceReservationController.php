@@ -71,8 +71,8 @@ class ResourceReservationController extends Controller
 
         $resourceReservations = ResourceReservation::where('resource_id', $resource->id)
             ->where('repeat', 0)
-            ->where('start_time', '>=', $query_start)
-            ->where('end_time', '<=', $query_end)
+            ->where('start_time', '>=', $start_date)
+            ->where('end_time', '<=', $end_date)
             ->select('id', 'start_time', 'end_time', 'repeat')
             ->get();
 
