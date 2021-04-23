@@ -84,8 +84,8 @@ class ResourceReservationController extends Controller
 
             foreach ($rrs as $rr) {
                 $date = $start_date->format('Y-m-d');
-                $startTime = Carbon::parse($date.'T'.Carbon::parse($rr->start)->format('H:i:s'));
-                $endTime = Carbon::parse($date.'T'.Carbon::parse($rr->end)->format('H:i:s'));
+                $startTime = Carbon::parse($date.'T'.Carbon::parse($rr->start)->format('H:i:s'))->format('Y-m-dTH:i:s');
+                $endTime = Carbon::parse($date.'T'.Carbon::parse($rr->end)->format('H:i:s'))->format('Y-m-dTH:i:s');
     
                 $resourceReservations[] = [
                     'id' => $rr->id,
