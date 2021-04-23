@@ -344,6 +344,7 @@ class ResourceBookingController extends Controller
 
         try {
             $end_date = Carbon::parse($query_end);
+            $end_date->addDay();
         }
         catch (\Exception $err) {
             return response($err->getMessage(), 400);

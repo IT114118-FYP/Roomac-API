@@ -80,7 +80,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"omnis"}'
+    -d '{"name":"fuga"}'
 
 ```
 
@@ -95,7 +95,7 @@ let headers = {
 };
 
 let body = {
-    "name": "omnis"
+    "name": "fuga"
 }
 
 fetch(url, {
@@ -569,7 +569,7 @@ curl -X PUT \
     "https://it114118-fyp.herokuapp.com/api/roles/{role}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"autem"}'
+    -d '{"name":"ad"}'
 
 ```
 
@@ -584,7 +584,7 @@ let headers = {
 };
 
 let body = {
-    "name": "autem"
+    "name": "ad"
 }
 
 fetch(url, {

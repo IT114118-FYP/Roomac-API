@@ -33,6 +33,74 @@ class ResourceReservationController extends Controller
     /**
      * @group Resource Reservation
      * 
+     * Retrieve all resource's reservations (admin)
+     * 
+     * Retrieve all resource's reservations. Example: /api/resources/1/reservations?start=2021-01-24&end=2021-01-30
+     *
+     * @queryParam start query start time in Y-m-d format. Defaults to 2021-01-13.
+     * @queryParam end query end time in Y-m-d format. Defaults to 2021-01-15.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function indexAdmin(Request $request, Resource $resource)
+    {
+        $query_start = $request->query('start', null);
+        $query_end = $request->query('end', null);
+
+        try {
+            $start_date = Carbon::parse($query_start);
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        try {
+            $end_date = Carbon::parse($query_end);
+            $end_date->addDay();
+        }
+        catch (\Exception $err) {
+            return response($err->getMessage(), 400);
+        }
+
+        $diff = $start_date->diffInDays($end_date);
+
+        if ($diff <= 0) {
+            return response($err->getMessage(), 401);
+        }
+
+        $resourceReservations = ResourceReservation::where('resource_id', $resource->id)
+            ->where('repeat', 0)
+            ->where('start_time', '>=', $query_start)
+            ->where('end_time', '<=', $query_end)
+            ->select('id', 'start_time', 'end_time', 'repeat')
+            ->get();
+
+        for ($i = 0; $i < $diff; $i++) {
+            $rr = ResourceReservation::where('resource_id', $resource->id)
+                ->where('repeat', 1)
+                ->where('day_of_week', $start_date->dayOfWeek)
+                ->get();
+
+            $date = $start_date->format('YYYY-MM-DD');
+            $startTime = Carbon::parse($date.'T'.$rr->start->format('H:i:s'));
+            $endTime = Carbon::parse($date.'T'.$rr->end->format('H:i:s'));
+
+            $resourceReservations[] = [
+                'id' => $rr->id,
+                'start_time' => $startTime,
+                'end_time' => $endTime,
+                'repeat' => $rr->repeat,
+            ];
+
+            $start_date->addDay();
+        }
+
+        return response($resourceReservations, 200);
+    }
+
+    /**
+     * @group Resource Reservation
+     * 
      * Add a new resource reservation record
      * 
      * Add a new resource reservation record.

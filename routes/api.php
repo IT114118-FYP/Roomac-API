@@ -65,6 +65,7 @@ Route::get('/resourcebookings/{resourceBooking}/code', [ResourceBookingControlle
 Route::post('/resourcebookings/{resourceBooking}/checkin', [ResourceBookingController::class, 'adminCheckIn']);
 Route::get('/branches/{branch}/bookings', [ResourceBookingController::class, 'indexBranch']);
 
+Route::get('/resources/{resource}/reservations', [ResourceReservationController::class, 'indexAdmin']);
 Route::apiResource('/reservations', ResourceReservationController::class);
 
 Route::apiResource('/userbans', UserBanController::class);
