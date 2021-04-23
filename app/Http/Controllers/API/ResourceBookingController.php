@@ -132,7 +132,7 @@ class ResourceBookingController extends Controller
         $query_end = $request->query('end', null);
 
         if ($query_start == null || $query_end == null) {
-            return response($err->getMessage(), 401);
+            return response('start or end cannot be empty', 401);
         }
 
         try {
