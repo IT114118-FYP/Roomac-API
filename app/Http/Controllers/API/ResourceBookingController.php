@@ -172,9 +172,9 @@ class ResourceBookingController extends Controller
         foreach ($reservations as $reservation) {
             $data[] = [
                 'booking_id' => null,
-                'reservation_id' => $reservation->id,
-                'start_time' => $reservation->start_time,
-                'end_time' => $reservation->end_time,
+                'reservation_id' => $reservation['id'],
+                'start_time' => $reservation['start_time'],
+                'end_time' => $reservation['end_time'],
             ];
         }
 
