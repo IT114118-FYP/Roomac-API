@@ -33,11 +33,11 @@
                 <h2 id="timeString" class="text-4xl text-white pt-4 pb-4">{{ $timeString }}</h2>
 
                 <div class="block inline-block mt-3">
-                    <img id="useravatar" class="inline-block h-11 w-11 rounded-full ring-2 ring-white mb-4" src="/favicon.ico" />
+                    <img id="useravatar" class="inline-block h-11 w-11 rounded-full ring-2 ring-white mb-4" src="/favicon.ico" style="display: none;" />
                     <span id="username" class="text-4xl text-white ml-1"></span>
                 </div>
     
-                <button id="checkinButton" type="button" onclick="onCheckInClick()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-8 py-3 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button id="checkinButton" type="button" onclick="onCheckInClick()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-8 py-3 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" style="display: none;">
                     Check-in
                 </button>
             </div>
