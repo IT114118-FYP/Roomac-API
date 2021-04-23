@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\API\BranchSettingController;
+use App\Http\Controllers\API\ResourceReservationController;
 
 use Carbon\Carbon;
 
@@ -131,12 +132,7 @@ class ResourceBookingController extends Controller
         $query_end = $request->query('end', null);
 
         if ($query_start == null || $query_end == null) {
-            return [
-                'interval' => $resource->interval,
-                'opening_time' => $resource->opening_time,
-                'closing_time' => $resource->closing_time,
-                'bookings' => ResourceBooking::where('resource_id', $resource->id)->get(),
-            ];
+            return response($err->getMessage(), 401);
         }
 
         try {
@@ -148,16 +144,45 @@ class ResourceBookingController extends Controller
 
         try {
             $end_date = Carbon::parse($query_end);
+            $end_date->addDay();
         }
         catch (\Exception $err) {
             return response($err->getMessage(), 400);
+        }
+
+        $bookings = ResourceBooking::where('resource_id', $resource->id)
+            ->where('start_time', '>=', $start_date)
+            ->where('end_time', '<=', $end_date)
+            ->get();
+
+        $reservations = (new ResourceReservationController)
+            ->getReservationsForTimeTable($start_date, $end_date);
+
+        $data = [];
+
+        foreach ($bookings as $booking) {
+            $data[] = [
+                'booking_id' => $booking->id,
+                'reservation_id' => null,
+                'start_time' => $booking->start_time,
+                'end_time' => $booking->end_time,
+            ];
+        }
+
+        foreach ($reservations as $reservation) {
+            $data[] = [
+                'booking_id' => null,
+                'reservation_id' => $reservation->id,
+                'start_time' => $reservation->start_time,
+                'end_time' => $reservation->end_time,
+            ];
         }
 
         return [
             'interval' => $resource->interval,
             'opening_time' => $resource->opening_time,
             'closing_time' => $resource->closing_time,
-            'bookings' => ResourceBooking::where('resource_id', $resource->id)->where('start_time', '>=', $query_start)->where('end_time', '<=', $query_end)->get(),
+            'data' => $data,
         ];
     }
 

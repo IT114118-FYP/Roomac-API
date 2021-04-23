@@ -63,18 +63,20 @@ class ResourceReservationController extends Controller
             return response($err->getMessage(), 400);
         }
 
-        $diff = $start_date->diffInDays($end_date);
+        $resourceReservations = $this->getReservationsForTimeTable($start_date, $end_date);
 
-        if ($diff <= 0) {
-            return response($err->getMessage(), 401);
-        }
+        return response($resourceReservations, 200);
+    }
 
+    public function getReservationsForTimeTable($start_date, $end_date) {
         $resourceReservations = ResourceReservation::where('resource_id', $resource->id)
-            ->where('repeat', 0)
-            ->where('start_time', '>=', $start_date)
-            ->where('end_time', '<=', $end_date)
-            ->select('id', 'start_time', 'end_time', 'repeat')
-            ->get();
+        ->where('repeat', 0)
+        ->where('start_time', '>=', $start_date)
+        ->where('end_time', '<=', $end_date)
+        ->select('id', 'start_time', 'end_time', 'repeat')
+        ->get();
+
+        $diff = $start_date->diffInDays($end_date);
 
         for ($i = 0; $i < $diff; $i++) {
             $rrs = ResourceReservation::where('resource_id', $resource->id)
@@ -86,7 +88,7 @@ class ResourceReservationController extends Controller
                 $date = $start_date->format('Y-m-d');
                 $startTime = Carbon::parse($date.'T'.Carbon::parse($rr->start)->format('H:i:s'))->format('Y-m-dTH:i:s');
                 $endTime = Carbon::parse($date.'T'.Carbon::parse($rr->end)->format('H:i:s'))->format('Y-m-dTH:i:s');
-    
+
                 $resourceReservations[] = [
                     'id' => $rr->id,
                     'start_time' => $startTime,
@@ -98,7 +100,7 @@ class ResourceReservationController extends Controller
             $start_date->addDay();
         }
 
-        return response($resourceReservations, 200);
+        return $resourceReservations;
     }
 
     /**
