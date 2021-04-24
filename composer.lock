@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "227349222e9112fefc57d402e96f7ec0",
+    "content-hash": "01ae0073fdcb5427775d743a80542863",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -617,6 +617,54 @@
                 "validator"
             ],
             "time": "2020-09-26T15:48:38+00:00"
+        },
+        {
+            "name": "eristemena/dialogflow-fulfillment-webhook-php",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eristemena/dialogflow-fulfillment-webhook-php.git",
+                "reference": "42a7d844ceffdcf0a991aa98bb10086d905515d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eristemena/dialogflow-fulfillment-webhook-php/zipball/42a7d844ceffdcf0a991aa98bb10086d905515d2",
+                "reference": "42a7d844ceffdcf0a991aa98bb10086d905515d2",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "1.* || 2.*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "clean/phpdoc-md": "^0.10.0",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dialogflow\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eris Ristemena",
+                    "email": "e.ristemena@gmail.com"
+                }
+            ],
+            "description": "Dialogflow Fulfillment Webhook v1 & v2",
+            "keywords": [
+                "Dialogflow",
+                "api.ai",
+                "client library",
+                "fulfillment",
+                "webhook"
+            ],
+            "time": "2019-06-15T01:17:05+00:00"
         },
         {
             "name": "fideloper/proxy",

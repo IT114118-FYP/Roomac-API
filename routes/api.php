@@ -30,6 +30,8 @@ use App\Http\Controllers\API\BranchSettingController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\TosController;
 
+use Dialogflow\WebhookClient;
+
 Route::post('/branches/import', [BranchController::class, 'import']);
 Route::get('/branches/export', [BranchController::class, 'export']);
 Route::delete('/branches', [BranchController::class, 'destroyMany']);
@@ -240,4 +242,12 @@ Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
     }
 
     return response(null, 200);
+});
+
+Route::post('/dialogflow', function (Request $request) {
+    $agent = WebhookClient::fromData($request->json()->all());
+
+    $agent->reply('Test laravel');
+
+    return response()->json($agent->render());
 });
