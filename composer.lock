@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01ae0073fdcb5427775d743a80542863",
+    "content-hash": "ea22f4e097ea79ac58e31274c807d661",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1074,6 +1074,64 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "jimmyjs/laravel-report-generator",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jimmy-JS/laravel-report-generator.git",
+                "reference": "7c609f3e3bd06bb69881fa9b3623e021483942b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jimmy-JS/laravel-report-generator/zipball/7c609f3e3bd06bb69881fa9b3623e021483942b1",
+                "reference": "7c609f3e3bd06bb69881fa9b3623e021483942b1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0",
+                "maatwebsite/excel": "^3.1",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jimmyjs\\ReportGenerator\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "PdfReport": "Jimmyjs\\ReportGenerator\\Facades\\PdfReportFacade",
+                        "ExcelReport": "Jimmyjs\\ReportGenerator\\Facades\\ExcelReportFacade",
+                        "CSVReport": "Jimmyjs\\ReportGenerator\\Facades\\CSVReportFacade::class"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jimmyjs\\ReportGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jimmy Setiawan",
+                    "email": "jimmysetiawan.js@gmail.com"
+                }
+            ],
+            "description": "Rapidly Generate Simple Pdf & Excel Report on Laravel 5 (Using Barryvdh/DomPdf or Barryvdh/laravel-snappy & maatwebsite/excel)",
+            "keywords": [
+                "excel",
+                "excel report",
+                "laravel",
+                "pdf",
+                "pdf report",
+                "report"
+            ],
+            "time": "2020-05-10T12:53:46+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8705,12 +8763,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },

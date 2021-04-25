@@ -244,10 +244,47 @@ Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
     return response(null, 200);
 });
 
+
 Route::post('/dialogflow', function (Request $request) {
     $agent = WebhookClient::fromData($request->json()->all());
 
     $agent->reply($request->getContent());
 
     return response()->json($agent->render());
+});
+
+/**
+ * @group Report
+ * 
+ * Get a prf report
+ * 
+ * @authenticated
+ *
+ * @response status=200 scenario="success"
+ */
+Route::get('/report', function (Request $request) {
+    // https://github.com/Jimmy-JS/laravel-report-generator
+    $fromDate = $request->input('start');
+    $toDate = $request->input('end');
+
+    $title = 'Roomac Usage Report';
+
+    $meta = [
+        'From' => $fromDate . ' To ' . $toDate,
+    ];
+
+    $queryBuilder = ResourceBooking::whereBetween('created_at', [$fromDate, $toDate]);
+
+    $columns = [ // Set Column to be displayed
+        'Reference Number' => 'number',
+        //'User Name',
+        'Check in' => 'checkin_time',
+    ];
+
+    // Generate Report with flexibility to manipulate column class even manipulate column value (using Carbon, etc).
+    return PdfReport::of($title, $meta, $queryBuilder, $columns)
+
+                    ->limit(20) // Limit record to be showed
+                    ->download('report');
+                    //->stream(); // other available method: download('filename') to download pdf / make() that will producing DomPDF / SnappyPdf instance so you could do any other DomPDF / snappyPdf method such as stream() or download()
 });
