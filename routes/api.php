@@ -247,7 +247,7 @@ Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
 Route::post('/dialogflow', function (Request $request) {
     $agent = WebhookClient::fromData($request->json()->all());
 
-    $agent->reply('Test laravel');
+    $agent->reply($request->json()->all());
 
     return response()->json($agent->render());
 });
