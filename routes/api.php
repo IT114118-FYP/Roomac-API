@@ -10,6 +10,7 @@ use App\Models\ResourceBooking;
 use App\Models\CheckInCode;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
@@ -31,6 +32,9 @@ use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\TosController;
 
 use Dialogflow\WebhookClient;
+use Dialogflow\Action\Questions\Confirmation;
+
+use Carbon\Carbon;
 
 Route::post('/branches/import', [BranchController::class, 'import']);
 Route::get('/branches/export', [BranchController::class, 'export']);
@@ -247,9 +251,73 @@ Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
 
 Route::post('/dialogflow', function (Request $request) {
     $agent = WebhookClient::fromData($request->json()->all());
-
-    $agent->reply($request->getContent());
-
+	$intent = $agent->getIntent();
+	$payload = $agent->getOriginalRequest()['payload'];
+	
+	if (!isset($payload['user_id'])) {
+		$agent->reply('Some errors have occurred, please try again later.');
+		return response()->json($agent->render());
+	}
+	
+	// Debug code:
+	// $agent->reply($request->getContent());
+	// $agent->reply(var_export($agent->getOriginalRequest()['payload']['user_id'], true));
+	
+	$userId = $payload['user_id'];
+	
+	if ($intent == 'All Bookings') {
+		$count = ResourceBooking::where('user_id', $userId)->count();
+		$agent->reply('You have ' . $count . ' booking record' . ($count > 1 ? 's' : '') . '. Please go to My Bookings to view all bookings.');	
+	} else if ($intent == 'Delete Booking') {
+		$parameters = $agent->getParameters();
+		$number = $parameters['number'];
+		
+		if (!ResourceBooking::where('user_id', $userId)->where('number', $number)->exists()) {
+			$agent->reply('The booking record with reference number ' . $number . ' could not be found.');
+			return response()->json($agent->render());
+		}
+		
+		if (ResourceBooking::where('user_id', $userId)->where('number', $number)->where('start_time', '<', now())->exists()) {
+			$agent->reply('The booking record with reference number ' . $number . ' has passed, it cannot be deleted.');
+			return response()->json($agent->render());
+		}
+		
+		$rb = ResourceBooking::where('number', $number)->first();
+		ResourceBooking::destroy($rb->id);
+		
+		$agent->reply('The booking record with reference number ' . $number . ' has deleted.');
+	} else if ($intent == 'Get Check-In QR Code') {
+		$rbq = ResourceBooking::where('user_id', $userId)
+			->whereNull('checkin_time')
+			->where('end_time', '>', now())
+			->orderBy('start_time', 'ASC');
+		
+		if (!$rbq->exists()) {
+			$agent->reply('No active booking record found.');
+			return response()->json($agent->render());
+		}
+		
+		$rb = $rbq->with('resource')->first();
+		
+		// Generate or update the code
+        $checkInCode = CheckInCode::updateOrCreate([
+            'resource_booking_id' => $rb->id,
+        ], [
+            'code' => Str::uuid()->toString(),
+        ]);
+		
+		$card = \Dialogflow\RichMessage\Card::create()
+			->image('https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' . urlencode($checkInCode->code));
+			
+		$agent->reply($card);
+		
+		$agent->reply('Here is the Check-In QR Code of ' . $rb->resource->number . ' (' . $rb->number . ').');
+		$agent->reply('Date: ' . Carbon::parse($rb->start_time)->format('Y-m-d'));
+		$agent->reply('Time: ' . Carbon::parse($rb->start_time)->format('H:i') . ' - ' . Carbon::parse($rb->end_time)->format('H:i'));
+	} else {
+		$agent->reply($request->getContent());
+	}
+	
     return response()->json($agent->render());
 });
 
