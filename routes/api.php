@@ -287,10 +287,33 @@ Route::post('/dialogflow', function (Request $request) {
 		
 		$agent->reply('The booking record with reference number ' . $number . ' has deleted.');
 	} else if ($intent == 'Get Check-In QR Code') {
-		$rbq = ResourceBooking::where('user_id', $userId)
-			->whereNull('checkin_time')
-			->where('end_time', '>', now())
-			->orderBy('start_time', 'ASC');
+		$parameters = $agent->getParameters();
+		
+		if (isset($parameters['number'])) {
+			$number = $parameters['number'];
+			
+			if (!ResourceBooking::where('user_id', $userId)->where('number', $number)->exists()) {
+				$agent->reply('The booking record with reference number ' . $number . ' could not be found.');
+				return response()->json($agent->render());
+			}
+			
+			if (ResourceBooking::where('user_id', $userId)->where('number', $number)->where('end_time', '<', now())->exists()) {
+				$agent->reply('The booking record with reference number ' . $number . ' has passed.');
+				return response()->json($agent->render());
+			}
+			
+			if (ResourceBooking::where('user_id', $userId)->where('number', $number)->whereNotNull('checkin_time')->exists()) {
+				$agent->reply('The booking record with reference number ' . $number . ' has been checked-in.');
+				return response()->json($agent->render());
+			}
+			
+			$rbq = ResourceBooking::where('user_id', $userId)->where('number', $number);
+		} else {
+			$rbq = ResourceBooking::where('user_id', $userId)
+				->whereNull('checkin_time')
+				->where('end_time', '>', now())
+				->orderBy('start_time', 'ASC');
+		}
 		
 		if (!$rbq->exists()) {
 			$agent->reply('No active booking record found.');
