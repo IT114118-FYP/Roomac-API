@@ -347,35 +347,102 @@ Route::post('/dialogflow', function (Request $request) {
 /**
  * @group Report
  * 
- * Get a prf report
+ * Get report data, using for chart purpose
  * 
  * @authenticated
  *
  * @response status=200 scenario="success"
  */
 Route::get('/report', function (Request $request) {
-    // https://github.com/Jimmy-JS/laravel-report-generator
-    $fromDate = $request->input('start');
-    $toDate = $request->input('end');
+    $query_start = $request->query('start', null);
+    $query_end = $request->query('end', null);
 
-    $title = 'Roomac Usage Report';
+    try {
+        $startDate = Carbon::parse($query_start);
+    }
+    catch (\Exception $err) {
+        return response($err->getMessage(), 400);
+    }
 
-    $meta = [
-        'From' => $fromDate . ' To ' . $toDate,
+    try {
+        $endDate = Carbon::parse($query_end);
+        $endDate->addDay();
+    }
+    catch (\Exception $err) {
+        return response($err->getMessage(), 400);
+    }
+
+    // Booking Count
+    $bookingCount = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->count();
+
+    // Booking Check-in
+    $bookingCheckInCount = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->whereNotNull('checkin_time')
+        ->count();
+
+    // Booking Not Check-in
+    $bookingNotCheckInCount = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->whereNull('checkin_time')
+        ->count();
+
+    // Booking Resources
+    $bookingsResources = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->join('resources', 'resources.id', '=', 'resource_bookings.resource_id')
+        ->selectRaw('resource_id, resources.number, count(*)')
+        ->groupBy('resource_id')
+        ->get();
+
+    // Booking Users
+    $bookingsUsers = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->join('users', 'users.id', '=', 'resource_bookings.user_id')
+        ->selectRaw('user_id, users.name, count(*)')
+        ->groupBy('user_id')
+        ->get();
+
+    // Booking Branches
+    $bookingsBranches = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->join('resources', 'resources.id', '=', 'resource_bookings.resource_id')
+        ->join('branches', 'branches.id', '=', 'resources.branch_id')
+        ->selectRaw('resources.branch_id, branches.title_en, count(*)')
+        ->groupBy('resources.branch_id')
+        ->get();
+
+    // Booking Categories
+    $bookingsCategories = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->join('resources', 'resources.id', '=', 'resource_bookings.resource_id')
+        ->join('categories', 'categories.id', '=', 'resources.category_id')
+        ->selectRaw('resources.category_id, categories.title_en, count(*)')
+        ->groupBy('resources.category_id')
+        ->get();
+
+    // Booking Programs
+    $bookingsPrograms = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->join('users', 'users.id', '=', 'resource_bookings.user_id')
+        ->join('programs', 'programs.id', '=', 'users.program_id')
+        ->selectRaw('users.program_id, programs.title_en, count(*)')
+        ->groupBy('users.program_id')
+        ->get();
+
+    // Booking User Branches
+    $bookingsBranches = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->join('users', 'users.id', '=', 'resource_bookings.user_id')
+        ->join('branches', 'branches.id', '=', 'users.branch_id')
+        ->selectRaw('users.branch_id, branches.title_en, count(*)')
+        ->groupBy('users.branch_id')
+        ->get();
+
+    return [
+        'bookings' => [
+            'total' => $bookingCount,
+            'checkIn' => $bookingCheckInCount,
+            'notCheckIn' => $bookingNotCheckInCount,
+        ],
+        'branches' => $bookingsBranches,
+        'categories' => $bookingsCategories,
+        'resources' => $bookingsResources,
+        'users' => $bookingsUsers,
+        'users_programs' => $bookingsPrograms,
+        'users_branches' => $bookingsBranches,
     ];
-
-    $queryBuilder = ResourceBooking::whereBetween('created_at', [$fromDate, $toDate]);
-
-    $columns = [ // Set Column to be displayed
-        'Reference Number' => 'number',
-        //'User Name',
-        'Check in' => 'checkin_time',
-    ];
-
-    // Generate Report with flexibility to manipulate column class even manipulate column value (using Carbon, etc).
-    return PdfReport::of($title, $meta, $queryBuilder, $columns)
-
-                    ->limit(20) // Limit record to be showed
-                    ->download('report');
-                    //->stream(); // other available method: download('filename') to download pdf / make() that will producing DomPDF / SnappyPdf instance so you could do any other DomPDF / snappyPdf method such as stream() or download()
 });
