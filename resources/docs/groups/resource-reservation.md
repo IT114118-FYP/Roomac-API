@@ -12,7 +12,7 @@ Retrieve all resource&#039;s reservations. Example: /api/resources/1/reservation
 
 ```bash
 curl -X GET \
-    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/reservations?start=consequatur&end=illum" \
+    -G "https://it114118-fyp.herokuapp.com/api/resources/{resource}/reservations?start=labore&end=molestiae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,8 +23,8 @@ const url = new URL(
 );
 
 let params = {
-    "start": "consequatur",
-    "end": "illum",
+    "start": "labore",
+    "end": "molestiae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -129,7 +129,7 @@ curl -X POST \
     "https://it114118-fyp.herokuapp.com/api/reservations" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"resource_id":6,"date":"quaerat","start":"ex","end":"rerum","repeat":false}'
+    -d '{"resource_id":17,"date":"impedit","start":"id","end":"et","repeat":false}'
 
 ```
 
@@ -144,10 +144,10 @@ let headers = {
 };
 
 let body = {
-    "resource_id": 6,
-    "date": "quaerat",
-    "start": "ex",
-    "end": "rerum",
+    "resource_id": 17,
+    "date": "impedit",
+    "start": "id",
+    "end": "et",
     "repeat": false
 }
 

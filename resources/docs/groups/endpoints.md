@@ -42,6 +42,47 @@ fetch(url, {
 
 
 
+## api/dialogflow
+
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://it114118-fyp.herokuapp.com/api/dialogflow" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://it114118-fyp.herokuapp.com/api/dialogflow"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/dialogflow`**
+
+
+
 ## Invoke the controller method.
 
 
