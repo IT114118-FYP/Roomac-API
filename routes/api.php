@@ -386,6 +386,19 @@ Route::get('/report', function (Request $request) {
         ->whereNull('checkin_time')
         ->count();
 
+
+    $details = [];
+    $tempStartDate = $startDate->copy();
+
+    do {
+        if ($tempStartDate->lt($endDate)) {
+            $details[$tempStartDate->format('F Y')] = getBookingsDetails($tempStartDate, $tempStartDate->copy()->endOfMonth());
+        } else {
+            $details[$tempStartDate->format('F Y')] = getBookingsDetails($tempStartDate, $endDate);
+        }
+        $tempStartDate = $tempStartDate->addMonth()->startOfMonth();
+    } while ($tempStartDate->lt($endDate));
+
     // Booking Resources
     $bookingsResources = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('resources', 'resources.id', '=', 'resource_bookings.resource_id')
@@ -449,6 +462,7 @@ Route::get('/report', function (Request $request) {
             'total' => $bookingCount,
             'checkIn' => $bookingCheckInCount,
             'notCheckIn' => $bookingNotCheckInCount,
+            'details' => $details,
         ],
         'branches' => $bookingsBranches,
         'categories' => $bookingsCategories,
@@ -458,3 +472,25 @@ Route::get('/report', function (Request $request) {
         'users_branches' => $bookingsBranches,
     ];
 });
+
+function getBookingsDetails($startDate, $endDate) {
+    // Booking Count
+    $bookingCount = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->count();
+
+    // Booking Check-in
+    $bookingCheckInCount = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->whereNotNull('checkin_time')
+        ->count();
+
+    // Booking Not Check-in
+    $bookingNotCheckInCount = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+        ->whereNull('checkin_time')
+        ->count();
+
+    return [
+        'total' => $bookingCount,
+        'checkIn' => $bookingCheckInCount,
+        'notCheckIn' => $bookingNotCheckInCount,
+    ];
+}
