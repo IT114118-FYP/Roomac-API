@@ -392,9 +392,9 @@ Route::get('/report', function (Request $request) {
 
     do {
         if ($tempStartDate->lt($endDate)) {
-            $details[$tempStartDate->format('F Y')] = getBookingsDetails($tempStartDate, $tempStartDate->copy()->endOfMonth());
+            $details[] = getBookingsDetails($tempStartDate, $tempStartDate->copy()->endOfMonth());
         } else {
-            $details[$tempStartDate->format('F Y')] = getBookingsDetails($tempStartDate, $endDate);
+            $details[] = getBookingsDetails($tempStartDate, $endDate);
         }
         $tempStartDate = $tempStartDate->addMonth()->startOfMonth();
     } while ($tempStartDate->lt($endDate));
@@ -489,6 +489,7 @@ function getBookingsDetails($startDate, $endDate) {
         ->count();
 
     return [
+        'date' => $startDate->format('F Y'),
         'total' => $bookingCount,
         'checkIn' => $bookingCheckInCount,
         'notCheckIn' => $bookingNotCheckInCount,
