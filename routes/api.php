@@ -392,6 +392,7 @@ Route::get('/report', function (Request $request) {
         ->selectRaw('resource_id, resources.number, count(*) as total')
         ->groupBy('resource_id')
         ->orderBy('total', 'DESC')
+        ->limit(5)
         ->get();
 
     // Booking Users
@@ -400,6 +401,7 @@ Route::get('/report', function (Request $request) {
         ->selectRaw('user_id, users.name, count(*) as total')
         ->groupBy('user_id')
         ->orderBy('total', 'DESC')
+        ->limit(5)
         ->get();
 
     // Booking Branches
@@ -409,6 +411,7 @@ Route::get('/report', function (Request $request) {
         ->selectRaw('resources.branch_id, branches.title_en, count(*) as total')
         ->groupBy('resources.branch_id')
         ->orderBy('total', 'DESC')
+        ->limit(5)
         ->get();
 
     // Booking Categories
@@ -418,6 +421,7 @@ Route::get('/report', function (Request $request) {
         ->selectRaw('resources.category_id, categories.title_en, count(*) as total')
         ->groupBy('resources.category_id')
         ->orderBy('total', 'DESC')
+        ->limit(5)
         ->get();
 
     // Booking Programs
@@ -427,6 +431,7 @@ Route::get('/report', function (Request $request) {
         ->selectRaw('users.program_id, programs.title_en, count(*) as total')
         ->groupBy('users.program_id')
         ->orderBy('total', 'DESC')
+        ->limit(5)
         ->get();
 
     // Booking User Branches
@@ -436,6 +441,7 @@ Route::get('/report', function (Request $request) {
         ->selectRaw('users.branch_id, branches.title_en, count(*) as total')
         ->groupBy('users.branch_id')
         ->orderBy('total', 'DESC')
+        ->limit(5)
         ->get();
 
     return [
