@@ -448,7 +448,7 @@ Route::get('/report', function (Request $request) {
         ->get();
 
     // Booking User Branches
-    $bookingsBranches = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
+    $bookingsUsersBranches = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('users', 'users.id', '=', 'resource_bookings.user_id')
         ->join('branches', 'branches.id', '=', 'users.branch_id')
         ->selectRaw('users.branch_id, branches.title_en, count(*) as total')
@@ -469,7 +469,7 @@ Route::get('/report', function (Request $request) {
         'resources' => $bookingsResources,
         'users' => $bookingsUsers,
         'users_programs' => $bookingsPrograms,
-        'users_branches' => $bookingsBranches,
+        'users_branches' => $bookingsUsersBranches,
     ];
 });
 
