@@ -36,6 +36,8 @@ use Dialogflow\Action\Questions\Confirmation;
 
 use Carbon\Carbon;
 
+use App\Exports\ReportExport;
+
 Route::post('/branches/import', [BranchController::class, 'import']);
 Route::get('/branches/export', [BranchController::class, 'export']);
 Route::delete('/branches', [BranchController::class, 'destroyMany']);
@@ -353,7 +355,7 @@ Route::post('/dialogflow', function (Request $request) {
  *
  * @response status=200 scenario="success"
  */
-Route::get('/report', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/report', function (Request $request) {
     $query_start = $request->query('start', null);
     $query_end = $request->query('end', null);
 
@@ -495,3 +497,35 @@ function getBookingsDetails($startDate, $endDate) {
         'notCheckIn' => $bookingNotCheckInCount,
     ];
 }
+
+/**
+ * @group Report
+ * 
+ * Export Report
+ * 
+ * @authenticated
+ *
+ * @response status=200 scenario="success"
+ */
+Route::get('/report/export', function (Request $request) {
+    $query_start = $request->query('start', null);
+    $query_end = $request->query('end', null);
+
+    try {
+        $startDate = Carbon::parse($query_start);
+    }
+    catch (\Exception $err) {
+        return response($err->getMessage(), 400);
+    }
+
+    try {
+        $endDate = Carbon::parse($query_end);
+        $endDate->addDay()->subSecond();
+    }
+    catch (\Exception $err) {
+        return response($err->getMessage(), 400);
+    }
+
+    return (new ReportExport($startDate, $endDate))
+        ->download('Report (' . $startDate->format('Y-m-d') .' to ' . $endDate->format('Y-m-d') . ').xlsx');
+});
