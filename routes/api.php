@@ -391,7 +391,7 @@ Route::get('/report', function (Request $request) {
     $tempStartDate = $startDate->copy();
 
     do {
-        if ($tempStartDate->lt($endDate)) {
+        if ($tempStartDate->copy()->endOfMonth()->lt($endDate)) {
             $details[] = getBookingsDetails($tempStartDate, $tempStartDate->copy()->endOfMonth());
         } else {
             $details[] = getBookingsDetails($tempStartDate, $endDate);
