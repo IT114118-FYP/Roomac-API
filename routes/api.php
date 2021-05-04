@@ -389,47 +389,53 @@ Route::get('/report', function (Request $request) {
     // Booking Resources
     $bookingsResources = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('resources', 'resources.id', '=', 'resource_bookings.resource_id')
-        ->selectRaw('resource_id, resources.number, count(*)')
+        ->selectRaw('resource_id, resources.number, count(*) as total')
         ->groupBy('resource_id')
+        ->orderBy('total', 'DESC')
         ->get();
 
     // Booking Users
     $bookingsUsers = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('users', 'users.id', '=', 'resource_bookings.user_id')
-        ->selectRaw('user_id, users.name, count(*)')
+        ->selectRaw('user_id, users.name, count(*) as total')
         ->groupBy('user_id')
+        ->orderBy('total', 'DESC')
         ->get();
 
     // Booking Branches
     $bookingsBranches = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('resources', 'resources.id', '=', 'resource_bookings.resource_id')
         ->join('branches', 'branches.id', '=', 'resources.branch_id')
-        ->selectRaw('resources.branch_id, branches.title_en, count(*)')
+        ->selectRaw('resources.branch_id, branches.title_en, count(*) as total')
         ->groupBy('resources.branch_id')
+        ->orderBy('total', 'DESC')
         ->get();
 
     // Booking Categories
     $bookingsCategories = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('resources', 'resources.id', '=', 'resource_bookings.resource_id')
         ->join('categories', 'categories.id', '=', 'resources.category_id')
-        ->selectRaw('resources.category_id, categories.title_en, count(*)')
+        ->selectRaw('resources.category_id, categories.title_en, count(*) as total')
         ->groupBy('resources.category_id')
+        ->orderBy('total', 'DESC')
         ->get();
 
     // Booking Programs
     $bookingsPrograms = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('users', 'users.id', '=', 'resource_bookings.user_id')
         ->join('programs', 'programs.id', '=', 'users.program_id')
-        ->selectRaw('users.program_id, programs.title_en, count(*)')
+        ->selectRaw('users.program_id, programs.title_en, count(*) as total')
         ->groupBy('users.program_id')
+        ->orderBy('total', 'DESC')
         ->get();
 
     // Booking User Branches
     $bookingsBranches = ResourceBooking::whereBetween('start_time', [$startDate, $endDate])
         ->join('users', 'users.id', '=', 'resource_bookings.user_id')
         ->join('branches', 'branches.id', '=', 'users.branch_id')
-        ->selectRaw('users.branch_id, branches.title_en, count(*)')
+        ->selectRaw('users.branch_id, branches.title_en, count(*) as total')
         ->groupBy('users.branch_id')
+        ->orderBy('total', 'DESC')
         ->get();
 
     return [
