@@ -70,6 +70,10 @@ class ResourceController extends Controller
         }
 
         $validated_data = $validator->valid();
+
+        if (!isset($validated_data['tos_id'])) {
+            $validated_data['tos_id'] = 1;
+        }
         
         if (isset($request->image) && !is_null($request->image)) {
             $validated_data['image_url'] = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
